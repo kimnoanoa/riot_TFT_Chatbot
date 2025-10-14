@@ -1,3 +1,5 @@
+# 챌린저 조회하는 파일
+
 import requests
 import datetime as dt
 import time
@@ -9,19 +11,23 @@ pd.set_option('display.max_rows', None)         # 행 모두 표시
 pd.set_option('display.width', 200)             # 한 줄 최대 너비
 pd.set_option('display.max_colwidth', 300)       # 컬럼 최대 너비
 
-api_key = "여기다가 api키 입력해바"
+api_key = "RGAPI-9163dd26-25e7-4d1b-a419-2f8582d8ec2c"
 x = dt.datetime.now()
 now_csv = x.strftime("%Y%m%d")
 now = x.strftime("%Y/%m/%d %H:%M:%S")
 
 # 요청 헤더
 request_header = {
-    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.93 Safari/537.36",
-    "Accept-Language": "ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7",
-    "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
-    "Origin": "https://developer.riotgames.com",
-    "X-Riot-Token": api_key,
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",  # 기본 브라우저 UA
+    "Accept": "application/json",                               # JSON 응답 수락
+    "Accept-Language": "en-US,en;q=0.9",                        # 한글 대신 ASCII만
+    "Accept-Encoding": "gzip, deflate, br",                     # 서버 응답 압축 허용
+    "Connection": "keep-alive",                                 # 지속 연결
+    "Origin": "https://developer.riotgames.com",                # Riot 개발자 도메인
+    "Cache-Control": "no-cache",                                # 캐싱 방지
+    "X-Riot-Token": api_key                                     # 인증 키
 }
+
 
 # 안정적 API 요청 함수
 def get_r(url):
@@ -106,7 +112,7 @@ if __name__ == "__main__":
     else:
         print("데이터가 없습니다.")
         
-        
+
         
 def challenger_data():
     data = league_v1_get_challenger()

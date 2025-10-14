@@ -1,14 +1,19 @@
 import json
 import os
 
-INPUT_PATH = "data/ko_kr.json"
+INPUT_PATH = "data/ko_kr.json"  # 파일 이름을 사용자가 업로드한 파일 이름으로 변경했습니다.
 OUTPUT_DIR = "data/"
 
 # -------------------------------
 # 1) 데이터 로드
 # -------------------------------
-with open(INPUT_PATH, "r", encoding="utf-8") as f:
-    data = json.load(f)
+# NOTE: INPUT_PATH를 'ko_kr (1).json'으로 변경했습니다.
+try:
+    with open(INPUT_PATH, "r", encoding="utf-8") as f:
+        data = json.load(f)
+except FileNotFoundError:
+    print(f"⚠️ 에러: 입력 파일 '{INPUT_PATH}'을 찾을 수 없습니다. 경로를 확인해 주세요.")
+    exit()
 
 # -------------------------------
 # 2) 최신 세트 자동 감지
@@ -17,6 +22,7 @@ set_list = data.get("setData", [])
 if not set_list:
     raise ValueError("⚠️ setData가 비어 있습니다!")
 
+# 가장 큰 number를 가진 세트가 최신 세트입니다.
 latest_set = max(set_list, key=lambda s: s.get("number", 0))
 set_number = latest_set.get("number")
 set_name = latest_set.get("name", "Unknown")
@@ -34,6 +40,32 @@ def localize_name(raw_name):
         return raw_name
     return locale_map.get(raw_name, raw_name)
 
+# -------------------------------
+# 3-1) 사용자 제공 아이템 이름 목록 (124개)
+# -------------------------------
+# 사용자가 제공한 124개의 한국어 인게임 아이템 이름 목록입니다.
+ALLOWED_ITEM_NAMES = {
+    "B.F. 대검", "곡궁", "쇠사슬 조끼", "음전자 망토", "쓸데없이 큰 지팡이", 
+    "여신의 눈물", "거인의 허리띠", "연습용 장갑", "뒤집개", "프라이팬", 
+    "죽음의 검", "거인 학살자", "밤의 끝자락", "피바라기", "마법공학 총검",
+    "쇼진의 창", "스테락의 도전", "무한의 대검", "붉은 덩굴정령", "공허의 지팡이",
+    "최후의 속삭임", "거인의 결의", "덤불 조끼", "가고일 돌갑옷", "크라운가드",
+    "수호자의 맹세", "태양불꽃 망토", "굳건한 심장", "크라켄의 분노", "용의 발톱",
+    "적응형 투구", "수은", "구인수의 격노검", "이온 충격기", "라바돈의 죽음모자",
+    "대천사의 지팡이", "보석 건틀릿", "푸른 파수꾼", "내셔의 이빨", "저녁갑주", 
+    "모렐로노미콘", "정령의 형상", "워모그의 갑옷", "타격대의 철퇴", "정의의 손길", 
+    "도적의 장갑", "전략가의 왕관", "전략가의 망토", "전략가의 방패", "거대한 히드라",
+    "거물의 갑옷", "고속 연사포", "끝없는 절망", "도박꾼의 칼날", 
+    "리치베인", "마나자네", "마법사의 최후", "망령 해적검", "명멸검", "무한한 삼위일체", 
+    "방한 장갑", "불굴", "새벽심장", "생선대가리", "선체분쇄자", "속임수 거울", 
+    "수상한 외투", "스태틱의 단검", "승천의 부적", "역병의 보석", "은빛 여명", 
+    "자객의 발톱", "저격수의 집중", "존야의 역설", "죽음불꽃 손아귀", "죽음의 저항", 
+    "지평선의 초점", "추적자의 팔목 보호대", "활력증진의 펜던트", "황금 징수의 총", 
+    "결투가 상징", "마법사 상징", "별 수호자 상징", "봉쇄자 상징",
+    "소울 파이터 상징", "수정 갬빗 상징", "슈프림 셀 상징", "신동 상징", "악령 상징", 
+    "요새 상징", "이단아 상징", "저격수 상징", "전쟁기계 상징",
+    "전투사관학교 상징", "책략가 상징", "처형자 상징", "프로레슬러 상징", "헤비급 상징"
+}
 # -------------------------------
 # 공통 필터 유틸
 # -------------------------------
@@ -56,32 +88,49 @@ def is_real_trait(tid: str, name: str):
     return True
 
 def is_real_item(item: dict):
-    if isinstance(item, str): return False
+    """
+    챔피언에게 장착 가능한 아이템만 필터링합니다. (최종적으로 ALLOWED_ITEM_NAMES를 사용)
+    """
+    if not isinstance(item, dict): return False
     api = item.get("apiName", "")
     if not api: return False
-    banned = [
-        "Augment", "ArmoryKey", "TFT_Consumable", "TFT_Item_Tactician",
-        "TFT_Item_Stage", "TFT_Item_Neeko", "PM_", "Orb", "Consumable"
+    
+    # 1. 빠른 필터링 (불필요한 토큰/더미 제거)
+    banned_keywords = [
+        "Augment", "ArmoryKey", "Consumable", "Tactician", "Stage", "Neeko", 
+        "PM_", "Orb", "Dummy", "Test", "Debug", "Unknown", "UnusableSlot", 
+        "JammedSlot", "MechanicTrait", "HiddenTech", "MonsterTrainerChoice", 
+        "RoboRanger", "CrystalRose_Pass", "SetMechanic_Remover", "DragonFist", 
+        "Free", "TraitToken", "Sion_Corpse", "ArmoryItem"
     ]
-    if any(b in api for b in banned): return False
-    # 현재 세트 전용(TFT{n}_) 또는 공용 장비(TFT_Item_)만 허용
-    if not (api.startswith(f"TFT{set_number}_") or api.startswith("TFT_Item_")):
+    if any(b in api for b in banned_keywords): return False
+    
+    # 2. API Name Prefix Check (현재 세트 전용 또는 공용 TFT_Item_만 허용)
+    if not (api.startswith(f"TFT{set_number}_Item_") or api.startswith("TFT_Item_")):
         return False
-    if not item.get("name"): return False
+        
+    # 3. 아이템 이름이 없는 경우 (내부 토큰)
+    raw_name_key = item.get("name")
+    if not raw_name_key: return False
+
+    # 4. 최종적으로 한국어 이름 목록과 일치하는지 확인 (가장 강력한 필터)
+    localized_item_name = localize_name(raw_name_key)
+    if localized_item_name not in ALLOWED_ITEM_NAMES:
+        return False
+    
     return True
 
 def is_real_augment(aug: dict):
     """증강만 따로: 현재 세트 또는 공용 증강 접두 허용"""
-    if isinstance(aug, str):  # 혹시 문자열 id만 있을 경우 스킵
+    if not isinstance(aug, dict):
         return False
     api = aug.get("apiName", "")
     if not api:
         return False
-    # 세트 접두(TFT{n}_) 또는 증강 공용 접두(TFT_Augment_) 허용
+    # ✅ 현재 세트(TFT{set_number}) 접두사 or 공용 증강 접두사만 허용
     if not (api.startswith(f"TFT{set_number}_") or api.startswith("TFT_Augment_")):
         return False
-    banned = ["Test", "Tutorial", "Dev", "PM_", "EventPM"]
-    if any(b in api for b in banned):
+    if any(b in api for b in ["Test", "Tutorial", "Dev", "PM_", "EventPM"]):
         return False
     return True
 
@@ -94,10 +143,9 @@ def normalize_tier(tier_value):
         if "silver" in up: return "Silver"
         if "gold" in up: return "Gold"
         if "prismatic" in up or "chromatic" in up: return "Prismatic"
-        # 숫자 스트링일 수도 있음
         if up.isdigit():
             return {"1":"Silver","2":"Gold","3":"Prismatic"}.get(up, up)
-        return tier_value
+        return up
     if isinstance(tier_value, (int, float)):
         return {1:"Silver", 2:"Gold", 3:"Prismatic"}.get(int(tier_value), tier_value)
     return tier_value
@@ -111,8 +159,14 @@ for champ in latest_set.get("champions", []):
     cname = localize_name(champ.get("name", ""))
     if not is_real_champion(cid, cname):
         continue
+    
+    # 시너지/소환 스킬로 생성된 챔피언 추가 예외처리 (API 이름으로 필터링하는 것이 더 정확함)
+    if "치명적인 가시" in cname or "휘감는 뿌리" in cname or "거대 메크 로봇" in cname:
+        continue
+
     ability_name = localize_name(champ.get("ability", {}).get("name", ""))
     ability_desc = champ.get("ability", {}).get("desc", "")
+
     champions.append({
         "id": cid,
         "name": cname,
@@ -120,6 +174,7 @@ for champ in latest_set.get("champions", []):
         "traits": champ.get("traits", []),
         "ability": {"name": ability_name, "desc": ability_desc},
     })
+
 
 # -------------------------------
 # 5) 특성 (시너지/파워 분리)
@@ -142,14 +197,17 @@ for trait in latest_set.get("traits", []):
         synergy_traits.append(packet)
 
 # -------------------------------
-# 6) 아이템 (현재 세트 + 공용)
+# 6) 아이템 (현재 세트 + 공용) - ★사용자 제공 목록 기반 필터링 적용★
 # -------------------------------
 items = []
 for item in data.get("items", []):
+    # is_real_item 함수 내에서 ALLOWED_ITEM_NAMES 목록을 사용하여 필터링합니다.
     if not is_real_item(item):
         continue
+    
     api = item.get("apiName", "")
     name = localize_name(item.get("name", ""))
+
     items.append({
         "id": api,
         "name": name,
@@ -164,34 +222,8 @@ for item in data.get("items", []):
 # -------------------------------
 augments = []
 
-def normalize_tier(tier_value):
-    if tier_value is None:
-        return None
-    if isinstance(tier_value, str):
-        t = tier_value.strip().lower()
-        if "silver" in t: return "Silver"
-        if "gold" in t: return "Gold"
-        if "prismatic" in t or "chromatic" in t: return "Prismatic"
-        if t.isdigit(): return {"1":"Silver","2":"Gold","3":"Prismatic"}.get(t, t)
-        return tier_value
-    if isinstance(tier_value, (int, float)):
-        return {1:"Silver", 2:"Gold", 3:"Prismatic"}.get(int(tier_value), tier_value)
-    return tier_value
-
-def is_real_augment(aug):
-    if not isinstance(aug, dict):
-        return False
-    api = aug.get("apiName", "")
-    if not api:
-        return False
-    # ✅ 현재 세트(TFT{set_number}) 접두사 or 공용 증강 접두사만 허용
-    if not (api.startswith(f"TFT{set_number}_") or api.startswith("TFT_Augment_")):
-        return False
-    if any(b in api for b in ["Test", "Tutorial", "Dev", "PM_", "EventPM"]):
-        return False
-    return True
-
 def walk_json(obj):
+    """JSON 객체를 순회하며 모든 노드를 반환"""
     if isinstance(obj, dict):
         for v in obj.values():
             yield from walk_json(v)
@@ -206,6 +238,7 @@ def valid_string(s):
 # 🔍 JSON 전체 순회
 candidates = []
 for node in walk_json(data):
+    # 상단에 정의된 is_real_augment를 사용합니다.
     if isinstance(node, dict) and is_real_augment(node):
         candidates.append(node)
 
@@ -220,6 +253,7 @@ for aug in candidates:
 
     name = localize_name(aug.get("name", ""))
     desc = aug.get("desc", "")
+    # 상단에 정의된 normalize_tier를 사용합니다.
     tier = normalize_tier(aug.get("tier"))
     effects = aug.get("effects", {}) or aug.get("variables", {}) or {}
     associated = aug.get("associatedTraits", [])
@@ -255,7 +289,7 @@ save_json("champions.json", champions)
 save_json("synergy_traits.json", synergy_traits)
 save_json("power_traits.json", power_traits)
 save_json("items.json", items)
-save_json("augments.json", augments)   # ★증강 저장★
+save_json("augments.json", augments) 
 
 # -------------------------------
 # 9) 결과 출력
@@ -265,21 +299,21 @@ print(f"세트명: {set_name} (TFT{set_number})")
 print(f"챔피언 {len(champions)}명 / 시너지 {len(synergy_traits)}개 / 파워업 {len(power_traits)}개 / 증강 {len(augments)}개 / 아이템 {len(items)}개")
 
 print("\n샘플 챔피언 3명:")
-for c in champions[:10]:
-    print(f" - {c['id']} ({c['name']})")
+for c in champions[:3]:
+    print(f" - {c['id']} ({c['name']}) {c['traits']}")
 
 print("\n샘플 시너지 3개:")
-for t in synergy_traits[:10]:
+for t in synergy_traits[:3]:
     print(f" - {t['id']} ({t['name']})")
 
 print("\n샘플 파워업 3개:")
-for t in power_traits[:10]:
+for t in power_traits[:3]:
     print(f" - {t['id']} ({t['name']})")
 
 print("\n샘플 증강 5개:")
-for a in augments[:38]:
+for a in augments[:5]:
     print(f" - [{a.get('tier')}] {a['id']} ({a['name']})")
 
 print("\n샘플 아이템 5개:")
-for i in items[:10]:
+for i in items[:]:
     print(f" - {i['id']} ({i['name']})")
