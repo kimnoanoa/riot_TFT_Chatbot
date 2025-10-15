@@ -11,21 +11,30 @@ pd.set_option('display.max_rows', None)         # 행 모두 표시
 pd.set_option('display.width', 200)             # 한 줄 최대 너비
 pd.set_option('display.max_colwidth', 300)       # 컬럼 최대 너비
 
-api_key = "RGAPI-9163dd26-25e7-4d1b-a419-2f8582d8ec2c"
-x = dt.datetime.now()
-now_csv = x.strftime("%Y%m%d")
-now = x.strftime("%Y/%m/%d %H:%M:%S")
+from dotenv import load_dotenv
 
-# 요청 헤더
-request_header = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",  # 기본 브라우저 UA
-    "Accept": "application/json",                               # JSON 응답 수락
-    "Accept-Language": "en-US,en;q=0.9",                        # 한글 대신 ASCII만
-    "Accept-Encoding": "gzip, deflate, br",                     # 서버 응답 압축 허용
-    "Connection": "keep-alive",                                 # 지속 연결
-    "Origin": "https://developer.riotgames.com",                # Riot 개발자 도메인
-    "Cache-Control": "no-cache",                                # 캐싱 방지
-    "X-Riot-Token": api_key                                     # 인증 키
+# 🌿 .env 파일 로드
+load_dotenv()
+
+# 🔑 환경 변수에서 API 키 불러오기
+API_KEY = os.getenv("RIOT_API_KEY")
+
+# ⚠️ 예외 처리 (API_KEY가 없을 경우)
+if not API_KEY:
+    raise ValueError("⚠️ 환경 변수에서 RIOT_API_KEY를 찾을 수 없습니다. .env 파일을 확인하세요.")
+
+# 📅 날짜/시간 포맷
+x = dt.datetime.now()
+now_csv = x.strftime("%Y%m%d")            # 예: 20251015 (파일명 등에 사용)
+now = x.strftime("%Y/%m/%d %H:%M:%S")     # 예: 2025/10/15 09:42:13
+
+# ✅ API 요청용 헤더
+HEADERS = {
+    "User-Agent": "Mozilla/5.0",
+    "Accept-Language": "ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7",
+    "Accept-Charset": "application/x-www-form-urlencoded; charset=UTF-8",
+    "Origin": "https://developer.riotgames.com",
+    "X-Riot-Token": API_KEY,
 }
 
 

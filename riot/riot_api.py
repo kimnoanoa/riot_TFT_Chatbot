@@ -1,18 +1,32 @@
-import requests
-import time
 import os
+import time
+import requests
 import pandas as pd
 import datetime as dt
+from tabulate import tabulate
+from dotenv import load_dotenv
 
-# ⚙️ 최신 API 키 입력 (매일 갱신 필요)
-API_KEY = "RGAPI-9163dd26-25e7-4d1b-a419-2f8582d8ec2c"
+# 🌿 .env 파일 로드
+load_dotenv()
 
-# 공통 헤더 설정
+# 🔑 환경 변수에서 API 키 불러오기
+API_KEY = os.getenv("RIOT_API_KEY")
+
+# ⚠️ 키가 없을 때 예외 처리
+if not API_KEY:
+    raise ValueError("⚠️ 환경 변수에서 RIOT_API_KEY를 찾을 수 없습니다. .env 파일을 확인하세요.")
+
+# 🧩 요청 헤더
 HEADERS = {
     "User-Agent": "Mozilla/5.0",
     "Accept-Language": "ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7",
     "X-Riot-Token": API_KEY,
 }
+
+# 🕓 현재 날짜/시간
+x = dt.datetime.now()
+now_csv = x.strftime("%Y%m%d")            # 예: 20251015 (파일명 등에 사용)
+now = x.strftime("%Y/%m/%d %H:%M:%S")     # 예: 2025/10/15 10:45:23
 
 # =====================================================
 # 공통 요청 함수 (안정적 호출)
