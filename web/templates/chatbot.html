@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Noah TFT Chatbot</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/chatbot.css') }}">
+</head>
+<body>
+  <div class="chat-container">
+    <div id="chatbox"></div>
+
+    <div class="input-area">
+      <input id="userInput" placeholder="궁금한 점을 입력하세요!" />
+      <button onclick="sendMsg()">보내기</button>
+    </div>
+  </div>
+
+  <script>
+    // ✅ 인삿말 함수
+    function showWelcomeMessage() {
+      const chatbox = document.getElementById("chatbox");
+      const botRow = document.createElement("div");
+      botRow.className = "chat-row bot fade-in";
+      botRow.innerHTML = `
+        <img src="{{ url_for('static', filename='images/bot5.jpg') }}" class="bot-icon" alt="봇">
+        <div class='bubble bot-bubble'>안녕하세요 👋<br>롤토체스 챗봇입니다.<br>챔피언 이름이나 덱 관련 질문을 입력해보세요!</div>
+      `;
+      chatbox.appendChild(botRow);
+    }
+
+    // 🧠 메시지 전송 함수
+    async function sendMsg() {
+      const input = document.getElementById("userInput");
+      const chatbox = document.getElementById("chatbox");
+      const msg = input.value.trim();
+      if (!msg) return;
+
+      // 🙋 유저 메시지
+      const userMsg = document.createElement("div");
+      userMsg.className = "chat-row user fade-in";
+      userMsg.innerHTML = `<div class='bubble user-bubble'>${msg}</div>`;
+      chatbox.appendChild(userMsg);
+      input.value = "";
+
+      chatbox.scrollTop = chatbox.scrollHeight;
+
+      // 💬 서버 전송
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: msg })
+      });
+
+      const data = await res.json();
+
+      // 🤖 봇 메시지
+      const botRow = document.createElement("div");
+      botRow.className = "chat-row bot fade-in";
+      botRow.innerHTML = `
+        <img src="{{ url_for('static', filename='images/bot5.jpg') }}" class="bot-icon" alt="봇">
+        <div class='bubble bot-bubble'>${data.reply}</div>
+      `;
+      chatbox.appendChild(botRow);
+
+      chatbox.scrollTop = chatbox.scrollHeight;
+    }
+
+    // ✅ 엔터키로 전송 + 인삿말 자동 표시
+    document.addEventListener("DOMContentLoaded", () => {
+      showWelcomeMessage(); // 👈 첫 입장 인삿말 실행
+
+      const input = document.getElementById("userInput");
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          sendMsg();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

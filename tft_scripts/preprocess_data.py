@@ -1,5 +1,6 @@
 import json
 import os
+import pandas as pd
 
 INPUT_PATH = "data/ko_kr.json"  # 파일 이름을 사용자가 업로드한 파일 이름으로 변경했습니다.
 OUTPUT_DIR = "data/"
@@ -7,7 +8,7 @@ OUTPUT_DIR = "data/"
 # -------------------------------
 # 1) 데이터 로드
 # -------------------------------
-# NOTE: INPUT_PATH를 'ko_kr.json'으로 변경했습니다.
+# NOTE: INPUT_PATH를 'ko_kr (1).json'으로 변경했습니다.
 try:
     with open(INPUT_PATH, "r", encoding="utf-8") as f:
         data = json.load(f)
@@ -300,11 +301,87 @@ save_json("items.json", items)
 save_json("augments.json", augments) 
 
 # -------------------------------
-# 9) 결과 출력
+# 8) 저장 (JSON 파일)
 # -------------------------------
-print("\n✅ 데이터 정제 완료!")
+os.makedirs(OUTPUT_DIR, exist_ok=True)
+
+def save_json(filename, content):
+    with open(os.path.join(OUTPUT_DIR, filename), "w", encoding="utf-8") as f:
+        json.dump(content, f, ensure_ascii=False, indent=2)
+
+save_json("champions.json", champions)
+save_json("synergy_traits.json", synergy_traits)
+save_json("power_traits.json", power_traits)
+save_json("items.json", items)
+save_json("augments.json", augments) 
+
+# ----------------------------------------------------
+# 🌟 9) 머신러닝 피처 엔지니어링 (추가된 ML 전처리 단계)
+# ----------------------------------------------------
+print("\n--- 🧠 머신러닝 피처 엔지니어링 시작 ---")
+
+# A. 챔피언 시너지 유사도 모델을 위한 데이터 준비
+df_champions = pd.DataFrame(champions)
+
+if not df_champions.empty:
+    # 1. 챔피언 특성 원-핫 인코딩
+    print("  -> 챔피언 특성 원-핫 인코딩 중...")
+    
+    # traits 리스트를 딕셔너리로 변환하여 각 특성을 열로 만듭니다.
+    trait_dummies = df_champions['traits'].apply(lambda x: {t: 1 for t in x}).apply(pd.Series).fillna(0)
+    
+    # 챔피언 기본 정보와 원-핫 인코딩된 특성을 결합
+    df_champs_synergy = pd.concat([
+        df_champions[['id', 'name', 'cost', 'ability']],
+        trait_dummies
+    ], axis=1)
+
+    print(f"  ✅ 챔피언 시너지 피처 DataFrame 준비 완료. (형태: {df_champs_synergy.shape})")
+    print(f"  (사용 가능한 특성 열 개수: {len(trait_dummies.columns)})")
+else:
+    print("  ⚠️ 챔피언 데이터가 비어 있어 시너지 피처 생성을 건너뜁니다.")
+
+
+# B. 아이템 추천 모델을 위한 데이터 준비
+df_items = pd.DataFrame(items)
+
+if not df_items.empty:
+    # 2. 아이템 효과 수치화 (effects 딕셔너리 정규화)
+    print("  -> 아이템 효과 수치 정규화 중...")
+    
+    # effects 딕셔너리를 열로 펼칩니다 (JSON Normalization).
+    df_items_effects = pd.json_normalize(df_items['effects']).fillna(0)
+    
+    # 챔피언-아이템 분류 모델에 사용할 아이템 데이터셋 생성
+    df_items_for_itemization = pd.concat([
+        df_items[['id', 'name', 'from', 'unique']], 
+        df_items_effects
+    ], axis=1)
+
+    # 불필요한 API 해시 키 제거 (예: {1543aa48}와 같이 중괄호로 시작하는 키)
+    cols_to_keep = [col for col in df_items_for_itemization.columns if not (isinstance(col, str) and col.startswith('{'))]
+    df_items_for_itemization = df_items_for_itemization[cols_to_keep]
+
+    print(f"  ✅ 아이템 효과 피처 DataFrame 준비 완료. (형태: {df_items_for_itemization.shape})")
+    print(f"  (사용 가능한 아이템 스탯 열 개수: {len(df_items_for_itemization.columns) - 4})") # 4는 id, name, from, unique
+else:
+    print("  ⚠️ 아이템 데이터가 비어 있어 아이템 피처 생성을 건너뜁니다.")
+
+
+print("\n--- 🏁 최종 결과 요약 ---")
 print(f"세트명: {set_name} (TFT{set_number})")
 print(f"챔피언 {len(champions)}명 / 시너지 {len(synergy_traits)}개 / 파워업 {len(power_traits)}개 / 증강 {len(augments)}개 / 아이템 {len(items)}개")
+
+if 'df_champs_synergy' in locals():
+    print(f"\n[ML-Ready] 챔피언 시너지 피처 (유사도 모델): {df_champs_synergy.shape}")
+if 'df_items_for_itemization' in locals():
+    print(f"[ML-Ready] 아이템 효과 피처 (분류 모델): {df_items_for_itemization.shape}")
+
+print("\n--- 샘플 출력 (시너지 피처) ---")
+if 'df_champs_synergy' in locals() and not df_champs_synergy.empty:
+    print(df_champs_synergy[['name', 'cost'] + list(trait_dummies.columns[:5])].head(3).to_markdown(index=False))
+else:
+    print("샘플 데이터 없음.")
 
 print("\n샘플 챔피언 3명:")
 for c in champions[:3]:
