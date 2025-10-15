@@ -4,8 +4,25 @@
   <meta charset="UTF-8">
   <title>Noah TFT Chatbot</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/chatbot.css') }}">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
+  <div class="stars" id="stars"></div>
+
+  <!-- 🎮 헤더 -->
+  <header class="hud-header">
+    <a href="{{ url_for('index') }}" class="back-btn">
+      <i class="fas fa-chevron-left"></i>
+    </a>
+    <div class="hud-center">
+      <img src="{{ url_for('static', filename='images/icon.png') }}" alt="TFT" class="tft-logo">
+      <h1 class="hud-title">TFT ChatBot</h1>
+      <span class="hud-patch">Patch 15.3 | Beta</span>
+    </div>
+  </header>
+
+  <!-- 💬 채팅창 -->
   <div class="chat-container">
     <div id="chatbox"></div>
 
@@ -16,59 +33,75 @@
   </div>
 
   <script>
-    // ✅ 인삿말 함수
+    // 🌠 별 배경
+    const starsContainer = document.getElementById("stars");
+    for (let i = 0; i < 80; i++) {
+      const star = document.createElement("div");
+      star.className = "star";
+      star.style.left = Math.random() * 100 + "%";
+      star.style.top = Math.random() * 100 + "%";
+      star.style.animationDelay = Math.random() * 3 + "s";
+      star.style.width = star.style.height = Math.random() * 2 + 1 + "px";
+      starsContainer.appendChild(star);
+    }
+
+    // 🧩 랜덤 봇 이미지
+    const botImages = [
+      "{{ url_for('static', filename='images/bot1.jpg') }}",
+      "{{ url_for('static', filename='images/bot2.jpg') }}",
+      "{{ url_for('static', filename='images/bot3.jpg') }}",
+      "{{ url_for('static', filename='images/bot4.jpg') }}",
+      "{{ url_for('static', filename='images/bot5.jpg') }}",
+      "{{ url_for('static', filename='images/bot6.jpg') }}"
+    ];
+    const randomBotImage = botImages[Math.floor(Math.random() * botImages.length)];
+
+    // ✅ 인삿말
     function showWelcomeMessage() {
       const chatbox = document.getElementById("chatbox");
       const botRow = document.createElement("div");
       botRow.className = "chat-row bot fade-in";
       botRow.innerHTML = `
-        <img src="{{ url_for('static', filename='images/bot5.jpg') }}" class="bot-icon" alt="봇">
-        <div class='bubble bot-bubble'>안녕하세요 👋<br>롤토체스 챗봇입니다.<br>챔피언 이름이나 덱 관련 질문을 입력해보세요!</div>
+        <img src="${randomBotImage}" class="bot-icon" alt="봇">
+        <div class='bubble bot-bubble'>환영합니다, 전략가님! <br>롤토체스 챗봇입니다.<br>챔피언 이름이나 덱 관련 질문을 입력해보세요.</div>
       `;
       chatbox.appendChild(botRow);
     }
 
-    // 🧠 메시지 전송 함수
+    // 🧠 메시지 전송
     async function sendMsg() {
       const input = document.getElementById("userInput");
       const chatbox = document.getElementById("chatbox");
       const msg = input.value.trim();
       if (!msg) return;
 
-      // 🙋 유저 메시지
       const userMsg = document.createElement("div");
       userMsg.className = "chat-row user fade-in";
       userMsg.innerHTML = `<div class='bubble user-bubble'>${msg}</div>`;
       chatbox.appendChild(userMsg);
       input.value = "";
-
       chatbox.scrollTop = chatbox.scrollHeight;
 
-      // 💬 서버 전송
       const res = await fetch("/api/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message: msg })
       });
-
       const data = await res.json();
 
-      // 🤖 봇 메시지
       const botRow = document.createElement("div");
       botRow.className = "chat-row bot fade-in";
       botRow.innerHTML = `
-        <img src="{{ url_for('static', filename='images/bot5.jpg') }}" class="bot-icon" alt="봇">
+        <img src="${randomBotImage}" class="bot-icon" alt="봇">
         <div class='bubble bot-bubble'>${data.reply}</div>
       `;
       chatbox.appendChild(botRow);
-
       chatbox.scrollTop = chatbox.scrollHeight;
     }
 
-    // ✅ 엔터키로 전송 + 인삿말 자동 표시
+    // ✅ 인삿말 + 엔터키
     document.addEventListener("DOMContentLoaded", () => {
-      showWelcomeMessage(); // 👈 첫 입장 인삿말 실행
-
+      showWelcomeMessage();
       const input = document.getElementById("userInput");
       input.addEventListener("keydown", (e) => {
         if (e.key === "Enter") {

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>NOAH TFT Project</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body, html { height: 100%; width: 100%; overflow: hidden; }
+
+    /* 🎥 유튜브 iframe 전체화면 */
+    #bgVideo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+      z-index: -2;
+      pointer-events: none;
+    }
+
+    /* 🌑 어둡게 덮는 오버레이 */
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.3); /* 좀 더 진하게 */
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* 🧠 중앙 콘텐츠 */
+    .content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: white;
+      font-family: "Noto Sans KR", sans-serif;
+      z-index: 10;
+    }
+    h1 {
+      font-size: 4rem; /* 💡 크기 명시적으로 고정 */
+      letter-spacing: 3px;
+      margin-bottom: 5px;
+      text-shadow: 0 0 20px rgba(0,0,0,0.6);
+      line-height: 1.2;
+    }
+
+    /* h1 개별 글자 애니메이션 */
+    #title span {
+      opacity: 0;
+      display: inline-block;
+      transform: translateY(15px) scale(1.1);
+      transition: all 0.4s ease;
+      font-size: inherit;       /* ✅ 부모 h1의 폰트크기 상속 */
+      line-height: inherit;     /* ✅ 줄 간격 유지 */
+      letter-spacing: inherit;  /* ✅ 간격 유지 */
+    }
+
+    #title span.show {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+
+    button {
+      background: none;
+      border: 2px solid white;
+      color: white;
+      padding: 12px 30px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      border-radius: 6px;
+      margin-top: 20px;
+      transition: all 0.3s ease;
+      opacity: 0;
+    }
+
+    button.show {
+      opacity: 1;
+    }
+
+    button:hover {
+      background: white;
+      color: black;
+    }
+
+    /* 🎞️ 영상 위 덮개 */
+    .video-mask-top, .video-mask-bottom {
+      position: fixed;
+      left: 0;
+      width: 100%;
+      background: black;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .video-mask-top { top: 0; height: 100px; }
+    .video-mask-bottom { bottom: 0; height: 90px; }
+  </style>
+</head>
+<body>
+  <iframe
+    id="bgVideo"
+    src="https://www.youtube.com/embed/CoNoBc5xUaI?start=5&end=60&autoplay=1&mute=1&loop=1&playlist=CoNoBc5xUaI&controls=0&modestbranding=1&rel=0&showinfo=0&playsinline=1"
+    frameborder="0"
+    allow="autoplay; fullscreen"
+    allowfullscreen>
+  </iframe>
+
+  <div class="video-mask-top"></div>
+  <div class="video-mask-bottom"></div>
+  <div class="overlay"></div>
+
+  <div class="content" id="mainContent">
+    <h1 id="title">TFT</h1>
+    <button id="btn" onclick="location.href='/chatbot'">챗봇 바로가기</button>
+  </div>
+
+  <script>
+    // 1️⃣ h1의 각 글자를 <span>으로 감싸기
+    const title = document.getElementById("title");
+    const text = title.textContent;
+    title.textContent = "";
+    [...text].forEach(char => {
+      const span = document.createElement("span");
+      span.textContent = char;
+      title.appendChild(span);
+    });
+
+    // 2️⃣ 5초 후 글자 하나씩 순차 등장
+    setTimeout(() => {
+      const spans = title.querySelectorAll("span");
+      spans.forEach((span, i) => {
+        setTimeout(() => {
+          span.classList.add("show");
+        }, i * 300); // 글자 간 간격 (ms)
+      });
+
+      // 3️⃣ 전체 글자 등장 후 버튼 등장
+      setTimeout(() => {
+        document.getElementById("btn").classList.add("show");
+      }, text.length * 200 + 500);
+
+    }, 5000);
+  </script>
+</body>
+</html>
