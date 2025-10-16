@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>Noah TFT Chatbot</title>
+  <title>TFT Chatbot</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/chatbot.css') }}">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
@@ -75,6 +75,7 @@
       const msg = input.value.trim();
       if (!msg) return;
 
+      // 사용자 메시지
       const userMsg = document.createElement("div");
       userMsg.className = "chat-row user fade-in";
       userMsg.innerHTML = `<div class='bubble user-bubble'>${msg}</div>`;
@@ -82,21 +83,54 @@
       input.value = "";
       chatbox.scrollTop = chatbox.scrollHeight;
 
-      const res = await fetch("/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: msg })
-      });
-      const data = await res.json();
-
-      const botRow = document.createElement("div");
-      botRow.className = "chat-row bot fade-in";
-      botRow.innerHTML = `
+      // 🕓 봇 입력중 표시 (봇 말풍선 형식)
+      const typingBubble = document.createElement("div");
+      typingBubble.className = "chat-row bot fade-in";
+      typingBubble.id = "typingBubble";
+      typingBubble.innerHTML = `
         <img src="${randomBotImage}" class="bot-icon" alt="봇">
-        <div class='bubble bot-bubble'>${data.reply}</div>
+        <div class='bubble bot-bubble'>입력 중...</div>
       `;
-      chatbox.appendChild(botRow);
+      chatbox.appendChild(typingBubble);
       chatbox.scrollTop = chatbox.scrollHeight;
+
+      try {
+        const res = await fetch("/api/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ message: msg })
+        });
+        const data = await res.json();
+
+        // 입력중 말풍선 제거
+        const typingElement = document.getElementById("typingBubble");
+        if (typingElement) typingElement.remove();
+
+        // 응답 표시
+        const botRow = document.createElement("div");
+        botRow.className = "chat-row bot fade-in";
+        botRow.innerHTML = `
+          <img src="${randomBotImage}" class="bot-icon" alt="봇">
+          <div class='bubble bot-bubble'>${data.reply}</div>
+        `;
+        chatbox.appendChild(botRow);
+        chatbox.scrollTop = chatbox.scrollHeight;
+
+      } catch (err) {
+        const typingElement = document.getElementById("typingBubble");
+        if (typingElement) typingElement.remove();
+
+        const botRow = document.createElement("div");
+        botRow.className = "chat-row bot fade-in";
+        botRow.innerHTML = `
+          <img src="${randomBotImage}" class="bot-icon" alt="봇">
+          <div class='bubble bot-bubble'>
+            ⚠️ 서버 응답이 지연되고 있어요.<br>잠시 후 다시 시도해주세요!
+          </div>
+        `;
+        chatbox.appendChild(botRow);
+        chatbox.scrollTop = chatbox.scrollHeight;
+      }
     }
 
     // ✅ 인삿말 + 엔터키
