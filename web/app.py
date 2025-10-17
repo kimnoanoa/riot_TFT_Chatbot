@@ -217,8 +217,8 @@ def api_chat():
         return jsonify({"reply": result})
 
     # ✅ 긍정 / 부정 응답 추가 (덱 → 아이템 흐름)
-    positive_words = ["응", "ㅇㅇ", "그래", "좋아", "웅", "엉", "ㅇㅋ", "오키", "해줘", "ㅇ"]
-    negative_words = ["싫어", "아니", "ㄴ", "ㄴㄴ", "ㄴㅇ", "안 해", "안해", "그만", "별로", "아냐"]
+    positive_words = ["응", "ㅇㅇ", "그래", "좋아", "웅", "엉", "ㅇㅋ", "오키", "해줘", "ㅇ","어" ,"ㅇㅇㅇ"]
+    negative_words = ["싫어", "아니", "ㄴ", "ㄴㄴ", "ㄴㅇ", "안 해", "안해", "그만", "별로", "아냐","ㄴㄴㄴ"]
 
     if any(word == user_msg or word in user_msg for word in positive_words):
         last_intent = session.get("last_intent")
