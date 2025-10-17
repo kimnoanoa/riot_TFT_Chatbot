@@ -5,6 +5,7 @@ import json
 import random
 import os
 import re
+import sys
 
 # 🌱 .env 로드
 load_dotenv()
@@ -18,6 +19,10 @@ client = OpenAI(api_key=api_key)
 
 # 📁 Flask 설정
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+ROOT_DIR = os.path.dirname(BASE_DIR)  # ✅ 프로젝트 루트 경로
+if ROOT_DIR not in sys.path:
+    sys.path.append(ROOT_DIR)  # ✅ riot 폴더 인식 가능하게 추가
+
 app = Flask(
     __name__,
     static_url_path="/static",
@@ -36,6 +41,15 @@ else:
         champion_data = json.load(f)
     print(f"✅ {len(champion_data)}개의 챔피언 데이터 로드 완료!")
 
+# 🔹 Riot 전적검색 모듈 불러오기
+try:
+    from riot.tft_matches_fetch import get_match_summary_by_name
+    print("✅ tft_matches_fetch 모듈 로드 완료!")
+except ImportError as e:
+    print("⚠️ riot/tft_matches_fetch.py 파일을 찾을 수 없습니다. 전적검색 기능은 비활성화됩니다.", e)
+    get_match_summary_by_name = None
+
+
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -49,6 +63,26 @@ def chatbot():
 def api_chat():
     user_msg = request.json.get("message", "").lower().strip()
     reply = ""
+
+    # ✅ [추가] 전적검색 기능
+    # ✅ "전적" 키워드나 "#"이 포함된 경우 전적검색으로 인식
+    if "#" in user_msg or any(k in user_msg for k in ["전적검색", "전적", "티어", "랭크"]):
+        if get_match_summary_by_name is None:
+            return jsonify({"reply": "⚠️ 전적검색 모듈이 없습니다. riot/tft_matches_fetch.py를 확인해주세요."})
+        riot_id = (
+            user_msg.replace("전적검색", "")
+            .replace("전적", "")
+            .replace("검색", "")
+            .replace("티어", "")
+            .replace("랭크", "")
+            .strip()
+        )
+        if len(riot_id) < 3:
+            return jsonify({"reply": "❌ 소환사명을 정확히 입력해주세요. 예: Hide on bush#KR1"})
+        result = get_match_summary_by_name(riot_id)
+        return jsonify({"reply": result})
+
+    # ✅ 이하 기존 로직 100% 유지
 
     positive_words = [
         "응", "ㅇㅇ", "웅", "엉", "어", "그래", "좋아", "해줘",
