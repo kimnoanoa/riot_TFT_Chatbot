@@ -10,6 +10,11 @@ import sys
 # 🌱 .env 로드
 load_dotenv()
 
+# 📁 Flask 설정 위쪽에 추가
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(BASE_DIR)
+
+
 # 🔑 OpenAI API 키 확인
 api_key = os.getenv("OPENAI_API_KEY")
 if not api_key:
@@ -86,6 +91,10 @@ def index():
 def chatbot():
     return render_template("chatbot.html")
 
+@app.route('/synergy')
+def synergy():
+    return render_template('synergy_analyze.html')
+
 
 # 💬 챗봇 API
 @app.route("/api/chat", methods=["POST"])
@@ -129,6 +138,18 @@ def api_chat():
                 break
         if detected_champ:
             break
+        
+        # ✅ 시너지 예측 시뮬레이터 이동 요청
+    if "시너지" in user_msg and "예측" in user_msg and "시뮬레이터" in user_msg:
+        reply = (
+            "🔮 시너지 예측 시뮬레이터를 실행하시겠어요?\n"
+            "<a href='/synergy' target='_blank' "
+            "style='display:inline-block;margin-top:10px;padding:8px 14px;"
+            "background:#3b82f6;color:white;border-radius:6px;text-decoration:none;'>"
+            "➡️ 시너지 시뮬레이터 열기</a>"
+        )
+        return jsonify({"reply": reply})
+
 
     if detected_champ:
         session["last_champ"] = detected_champ

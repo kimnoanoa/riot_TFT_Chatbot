@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>TFT 시너지 예측 시뮬레이터</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/synergy_analyze.css') }}">
+</head>
+<body>
+  <h1>🔮 TFT 시너지 예측 시뮬레이터</h1>
+
+  <div class="grid">
+    <aside class="left">
+      <h2>📜 챔피언 목록</h2>
+      <div id="champion-pool">불러오는 중...</div>
+    </aside>
+
+    <main class="middle">
+      <div class="boards">
+        <div class="team-board" id="enemyTeam">
+          <h2>상대 팀</h2>
+          <div class="board" id="board-enemy"></div>
+        </div>
+        <div class="team-board" id="myTeam">
+          <h2>내 팀</h2>
+          <div class="board" id="board-my"></div>
+        </div>
+      </div>
+
+      <div class="bottom">
+        <div class="result-bar">
+          <div class="myTeamBar"></div>
+          <div class="enemyTeamBar"></div>
+          <div class="bar-labels">
+            <span>💙 내 팀</span>
+            <span>❤️ 상대 팀</span>
+          </div>
+        </div>
+        <div id="winnerText" class="winner-text"></div>
+        <button id="analyze">승률 예측하기</button>
+        <div class="control-buttons">
+          <button id="resetMyTeam">내 팀 초기화</button>
+          <button id="resetEnemyTeam">상대 팀 초기화</button>
+        </div>
+        <div id="resultText" class="result-text">팀을 배치하면 시너지가 오른쪽에 표시됩니다.</div>
+      </div>
+    </main>
+
+    <aside class="right">
+      <h2>🔥 상대 시너지</h2>
+      <div class="synergy-card"><div id="enemySynergy" class="synergy-list"></div></div>
+      <h2>💧 내 시너지</h2>
+      <div class="synergy-card"><div id="mySynergy" class="synergy-list"></div></div>
+    </aside>
+  </div>
+
+  <!-- ✅ 리 신 태세 선택 모달 (추가) -->
+  <div class="stance-modal-backdrop" id="stanceBackdrop" aria-hidden="true">
+    <div class="stance-modal" role="dialog" aria-modal="true" aria-labelledby="stanceTitle">
+      <h3 id="stanceTitle">리 신 태세 선택</h3>
+      <div id="stanceTeamText" style="font-size:13px; opacity:.9; margin-bottom:6px;"></div>
+      <div class="stance-options">
+        <button class="stance-btn" data-stance="처형자">처형자</button>
+        <button class="stance-btn" data-stance="전쟁기계">전쟁기계</button>
+        <button class="stance-btn" data-stance="결투가">결투가</button>
+      </div>
+      <button class="stance-cancel" id="stanceCancel">닫기</button>
+      <div class="stance-note">※ 태세의 대가는 항상 유지됩니다. 선택한 태세는 리 신이 전장에 있을 때만 추가 시너지로 적용됩니다.</div>
+    </div>
+  </div>
+
+<script>
+let CHAMPIONS=[],TRAIT_NAME_KO={};
+// 시너지 설명 (툴팁에 사용)
+const TRAIT_DESCRIPTIONS = {
+  "거대 메크" : "거대 메크 로봇을 획득합니다. 거대 메크가 입힌 피해량의 12%만큼 체력을 회복합니다. 각 거대 메크 챔피언의 별 레벨당 거대 메크 로봇의 위력이 증가합니다.",
+  "괴물 트레이너" : "룰루가 소환해 전투에 대신 내보낼 괴물을 선택하세요!",
+  "레슬링 챔피언" : "레슬링 챔피언이 플레이어를 대상으로 승리하면 레슬링 챔피언의 별 레벨만큼 포로 팬이 추가됩니다. 패배 시 포로 팬 하나당 전략가 피해량이 1 감소합니다. 이후 포로 팬을 모두 잃습니다.",
+  "멘토" : "이 특성은 멘토가 정확히 하나 또는 각기 다른 멘토가 넷 있을 때 활성화됩니다.",
+  "별 수호자" : "별 수호자는 모든 별 수호자에게 부여되는 고유 팀워크 추가 효과를 갖습니다. 배치된 별 수호자마다 추가 효과를 강화합니다!",
+  "소울 파이터" : "소울 파이터가 추가 체력을 얻고 매초 공격력과 주문력을 얻습니다. 최대 8회까지 중첩됩니다. 최대 중첩 시 추가 고정 피해를 입힙니다.",
+  "수정 갬빗" : "플레이어 대상 전투에서 처치 및 패배 시 보석의 힘을 얻습니다. 플레이어 대상 전투 3회마다 보석의 힘을 보상으로 전환하거나 '묻고 두 배로 가'를 활성화할 수 있습니다. '묻고 두 배로 가'를 활성화하면 패배 시 보석의 힘을 100% 더 얻지만, 승리 시 보석의 힘 50%를 잃고 즉시 이익을 실현합니다.",
+  "슈프림 셀" : "지난 전투에서 가장 많은 피해를 입힌 셀이 슈프림이 됩니다. 슈프림 셀이 사망하면, 현재 가장 많은 피해를 입힌 셀이 슈프림이 됩니다. 셀이 피해 증폭을 얻습니다. 슈프림 셀은 능력치를 더 얻으며 체력이 10% 아래인 적을 처형합니다.",
+  "악령" : "4초마다 그림자 세계가 가장 가까운 적 3명을 공격해 마지막 발동 이후 악령이 입힌 피해량의 일정 비율만큼 마법 피해를 입힙니다. 체력이 가장 낮은 아군 악령이 악령과 그림자 세계가 입힌 피해량의 18%만큼 체력을 회복합니다.",
+  "전투사관학교" : "전투사관학교 챔피언이 스킬을 업그레이드하고 잠재력을 얻습니다. 잠재력은 전투사관학교 챔피언의 스킬을 강화합니다.",
+  "크루" : "크루 챔피언이 배치한 크루 멤버 1명당 체력 및 공격 속도를 5% 얻습니다.3성 크루 챔피언 1명당 추가 효과를 얻습니다.",
+  "태세의 대가" : "리 신을 배치할 때 결투가 태세, 처형자 태세, 전쟁기계 태세 중 하나를 선택해야 합니다! 각 태세는 고유 스킬이 있으며, 리 신에게 해당 특성을 부여합니다.",
+  "프로레슬러": "프로레슬러가 추가 공격력을 얻습니다. 체력이 50%일 때, 프로레슬러가 해로운 효과를 제거하고 체력을 회복한 다음, 전투에 다시 뛰어들어 반경 1칸 내 적을 1초 동안 기절시킵니다.",
+  "해적선장" : "트위스티드 페이트가 크루 함선을 업그레이드해 피해량의 15%를 고정 피해로 입히도록 하며, 라운드마다 무작위 보상을 제공하는 현상금 카드를 뽑습니다. 현상금 카드는 플레이어 대상 전투마다 더 좋아집니다. ",
+  "결투가" : "결투가는 기본 공격 시 공격 속도를 얻습니다. 최대 12회까지 중첩됩니다.",
+  "마법사" : "마법사가 추가 주문력을 얻습니다. 적이 마법사에게 피해를 입은 뒤 사망하면 자신의 최대 체력에 비례한 피해를 다른 적에게 입힙니다.",
+  "봉쇄자" : "유닛이 보호막이 씌워졌을 때 내구력을 5% 얻습니다. 전투당 1회 체력이 50%일 때 봉쇄자가 가장 가까운 아군과 자신에게 최대 체력의 일정 비율만큼 피해를 흡수하는 보호막을 씌웁니다. 보호막은 중첩됩니다.",
+  "신동" : "아군이 마나 재생을 얻습니다. 신동은 능력치를 더 얻습니다.",
+  "요새" : "아군이 방어력 및 마법 저항력을 10 얻습니다. 요새는 능력치를 더 얻습니다. 전투 시작 후 10초 동안, 요새는 추가 수치를 2배로 얻습니다.",
+  "이단아" : "이단아가 모든 피해 흡혈과 공격력을 얻습니다. 체력이 50% 아래인 적을 공격할 때 공격 속도를 40% 얻습니다.",
+  "장미 어머니" : "자이라의 별 레벨에 따라 배치할 수 있는 식물을 획득합니다. 전방 가로 2열에 배치한 식물은 튼튼한 휘감는 뿌리로 자라며, 후방 가로 2열에 배치한 식물은 치명적인 가시로 자랍니다. 장미 어머니의 식물은 자이라 주문력 및 공격 속도의 효과를 받습니다. 자이라가 스킬을 사용하면 자이라의 식물이 체력을 35% 회복하고 전투가 끝날 때까지 공격 속도를 35% 얻습니다. 식물이 사망한 상태라면, 대신 부활시킵니다.",
+  "저격수" : "저격수가 피해 증폭을 얻습니다. 멀리 떨어진 적을 대상으로 수치가 증가합니다.",
+  "전쟁기계" : "전쟁기계가 내구력을 얻습니다. 체력이 50% 이상일 경우 수치가 증가합니다. 전쟁기계가 사망하면 다른 전쟁기계가 최대 체력의 10%만큼 체력을 회복합니다.",
+  "책략가" : "전투 시작: 전방 가로 2열에 있는 아군이 15초 동안 보호막을 얻습니다. 후방 가로 2열에 있는 아군이 피해 증폭을 얻습니다. 책략가는 능력치를 세 배로 얻습니다.",
+  "처형자" : "처형자가 치명타 확률 및 치명타 피해량을 얻습니다. 스킬에 치명타가 적용될 수 있습니다.",
+  "헤비급" : "아군이 체력을 100 얻습니다. 헤비급은 추가 체력을 얻고 체력의 일정 비율만큼 공격력을 얻습니다."
+};
+
+const pool=document.getElementById("champion-pool"),
+myBoard=document.getElementById("board-my"),
+enemyBoard=document.getElementById("board-enemy"),
+mySynergy=document.getElementById("mySynergy"),
+enemySynergy=document.getElementById("enemySynergy"),
+myBar=document.querySelector(".myTeamBar"),
+enemyBar=document.querySelector(".enemyTeamBar"),
+resultText=document.getElementById("resultText"),
+winnerText=document.getElementById("winnerText");
+
+/* ✅ (추가) 리 신 태세 상태 */
+const leeSinStance = { my: null, enemy: null };
+let pendingStanceTeam = null;
+
+function uniq(arr){return [...new Set(arr)];}
+function buildCandidatesFromApiName(apiName){
+  // tft_ / tftXX_ prefix 제거 → 파일명 후보(대소문자 모두) + 확장자 조합
+  const raw = (apiName||"").toLowerCase().replace(/^tft\d*_/,'').replace(/^tft_/,'');
+  const names = uniq([raw, raw.toLowerCase(), raw.toUpperCase()]);
+  const exts  = ['.jpg','.JPG','.png','.PNG','.jpeg','.JPEG'];
+  const base  = '/static/images/image/';
+  const list=[];
+  names.forEach(n=>exts.forEach(ext=>list.push(base+n+ext)));
+  return list;
+}
+
+function tryNextSrc(img){
+  const NO_IMAGE_PATH = "/static/images/image/no_image.jpg";
+  try{
+    const list = JSON.parse(img.dataset.candidates || "[]");
+    const idx = parseInt(img.dataset.idx || "0", 10);
+    if (idx + 1 < list.length) {
+      img.dataset.idx = idx + 1;
+      img.src = list[idx + 1];
+    } else {
+      img.src = NO_IMAGE_PATH;
+    }
+  } catch(e) {
+    img.src = NO_IMAGE_PATH;
+  }
+}
+
+async function loadChampionData(){
+  const res=await fetch("https://raw.communitydragon.org/latest/cdragon/tft/ko_kr.json");
+  const data=await res.json();
+  const latest=data.setData.sort((a,b)=>b.number-a.number)[0];
+  (latest.traits||[]).forEach(t=>{if(t.apiName&&t.name)TRAIT_NAME_KO[t.apiName]=t.name;});
+  const EXCLUDED=["휘감는 뿌리","치명적인 가시","테스트 비용","골렘","협곡 바위 게","훈련 봇","어스름늑대","꿀잼 티모","판테온","티모","소라카의 수호자","공허 생물","조이","소라카","장로 드래곤","진리용 야스오"];
+  CHAMPIONS=latest.champions.filter(c=>!EXCLUDED.includes(c.name)).map(c=>{
+    return{
+      id:c.apiName,
+      name:c.name,
+      cost:c.cost,
+      traitsIds:[...(c.traits||[])],
+      traitsKo:(c.traits||[]).map(id=>TRAIT_NAME_KO[id]||id),
+      imgCandidates: buildCandidatesFromApiName(c.apiName)
+    };
+  });
+  renderChampionPool();makeHexBoard(myBoard);makeHexBoard(enemyBoard);addDragEvents();updateAllSynergy();
+}
+
+function renderChampionPool(){
+  pool.innerHTML="";
+  [1,2,3,4,5].forEach(cost=>{
+    const group=CHAMPIONS.filter(c=>c.cost===cost);
+    if(group.length){
+      const div=document.createElement("div");
+      div.className="cost-group";
+      div.innerHTML=`<h3>${"⭐".repeat(cost)} ${cost}코스트</h3>`;
+      const grid=document.createElement("div");
+      grid.className="group-grid";
+      group.forEach(ch=>{
+        const el=document.createElement("div");
+        el.className=`champion cost-${ch.cost}`;el.draggable=true;el.dataset.id=ch.id;
+        el.title=`${ch.name} (${ch.cost}코) ${ch.traitsKo.join(", ")}`;
+
+        const candidates = ch.imgCandidates;
+        el.innerHTML=`<img src="${candidates[0]}" alt="${ch.name}"
+          data-candidates='${JSON.stringify(candidates)}' data-idx="0"
+          onerror="tryNextSrc(this)">`;
+        grid.appendChild(el);
+      });
+      div.appendChild(grid);pool.appendChild(div);
+    }
+  });
+}
+
+let __slotUid=0;
+function makeHexBoard(board){
+  board.innerHTML="";
+  for(let r=0;r<4;r++){
+    const row=document.createElement("div");
+    row.className="board-row";
+    for(let c=0;c<7;c++){
+      const slot=document.createElement("div");
+      slot.className="slot";
+      slot.dataset.slotId = (++__slotUid).toString();
+
+      slot.addEventListener("dragover",e=>{e.preventDefault();slot.classList.add("over");});
+      slot.addEventListener("dragleave",()=>slot.classList.remove("over"));
+
+    slot.addEventListener("drop", e=>{
+  e.preventDefault(); slot.classList.remove("over");
+  const fromSlotId = e.dataTransfer.getData("fromSlot");
+  const champId    = e.dataTransfer.getData("text/plain");
+  const isSpecial  = e.dataTransfer.getData("special") === "1"; // ✅ 스페셜 이동 플래그
+
+  if (fromSlotId && fromSlotId === slot.dataset.slotId) return;
+
+  // 1) 스페셜 이미지 이동 (거대 메크 로봇 / 휘감는 뿌리)
+  if (isSpecial && fromSlotId) {
+    const origin = document.querySelector('.slot[data-slot-id="'+fromSlotId+'"]');
+    const imgEl  = origin?.querySelector('img');
+    if (imgEl) {
+      // 타겟 비우고 노드 이동
+      slot.innerHTML = "";
+      slot.appendChild(imgEl); // DOM 이동 (복사 아님)
+      updateAllSynergy();
+    }
+    return;
+  }
+
+  // 2) 일반 챔피언 배치
+  const existingImg = slot.querySelector("img");
+  if (existingImg) existingImg.remove();
+  const champ = CHAMPIONS.find(x=>x.id===champId);
+  if (champ) {
+    const candidates = champ.imgCandidates;
+    slot.innerHTML = `<img src="${candidates[0]}" data-id="${champ.id}" alt="${champ.name}"
+      draggable="true" data-candidates='${JSON.stringify(candidates)}' data-idx="0"
+      ondragstart="event.dataTransfer.setData('text/plain', this.dataset.id);
+                   event.dataTransfer.setData('fromSlot', this.closest('.slot').dataset.slotId);"
+      onerror="tryNextSrc(this)">`;
+    if (fromSlotId) {
+      const origin=document.querySelector('.slot[data-slot-id="'+fromSlotId+'"]');
+      if(origin && origin!==slot){ origin.innerHTML=""; }
+    }
+
+    // 리 신이면 태세 선택 모달
+    if (isLeeSin(champ)) {
+      const teamKey = (board.id === 'board-my') ? 'my' : 'enemy';
+      openStanceModal(teamKey);
+    }
+
+    updateAllSynergy();
+  }
+});
+
+      slot.addEventListener("contextmenu",e=>{e.preventDefault();slot.innerHTML="";updateAllSynergy();});
+      row.appendChild(slot);
+    }
+    board.appendChild(row);
+  }
+}
+
+function addDragEvents(){
+  document.querySelectorAll(".champion").forEach(el=>
+    el.addEventListener("dragstart",e=>{
+      e.dataTransfer.setData("text/plain",el.dataset.id);
+    })
+  );
+}
+
+function readTeam(board){return CHAMPIONS.filter(ch=>[...board.querySelectorAll("img")].map(i=>i.dataset.id).includes(ch.id));}
+function countTraitsKo(team){const t={};team.forEach(ch=>ch.traitsIds.forEach(id=>{const ko=TRAIT_NAME_KO[id]||id;t[ko]=(t[ko]||0)+1;}));return t;}
+
+/* ✅ (추가) 리 신 판별 및 태세 시너지 합산 */
+function isLeeSin(ch){
+  // apiName 내 'leesin' 포함 여부로 판별 (대/소문자 무관)
+  return (ch?.id||'').toLowerCase().includes('leesin');
+}
+function teamHasLeeSin(teamArr){
+  return teamArr.some(isLeeSin);
+}
+function applyLeeSinStance(traits, teamKey, teamArr){
+  if (!teamHasLeeSin(teamArr)) return traits;
+  const stance = leeSinStance[teamKey];
+  if (!stance) return traits;
+  traits[stance] = (traits[stance] || 0) + 1;
+  return traits;
+}
+
+function getSynergyClass(name, count) {
+  const single = ["레슬링 챔피언", "태세의 대가", "장미 어머니", "해적선장", "괴물 트레이너"];
+  if (single.includes(name)) return count >= 1 ? "bronze" : "normal";
+
+  const common245 = ["저격수", "크루", "책략가", "처형자", "신동"];
+  if (common245.includes(name)) {
+    if (count >= 5) return "prism";
+    if (count >= 4) return "gold";
+    if (count >= 3) return "silver";
+    if (count >= 2) return "bronze";
+    return "normal";
+  }
+
+  if (name === "수정 갬빗") {
+    if (count >= 10) return "prism";
+    if (count >= 7) return "gold";
+    if (count >= 5) return "silver";
+    if (count >= 3) return "bronze";
+    return "normal";
+  }
+
+  if (["전투사관학교", "거대 메크"].includes(name)) {
+    if (count >= 7) return "gold";
+    if (count >= 5) return "silver";
+    if (count >= 3) return "bronze";
+    return "normal";
+  }
+
+  if (["악령", "헤비급", "요새", "마법사", "프로레슬러"].includes(name)) {
+    if (count >= 6) return "gold";
+    if (count >= 4) return "silver";
+    if (count >= 2) return "bronze";
+    return "normal";
+  }
+
+  if (name === "소울파이터") {
+    if (count >= 8) return "prism";
+    if (count >= 6) return "gold";
+    if (count >= 4) return "silver";
+    if (count >= 2) return "bronze";
+    return "normal";
+  }
+
+  if (name === "별수호자") {
+    if (count >= 8) return "prism";
+    if (count >= 6) return "gold";
+    if (count >= 4) return "silver";
+    if (count >= 2) return "bronze";
+    return "normal";
+  }
+
+  if (name === "멘토") {
+    if (count === 4) return "gold";
+    if (count === 1) return "bronze";
+    return "normal";
+  }
+
+  if (name === "슈프림셀") {
+    if (count >= 4) return "gold";
+    if (count >= 3) return "silver";
+    if (count >= 2) return "bronze";
+    return "normal";
+  }
+
+  if (count >= 10) return "prism";
+  if (count >= 6) return "gold";
+  if (count >= 4) return "silver";
+  if (count >= 2) return "bronze";
+  return "normal";
+}
+
+/* ✅ renderSynergy 수정 — 특정 4개만 1개일 때 활성화 (원본 그대로) */
+function renderSynergy(container, traits) {
+  container.innerHTML = "";
+  const keys = Object.keys(traits);
+  if (!keys.length) {
+    container.innerHTML =
+      '<div class="synergy-item normal"><span>없음</span><span>—</span></div>';
+    return;
+  }
+
+  const blueOnly = [
+    "레슬링 챔피언",
+    "태세의 대가",
+    "장미 어머니",
+    "해적선장",
+  ];
+
+  // 정렬 순서 정의
+  const order = { unique: 5, prism: 4, gold: 3, silver: 2, bronze: 1, normal: 0 };
+
+  const sorted = keys.sort((a, b) => {
+    const aCount = traits[a];
+    const bCount = traits[b];
+    const aGrade = getSynergyClass(a, aCount);
+    const bGrade = getSynergyClass(b, bCount);
+
+    // 하늘색 특성 여부
+    const aIsBlue = blueOnly.includes(a) && aCount === 1;
+    const bIsBlue = blueOnly.includes(b) && bCount === 1;
+
+    // 1️⃣ 하늘색이 최우선
+    if (aIsBlue && !bIsBlue) return -1;
+    if (!aIsBlue && bIsBlue) return 1;
+
+    // 2️⃣ 색상 순위 정렬 (prism > gold > silver > bronze > normal)
+    const diff = (order[bGrade] || 0) - (order[aGrade] || 0);
+    if (diff !== 0) return diff;
+
+    // 3️⃣ 개수 많은 순 (보조 기준)
+    return bCount - aCount;
+  });
+
+  sorted.forEach((n) => {
+    const v = traits[n];
+    const grade = getSynergyClass(n, v);
+    const el = document.createElement("div");
+    el.className = `synergy-item ${grade}`;
+
+    // 하늘색 표시
+    if (blueOnly.includes(n) && v === 1) {
+      el.className = "synergy-item unique";
+    }
+
+    const desc = TRAIT_DESCRIPTIONS[n] || "설명 준비중";
+    el.title = `[${n}] ${desc}\n개수: ${v}개 / 등급: ${grade}`;
+
+    el.innerHTML = `<span>${n}</span><span>${v}개</span>`;
+    container.appendChild(el);
+  });
+}
+
+/* ✅ (추가) 리 신 태세를 반영하도록 updateAllSynergy 보조 */
+// ✅ 1) 거대 메크 로봇 생성 체크 (양쪽 팀 공통)
+function checkSpecialUnits(board, teamArr, traits, teamName) {
+  // 거대 메크
+  const mechaCount = traits["거대 메크"] || 0;
+  const mechaGrade = getSynergyClass("거대 메크", mechaCount);
+  console.log(`⚙️ [${teamName}] 거대메크 개수: ${mechaCount}, 등급: ${mechaGrade}`);
+  if (["bronze", "silver", "gold", "prism"].includes(mechaGrade)) {
+    console.log(`✅ [${teamName}] 거대 메크 로봇 생성 시도!`);
+    addSpecialUnit(board, "거대 메크 로봇", "mecha_robot.jpg");
+  } else {
+    console.log(`❌ [${teamName}] 거대메크 조건 미달 - 로봇 미생성`);
+  }
+
+  // 자이라의 휘감는 뿌리
+  const hasZyra = teamArr.some(ch => ch.name.includes("자이라"));
+  console.log(`🌿 [${teamName}] 자이라 포함 여부:`, hasZyra);
+  if (hasZyra) addSpecialUnit(board, "휘감는 뿌리", "root.jpg");
+}
+
+function updateAllSynergy() {
+  const myTeamArr = readTeam(myBoard);
+  const enTeamArr = readTeam(enemyBoard);
+  let myT = countTraitsKo(myTeamArr);
+  let enT = countTraitsKo(enTeamArr);
+
+  // 리 신 태세 적용
+  myT = applyLeeSinStance(myT, 'my', myTeamArr);
+  enT = applyLeeSinStance(enT, 'enemy', enTeamArr);
+
+  // ✅ 내 팀 / 상대 팀 모두 특수 유닛 생성 체크
+  checkSpecialUnits(myBoard, myTeamArr, myT, "내 팀");
+  checkSpecialUnits(enemyBoard, enTeamArr, enT, "상대 팀");
+
+  // ✅ 시너지 표시 업데이트
+  renderSynergy(mySynergy, myT);
+  renderSynergy(enemySynergy, enT);
+}
+
+
+
+function addSpecialUnit(board, name, imgPath){
+  // 이미 있으면 중복 생성 X
+  if ([...board.querySelectorAll(".slot img")].some(i => i.alt === name)) return;
+
+  const emptySlot = [...board.querySelectorAll(".slot")].find(s => !s.querySelector("img"));
+  if (!emptySlot) return;
+
+  emptySlot.innerHTML = `
+    <img src="/static/images/image/${imgPath}"
+         alt="${name}"
+         draggable="true"
+         data-special="1"
+         ondragstart="event.dataTransfer.setData('special','1');
+                      event.dataTransfer.setData('fromSlot', this.closest('.slot').dataset.slotId);">
+  `;
+}
+
+
+function calcScore(team, traits) {
+  if (!team.length) return 0;
+
+  // 평균 코스트 계산
+  const avgCost = team.reduce((sum, c) => sum + (c.cost || 0), 0) / team.length;
+  let base = team.reduce((sum, c) => sum + (c.cost || 0), 0);
+
+  // 1️⃣ 코스트 효율 보정 (5코 몰빵 방지)
+  const costPenalty = 1 - Math.min(0.15, (avgCost - 2.8) * 0.04);
+  base *= costPenalty;
+
+  // 2️⃣ 시너지 등급별 가중치
+  let synergyBonus = 0;
+  for (const [name, count] of Object.entries(traits)) {
+    const grade = getSynergyClass(name, count);
+
+    let mult = 1.0;
+    if (grade === "prism") mult = 1.20;
+    else if (grade === "gold") mult = 1.10;
+    else if (grade === "silver") mult = 1.05;
+    else if (grade === "bronze") mult = 1.02;
+
+    // 특수 5코 시너지 강화 (괴물 트레이너 제외)
+    const special = ["태세의 대가", "레슬링 챔피언", "장미 어머니", "해적선장"];
+    if (special.includes(name)) mult *= 1.5;
+
+    synergyBonus += Math.pow(count, 0.9) * mult;
+  }
+
+  // 시너지 개수 많을수록 효율 둔화
+  const totalSynergy = Object.values(traits).reduce((a, b) => a + b, 0);
+  const synergyEfficiency = Math.log2(1 + totalSynergy / 4);
+
+  // 3️⃣ 탱커 / 딜러 밸런스 감점 (강화 버전)
+  const TANK_TRAITS = ["요새", "프로레슬러", "악령", "전투사관학교", "헤비급"];
+  const DAMAGE_TRAITS = ["마법사", "저격수", "소울파이터", "처형자", "신동", "책략가", "별수호자"];
+
+  const tankCount = Object.entries(traits).filter(([n, v]) => TANK_TRAITS.includes(n) && v > 0).length;
+  const dmgCount = Object.entries(traits).filter(([n, v]) => DAMAGE_TRAITS.includes(n) && v > 0).length;
+
+  let balancePenalty = 1.0;
+
+  if (tankCount === 0 && dmgCount === 0) {
+    balancePenalty -= 0.3; // 극단적 조합 (탱커X 딜러X)
+  } 
+  else if (tankCount === 0) {
+    balancePenalty -= 0.2; // 탱커 전무
+  } 
+  else if (dmgCount === 0) {
+    balancePenalty -= 0.2; // 딜러 전무
+  } 
+  else if (tankCount <= 1 && dmgCount <= 1) {
+    balancePenalty -= 0.08; // 둘 다 너무 적음
+  } 
+  else if (tankCount <= 1 || dmgCount <= 1) {
+    balancePenalty -= 0.05; // 한쪽만 부족
+  }
+
+  // 4️⃣ 활성화된 시너지 개수 기반 가산점
+  const activeSynergies = Object.keys(traits).filter(k => traits[k] >= 2).length;
+  const synergyBonusFactor = 1 + Math.min(0.15, activeSynergies * 0.02); 
+  // (최대 +15%, 2개당 +4%)
+
+  // 5️⃣ 최종 점수 계산
+  const score = (base + synergyBonus * synergyEfficiency * 2) * balancePenalty * synergyBonusFactor;
+  return score;
+}
+
+function showVisualResult(rate,myS,enS){
+  const e=100-rate;
+  myBar.style.width=`${rate}%`;enemyBar.style.width=`${e}%`;
+  resultText.innerHTML=`내팀 ${myS.toFixed(1)} (${rate}%) | 상대 ${enS.toFixed(1)} (${e}%)`;
+  if(rate>50){winnerText.textContent="💪 내 팀 우세!";winnerText.className="winner-text winner-blue";}
+  else if(rate<50){winnerText.textContent="⚔️ 상대 팀 우세!";winnerText.className="winner-text winner-red";}
+  else{winnerText.textContent="⚖️ 균형 잡힘!";winnerText.className="winner-text";}
+}
+
+document.addEventListener("DOMContentLoaded",()=>{
+  document.getElementById("resetMyTeam").addEventListener("click",()=>{
+    myBoard.querySelectorAll(".slot").forEach(s=>s.innerHTML="");
+    updateAllSynergy();
+    myBar.style.width="50%";enemyBar.style.width="50%";
+    winnerText.textContent="";
+    resultText.textContent="팀을 배치하면 시너지가 오른쪽에 표시됩니다.";
+  });
+  document.getElementById("resetEnemyTeam").addEventListener("click",()=>{
+    enemyBoard.querySelectorAll(".slot").forEach(s=>s.innerHTML="");
+    updateAllSynergy();
+    myBar.style.width="50%";enemyBar.style.width="50%";
+    winnerText.textContent="";
+    resultText.textContent="팀을 배치하면 시너지가 오른쪽에 표시됩니다.";
+  });
+
+  /* ✅ 모달 버튼 이벤트 (추가) */
+  const backdrop = document.getElementById('stanceBackdrop');
+  backdrop.addEventListener('click', (e)=>{
+    if(e.target === backdrop) closeStanceModal();
+  });
+  document.getElementById('stanceCancel').addEventListener('click', closeStanceModal);
+  document.querySelectorAll('.stance-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      if(!pendingStanceTeam) return;
+      const stance = btn.dataset.stance; // "처형자" | "전쟁기계" | "결투가"
+      leeSinStance[pendingStanceTeam] = stance;
+      closeStanceModal();
+      updateAllSynergy();
+    });
+  });
+});
+
+document.getElementById("analyze").addEventListener("click",()=>{
+  const my=readTeam(myBoard),en=readTeam(enemyBoard);
+  if(!my.length&&!en.length)return alert("팀을 배치해 주세요!");
+  // 리 신 태세 시너지를 점수 계산에도 반영하려면 traits 만들기 전에 updateAllSynergy()에서 이미 반영됨
+  // 다시 계산용으로 traits 구성
+  let myT=countTraitsKo(my),enT=countTraitsKo(en);
+  myT = applyLeeSinStance(myT, 'my', my);
+  enT = applyLeeSinStance(enT, 'enemy', en);
+
+  const myS=calcScore(my,myT),enS=calcScore(en,enT);
+  const tot=myS+enS||1,rate=Math.round((myS/tot)*100);
+  showVisualResult(rate,myS,enS);updateAllSynergy();
+});
+loadChampionData();
+
+/* ✅ (추가) 모달 열기/닫기 */
+function openStanceModal(teamKey){
+  pendingStanceTeam = teamKey; // 'my' | 'enemy'
+  const txt = (teamKey==='my') ? '내 팀' : '상대 팀';
+  document.getElementById('stanceTeamText').textContent = `적용 대상: ${txt}`;
+  const el = document.getElementById('stanceBackdrop');
+  el.style.display='flex';
+  el.setAttribute('aria-hidden','false');
+}
+function closeStanceModal(){
+  const el = document.getElementById('stanceBackdrop');
+  el.style.display='none';
+  el.setAttribute('aria-hidden','true');
+  pendingStanceTeam = null;
+}
+</script>
+</body>
+</html>
