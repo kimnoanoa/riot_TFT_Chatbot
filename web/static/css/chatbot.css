@@ -86,8 +86,8 @@ body {
 
 /* 💬 채팅창 */
 .chat-container {
-  width: 80%;
-  max-width: 720px;
+  width: 90%;
+  max-width: 900px;
   background: rgba(255, 255, 255, 0.06);
   border-radius: 20px;
   padding: 20px;
@@ -208,3 +208,27 @@ body {
   background: rgba(130, 100, 255, 0.3);
   border-radius: 10px;
 }
+ /* 🎯 시너지 시뮬레이터 버튼 스타일 */
+    .simulator-btn {
+      display: inline-block;
+      margin: 5px auto 0;
+      margin-bottom: 10px;
+      padding: 10px 18px;
+      background: linear-gradient(135deg, #6366f1, #8b5cf6);
+      color: white;
+      font-weight: 600;
+      border-radius: 10px;
+      text-decoration: none;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+      transition: all 0.25s ease;
+    }
+    .simulator-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 18px rgba(139, 92, 246, 0.6);
+    }
+    .simulator-btn i {
+      margin-right: 6px;
+    }
+
+   

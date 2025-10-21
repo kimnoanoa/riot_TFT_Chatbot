@@ -7,6 +7,11 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/synergy_analyze.css') }}">
 </head>
 <body>
+  <!-- 🔙 챗봇으로 돌아가기 버튼 -->
+  <a href="{{ url_for('chatbot') }}" class="back-to-chatbot">
+    💬 챗봇으로 돌아가기
+  </a>
+
   <h1>🔮 TFT 시너지 예측 시뮬레이터</h1>
 
   <div class="grid">
@@ -68,6 +73,8 @@
       <div class="stance-note">※ 태세의 대가는 항상 유지됩니다. 선택한 태세는 리 신이 전장에 있을 때만 추가 시너지로 적용됩니다.</div>
     </div>
   </div>
+</body>
+</html>
 
 <script>
 let CHAMPIONS=[],TRAIT_NAME_KO={};

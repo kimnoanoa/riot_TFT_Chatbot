@@ -5,6 +5,7 @@
   <title>TFT Chatbot</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='css/chatbot.css') }}">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -21,6 +22,13 @@
       <span class="hud-patch">Patch 15.3 | Beta</span>
     </div>
   </header>
+
+  <!-- 🧩 시너지 예측 시뮬레이터 버튼 -->
+  <div style="text-align:center;">
+    <a href="{{ url_for('synergy') }}" class="simulator-btn" target="_blank">
+      <i class="fas fa-magic"></i> 시너지 예측 시뮬레이터 
+    </a>
+  </div>
 
   <!-- 💬 채팅창 -->
   <div class="chat-container">
@@ -83,7 +91,7 @@
       input.value = "";
       chatbox.scrollTop = chatbox.scrollHeight;
 
-      // 🕓 봇 입력중 표시 (봇 말풍선 형식)
+      // 🕓 봇 입력중 표시
       const typingBubble = document.createElement("div");
       typingBubble.className = "chat-row bot fade-in";
       typingBubble.id = "typingBubble";
@@ -125,7 +133,7 @@
         botRow.innerHTML = `
           <img src="${randomBotImage}" class="bot-icon" alt="봇">
           <div class='bubble bot-bubble'>
-            ⚠️ 서버 응답이 지연되고 있어요.<br>잠시 후 다시 시도해주세요!
+            ⚠️서버 응답이 지연되고 있어요.<br>잠시 후 다시 시도해주세요!
           </div>
         `;
         chatbox.appendChild(botRow);

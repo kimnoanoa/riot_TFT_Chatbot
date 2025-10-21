@@ -84,3 +84,24 @@
   .stance-btn:hover{background:#374151;}
   .stance-cancel{margin-top:10px; width:100%; padding:10px 12px; border-radius:10px; background:#374151; color:#fff; border:1px solid rgba(255,255,255,0.08); cursor:pointer;}
   .stance-note{font-size:12px; opacity:0.8; margin-top:8px; line-height:1.4;}
+
+  /* 💫 챗봇으로 돌아가기 버튼 */
+  .back-to-chatbot {
+    display: inline-block;
+    position: absolute;
+    top: 18px;
+    right: 30px;
+    padding: 8px 14px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: white;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 14px;
+    box-shadow: 0 0 12px rgba(99, 102, 241, 0.4);
+    transition: all 0.25s ease;
+  }
+  .back-to-chatbot:hover {
+    transform: scale(1.07);
+    box-shadow: 0 0 18px rgba(139, 92, 246, 0.6);
+  }

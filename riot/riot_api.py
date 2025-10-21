@@ -4,7 +4,17 @@ import requests
 import pandas as pd
 import datetime as dt
 from tabulate import tabulate
+from wcwidth import wcswidth  # noqa: F401
+
+# tabulate가 문자열 폭을 wcswidth 기준으로 맞추게 monkey patch
+import tabulate as tb
+tb._text_len = wcswidth
+
 from dotenv import load_dotenv
+
+# tabulate가 문자열 폭을 wcswidth 기준으로 맞추게 monkey patch
+import tabulate as tb
+tb._text_len = wcswidth
 
 # 🌿 .env 파일 로드
 load_dotenv()
@@ -164,21 +174,24 @@ if __name__ == "__main__":
             "winRate(%)": "📊 승률(%)"
         }, inplace=True)
 
-        # 숫자 오른쪽 정렬, 문자열 중앙 정렬
+        # 숫자 오른쪽 정렬, 문자열 중앙 정렬 (수정됨)
         table_styles = {
-            "💎 티어": str.center,
-            "🎯 Riot ID": str.center,
+            "💎 티어": lambda x: str(x).center(8),
+            "🎯 Riot ID": lambda x: str(x).center(18),
             "🏆 LP": lambda x: f"{x:>5}",
             "✅ 승": lambda x: f"{x:>5}",
             "❌ 패": lambda x: f"{x:>5}",
             "📊 승률(%)": lambda x: f"{x:>6}"
-        }
+}
 
-        for col, align_func in table_styles.items():
-            if col in table.columns:
-                table[col] = table[col].apply(align_func)
-
-        print(tabulate(table, headers="keys", tablefmt="fancy_grid", showindex=True, stralign="center", numalign="right"))
+        print(tabulate(
+            table,
+            headers="keys",
+            tablefmt="fancy_grid",
+            showindex=True,
+            stralign="center",
+            numalign="right"
+        ))
 
 def get_challenger_rank_table(limit=10):
     """
