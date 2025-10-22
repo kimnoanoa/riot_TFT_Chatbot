@@ -4,13 +4,18 @@ import os
 import pandas as pd
 import datetime as dt
 
-# ⚙️ API 키
-API_KEY = "RGAPI-9163dd26-25e7-4d1b-a419-2f8582d8ec2c"
+load_dotenv()
+
+API_KEY = os.getenv("RIOT_API_KEY")
+if not API_KEY:
+    print("❌ .env 파일에서 RIOT_API_KEY를 불러올 수 없습니다.")
+    exit()
+
 HEADERS = {
     "User-Agent": "Mozilla/5.0",
-    "Accept-Language": "ko-KR,ko;q=0.9,en-US;q=0.8,en;q=0.7",
-    "X-Riot-Token": API_KEY,
+    "X-Riot-Token": API_KEY
 }
+
 
 NOW = dt.datetime.now().strftime("%Y%m%d")
 
