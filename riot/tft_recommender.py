@@ -58,25 +58,53 @@ def extract_champion_from_query(query):
 
 
 # --- 4. 시너지 / 덱 헬퍼 ---
+
+# ✅ 시너지명 정규화 함수 추가
+def normalize_synergy(name):
+    if not isinstance(name, str):
+        return ""
+    return name.strip().lower()
+
+
 def get_champion_synergies(champ):
-    data = CHAMPION_DATA_GLOBAL.get(champ, {})
-    if "deck" not in data:
-        return []
+    champ = champ.strip()  # 공백 제거
+    data = CHAMPION_DATA_GLOBAL.get(champ) or CHAMPION_DATA_GLOBAL.get(champ.strip()) or {}
+
+    
     s = set()
-    for d in data["deck"]:
+
+    # ✅ 최상위 synergy 필드 포함
+    if isinstance(data.get("synergy"), list):
+        s.update(normalize_synergy(x) for x in data["synergy"])
+
+    # ✅ deck 내부 synergy 포함
+    for d in data.get("deck", []):
         if isinstance(d.get("synergy"), list):
-            s.update(d["synergy"])
+            s.update(normalize_synergy(x) for x in d["synergy"])
     return sorted(list(s))
+
+    
 
 
 def find_common_synergies(champs):
+    """여러 챔피언 간 공통 시너지 교집합"""
+    
     if not champs:
         return []
-    base = get_champion_synergies(champs[0])
-    common = set(base)
+
+    # ✅ 첫 챔피언 기준으로 시작
+    base = set(get_champion_synergies(champs[0]))
+    print("🔎", champs[0], "시너지:", get_champion_synergies(champs[0]))
+    print("🔎", champs[1], "시너지:", get_champion_synergies(champs[1]))
+
+    # ✅ 이후 챔피언들과 교집합 갱신
     for c in champs[1:]:
-        common &= set(get_champion_synergies(c))
-    return list(common)
+        base &= set(get_champion_synergies(c))
+
+    return list(base)
+
+
+
 
 
 def find_decks_for_multiple_champs(champs):
@@ -160,12 +188,16 @@ def _recommend_core_deck(champs):
 # --- 6. Flask 연동용 함수 ---
 def process_user_query(user_msg, challenger_data=None):
     champs = extract_champion_from_query(user_msg)
+    print("🎯 추출된 챔피언:", champs)
+
     q_type = "CHAMPION_QUERY" if champs else "UNKNOWN"
     return {
         "query_type": q_type,
         "champions": champs,
         "meta_data": CHALLENGER_DATA_GLOBAL
+        
     }
+    
 
 
 def recommend_champion_deck(champs):
