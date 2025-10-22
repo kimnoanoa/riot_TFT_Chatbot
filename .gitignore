@@ -50,7 +50,8 @@ build/
 # ==============================
 # 🧩 테스트 및 데이터 파일
 # ==============================
-data/
+data/*
+!data/champion_data.json
 cache/
 test_output/
 logs/
