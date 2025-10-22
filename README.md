@@ -47,4 +47,38 @@
 ---
 
 ## 🧭 프로젝트 구조  
+riot_TFT_Chatbot/
+│
+├── app.py # Flask 서버 진입점
+├── .env # API 키 (Riot, OpenAI)
+├── requirements.txt # 필요한 패키지 목록
+│
+├── data/
+│ ├── ko_kr.json # TFT 한국어 데이터 (챔피언/아이템/시너지)
+│ └── champion_data.json # 챔피언 상세 데이터
+│
+├── riot/
+│ └── riot_api.py # Riot API 전적 조회 모듈
+│
+├── models/
+│ └── tft_recommender.py # 덱/시너지 추천 로직
+│
+├── templates/
+│ ├── index.html # 메인 페이지
+│ ├── chatbot.html # 챗봇 인터페이스
+│ └── synergy_analyze.html # 시너지 예측 시뮬레이터
+│
+├── static/
+│ ├── css/
+│ │ ├── chatbot.css
+│ │ ├── synergy_analyze.css
+│ │ └── style.css
+│ └── images/
+│ ├── icon.png
+│ └── champions/
+│
+└── README.md 
+
+
+
 
