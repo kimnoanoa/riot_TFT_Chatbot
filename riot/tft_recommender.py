@@ -48,13 +48,26 @@ CHALLENGER_DATA_GLOBAL, CHAMPION_DATA_GLOBAL, KEYWORD_TO_NAME_MAP = load_data()
 # --- 3. 챔피언 이름 추출 ---
 def extract_champion_from_query(query):
     query = query.lower()
+
+    # 🔹 '#'이 포함된 구간(라이엇 태그) 제거 대상 분리
+    parts = re.split(r'\s+', query)
+    clean_parts = []
+    for p in parts:
+        # 예: "아리#kr1" → 챔피언 이름으로 사용하지 않음
+        if "#" in p:
+            continue
+        clean_parts.append(p)
+    cleaned_query = " ".join(clean_parts)
+
     found = []
     for key in sorted(KEYWORD_TO_NAME_MAP.keys(), key=len, reverse=True):
         kor_name = KEYWORD_TO_NAME_MAP[key]
-        if key in query and kor_name not in found:
+        # 챔피언 이름이 cleaned_query 내에 포함될 때만 인식
+        if key in cleaned_query and kor_name not in found:
             found.append(kor_name)
-            query = query.replace(key, " " * len(key))
+            cleaned_query = cleaned_query.replace(key, " " * len(key))
     return found
+
 
 
 # --- 4. 시너지 / 덱 헬퍼 ---
