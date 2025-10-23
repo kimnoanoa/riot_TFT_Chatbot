@@ -206,7 +206,7 @@ def get_challenger_rank_table(limit=10):
     if "wins" in df.columns and "losses" in df.columns:
         df["winRate"] = (df["wins"] / (df["wins"] + df["losses"]) * 100).round(1)
 
-    lines = ["📊 **TFT 챌린저 TOP {}** (실시간 기준)\n".format(limit)]
+    lines = ["📊 ==TFT 챌린저 TOP {}== (실시간 기준)\n".format(limit)]
 
     for i, row in df.iterrows():
         puuid = row.get("puuid")
