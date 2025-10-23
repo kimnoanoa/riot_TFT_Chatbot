@@ -1,5 +1,6 @@
 # 🎮 Riot TFT Chatbot  
-> **롤토체스(TFT)** 데이터를 활용한 AI 챗봇 & 시너지 시뮬레이터 프로젝트  
+> **롤토체스(TFT)** 데이터를 활용한 AI 챗봇 & 시너지 시뮬레이터 프로젝트
+> https://riot-tft-chatbot.onrender.com/chatbot
 
 ---
 
@@ -80,3 +81,4 @@ response = client.responses.create(
     input=f"질문: {question}\n참고 데이터: {data['setData'][:2]}"
 )
 print(response.output_text)
+
