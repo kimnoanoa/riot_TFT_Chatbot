@@ -144,21 +144,64 @@ def api_chat():
         except Exception as e:
             print("⚠️ TFT 추천 모듈 처리 오류:", e)
 
+        # ================================================================
+    # ✅ 2️⃣ 시너지(특성) 이름 기반 덱 추천 (champion_data.json에서 자동 추출)
     # ================================================================
-    # ✅ 2️⃣ 일반 챔피언 관련 (단일 덱 / 아이템 / 설명)
+    all_traits = set()
+    for champ_info in champion_data.values():
+        deck_list = champ_info.get("deck", [])
+        for deck in deck_list:
+            for t in deck.get("synergy", []):
+                all_traits.add(t.strip())
+
+    normalized_user_msg = user_msg.replace(" ", "")
+    detected_trait = None
+    trait_map = {t: t.replace(" ", "") for t in all_traits}
+
+    for trait, normalized_trait in trait_map.items():
+        if re.search(rf"{re.escape(normalized_trait.lower())}(덱|추천|조합)?", normalized_user_msg):
+            detected_trait = trait
+            break
+
+    if detected_trait:
+        matched_champs = []
+        for champ_name, champ_info in champion_data.items():
+            for deck in champ_info.get("deck", []):
+                synergies = [s.replace(" ", "") for s in deck.get("synergy", [])]
+                if detected_trait.replace(" ", "") in synergies:
+                    matched_champs.append(champ_name)
+                    break  # 챔피언당 한 번만 추가
+
+        if matched_champs:
+            core = ", ".join(matched_champs[:3])
+            subs = ", ".join(matched_champs[3:7]) if len(matched_champs) > 3 else "기타 보조 챔피언 다양"
+            reply = (
+                f"⚙️ '{detected_trait}' 시너지 기반 덱 추천!\n\n"
+                f"⭐ 핵심 챔피언: {core}\n"
+                f"🧩 보조 챔피언: {subs}\n\n"
+                f"💡 '{detected_trait}' 시너지는 특정 조건에서 강력한 효과를 발휘해요.\n"
+                f"💬 아이템 추천도 해드릴까요?"
+            )
+        else:
+            reply = f"'{detected_trait}' 시너지를 사용하는 챔피언 정보를 찾지 못했습니다 😅"
+
+        session["last_trait"] = detected_trait
+        session["last_bot_msg"] = reply
+        session["last_intent"] = "trait"
+        return jsonify({"reply": reply})
+
+
+    # ================================================================
+    # ✅ 3️⃣ 일반 챔피언 관련 (단일 덱 / 아이템 / 설명)
     # ================================================================
     detected_champ = None
-    # 🔹 챔피언 이름 감지 부분 수정
     for champ, data in champion_data.items():
         for keyword in data["keywords"]:
-            # 기존: 단어 경계 기준만 탐색
-            # 수정: '말자하덱', '요네시너지' 같이 붙여 쓴 경우도 허용
             if re.search(rf"{re.escape(keyword.lower())}(덱|시너지|추천|조합)?", user_msg):
                 detected_champ = champ
                 break
         if detected_champ:
             break
-
 
     # ✅ 시너지 예측 시뮬레이터 이동 요청
     if "시너지" in user_msg and "예측" in user_msg and "시뮬레이터" in user_msg:
@@ -194,17 +237,11 @@ def api_chat():
                 try:
                     from riot.tft_recommender import _recommend_core_deck
                     reply = _recommend_core_deck(champs)
-                    
-                    # 마크다운 → HTML 변환
                     reply = reply.replace("**", "").replace("-", "•").replace("\n", "<br>")
-                    
-                    # 💬 덱 추천 후 추가 질문
                     reply += "<br><br>💡 아이템도 추천해드릴까요?"
-
                     session["last_bot_msg"] = reply
                     session["last_intent"] = "deck"
                     return jsonify({"reply": reply})
-                    
                 except Exception as e:
                     print("⚠️ _recommend_core_deck 실행 오류:", e)
                     return jsonify({"reply": "⚠️ 덱 추천 중 오류가 발생했습니다."})
@@ -216,7 +253,6 @@ def api_chat():
                     )
                 })
 
-
         # ✅ 기본 설명
         reply = (
             f"{detected_champ} 챔피언 설명 💫<br>"
@@ -227,7 +263,7 @@ def api_chat():
         return jsonify({"reply": reply})
 
     # ================================================================
-    # ✅ 3️⃣ 기타 처리 (랭킹 / 초보자 / 긍정/부정 / 다른거 등)
+    # ✅ 4️⃣ 기타 처리 (랭킹 / 초보자 / 긍정/부정 / 다른거 등)
     # ================================================================
     # ✅ 챌린저 순위 요청
     if any(k in user_msg for k in ["챌린저", "롤체 순위", "tft 순위", "랭킹", "순위표"]):
