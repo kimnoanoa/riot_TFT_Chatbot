@@ -183,31 +183,41 @@ def api_chat():
             return jsonify({"reply": reply})
 
         # ✅ 덱 추천
-        if "덱" in user_msg or "시너지" in user_msg or "추천" in user_msg:
-            deck_data = info.get("deck", [])
-            if deck_data:
-                picked = random.choice(deck_data)
-                core = ", ".join(picked.get("core", []))
-                subs = ", ".join(picked.get("subs", []))
-                synergy = ", ".join(picked.get("synergy", []))
-                comment = picked.get("comment", "")
-                reply = (
-                    f"📘 {detected_champ} 덱 추천!\n\n"
-                    f"⭐ 핵심 챔피언: {core}\n"
-                    f"🧩 보조 챔피언: {subs}\n"
-                    f"⚙️ 시너지: {synergy}\n\n"
-                    f"💡 덱 설명: {comment}\n\n"
-                    f"아이템 추천도 해드릴까요?"
-                )
+    if "덱" in user_msg or "시너지" in user_msg or "추천" in user_msg:
+        # 🔹 챔피언 이름 추출 (예: '잔나 덱 추천' → ['잔나'])
+        champs = [detected_champ] if detected_champ else []
+        if champs:
+            try:
+                # 🔹 tft_recommender.py의 고급 추천 로직 호출
+                from riot.tft_recommender import _recommend_core_deck
+                reply = _recommend_core_deck(champs)
+
+                # 🔹 HTML 친화형 변환 (줄바꿈 / 불필요한 마크다운 제거)
+                reply = reply.replace("**", "").replace("-", "•").replace("\n", "<br>")
+
                 session["last_bot_msg"] = reply
                 session["last_intent"] = "deck"
                 return jsonify({"reply": reply})
 
-        # ✅ 기본 설명
-        reply = f"{detected_champ} 챔피언 설명 💫\n{info.get('description', '설명 정보가 없어요.')}"
-        session["last_bot_msg"] = reply
-        session["last_intent"] = "description"
-        return jsonify({"reply": reply})
+            except Exception as e:
+                print("⚠️ _recommend_core_deck 실행 오류:", e)
+                return jsonify({"reply": "⚠️ 덱 추천 중 오류가 발생했습니다."})
+
+        else:
+            return jsonify({
+                "reply": "❌ 챔피언 이름을 인식하지 못했습니다.<br>"
+                        "예: <code>요네 덱 추천</code> 또는 <code>세라핀 시너지 추천</code>처럼 입력해보세요!"
+            })
+
+    # ✅ 기본 설명
+    reply = (
+        f"{detected_champ} 챔피언 설명 💫<br>"
+        f"{info.get('description', '설명 정보가 없어요.')}"
+    )
+    session["last_bot_msg"] = reply
+    session["last_intent"] = "description"
+    return jsonify({"reply": reply})
+
 
     # ================================================================
     # ✅ 3️⃣ 기타 처리 (랭킹 / 초보자 / 긍정/부정 / 다른거 등)
