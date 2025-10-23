@@ -1,0 +1,2609 @@
+[
+  {
+    "id": "TFT15_Destroyer",
+    "name": "처형자",
+    "desc": "처형자가 치명타 확률 및 치명타 피해량을 얻습니다. 스킬에 치명타가 적용될 수 있습니다.<br><br><expandRow>(@MinUnits@) @CritChanceAmpPercent@% %i:scaleCrit%, @CritAmpPercent@% %i:scaleCritMult%</expandRow>",
+    "effects": [
+      {
+        "maxUnits": 2,
+        "minUnits": 2,
+        "style": 1,
+        "variables": {
+          "CritAmpPercent": 10.0,
+          "CritChanceAmpPercent": 25.0
+        }
+      },
+      {
+        "maxUnits": 3,
+        "minUnits": 3,
+        "style": 3,
+        "variables": {
+          "CritAmpPercent": 12.0,
+          "CritChanceAmpPercent": 35.0
+        }
+      },
+      {
+        "maxUnits": 4,
+        "minUnits": 4,
+        "style": 3,
+        "variables": {
+          "CritAmpPercent": 18.0,
+          "CritChanceAmpPercent": 50.0
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 5,
+        "style": 5,
+        "variables": {
+          "CritAmpPercent": 28.0,
+          "CritChanceAmpPercent": 55.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_StarStudent",
+    "name": "우등생",
+    "desc": "<row>(@MinUnits@) 체력 @BaseHealth@ 및 +@PctAdditionalPotential@% 잠재력 %i:set14AmpIcon% 획득</row><br><row>(@MinUnits@) 라운드마다 경험치 @BaseXP@ 획득, 생존한 우등생 한 명당 @XPPerSurvival@ 추가 획득</row>",
+    "effects": [
+      {
+        "maxUnits": 1,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "BaseHealth": 200.0,
+          "PctAdditionalPotential": 40
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 2,
+        "style": 1,
+        "variables": {
+          "BaseHealth": 200.0,
+          "BaseXP": 1,
+          "PctAdditionalPotential": 40,
+          "XPPerSurvival": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_InfernalSpeed",
+    "name": "지옥의 속도",
+    "desc": "공격 속도를 @TFTTrait.TFT15_MechanicTrait_InfernalSpeed.1:BaseAS@% 얻습니다. 처치 관여 시 잉걸불 1개를 생성합니다. 잉걸불 @TFTTrait.TFT15_MechanicTrait_InfernalSpeed.1:NumCinders@개마다 아군이 추가 %i:scaleAS%를 @TFTTrait.TFT15_MechanicTrait_InfernalSpeed.1:CinderAS@% 얻습니다. (잉걸불 개수: @TFTUnitProperty.trait:TFT15_MechanicTrait_InfernalSpeed_CindersCollected@, 아군 %i:scaleAS%: @TFTUnitProperty.trait:TFT15_MechanicTrait_InfernalSpeed_PermanentAS@%)",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "BaseAS": 10.0,
+          "CinderAS": 2.0,
+          "NumCinders": 8.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Unstoppable",
+    "name": "저지 불가",
+    "desc": "체력을 @Health@ 얻고 군중 제어 효과에 면역이 됩니다. 새로운 대상에게 돌진해 경로상의 적을 @StunDuration@초 동안 <TFTKeyword>기절</TFTKeyword>시킵니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "Health": 150,
+          "StunDuration": 1.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_DentingBlows",
+    "name": "찌그러뜨리기",
+    "desc": "이제 바이의 스킬이 체력을 회복하지 않고 @ShieldDuration@초 동안 @ShieldBoost*100@% 증가한 보호막을 씌웁니다. 전환 시 @FlurryCount@회 빠르게 공격하고 적중할 때마다 대상의 방어력과 마법 저항력을 @ResistShred@ 감소시킵니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "ShieldDuration": 4.0,
+          "{b4f50e48}": 4.0,
+          "{bf96824b}": 0.25,
+          "{d2dba0ab}": 5
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_MagicExpert",
+    "name": "마법 전문가",
+    "desc": "주문력을 @TFTTrait.TFT15_MechanicTrait_MagicExpert.1:BaseAP@% 얻습니다. 다른 모든 요소로부터 얻는 주문력이 @TFTTrait.TFT15_MechanicTrait_MagicExpert.1:PctBonusAP@% 증가합니다.",
+    "effects": [
+      {
+        "maxUnits": 1,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "BaseAP": 10.0,
+          "PctBonusAP": 35.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Mastermind",
+    "name": "흑막",
+    "desc": "전투 시작 시 마나를 @SelfishMana@ 얻고 이 챔피언 전방 일직선상에 있는 모든 아군에게 마나를 @AllyMana@ 부여합니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "AllyMana": 25,
+          "SelfishMana": 50
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_BestDefense",
+    "name": "최선의 방어",
+    "desc": "보호막을 얻거나 부여하면 다음 기본 공격 시 보호막 흡수량의 @PercentDamage*100@%만큼 추가 물리 피해를 입힙니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "PercentDamage": 1.399999976158142
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Health",
+    "name": "극한의 활력",
+    "desc": "전투 시작 시 영구적으로 체력을 @PerCombatAmount@ 얻습니다. @Interval@초마다 이 챔피언이 생존하면 영구적으로 추가 체력을 @Amount@ 얻습니다. <br>(현재: @TFTUnitProperty.trait:TFT15_SetMechanic_PlusPlus_Property@ %i:scaleHealth%)",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "Amount": 20.0,
+          "Interval": 10.0,
+          "PerCombatAmount": 40.0,
+          "{eea8ebbf}": 80.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_WindWall",
+    "name": "바람 장막",
+    "desc": "야스오가 치명타 확률을 @CritChance*100@% 얻고 인접하지 않은 적에게 받는 피해가 @ReducedDamage*100@% 감소합니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "CritChance": 0.6000000238418579,
+          "ReducedDamage": 0.15000000596046448
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_BuiltDifferent",
+    "name": "평범",
+    "desc": "이 챔피언의 특성이 아무것도 활성화되지 않은 경우 체력을 @TFTTrait.TFT15_MechanicTrait_BuiltDifferent.1:HP1@~@TFTTrait.TFT15_MechanicTrait_BuiltDifferent.1:HP4@, 공격 속도를 @TFTTrait.TFT15_MechanicTrait_BuiltDifferent.1:AS1@~@TFTTrait.TFT15_MechanicTrait_BuiltDifferent.1:AS4@% 얻습니다. (현재 스테이지에 비례)",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "AS1": 40.0,
+          "AS2": 55.0,
+          "AS3": 80.0,
+          "AS4": 100.0,
+          "HP1": 300.0,
+          "HP2": 400.0,
+          "HP3": 750.0,
+          "HP4": 1000.0,
+          "Multiplier": 0.20000000298023224
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_TitanForm",
+    "name": "거인화",
+    "desc": "2개의 유닛 슬롯을 차지합니다. 체력, 내구력, 피해 증폭을 얻습니다.<br><row>(@MinUnits@) @BonusHealth@ %i:scaleHealth%, @BonusDR*100@% %i:scaleDR%, @BonusDA*100@% %i:scaleDA%</row><br><row>(@MinUnits@) @BonusHealth@ %i:scaleHealth%, @BonusDR*100@% %i:scaleDR%, @BonusDA*100@% %i:scaleDA%</row>",
+    "effects": [
+      {
+        "maxUnits": 1,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "BonusDA": 0.10000000149011612,
+          "BonusDR": 0.20000000298023224,
+          "BonusHealth": 900.0
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 2,
+        "style": 1,
+        "variables": {
+          "BonusDA": 0.20000000298023224,
+          "BonusDR": 0.25,
+          "BonusHealth": 1250.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_RobustRanger",
+    "name": "로봇 레인저",
+    "desc": "거대 메크 로봇의 공격력 및 주문력을 @TFTTrait.TFT15_MechanicTrait_RobustRanger.1:StatsPct@%만큼, 체력을 @TFTTrait.TFT15_MechanicTrait_RobustRanger.1:HealthPct@%만큼 얻습니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "HealthPct": 10.0,
+          "StatsPct": 50.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Attack",
+    "name": "극대화 공격",
+    "desc": "공격력을 @Base*100@% 얻고 처치 관여 2회당 영구적으로 @Amount*100@% 얻습니다. (현재: @TFTUnitProperty.trait:TFT15_SetMechanic_PlusPlus_Property*100@% %i:scaleAD%)",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "Amount": 0.009999999776482582,
+          "Base": 0.11999999731779099
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_AllOut",
+    "name": "총공세",
+    "desc": "전투 시작 시 총공세 상태로 돌입해 피해량 감소를 @Durability*100@%, 공격력을 @AD*100@% 얻습니다. 더 이상 총공세 상태에서 체력이 점차 감소하지 않습니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "AD": 0.5,
+          "Durability": 0.20000000298023224
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_GoldenEdge",
+    "name": "황금의 대검",
+    "desc": "기본 공격 @NumAttacksPerProc@회 시 @TFTUnitProperty.trait:TFT15_MechanicTrait_GoldenEdge_Gold@골드를 획득합니다. 이 효과가 발동될 때마다 골드량이 1씩 증가합니다. (공격 횟수: @TFTUnitProperty.trait:TFT15_MechanicTrait_GoldenEdge_NumAttacks@/@NumAttacksPerProc@)",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "NumAttacksPerProc": 85.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_MetabolicExplosion",
+    "name": "재생력",
+    "desc": "@TFTTrait.TFT15_MechanicTrait_MetabolicExplosion.1:Interval@초마다 최대 체력의 @TFTTrait.TFT15_MechanicTrait_MetabolicExplosion.1:PctRegen@%만큼 체력를 회복합니다. 모든 요소로부터 받는 체력 회복 효과가 @IncreasedHealing@% 증가합니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "IncreasedHealing": 10.0,
+          "Interval": 3.0,
+          "PctRegen": 6.5
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Unflinching",
+    "name": "불굴의 의지",
+    "desc": "모든 피해 흡혈을 @TFTTrait.TFT15_MechanicTrait_Unflinching.1:OmnivampPct@% 얻습니다. 전투 시작 후 @TFTTrait.TFT15_MechanicTrait_Unflinching.1:Duration@초 동안 군중 제어 효과에 면역이 됩니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "Duration": 15.0,
+          "OmnivampPct": 25.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_RocketGrab",
+    "name": "로켓 손",
+    "desc": "전투 시작 시 @ShieldDuration@초 동안 체력의 @ShieldPercent*100@%에 해당하는 보호막을 얻습니다. 대상이 사망하면 다음 대상을 근접 사거리로 끌어당기고 보호막을 다시 얻습니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "ShieldDuration": 4,
+          "ShieldPercent": 0.20000000298023224
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_StretchyArms",
+    "name": "탄성 팔",
+    "desc": "공격 속도를 @BaseAS*100@% 얻습니다. 처치 관여 시 공격 사거리가 +1 증가합니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "BaseAS": 0.10000000149011612
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_ExilesEdge",
+    "name": "피를 나눈 형제",
+    "desc": "요네와 야스오가 피해를 입힐 경우 적에게 출혈을 적용해 @BleedDuration@초에 걸쳐 입힌 피해량의 @BleedPct@%만큼 피해를 입힙니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "BleedDuration": 2.0,
+          "BleedPct": 20.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_HerosArc",
+    "name": "영웅의 이야기",
+    "desc": "플레이어 레벨당 피해 증폭을 @TFTTrait.TFT15_MechanicTrait_HerosArc.1:DA*100@% 얻습니다. 10레벨에서 추가로 피해 증폭을 @TFTTrait.TFT15_MechanicTrait_HerosArc.1:DamageIncrease*100@% 얻습니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "DA": 0.04500000178813934,
+          "DamageIncrease": 0.3499999940395355
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_PackTactics",
+    "name": "무리 전술",
+    "desc": "<physicalDamage>@DamagePercent*100@%(%i:TFTBaseAD%)</physicalDamage>의 물리 피해를 입히는 무리 @NumPackmates@마리를 획득합니다. 나피리가 스킬을 사용하면 무리가 @NumHexes@칸 내 체력이 가장 낮은 적에게 돌진합니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "DamagePercent": 0.18000000715255737,
+          "NumHexes": 2,
+          "NumPackmates": 2
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_RisingChaos",
+    "name": "혼돈 고조",
+    "desc": "스킬 사용 시 추가 구체를 발사해 무작위 적 1명에게 @PercentDamage*100@%의 피해를 입힙니다. 이후 스킬 사용 시 추가 구체가 추가됩니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "PercentDamage": 0.05999999865889549
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_MidasTouch",
+    "name": "미다스의 손",
+    "desc": "기본 공격 및 스킬이 체력이 @PercentHealthThreshold@% 아래인 적을 처형합니다. 적 처치 시 @PercentChanceGold@% 확률로 골드를 떨어뜨립니다. (골드: @TFTUnitProperty.trait:TFT15_MechanicTrait_MidasTouch_GoldEarned@)",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "PercentChanceGold": 25.0,
+          "PercentHealthThreshold": 10.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Mage",
+    "name": "요술사",
+    "desc": "스킬을 두 번 사용하지만 입히는 총피해량이 @TFTTrait.TFT15_MechanicTrait_Mage.1:DAMultiplier*100@% 감소합니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "DAMultiplier": 0.20000000298023224
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_ShineBrighter",
+    "name": "더 밝은 빛으로",
+    "desc": "스킬을 2회 사용할 때마다 럭스의 스킬이 반경 2칸에 폭발하며 @Percent*100@%의 추가 피해를 입힙니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "percent": 0.30000001192092896
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_SolarBreath",
+    "name": "태양 숨결",
+    "desc": "@ICD@초마다 가장 가까운 불태우기가 적용되지 않은 적에게 @Duration@초 동안 불태우기 및 상처를 적용합니다. 불태우기가 적용된 적에게 입히는 피해량이 @DamageAmp*100@% 증가합니다.",
+    "effects": [
+      {
+        "maxUnits": 1,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "DamageAmp": 0.10000000149011612,
+          "Duration": 10,
+          "HexRange": 12,
+          "ICD": 2.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_FuryBreak",
+    "name": "분노 해방",
+    "desc": "공격 속도를 @AS*100@% 얻습니다. 다른 파워 업 유닛 사망 시 공격 속도를 @ASBurst*100@% 얻습니다. 이 공격 속도는 @Duration@초에 걸쳐 점차 사라집니다. 이 유닛이 먼저 사망하면, 다른 파워 업 유닛이 효과를 얻습니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "AS": 0.25,
+          "Duration": 4.0,
+          "{038a1b59}": 3.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Precision",
+    "name": "정밀",
+    "desc": "@TFTTrait.TFT15_MechanicTrait_Precision.1:ForcedAttackSpeed@의 공격 속도가 적용됩니다. 공격 속도 @TFTTrait.TFT15_MechanicTrait_Precision.1:ASScale*100@%가 공격력 @TFTTrait.TFT15_MechanicTrait_Precision.1:ADScale*100@%로 전환됩니다. 기본 공격 시 피해량이 @TFTTrait.TFT15_MechanicTrait_Precision.1:AttackAmount*100@% 증가하고 마나를 @TFTTrait.TFT15_MechanicTrait_Precision.1:Mana@ 더 얻습니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "ADScale": 0.00800000037997961,
+          "ASScale": 0.009999999776482582,
+          "AttackAmount": 1.2999999523162842,
+          "ForcedAttackSpeed": 0.699999988079071,
+          "Mana": 5.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_IceBender",
+    "name": "얼음술사",
+    "desc": "전투 시작: 라이즈가 전투 시작 후 @Duration@초 동안 행동할 수 없습니다. 라이즈의 스킬이 적에게 @ChillDuration@초 동안 동상을 @Chill@% 적용하고 @PctSpellDamage*100@%만큼 추가 피해를 입힙니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "Chill": 20,
+          "ChillDuration": 1.0,
+          "Duration": 3.0,
+          "PctSpellDamage": 0.20000000298023224
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_100PushUps",
+    "name": "팔굽혀펴기 100회",
+    "desc": "피해량 감소를 @TFTTrait.TFT15_MechanicTrait_100PushUps.1:DR*100@% 얻습니다. 골드를 소모하는 새로고침 @NumRerolls@회마다 영구적으로 피해 증폭을 @TFTTrait.TFT15_MechanicTrait_100PushUps.1:DAPerReroll*100@% 얻습니다. (현재: @TFTUnitProperty.trait:TFT15_MechanicTrait_100PushUps_TotalPercentDA@% %i:scaleDA%)",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "DAPerReroll": 0.009999999776482582,
+          "DR": 0.15000000596046448,
+          "NumRerolls": 3.0,
+          "{0f631073}": null,
+          "{7720bbfe}": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_HeartOfGold",
+    "name": "황금의 심장",
+    "desc": "이 챔피언이 플레이어 대상 전투에서 생존할 경우 @NumGold@골드를 획득합니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "NumGold": 2.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Veteran",
+    "name": "베테랑",
+    "desc": "이 유닛은 멘토입니다. 이 멘토는 피해 증폭을 @Amp*100@% 부여하며 (4) 멘토 달성 시 스킬이 업그레이드되지 않지만 공격력 및 주문력을 @Stats*100@% 얻습니다.",
+    "effects": [
+      {
+        "maxUnits": 1,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "Stats": 0.30000001192092896,
+          "{1d279a19}": 0.03999999910593033
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_KaijuSize",
+    "name": "탱커 괴수",
+    "desc": "최대 체력을 @TFTTrait.TFT15_MechanicTrait_KaijuSize.1:HealthRatio*100@% 얻고 크기가 커집니다. @TFTTrait.TFT15_MechanicTrait_KaijuSize.1:Countdown@초 후 모든 적을 1.5초 동안 <TFTKeyword>기절</TFTKeyword>시킵니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "Countdown": 15.0,
+          "HealthRatio": 0.20000000298023224
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_FighterSpirit",
+    "name": "전사의 정신",
+    "desc": "<row>(@MinUnits@) 배치한 전사 또는 암살자 하나당 체력 @TFTTrait.TFT15_MechanicTrait_FighterSpirit.1:Health@, 공격력 @TFTTrait.TFT15_MechanicTrait_FighterSpirit.1:ADAP@%, 주문력 @TFTTrait.TFT15_MechanicTrait_FighterSpirit.1:ADAP@% 획득</row><br><row>(@MinUnits@) @TFTTrait.TFT15_MechanicTrait_FighterSpirit.1:Health@ %i:scaleHealth%, @TFTTrait.TFT15_MechanicTrait_FighterSpirit.1:ADAP@% %i:scaleAD%, @TFTTrait.TFT15_MechanicTrait_FighterSpirit.1:ADAP@% %i:scaleAP%의 수치로 증가</row>",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "ADAP": 5.0,
+          "Health": 75.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_AcePilot",
+    "name": "우주 에이스",
+    "desc": "이 챔피언이 입힌 피해량이 크루 함선 로켓 발사에 @Percent*100@% 더 기여합니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "percent": 0.75
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Weights",
+    "name": "무게 추",
+    "desc": "무게 추를 @NumWeights@개 획득합니다. 무게 추가 1개 이상일 때 이동 속도 및 공격 속도가 @PercentReduction*100@% 둔화됩니다. 플레이어 대상 전투 승리 시 무게 추를 @WeightPerCombat@개 떨어뜨리고, 패배 시 2개 떨어뜨립니다. 무게 추가 0개일 때 공격 속도를 @AS*100@%, 피해량 감소를 @Durability*100@% 얻습니다. (남은 무게 추: @TFTUnitProperty.trait:TFT15_MechanicTrait_Weights_NumWeights@)",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "AS": 0.5,
+          "Durability": 0.11999999731779099,
+          "NumWeights": 10,
+          "PercentReduction": 0.5,
+          "WeightPerCombat": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_SpikyShell",
+    "name": "가시 돋친 껍질",
+    "desc": "방어력을 @Armor@ 얻습니다. 이 챔피언을 공격하는 적은 @Damage@+스테이지당 @DamagePerStage@만큼 물리 피해를 입습니다. (공격자당 재사용 대기시간 @ICD@초)",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "Armor": 40.0,
+          "Damage": 25.0,
+          "DamagePerStage": 8.0,
+          "ICD": 1.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Hyperactive",
+    "name": "과잉 반응",
+    "desc": "처치 관여 시 공격 속도를 @AttackSpeed@% 얻습니다. 공격 속도는 @DecayDuration@초에 걸쳐 빠르게 사라집니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "AttackSpeed": 100.0,
+          "DecayDuration": 3.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_TentacleSmash",
+    "name": "촉수 강타",
+    "desc": "@InitialDelay@초 후 3칸 내 적을 @StunDuration@초 동안 기절시킵니다. @Cadence@초마다 반복합니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "Cadence": 9,
+          "InitialDelay": 4,
+          "StunDuration": 1.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_MechPilot",
+    "name": "메크 조종사",
+    "desc": "<row>(@MinUnits@) 거대 메크 로봇에 탑승하고, 이 유닛의 능력치 부여: @HealthShare*100@% %i:scaleHealth%, @OtherStatShare*100@% %i:scaleAD%%i:scaleAP%%i:scaleAS%. 체력이 @MechHealth*100@%가 되면 거대 메크 로봇에서 탈출</row><br><row>(@MinUnits@) 거대 메크 로봇에 조종사의 특성 효과 적용</row>",
+    "effects": [
+      {
+        "maxUnits": 1,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "HealthShare": 0.6000000238418579,
+          "MechHealth": 0.6000000238418579,
+          "OtherStatShare": 0.699999988079071
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 2,
+        "style": 1,
+        "variables": {
+          "HealthShare": 0.6000000238418579,
+          "MechHealth": 0.6000000238418579,
+          "OtherStatShare": 0.699999988079071
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_CycloneRush",
+    "name": "폭풍 질주",
+    "desc": "공격 속도를 얻습니다. 전투 시작 시 @Duration@초 동안 반대편 적을 무력화합니다.<br><row>(@MinUnits@) @ASBoost*100@% %i:scaleAS%</row><br><row>(@MinUnits@) @ASBoost*100@% %i:scaleAS%. 적 2명 무력화</row><br>",
+    "effects": [
+      {
+        "maxUnits": 1,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "ASBoost": 0.15000000596046448,
+          "Duration": 3.0
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 2,
+        "style": 1,
+        "variables": {
+          "ASBoost": 0.25,
+          "Duration": 3.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_SkyPiercer",
+    "name": "천공 관통",
+    "desc": "피해를 입힐 경우 적에게 @Duration@초 동안 파쇄 및 파열을 30% 적용합니다. 파쇄 및 파열이 적용된 적에게 입히는 피해량이 @DamageAmp*100@% 증가합니다.",
+    "effects": [
+      {
+        "maxUnits": 1,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "DamageAmp": 0.05000000074505806,
+          "Duration": 6
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_GatherForce",
+    "name": "힘 모으기",
+    "desc": "스킬 사용 시 사용한 마나의 @ADPctFromMana@%만큼 공격력을 얻습니다. (중첩 가능)",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "ADPctFromMana": 40.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_CornerCarry",
+    "name": "구석 몰이",
+    "desc": "공격 속도를 @AS*100@% 얻습니다. 체력이 75% 및 25%일때, 안전한 위치로 돌진하고 사거리 제한이 없어집니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "AS": 0.30000001192092896
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_KillerInstinct",
+    "name": "사냥본능",
+    "desc": "스킬이 대신 사거리 내 체력이 가장 낮은 적을 대상으로 지정합니다. 마나 재생을 @TFTTrait.TFT15_MechanicTrait_KillerInstinct.1:ManaRegen@ 얻습니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "ManaRegen": 3.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Atomic",
+    "name": "핵폭탄급",
+    "desc": "전투 시작 시 최대 체력의 @PercentMaxHealthInitial@%를 저장하고 매초 @PercentMaxHealthPerSecond@%를 추가로 저장합니다. 사망 시 저장한 체력만큼 넓은 반경에 마법 피해를 입힙니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "PercentMaxHealthInitial": 10.0,
+          "PercentMaxHealthPerSecond": 2.0,
+          "{b2f29c6b}": 15.0,
+          "{e29ace6a}": 1.75,
+          "{ebd239ac}": 4.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_QuickTag",
+    "name": "빠른 태그",
+    "desc": "사망 시 같은 수의 아이템을 장착한 동일한 역할군 유닛을 소환합니다. 이 유닛은 장착 유닛보다 1단계 낮으며, @PercentHealth*100%@% 감소한 체력을 갖습니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "PercentHealth": 0.15000000596046448
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Selfish",
+    "name": "이기주의",
+    "desc": "내구력을 @TFTTrait.TFT15_MechanicTrait_Selfish.1:DR@% 얻습니다. 다른 모든 아군이 입힌 피해량의 @TFTTrait.TFT15_MechanicTrait_Selfish.1:HealPct@%만큼 체력을 회복합니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "DR": 10.0,
+          "HealPct": 5.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_SoleFighter",
+    "name": "솔로 파이터",
+    "desc": "이 챔피언이 배치된 유일한 소울 파이터일 경우, (4) 소울 파이터 효과를 받습니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {}
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_StandStrong",
+    "name": "홀로서기",
+    "desc": "전투 시작 시 이 챔피언이 가로 열에 혼자 있다면 체력을 @TFTTrait.TFT15_MechanicTrait_StandStrong.1:HealthRatio*100@% 얻습니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "HealthRatio": 0.30000001192092896
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_RoundTwo",
+    "name": "2라운드",
+    "desc": "사망 시 동일한 아이템을 장착한 훈련 봇을 소환합니다. 훈련 봇은 이 유닛의 체력을 @TFTTrait.TFT15_MechanicTrait_RoundTwo.1:PercentHealth@%만큼 갖습니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "PercentHealth": 60.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Over9000",
+    "name": "9,000 초과",
+    "desc": "각 라운드 시작 시 영구적으로 무작위 추가 능력치를 얻습니다.<br><br><TFTBonus>현재:</TFTBonus> +@TFTUnitProperty.trait:TFT15_Over9000_AD*100@% %i:scaleAD%, +@TFTUnitProperty.trait:TFT15_Over9000_AP@% %i:scaleAP%, +@TFTUnitProperty.trait:TFT15_Over9000_AS*100@% %i:scaleAS%, +@TFTUnitProperty.trait:TFT15_Over9000_Armor@ %i:scaleArmor%, +@TFTUnitProperty.trait:TFT15_Over9000_MR@ %i:scaleMR%, +@TFTUnitProperty.trait:TFT15_Over9000_Health@ %i:scaleHealth%, +@TFTUnitProperty.trait:TFT15_Over9000_Mana@ %i:TFTManaRegen%",
+    "effects": [
+      {
+        "maxUnits": 1,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "AD": 0.03999999910593033,
+          "AP": 4.0,
+          "AS": 0.03999999910593033,
+          "Armor": 8.0,
+          "Health": 50.0,
+          "MR": 8.0,
+          "Mana": 1.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Speed",
+    "name": "최대 속도",
+    "desc": "공격 속도를 @Base*100@% 얻고 처치 관여 3회당 영구적으로 @Amount*100@% 얻습니다. (현재: @TFTUnitProperty.trait:TFT15_SetMechanic_PlusPlus_Property*100@% %i:scaleAS%)",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "Amount": 0.009999999776482582,
+          "Base": 0.15000000596046448
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_KeenEye",
+    "name": "예리한 눈",
+    "desc": "기본 공격 및 스킬이 적의 마법 저항력을 @PercentIgnore@%만큼 무시합니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "PercentIgnore": 45.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_DriftDuo",
+    "name": "방랑 2인조",
+    "desc": "세나와 루시안 모두 마나 재생을 @ManaRegen@ 얻습니다. 둘 다 3성일 경우, 거대 메크 특성을 +1 얻습니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "ManaRegen": 3.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Bladenado",
+    "name": "회오리칼날",
+    "desc": "기본 공격 시 대상의 공격 사거리 내 적에게 기본 공격 피해량의 @PercentDamage*100@%에 해당하는 물리 피해를 입힙니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "PercentDamage": 0.25
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_WonderTwins",
+    "name": "환상의 쌍둥이",
+    "desc": "<row>(@TFTTrait.TFT15_MechanicTrait_WonderTwins.1:MinUnits@) 이 유닛의 복사본을 2명 이상 배치 시 역할군에 따라 복사본과 챔피언 둘 다 @TFTTrait.TFT15_MechanicTrait_WonderTwins.2:Stats@%의 능력치 획득. 3성으로 업그레이드 시 2성 복사본 획득</row><br><row>(@TFTTrait.TFT15_MechanicTrait_WonderTwins.2:MinUnits@) 추가 능력치 @TFTTrait.TFT15_MechanicTrait_WonderTwins.2:Stats@%</row>",
+    "effects": [
+      {
+        "maxUnits": 1,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "Stats": 40.0
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 2,
+        "style": 1,
+        "variables": {
+          "NumItems": null,
+          "Stats": 60.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_SuperMega",
+    "name": "초강력",
+    "desc": "징크스가 공격력을 @AD*100@% 얻습니다. 스킬을 3회 사용할 때마다 크기가 두 배로 커지며, 적중한 적에게 @SplitDamageIncrease*100@%의 추가 피해를 나누어 입힙니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "AD": 0.20000000298023224,
+          "{0f53fd02}": 0.5
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_MaxCap",
+    "name": "해트트릭",
+    "desc": "공격력 및 주문력을 @BaseADAP@% 얻습니다. 처치 관여마다 각각 @ADAPPerHat@% 더 부여하는 모자를 착용합니다. 사망 시 모자의 @PercentHatLoss*100@%를 잃습니다. (현재 모자 개수: @TFTUnitProperty.trait:TFT15_SetMechanic_MaxCap_Hats@)",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "ADAPPerHat": 0.75,
+          "BaseADAP": 16.0,
+          "PercentHatLoss": 0.5
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Superstar",
+    "name": "슈퍼스타",
+    "desc": "아군이 피해 증폭을 @DABase@% 얻습니다. 이 효과는 아군 3성 유닛 하나당 @TFTTrait.TFT15_MechanicTrait_Superstar.1:DAPer3Star@% 증가합니다. 이 챔피언이 추가 효과를 @Multiplier*100@%만큼 얻습니다.",
+    "effects": [
+      {
+        "maxUnits": 1,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "DABase": 4.0,
+          "DAPer3Star": 3.0,
+          "Multiplier": 2.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Magic",
+    "name": "극대화 아르카나",
+    "desc": "주문력을 @Base@% 얻고 처치 관여 2회당 영구적으로 @Amount@% 얻습니다. (현재: @TFTUnitProperty.trait:TFT15_SetMechanic_PlusPlus_Property@% %i:scaleAP%)",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "Amount": 1.0,
+          "Base": 20.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_FinalAscent",
+    "name": "궁극의 초월",
+    "desc": "@Level1@레벨 및 @Level2@레벨에서 추가로 초월합니다.<br>@Level1@레벨: 기본 공격 @NumAttacks@회마다 주문력을 @APPerAttack@% 얻습니다.<br>@Level2@레벨: 파동 2개를 추가로 발사해 @ReducedWaveDamage*100@%의 피해를 입힙니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "APPerAttack": 6.0,
+          "Level1": 7,
+          "Level2": 10,
+          "NumAttacks": 3,
+          "ReducedWaveDamage": 0.6000000238418579
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_LivingWall",
+    "name": "살아있는 벽",
+    "desc": "방어력 및 마법 저항력을 @Resists@ 얻습니다. 전투 시작 시 후방에 있는 아군이 이 챔피언의 %i:scaleArmor% 및 %i:scaleMR% 합계 @PerXResists@당 공격 속도를 @AS@% 얻습니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "AS": 1.5,
+          "PerXResists": 30.0,
+          "Resists": 20.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_TimeSkip",
+    "name": "기습 타격",
+    "desc": "대상 변경 시 다음 대상에게 순간적으로 이동합니다. 다음 기본 공격 시 <magicDamage>@TFTTrait.TFT15_MechanicTrait_TimeSkip.1:PctAdditionalDamage@%</magicDamage>만큼 마법 피해를 추가로 입힙니다.",
+    "effects": [
+      {
+        "maxUnits": 1,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "PctAdditionalDamage": 200.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_ManaRush",
+    "name": "마나 폭주",
+    "desc": "마나가 가득 찬 상태로 전투를 시작합니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {}
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_RareCandy",
+    "name": "희귀한 간식",
+    "desc": "괴물의 괴물 트레이너 레벨이 +@Levels@ 증가합니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "Levels": 15
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Surge66",
+    "name": "폭주 66호",
+    "desc": "공격 속도를 @AS@%, 주문력을 @AP@% 얻습니다. @FirstThreshold@회 및 @SecondThreshold@회 기본 공격 후 수치가 두 배로 증가합니다. (기본 공격 횟수: @TFTUnitProperty.trait:TFT15_MechanicTrait_Surge66_NumAttacks@)",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "AP": 10.0,
+          "AS": 20.0,
+          "FirstThreshold": 15.0,
+          "SecondThreshold": 66.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_SnaxTime",
+    "name": "간식 시간",
+    "desc": "브라움이 스킬 사용 시 추가로 무작위 적에게 포로 @PoroNum@마리를 던져 각각 브라움 기본 공격력의 @DamagePercent*100@%에 해당하는 물리 피해를 입힙니다.<br><rules>포로에게 안전합니다. 브라움은 전문가니까요.</rules>",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "DamagePercent": 2.0,
+          "{8de748b9}": 5.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_FinalForm",
+    "name": "최종 형태",
+    "desc": "@AppropriateStage@-@AppropriateRound@라운드 이후 이 챔피언이 3성일 경우, 전투 시작 시 4성으로 업그레이드됩니다.",
+    "effects": [
+      {
+        "maxUnits": 1,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "AppropriateRound": 2,
+          "AppropriateRoundPVE": 7,
+          "AppropriateStage": 5,
+          "AppropriateStagePVE": 2,
+          "{3566d185}": 3,
+          "{ae4fd56b}": 6
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Classy",
+    "name": "품격",
+    "desc": "이 챔피언의 마지막으로 나열된 특성의 효과가 @TFTTrait.TFT15_MechanicTrait_Classy.1:IncreasedEffectiveness@% 증가합니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "IncreasedEffectiveness": 45
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_BonusBloom",
+    "name": "추가 개화",
+    "desc": "추가 식물 1개를 획득합니다. 식물은 @PctOfDamage*100@% 감소한 피해를 입히고 @PctOfHealth*100@% 낮은 체력을 지닙니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "PctOfDamage": 0.20000000298023224,
+          "PctOfHealth": 0.30000001192092896
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_SeriousSlam",
+    "name": "진심 강타",
+    "desc": "각각의 적에게 가하는 첫 번째 기본 공격이 <physicalDamage>@TFTTrait.TFT15_MechanicTrait_SeriousSlam.1:AttackScale*100@%(%i:TFTBaseAD%)</physicalDamage>의 물리 피해를 입히고 @TFTTrait.TFT15_MechanicTrait_SeriousSlam.1:KnockupDuration@초 동안 <TFTKeyword>기절</TFTKeyword>시킵니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "AttackScale": 2.0999999046325684,
+          "KnockupDuration": 1.0,
+          "{c37970cf}": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Needlework",
+    "name": "바느질",
+    "desc": "첫 번째 및 두 번째 스킬 사용 시 추가 바늘을 @BonusNeedles@개 발사해 @ReducedDamage*100@%만큼 피해를 입힙니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "BonusNeedles": 2,
+          "ReducedDamage": 0.44999998807907104
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_BloodFury",
+    "name": "굶주린 영웅",
+    "desc": "체력을 @TFTTrait.TFT15_MechanicTrait_BloodFury.1:BaseHealth@, 공격력을 @TFTTrait.TFT15_MechanicTrait_BloodFury.1:BaseAD*100@% 얻습니다. 라운드마다 플레이어 체력을 @TFTTrait.TFT15_MechanicTrait_BloodFury.1:PlayerHealthPerSacrifice@ 지불해 %i:scaleHealth%을 @TFTTrait.TFT15_MechanicTrait_BloodFury.1:HealthPerSacrifice@, %i:scaleAD%을 @TFTTrait.TFT15_MechanicTrait_BloodFury.1:ADPerSacrifice*100@ 얻을 수 있습니다.<br><br><TFTTrackerLabel>(총합: @TFTUnitProperty.:TFT15_MechanicTrait_BloodFury_Health@ %i:scaleHealth% @TFTUnitProperty.:TFT15_MechanicTrait_BloodFury_AD*100@ %i:scaleAD%)</TFTTrackerLabel>",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "ADPerSacrifice": 0.03999999910593033,
+          "BaseAD": 0.10000000149011612,
+          "BaseAP": null,
+          "BaseHealth": 100,
+          "HealthPerSacrifice": 150.0,
+          "PlayerHealthPerSacrifice": 3.0,
+          "{cc84e244}": 2.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_BulletHell",
+    "name": "탄막 지옥",
+    "desc": "스킬의 발사 투사체가 @TFTTrait.TFT15_MechanicTrait_BulletHell.1:IncreasedProjectiles@% 증가합니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "IncreasedProjectiles": 30,
+          "{28c023cc}": 30
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_NoxiousTrap",
+    "name": "유독성 함정",
+    "desc": "피해를 입히면 적에게 @Duration@초 동안 <TFTKeyword>불태우기</TFTKeyword>, <TFTKeyword>상처</TFTKeyword>, <TFTKeyword>파쇄</TFTKeyword> 20% 및 <TFTKeyword>파열</TFTKeyword> 20%를 적용합니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "Duration": 4.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Finalist",
+    "name": "결승 진출",
+    "desc": "피해 증폭을 @TFTTrait.TFT15_MechanicTrait_Finalist.1:InitialDA*100@%, 피해량 감소를 @TFTTrait.TFT15_MechanicTrait_Finalist.1:InitialDR*100@% 얻습니다. 탈락한 플레이어 1명당 @TFTTrait.TFT15_MechanicTrait_Finalist.1:IncreasedDA*100@% %i:scaleDA%, @TFTTrait.TFT15_MechanicTrait_Finalist.1:IncreasedDR*100@% %i:scaleDR% 증가합니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "IncreasedDA": 0.029999999329447746,
+          "IncreasedDR": 0.029999999329447746,
+          "InitialDA": 0.15000000596046448,
+          "InitialDR": 0.07999999821186066
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_AdaptiveSkin",
+    "name": "적응형 피부",
+    "desc": "피해를 받을 때 피해 유형에 따라 방어력을 @TFTTrait.TFT15_MechanicTrait_AdaptiveSkin.1:ResistsPerDamageInstancePhysical@ 얻거나 마법 저항력을 @TFTTrait.TFT15_MechanicTrait_AdaptiveSkin.1:ResistsPerDamageInstanceMagic@ 얻습니다. (방어력 및 마법 저항력 총합: 최대 @TFTTrait.TFT15_MechanicTrait_AdaptiveSkin.1:TotalResists@)",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "ResistsPerDamageInstanceMagic": 10.0,
+          "ResistsPerDamageInstancePhysical": 3.0,
+          "TotalResists": 80.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Hemorrhage",
+    "name": "과다출혈",
+    "desc": "스킬이 @BleedDuration@초에 걸쳐 @PercentBleed@%의 추가 피해를 고정 피해로 입힙니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "BleedDuration": 4.0,
+          "PercentBleed": 60.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_FairyTail",
+    "name": "요정 꼬리",
+    "desc": "스킬 사용 시 요정 2명을 소환해 다음 @TFTTrait.TFT15_MechanicTrait_FairyTail.1:Duration@초 동안 대상에게 각각 <magicDamage>@TFTTrait.TFT15_MechanicTrait_FairyTail.1:APDamage1@~@TFTTrait.TFT15_MechanicTrait_FairyTail.1:APDamage4@</magicDamage>의 마법 피해를 입힙니다. (스테이지에 비례) ",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "APDamage1": 80.0,
+          "APDamage2": 130.0,
+          "APDamage3": 190.0,
+          "APDamage4": 275.0,
+          "Duration": 8.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_CriticalThreat",
+    "name": "치명적 위협",
+    "desc": "스킬에 치명타가 적용될 수 있습니다. @TFTTrait.TFT15_MechanicTrait_CriticalThreat.1:Interval@초마다 치명타 확률을 @TFTTrait.TFT15_MechanicTrait_CriticalThreat.1:CriticalStrikeChance@% 얻습니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "CriticalStrikeChance": 5.0,
+          "Interval": 3.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Demolitionist",
+    "name": "폭파광",
+    "desc": "스킬로 피해를 입힐 경우 @TFTTrait.TFT15_MechanicTrait_Demolitionist.1:StunDuration@초 동안 <TFTKeyword>기절</TFTKeyword>시킵니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "StunDuration": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_ChaosStorm",
+    "name": "폭풍술사",
+    "desc": "<row>(@MinUnits@) 입힌 피해량의 @PercentDamageEcho*100@%만큼 마법 피해를 입히는 폭풍 소환</row> <br><row>(@MinUnits@) 두 챔피언 모두 피해량에 기여. 폭풍이 더 커짐</row>",
+    "effects": [
+      {
+        "maxUnits": 1,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "PercentDamageEcho": 0.2199999988079071,
+          "{44d79b6f}": 8,
+          "{e202a897}": 1,
+          "{e9e2b861}": 2
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 2,
+        "style": 1,
+        "variables": {
+          "PercentDamageEcho": 0.25,
+          "{44d79b6f}": 10,
+          "{e202a897}": 1,
+          "{e9e2b861}": 2
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Mechablade",
+    "name": "메카검술",
+    "desc": "최대 체력의 @PercentHealthAsAS*100@%만큼 공격 속도를 얻습니다. 기본 공격 시 추가 마나를 @BonusMana@ 얻습니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "BonusMana": 5.0,
+          "PercentHealthAsAS": 0.05000000074505806
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Doomsayer",
+    "name": "파멸의 예언자",
+    "desc": "@TFTTrait.TFT15_MechanicTrait_Doomsayer.1:Countdown@초 후 생존 시 이번 전투에서 받은 피해량의 <magicDamage>@TFTTrait.TFT15_MechanicTrait_Doomsayer.1:PercentOfDamageTaken*100@%</magicDamage>만큼 모든 적에게 마법 피해를 입힙니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "Countdown": 15.0,
+          "PercentOfDamageTaken": 0.4000000059604645
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_ShadowJutsu",
+    "name": "그림자 분신",
+    "desc": "동일한 아이템을 장착하고 @TFTTrait.TFT15_MechanicTrait_ShadowJutsu.1:DamagePercent*100@%의 피해를 입히며 @TFTTrait.TFT15_MechanicTrait_ShadowJutsu.1:HealthMod*100@%의 체력을 지닌 이 챔피언의 완벽한 복사본을 생성합니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "DamagePercent": 0.2199999988079071,
+          "{fee776bd}": 0.5
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_DreadNote",
+    "name": "공포의 노트",
+    "desc": "<row>(@TFTTrait.TFT15_MechanicTrait_DreadNote.1:MinUnits@) @TFTTrait.TFT15_MechanicTrait_DreadNote.1:FirstDeath@초 및 @TFTTrait.TFT15_MechanicTrait_DreadNote.1:SecondDeath@초에 생존 시, 체력이 가장 높은 적 처치</row><br><row>(@TFTTrait.TFT15_MechanicTrait_DreadNote.2:MinUnits@) @TFTTrait.TFT15_MechanicTrait_DreadNote.2:FirstDeath@ 및 @TFTTrait.TFT15_MechanicTrait_DreadNote.2:SecondDeath@초로 변경</row>",
+    "effects": [
+      {
+        "maxUnits": 1,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "FirstDeath": 18.0,
+          "SecondDeath": 30.0
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 2,
+        "style": 1,
+        "variables": {
+          "FirstDeath": 15.0,
+          "SecondDeath": 25.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Pursuit",
+    "name": "추격",
+    "desc": "루시안의 스킬이 돌진하며 탄환을 +@NumAdditionalShots@발 추가로 발사하고 전투가 끝날 때까지 주문력을 @APGain@% 부여합니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "APGain": 8,
+          "NumAdditionalShots": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Corrupted",
+    "name": "부패",
+    "desc": "휴면 상태로 시작합니다. 유닛이 사망할 때마다 피해 증폭을 @TFTTrait.TFT15_MechanicTrait_Corrupted.1:DAPerSoul*100@%, 체력을 @TFTTrait.TFT15_MechanicTrait_Corrupted.1:HealthPerSoul@ 얻습니다. 체력이 @TFTTrait.TFT15_MechanicTrait_Corrupted.1:HealthThreshold*100@%일 때 깨어나 적을 향해 순간적으로 이동하여 @TFTTrait.TFT15_MechanicTrait_Corrupted.1:StunDuration@초 동안 기절시킵니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "DAPerSoul": 0.04500000178813934,
+          "HealthPerSoul": 80,
+          "HealthThreshold": 0.6000000238418579,
+          "StunDuration": 1.5
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_WarmingUp",
+    "name": "예열",
+    "desc": "전투 시작 시 또는 이 효과 활성화 시 방어력 및 마법 저항력을 @TFTTrait.TFT15_MechanicTrait_WarmingUp.1:Resists@ 얻습니다. 매초 @TFTTrait.TFT15_MechanicTrait_WarmingUp.1:Conversion@의 방어력 및 마법 저항력을 공격력 @TFTTrait.TFT15_MechanicTrait_WarmingUp.1:Conversion@%로 전환합니다. (최대 @TFTTrait.TFT15_MechanicTrait_WarmingUp.1:Resists@)",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "Conversion": 3.0,
+          "Resists": 48.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Corrosive",
+    "name": "부식",
+    "desc": "2칸 내 적에게 파쇄 및 파열을 @Shred@% 적용합니다. 파쇄 또는 파열이 적용된 적으로부터 받는 피해가 @DamageReduction@% 감소합니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "DamageReduction": 10.0,
+          "Shred": 30
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_SoulChipper",
+    "name": "영혼 깎이",
+    "desc": "마법 피해를 입힐 경우 전투가 끝날 때까지 대상의 마법 저항력이 @MagicResistReduce@ 감소합니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "MagicResistReduce": 5.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_DoubleDown",
+    "name": "더블 다운",
+    "desc": "피해 증폭을 @DamageAmp*100@% 얻습니다. 이 유닛이 스킬을 사용하면 사용한 마나의 @ManaPercent*100@%를 다른 파워 업 유닛이 얻습니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "DamageAmp": 0.18000000715255737,
+          "ManaPercent": 0.20000000298023224
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Thrillseeker",
+    "name": "모험가",
+    "desc": "<row>(@TFTTrait.TFT15_MechanicTrait_Thrillseeker.1:MinUnits@) 적 처치 시 최대 체력의 @TFTTrait.TFT15_MechanicTrait_Thrillseeker.1:HealPercent@%만큼 체력 회복 및 @Duration@초 동안 공격 속도 @TFTTrait.TFT15_MechanicTrait_Thrillseeker.1:AS*100@% 획득</row><br><row>(@TFTTrait.TFT15_MechanicTrait_Thrillseeker.2:MinUnits@) 처치 시 @TFTTrait.TFT15_MechanicTrait_Thrillseeker.2:AS*100@% %i:scaleAS% 획득. 체력이 @TFTTrait.TFT15_MechanicTrait_Thrillseeker.2:ExecuteThreshold*100@% 아래인 적 처형</row>",
+    "effects": [
+      {
+        "maxUnits": 1,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "AS": 0.4000000059604645,
+          "Duration": 2,
+          "HealPercent": 15.0
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 2,
+        "style": 1,
+        "variables": {
+          "AS": 0.4000000059604645,
+          "Duration": 2,
+          "ExecuteThreshold": 0.10000000149011612,
+          "HealPercent": 15.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Untouchable",
+    "name": "무적",
+    "desc": "아군이 @TFTTrait.TFT15_MechanicTrait_Untouchable.1:NumAllies@명 이상 살아있는 동안 대상으로 지정할 수 없는 상태가 됩니다. 이 챔피언이 체력이 최대인 상태로 전투 종료 시 영구적으로 피해 증폭을 @TFTTrait.TFT15_MechanicTrait_Untouchable.1:DamageAmpScaling*100@% 얻습니다. (현재: @TFTUnitProperty.:TFT15_Untouchable_DamageAmp*100@% %i:scaleDA%)",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "DamageAmpScaling": 0.019999999552965164,
+          "NumAllies": 4
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Efficient",
+    "name": "효율성",
+    "desc": "스킬 마나 소모량이 @Reduction@ 감소합니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "Reduction": 15
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Annihilation",
+    "name": "섬멸",
+    "desc": "피해 증폭을 @BaseDA@% 얻습니다. 전투마다 첫 처치 관여 시 피해 증폭이 @IncreasedDA@%로 증가합니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "BaseDA": 12.0,
+          "IncreasedDA": 28.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Resistant",
+    "name": "내성",
+    "desc": "피해를 받을 때마다 해당 피해량이 @TFTTrait.TFT15_MechanicTrait_Resistant.1:FlatDR@ 감소합니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "FlatDR": 25.0,
+          "Resists": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_OldMentor",
+    "name": "멘토",
+    "desc": "이 특성은 멘토가 정확히 하나 또는 각기 다른 멘토가 넷 있을 때 활성화됩니다. <br><br><row>(1) 아군이 추가 효과 획득</row><br><tftActiveRank enabled=TFT15_Trait_OldMentor_SpellsUpgraded><row>(4) 멘토가 모든 추가 효과를 획득하고 멘토의 스킬이 업그레이드되지만, 다른 아군에게는 아무 효과 없음</row></tftActiveRank><br><br><TFTGuildActive enabled=TFT15_Trait_OldMentor_ActiveKobuko alternate=TFTGuildInactive>코부코: 피해량 감소 @Durability*100@%</TFTGuildActive><br><TFTGuildActive enabled=TFT15_Trait_OldMentor_ActiveUdyr alternate=TFTGuildInactive>우디르: 공격력 및 주문력 @ADAP*100@%</TFTGuildActive><br><TFTGuildActive enabled=TFT15_Trait_OldMentor_ActiveYasuo alternate=TFTGuildInactive>야스오: 공격 속도 @AS*100@%</TFTGuildActive><br><TFTGuildActive enabled=TFT15_Trait_OldMentor_ActiveRyze alternate=TFTGuildInactive>라이즈: 기본 공격 시 추가 마나 @Mana@ 획득</TFTGuildActive>",
+    "effects": [
+      {
+        "maxUnits": 1,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "ADAP": 0.07999999821186066,
+          "AS": 0.10000000149011612,
+          "Durability": 0.05999999865889549,
+          "Mana": 2.0
+        }
+      },
+      {
+        "maxUnits": 3,
+        "minUnits": 2,
+        "style": 3,
+        "variables": {
+          "ADAP": 0.07999999821186066,
+          "AS": 0.10000000149011612,
+          "Durability": 0.05999999865889549,
+          "Mana": 2.0
+        }
+      },
+      {
+        "maxUnits": 4,
+        "minUnits": 4,
+        "style": 5,
+        "variables": {
+          "ADAP": 0.07999999821186066,
+          "AS": 0.10000000149011612,
+          "Durability": 0.05999999865889549,
+          "Mana": 2.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_TinyTerror",
+    "name": "자그마한 공포",
+    "desc": "공격 속도를 @TFTTrait.TFT15_MechanicTrait_TinyTerror.1:AS*100@% 얻습니다. 체력이 @TFTTrait.TFT15_MechanicTrait_TinyTerror.1:Threshold*100@%가 되면 전투가 끝날 때까지 공격 속도가 두 배로 증가합니다. 이후 @TFTTrait.TFT15_MechanicTrait_TinyTerror.1:Duration@초 동안 크기가 줄어들어 모든 기본 공격을 회피합니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "AS": 0.15000000596046448,
+          "Duration": 3.0,
+          "Threshold": 0.699999988079071
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Trickster",
+    "name": "재주꾼",
+    "desc": "<row>(@MinUnits@) 체력이 떨어지면 피해 증폭 @DA*100@% 획득. 훈련 봇을 소환하고 가장 멀리 있는 적에게 돌진함</row><br><row>(@MinUnits@) @DA*100@% %i:scaleDA%, 훈련 봇 @DummyHealth@ %i:scaleHealth% 획득</row>",
+    "effects": [
+      {
+        "maxUnits": 1,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "DA": 0.03999999910593033,
+          "DummyHealth": 250.0,
+          "HealthThreshold": 0.5
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 2,
+        "style": 1,
+        "variables": {
+          "DA": 0.05999999865889549,
+          "DummyHealth": 1250.0,
+          "HealthThreshold": 0.5
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Caretaker",
+    "name": "관리인",
+    "desc": "스킬 사용 시 체력 비율이 가장 낮은 아군이 @TFTTrait.TFT15_MechanicTrait_Caretaker.1:Duration@초 동안 <TFTBonus>@TFTTrait.TFT15_MechanicTrait_Caretaker.1:ShieldAmount@(%i:scaleAP%)</TFTBonus>의 보호막을 얻습니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "Duration": 6.0,
+          "ShieldAmount": 135.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_MindBattery",
+    "name": "정신 건전지",
+    "desc": "전투마다 첫 스킬 사용 시 마나 재생을 @ManaRegen@, 주문력을 @AP@% 얻습니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "AP": 30.0,
+          "ManaRegen": 5.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Attempt37",
+    "name": "37번째 시도",
+    "desc": "에코의 스킬이 가장 가까운 적을 우선적으로 공격하지만, 스킬 사용 시 최대 체력의 @HealPercent*100@%를 회복하고 스킬이 대상에게 적중할 때마다 마법 피해를 @BonusDamagePerAttack*100@% 더 입힙니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "BonusDamagePerAttack": 0.05999999865889549,
+          "HealPercent": 0.20000000298023224
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Kahunahuna",
+    "name": "에너지 파동",
+    "desc": "기본 공격 @TFTTrait.TFT15_MechanicTrait_Kahunahuna.1:NumAttacks@회마다 <trueDamage>@TFTTrait.TFT15_MechanicTrait_Kahunahuna.1:ADDamage@</trueDamage>(%i:scaleAD%)의 고정 피해를 입힙니다.",
+    "effects": [
+      {
+        "maxUnits": 1,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "ADDamage": 150.0,
+          "NumAttacks": 6.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_AttackExpert",
+    "name": "공격 전문가",
+    "desc": "공격력을 @BaseAD*100@% 얻습니다. 다른 모든 요소로부터 얻는 공격력이 @TFTTrait.TFT15_MechanicTrait_AttackExpert.1:PctBonusAD@% 증가합니다.",
+    "effects": [
+      {
+        "maxUnits": 1,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "BaseAD": 0.05000000074505806,
+          "PctBonusAD": 35.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_StarSailor",
+    "name": "별 항해자",
+    "desc": "<row>(@MinUnits@) 별 수호자로 획득하는 추가 효과 @StatIncrease*100@% 증가</row><br><row>(@MinUnits@) 또한 입힌 피해량의 @HealingPercent*100@%만큼 다른 별 항해자 체력 회복</row>",
+    "effects": [
+      {
+        "maxUnits": 1,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "HealingPercent": null,
+          "StatIncrease": 0.33000001311302185
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 2,
+        "style": 1,
+        "variables": {
+          "HealingPercent": 0.15000000596046448,
+          "StatIncrease": 0.25
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_NotDoneYet",
+    "name": "아직 안 끝났어",
+    "desc": "이 챔피언이 @NumDeathsStage2@번 사망 시 체력을 @TFTTrait.TFT15_MechanicTrait_NotDoneYet.1:PctHealth@%, 모든 피해 흡혈을 @TFTTrait.TFT15_MechanicTrait_NotDoneYet.1:Omnivamp@%, 피해 증폭을 @TFTTrait.TFT15_MechanicTrait_NotDoneYet.1:Stats@% 얻습니다. (사망 횟수: @TFTUnitProperty.trait:TFT15_MechanicTrait_NotDoneYet_DeathsAchieved@)",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "NumDeathsStage2": 6,
+          "NumDeathsStage3": 6,
+          "NumDeathsStage4": 6,
+          "Omnivamp": 10.0,
+          "PctHealth": 18.0,
+          "Stats": 25.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_RampingRage",
+    "name": "점증하는 분노",
+    "desc": "기본 공격 시 중첩되는 공격 속도를 @ASPerAttack*100@% 얻습니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "ASperAttack": 0.03500000014901161
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_PowerFont",
+    "name": "힘의 원천",
+    "desc": "전투 시작 시 및 @Cadence@초마다 마나 재생을 @Mana@ 얻습니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "Cadence": 3.0,
+          "Mana": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_FinalBoss",
+    "name": "끝판왕",
+    "desc": "모든 피해 흡혈을 @Omnivamp*100@% 얻습니다. 아군이 사망할 때마다 피해 증폭을 @DamageAmp*100@% 얻습니다. (중첩 가능)",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "DamageAmp": 0.04500000178813934,
+          "Omnivamp": 0.10000000149011612
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_DarkAmulet",
+    "name": "어둠의 목걸이",
+    "desc": "입힌 마법 피해량의 @HealPct@%만큼 체력을 회복합니다. 스킬 사용 시 최대 체력의 @HealthLossPct@%에 해당하는 고정 피해를 입지만, 주문력을 @StackingAP@% 얻습니다. (중첩 가능)",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "HealPct": 15.0,
+          "HealthLossPct": 8.0,
+          "StackingAP": 12.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Supremacy",
+    "name": "패권",
+    "desc": "이 챔피언이 슈프림 셀이 된 동안 체력이 @ExecutePct*100@% 아래인 적을 처형합니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "ExecutePct": 0.18000000715255737
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Singularity",
+    "name": "특이점",
+    "desc": "@NumHexes@칸 범위의 특이점으로 변신해 매초 @PercentHealth*100@%(%i:scaleHealth%)의 마법 피해를 입힙니다. 범위 내에서 적이 사망하면 영구적으로 체력을 @PermanentHealth@ 얻습니다. (총합: @TFTUnitProperty.:TFT15_MechanicTrait_Singularity_Health@ %i:scaleHealth%)",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "NumHexes": 2,
+          "PercentHealth": 0.009999999776482582,
+          "PermanentHealth": 15
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_TeamCaptain",
+    "name": "단장",
+    "desc": "<row>(@MinUnits@) 이 챔피언의 별 수호자 팀워크 추가 효과가 별 레벨당 @StatIncrease*100@% 증가</row><br><row>(@MinUnits@) 별 레벨당 추가 효과 @StatIncrease*100@%</row>",
+    "effects": [
+      {
+        "maxUnits": 1,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "StatIncrease": 0.15000000596046448
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 2,
+        "style": 1,
+        "variables": {
+          "StatIncrease": 0.20000000298023224
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_BestestBoy",
+    "name": "최고의 친구",
+    "desc": "@Cadence@초마다 룰루가 괴물에게 간식을 먹여 람머스의 %i:scaleHealth%을 @PercentHeal*100@% 회복하거나, 스몰더에게 공격력을 @AD*100@% 부여하거나, 코그모에게 주문력을 @AP@% 부여합니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "AD": 0.14000000059604645,
+          "AP": 14.0,
+          "Cadence": 5.0,
+          "PercentHeal": 0.12999999523162842
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_SuperGenius",
+    "name": "초천재",
+    "desc": "@Cadence@초마다 마나 재생만큼 주문력을 얻습니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "Cadence": 2.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_2XKO",
+    "name": "2XKO",
+    "desc": "처치 관여 2회 후 2칸 내 적을 @StunDuration@초 동안 기절시키고 전투가 끝날 때까지 피해 증폭을 @DamageAmp*100@% 얻습니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "DamageAmp": 0.3499999940395355,
+          "StunDuration": 2.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_DoomBarrage",
+    "name": "파멸의 폭격",
+    "desc": "바루스 스킬 사용 중 발사되는 화살의 마나 소모량이 @ManaReduction@ 감소합니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "ManaReduction": 2
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_FrostTouch",
+    "name": "얼어붙은 손길",
+    "desc": "기본 공격 시 @PercentageChanceToTrigger@% 확률로 대상을 @StunDuration@초 동안 <TFTKeyword>기절</TFTKeyword>시킵니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "DamagePerStage": 55,
+          "PercentageChanceToTrigger": 15,
+          "StunDuration": 1.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_GoldenGloves",
+    "name": "황금 장갑",
+    "desc": "이자를 획득할 때마다 수집한 골드당 영구적으로 공격력을 @AD*100@% 얻습니다. (현재 추가 효과: @TFTUnitProperty.trait:TFT15_SetMechanic_GoldenGlovesStacks*100@% %i:scaleAD%)",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "AD": 0.019999999552965164
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_SpiritSword",
+    "name": "영검",
+    "desc": "치명타 확률을 @CritChance*100@% 얻습니다. 기본 공격 시 치명타가 적용되면 @TFTTrait.TFT15_MechanicTrait_SpiritSword.1:BonusMagicDamage@%의 추가 마법 피해를 입힙니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "BonusMagicDamage": 30.0,
+          "CritChance": 0.20000000298023224
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_InnerFire",
+    "name": "내면의 불꽃",
+    "desc": "@ICD@초마다 가장 가까운 불태우기가 적용되지 않은 적에게 @Duration@초 동안 불태우기 및 상처를 적용합니다. 불태우기가 적용된 적으로부터 받는 피해가 @DamageReduction*100@% 감소합니다.",
+    "effects": [
+      {
+        "maxUnits": 1,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "DamageReduction": 0.15000000596046448,
+          "Duration": 10,
+          "ICD": 2.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_StalkingDart",
+    "name": "추적 화살",
+    "desc": "아리가 마나를 10 얻을 때마다 여우불 화살을 대상에게 날려 스킬 피해량의 @PercentDamage*100@%만큼 마법 피해를 입힙니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "PercentDamage": 0.05000000074505806
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_BodyChange",
+    "name": "신체 바꾸기",
+    "desc": "전투 시작 시 가장 가까운 아군의 형상을 취하고 해당 아군과 이 챔피언이 체력의 @TFTTrait.TFT15_MechanicTrait_BodyChange.1:PctHealth*100@%에 해당하는 보호막을 얻습니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "PctHealth": 0.30000001192092896
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_UltraStance",
+    "name": "극한의 태세",
+    "desc": "체력을 @BonusHealth@ 얻고 선택한 태세 특성이 추가로 +@BonusTraitAmount@ 증가합니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "BonusHealth": 100,
+          "BonusTraitAmount": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_PureHeart",
+    "name": "순수한 심장",
+    "desc": "@HealTickRate@초마다 이 챔피언 및 2칸 내 아군이 잃은 체력의 @MissingHealthHeal*100@%만큼 체력을 회복합니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "HealTickRate": 4.0,
+          "MissingHealthHeal": 0.18000000715255737
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_WellRounded",
+    "name": "404 파워 업",
+    "desc": "공격력, 주문력, 피해 증폭을 @Stats@%, 방어력 및 마법 저항력을 @Stats@ 얻습니다.<br><br><rules>이걸 어떻게 찾아낸 건가요?</rules>",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "Stats": 8.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_RoboRumble",
+    "name": "메크레슬러",
+    "desc": "거대 메크와 프로레슬러를 배치하면 거대 메크 로봇이 체력을 @Health@ 얻고 프로레슬러가 되어 특성 중첩이 +1 증가합니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "Health": 100
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_CrimsonVeil",
+    "name": "핏빛 장막",
+    "desc": "모든 피해 흡혈을 @Omnivamp@% 얻습니다. 모든 피해 흡혈로 얻은 초과 회복량은 보호막으로 전환됩니다. (최대: 체력의 @MaxPercentHealthShield@%)",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "MaxPercentHealthShield": 40.0,
+          "Omnivamp": 20.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_SupremeSurge",
+    "name": "슈프림 쇄도",
+    "desc": "적이 슈프림 셀에 의해 처형될 때마다 잃은 체력의 @Percent*100@%를 회복하고 마나를 @mana@ 얻습니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "Mana": 15.0,
+          "percent": 0.15000000596046448
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_FusionDance",
+    "name": "퓨전 춤",
+    "desc": "전투 시작 시 가장 가까운 아군과 합체하고 해당 아군의 체력, 공격력, 주문력을 @TFTTrait.TFT15_MechanicTrait_FusionDance.1:StatShare*100@%만큼 얻습니다. ",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "StatShare": 0.44999998807907104
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Rogue",
+    "name": "암살",
+    "desc": "<row>(@TFTTrait.TFT15_MechanicTrait_Rogue.1:MinUnits@) 전투 시작: 적 후방으로 도약하고 전투 시작 후 @Duration@초 동안 @ReducedDamage*100@% 감소한 피해를 입힘</row><br><row>(@TFTTrait.TFT15_MechanicTrait_Rogue.2:MinUnits@) 두 챔피언 모두 도약</row>",
+    "effects": [
+      {
+        "maxUnits": 1,
+        "minUnits": 1,
+        "style": 4,
+        "variables": {
+          "Duration": 8,
+          "ReducedDamage": 0.20000000298023224
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 2,
+        "style": 1,
+        "variables": {
+          "Duration": 8.0,
+          "ReducedDamage": 0.15000000596046448
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Lovers",
+    "name": "팬 서비스",
+    "desc": "자야와 라칸이 서로의 별 레벨에 따라 추가 능력치를 얻습니다.<br><row>(@MinUnits@) @AD@% %i:scaleAD%%i:scaleAS% | @Health@ %i:scaleHealth%, @Resists@ %i:scaleArmor%%i:scaleMR%</row><br><row>(@MinUnits@) @AD@% %i:scaleAD%%i:scaleAS% | @Health@ %i:scaleHealth%, @Resists@ %i:scaleArmor%%i:scaleMR%</row>",
+    "effects": [
+      {
+        "maxUnits": 1,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "AD": 8.0,
+          "AS": 8.0,
+          "Health": 115.0,
+          "Resists": 5.0
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 2,
+        "style": 1,
+        "variables": {
+          "AD": 15.0,
+          "AS": 15.0,
+          "Health": 225.0,
+          "Resists": 10.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_CRMechCashout",
+    "name": "보석 코어",
+    "desc": "거대 메크 로봇이 받은 피해량의 @Absorption*100@%를 공격력 및 주문력으로 전환하고 방어력과 마법 저항력을 @Resists@ 얻습니다.<br><br>수정 장미 챔피언이 메크 스킬과 관련해 거대 메크로 간주됩니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "Absorption": 0.07999999821186066,
+          "Resists": 100
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Socialite",
+    "name": "사교계",
+    "desc": "전투 시작: 인접한 칸에 표식을 남깁니다. 표식 칸에 있는 아군이 피해 증폭을 @DamageAmp*100@%, 체력을 @Health@ 얻습니다. 이 챔피언은 추가 효과를 @PercentIncrease*100@%만큼 얻습니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "DamageAmp": 0.05999999865889549,
+          "Health": 60,
+          "ManaPerSecond": null,
+          "NumRounds": 99,
+          "PercentIncrease": 3.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Momentum",
+    "name": "추진력",
+    "desc": "(@MinUnits@) 공격 속도 @BonusAS*100@% 획득 및 이동 속도 대폭 증가",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "BonusAS": 0.6000000238418579,
+          "BonusMS": 0.5
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_2XContender",
+    "name": "2X 도전자",
+    "desc": "바이, 아리, 다리우스, 야스오, 징크스, 브라움, 에코가 전장에 배치한 복사본 한 종류당 피해 증폭을 @Amp*100@%, 내구력을 @DR*100@% 얻습니다. 이 유닛은 @Percent*100@% 더 얻습니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "DR": 0.019999999552965164,
+          "percent": 0.75,
+          "{1d279a19}": 0.03999999910593033
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_StrongSpark",
+    "name": "강한 불꽃",
+    "desc": "@Cadence@초마다 가장 가까운 적을 감전시켜 적 최대 체력의 @Damage*100@%에 해당하는 마법 피해를 입힙니다. 적이 어떤 방식으로든 <TFTKeyword>기절</TFTKeyword>할 때마다 감전됩니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "Cadence": 3.0,
+          "Damage": 0.10999999940395355
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_EssenceShare",
+    "name": "정수 공유",
+    "desc": "스킬 사용 시 사용한 마나의 @TFTTrait.TFT15_MechanicTrait_EssenceShare.1:ManaPct*100@%를 가장 가까운 아군 @NumAllies@명이 얻습니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "ManaPct": 0.3499999940395355,
+          "NumAllies": 2.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Bludgeoner",
+    "name": "몽둥이찜질",
+    "desc": "기본 공격 및 스킬이 적의 방어력을 @PercentIgnore@%만큼 무시합니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "PercentIgnore": 45.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_ArtisticKO",
+    "name": "예술적인 KO",
+    "desc": "4번째 기본 공격마다 피해량이 @IncreasedDamage*100@% 증가합니다. 대상 처치 후 남는 피해는 가장 가까운 적에게 입힙니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "IncreasedDamage": 0.3499999940395355,
+          "NumEnemies": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Doublestrike",
+    "name": "이중 타격",
+    "desc": "기본 공격 시 @TFTTrait.TFT15_MechanicTrait_Doublestrike.1:ProcChance@% 확률로 1회 추가 공격합니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "ProcChance": 30.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_StarryKnight",
+    "name": "별빛 기사",
+    "desc": "배치한 1단계 유닛 하나당 체력을 @Health*100@%, 주문력을 @AP@% 얻습니다. 해당 유닛이 3성일 경우 수치가 2배로 증가합니다.",
+    "effects": [
+      {
+        "maxUnits": 1,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "AP": 10.0,
+          "Health": 0.07000000029802322,
+          "Mult": 2.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_OnTheEdge",
+    "name": "아슬아슬",
+    "desc": "체력이 @HealthPercent*100@%인 상태로 전투를 시작하고 피해 증폭을 @DA*100@% 얻습니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "DA": 0.3499999940395355,
+          "HealthPercent": 0.6499999761581421
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_StandUnited",
+    "name": "단결된 의지",
+    "desc": "쉔의 스킬이 체력이 가장 낮은 아군에게도 보호막 흡수량의 @ShieldPercent*100@%만큼 보호막을 씌웁니다. 또한 스킬 사용 시 중첩되는 마법 저항력을 @MagicResist@ 얻습니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "MagicResist": 25,
+          "ShieldPercent": 0.5
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MechanicTrait_Desperado",
+    "name": "쌍권총잡이",
+    "desc": "기본 공격 @NumAttacks@회마다 가장 가까운 적에게 투사체 5개를 발사해 기본 공격력의 @PercentBADDamage@%만큼 물리 피해를 입힙니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 1,
+        "variables": {
+          "NumAttacks": 8.0,
+          "PercentBADDamage": 100.0
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,1391 @@
+[
+  {
+    "id": "TFT15_DragonFist",
+    "name": "태세의 대가",
+    "desc": "리 신을 배치할 때 결투가 태세, 처형자 태세, 전쟁기계 태세 중 하나를 선택해야 합니다! 각 태세는 고유 스킬이 있으며, 리 신에게 해당 특성을 부여합니다.",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 4,
+        "variables": {
+          "{4ac719b4}": 8.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_Edgelord",
+    "name": "이단아",
+    "desc": "이단아가 모든 피해 흡혈과 공격력을 얻습니다. 체력이 @HealthThreshold*100@% 아래인 적을 공격할 때 공격 속도를 @BonusAS*100@% 얻습니다.<br><br><expandRow>(@MinUnits@) @Omnivamp*100@% %i:scaleSV%, @AD*100@% %i:scaleAD%</expandRow>",
+    "effects": [
+      {
+        "maxUnits": 3,
+        "minUnits": 2,
+        "style": 1,
+        "variables": {
+          "AD": 0.15000000596046448,
+          "BonusAS": 0.4000000059604645,
+          "HealthThreshold": 0.5,
+          "Omnivamp": 0.10000000149011612
+        }
+      },
+      {
+        "maxUnits": 5,
+        "minUnits": 4,
+        "style": 3,
+        "variables": {
+          "AD": 0.4000000059604645,
+          "BonusAS": 0.4000000059604645,
+          "HealthThreshold": 0.5,
+          "Omnivamp": 0.11999999731779099
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 6,
+        "style": 5,
+        "variables": {
+          "AD": 0.6000000238418579,
+          "BonusAS": 0.4000000059604645,
+          "HealthThreshold": 0.5,
+          "Omnivamp": 0.15000000596046448
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_GemForce",
+    "name": "수정 갬빗",
+    "desc": "플레이어 대상 전투에서 처치 및 패배 시 보석의 힘을 얻습니다. 플레이어 대상 전투 @NumCombats@회마다 보석의 힘을 보상으로 전환하거나 '묻고 두 배로 가'를 활성화할 수 있습니다.<br><br>'묻고 두 배로 가'를 활성화하면 패배 시 보석의 힘을 @PercentIncreasedGP*100@% 더 얻지만, 승리 시 보석의 힘 @PercentLost*100@%를 잃고 즉시 이익을 실현합니다.<br><br><rules>보석의 힘 획득량은 스테이지 3 및 4에서 증가합니다.</rules><br><br><row>(@MinUnits@) 처치당 @TFTUnitProperty.trait:TFT15_GemForce_GemPowerPerKill@, 패배당 @TFTUnitProperty.trait:TFT15_GemForce_GemPowerPerLoss@</row><br><row>(@MinUnits@) 또한 @TFTUnitProperty.trait:TFT15_GemForce_KillRequirement@명 처치할 때마다 추가 전리품을 획득하고 새 처치 횟수로 새로고침 (처치: @TFTUnitProperty.trait:TFT15_GemForce_TotalKills@)</row><br><row>(@MinUnits@) 보상 @7PeiceMult*100@%. 수정 갬빗 유닛이 @7PieceHealth@ %i:scaleHealth% 및 @7PieceAmp*100@% %i:scaleDA% 획득</row><br>",
+    "effects": [
+      {
+        "maxUnits": 4,
+        "minUnits": 3,
+        "style": 1,
+        "variables": {
+          "7PeiceMult": 1.2999999523162842,
+          "7PieceAmp": 0.15000000596046448,
+          "7PieceHealth": 300.0,
+          "GPPerDeathPVE": 2.0,
+          "GPPerRoundPVE": 10.0,
+          "NumCombats": 3,
+          "NumCombatsPVE": 3,
+          "PercentIncreaseGPPVE": 1.0,
+          "PercentIncreasedGP": 1.0,
+          "PercentLossPVE": 0.5,
+          "PercentLost": 0.5,
+          "{07e0557d}": 10.0,
+          "{0c71c65f}": 1.0,
+          "{2093ecf8}": 1.0,
+          "{4d6b4df4}": 2,
+          "{83265d73}": 15,
+          "{cbe82e8a}": 5.0,
+          "{ce703dbd}": 1.399999976158142,
+          "{d45997e0}": 1.850000023841858,
+          "{fb9d8217}": 2.0
+        }
+      },
+      {
+        "maxUnits": 6,
+        "minUnits": 5,
+        "style": 5,
+        "variables": {
+          "7PeiceMult": 1.2999999523162842,
+          "7PieceAmp": 0.15000000596046448,
+          "7PieceHealth": 300.0,
+          "GPPerDeathPVE": 3.0,
+          "GPPerRoundPVE": 15.0,
+          "NumCombats": 3,
+          "NumCombatsPVE": 3,
+          "PercentIncreaseGPPVE": 1.0,
+          "PercentIncreasedGP": 1.0,
+          "PercentLossPVE": 0.5,
+          "PercentLost": 0.5,
+          "{07e0557d}": 10.0,
+          "{0c71c65f}": 1.0,
+          "{2093ecf8}": 1.0,
+          "{4d6b4df4}": 2,
+          "{83265d73}": 15,
+          "{cbe82e8a}": 7.0,
+          "{ce703dbd}": 1.399999976158142,
+          "{d45997e0}": 1.850000023841858,
+          "{fb9d8217}": 2.0
+        }
+      },
+      {
+        "maxUnits": 9,
+        "minUnits": 7,
+        "style": 5,
+        "variables": {
+          "7PeiceMult": 1.2999999523162842,
+          "7PieceAmp": 0.15000000596046448,
+          "7PieceHealth": 300.0,
+          "GPPerDeathPVE": 3.0,
+          "GPPerRoundPVE": 15.0,
+          "NumCombats": 3,
+          "NumCombatsPVE": 3,
+          "PercentIncreaseGPPVE": 1.0,
+          "PercentIncreasedGP": 1.0,
+          "PercentLossPVE": 0.5,
+          "PercentLost": 0.5,
+          "{07e0557d}": 10.0,
+          "{0c71c65f}": 1.0,
+          "{2093ecf8}": 1.0,
+          "{4d6b4df4}": 2,
+          "{83265d73}": 15,
+          "{cbe82e8a}": 7.0,
+          "{ce703dbd}": 1.399999976158142,
+          "{d45997e0}": 1.850000023841858,
+          "{fb9d8217}": 2.0
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 10,
+        "style": 6,
+        "variables": {
+          "7PeiceMult": 1.2999999523162842,
+          "7PieceAmp": 0.15000000596046448,
+          "7PieceHealth": 300.0,
+          "DamageReduction": 0.9900000095367432,
+          "GPPerDeathPVE": 3.0,
+          "GPPerRoundPVE": 15.0,
+          "NumCombats": 3,
+          "NumCombatsPVE": 3,
+          "PercentIncreaseGPPVE": 1.0,
+          "PercentIncreasedGP": 1.0,
+          "PercentLossPVE": 0.5,
+          "PercentLost": 0.5,
+          "{07e0557d}": 10.0,
+          "{0c71c65f}": 1.0,
+          "{2093ecf8}": 1.0,
+          "{4d6b4df4}": 2,
+          "{83265d73}": 15,
+          "{ad97aeef}": 500.0,
+          "{cbe82e8a}": 8.0,
+          "{ce703dbd}": 1.399999976158142,
+          "{d45997e0}": 1.850000023841858,
+          "{fb9d8217}": 2.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_Sniper",
+    "name": "저격수",
+    "desc": "저격수가 피해 증폭을 얻습니다. 멀리 떨어진 적을 대상으로 수치가 증가합니다.<br><br><row>(@MinUnits@) @PercentDamageIncrease@% %i:scaleDA%, 칸당 +@PerHexIncrease@% %i:scaleDA%</row><br><row>(@MinUnits@) @PercentDamageIncrease@% %i:scaleDA%, 칸당 +@PerHexIncrease@% %i:scaleDA%</row><br><row>(@MinUnits@) @PercentDamageIncrease@% %i:scaleDA%, 칸당 +@PerHexIncrease@% %i:scaleDA%</row><br><row>(@MinUnits@) @PercentDamageIncrease@% %i:scaleDA%, 칸당 +@PerHexIncrease@% %i:scaleDA%</row>",
+    "effects": [
+      {
+        "maxUnits": 2,
+        "minUnits": 2,
+        "style": 1,
+        "variables": {
+          "BonusHexRangeIncrease": null,
+          "PerHexIncrease": 3.0,
+          "PercentDamageIncrease": 13.0
+        }
+      },
+      {
+        "maxUnits": 3,
+        "minUnits": 3,
+        "style": 3,
+        "variables": {
+          "BonusHexRangeIncrease": null,
+          "PerHexIncrease": 5.0,
+          "PercentDamageIncrease": 16.0
+        }
+      },
+      {
+        "maxUnits": 4,
+        "minUnits": 4,
+        "style": 3,
+        "variables": {
+          "BonusHexRangeIncrease": null,
+          "PerHexIncrease": 7.0,
+          "PercentDamageIncrease": 22.0
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 5,
+        "style": 5,
+        "variables": {
+          "BonusHexRangeIncrease": null,
+          "PerHexIncrease": 10.0,
+          "PercentDamageIncrease": 25.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_StarGuardian",
+    "name": "별 수호자",
+    "desc": "별 수호자는 모든 별 수호자에게 부여되는 고유 팀워크 추가 효과를 갖습니다. 배치된 별 수호자마다 추가 효과를 강화합니다!<ShowIf.TFT15_StarGuardian_NoPrismatic><br><br><rules>프리즘: 8명 배치 후 마나 @ManaToPrismatic@ 소모</rules></ShowIf.TFT15_StarGuardian_NoPrismatic><ShowIf.TFT15_StarGuardian_PrismaticPending><br><br><TFTRadiantItemBonus>프리즘:</TFTRadiantItemBonus> 마나 @ManaToPrismatic@ 소모 (@TFTUnitProperty.trait:TFT15_StarGuardian_ManaSpent@)</ShowIf.TFT15_StarGuardian_PrismaticPending><ShowIf.TFT15_StarGuardian_PrismaticActive><br><br><TFTRadiantItemBonus>별의 각성</TFTRadiantItemBonus></ShowIf.TFT15_StarGuardian_PrismaticActive><br><br><ShowIf.TFT15_StarGuardian_HasRell><status>렐:</status> @TFTUnitProperty.trait:TFT15_StarGuardian_RellValue@의 보호막 획득</ShowIf.TFT15_StarGuardian_HasRell><ShowIfNot.TFT15_StarGuardian_HasRell><TFTGuildInactive>렐: 보호막 획득</TFTGuildInactive></ShowIfNot.TFT15_StarGuardian_HasRell><br><ShowIf.TFT15_StarGuardian_HasSyndra><status>신드라:</status> @SyndraTimer@초마다 주문력 @TFTUnitProperty.trait:TFT15_StarGuardian_SyndraValue@% 획득</ShowIf.TFT15_StarGuardian_HasSyndra><ShowIfNot.TFT15_StarGuardian_HasSyndra><TFTGuildInactive>신드라: 주문력 획득</TFTGuildInactive></ShowIfNot.TFT15_StarGuardian_HasSyndra><br><ShowIf.TFT15_StarGuardian_HasXayah><status>자야:</status> 기본 공격 3회마다 <magicDamage>@TFTUnitProperty.trait:TFT15_StarGuardian_XayahValue@(스테이지에 따라 증가)</magicDamage>의 마법 피해를 입힘</ShowIf.TFT15_StarGuardian_HasXayah><ShowIfNot.TFT15_StarGuardian_HasXayah><TFTGuildInactive>자야: 기본 공격 시 마법 피해를 입힘</TFTGuildInactive></ShowIfNot.TFT15_StarGuardian_HasXayah><br><ShowIf.TFT15_StarGuardian_HasAhri><status>아리:</status> 스킬 사용 후 @AhriDuration@초에 걸쳐 마나 @TFTUnitProperty.trait:TFT15_StarGuardian_AhriValue@ 획득</ShowIf.TFT15_StarGuardian_HasAhri><ShowIfNot.TFT15_StarGuardian_HasAhri><TFTGuildInactive>아리: 스킬 사용 시 마나 획득</TFTGuildInactive></ShowIfNot.TFT15_StarGuardian_HasAhri><br><ShowIf.TFT15_StarGuardian_HasNeeko><status>니코:</status> 체력 회복량 및 보호막 흡수량 +@TFTUnitProperty.trait:TFT15_StarGuardian_NeekoValue@%</ShowIf.TFT15_StarGuardian_HasNeeko><ShowIfNot.TFT15_StarGuardian_HasNeeko><TFTGuildInactive>니코: 체력 회복량 및 보호막 흡수량 증가</TFTGuildInactive></ShowIfNot.TFT15_StarGuardian_HasNeeko><br><ShowIf.TFT15_StarGuardian_HasPoppy><status>뽀삐:</status> 체력이 40%일 때, @TFTUnitProperty.trait:TFT15_StarGuardian_PoppyValue@% %i:scaleHealth% 회복</ShowIf.TFT15_StarGuardian_HasPoppy><ShowIfNot.TFT15_StarGuardian_HasPoppy><TFTGuildInactive>뽀삐: 체력이 낮을 때 체력 회복</TFTGuildInactive></ShowIfNot.TFT15_StarGuardian_HasPoppy><br><ShowIf.TFT15_StarGuardian_HasJinx><status>징크스:</status> 공격 속도 +@TFTUnitProperty.trait:TFT15_StarGuardian_JinxValue@%, 처치 관여 후 +@TFTUnitProperty.trait:TFT15_StarGuardian_JinxBonusASValue@% %i:scaleAS% (3초에 걸쳐 점차 사라짐)</ShowIf.TFT15_StarGuardian_HasJinx><ShowIfNot.TFT15_StarGuardian_HasJinx><TFTGuildInactive>징크스: 공격 속도 획득</TFTGuildInactive></ShowIfNot.TFT15_StarGuardian_HasJinx><br><ShowIf.TFT15_StarGuardian_HasSeraphine><status>세라핀:</status> @TFTUnitProperty.trait:TFT15_StarGuardian_SeraphineValue@ %i:scaleArmor%%i:scaleMR%%i:scaleHealth% 및 @TFTUnitProperty.trait:TFT15_StarGuardian_SeraphineValue@% %i:scaleAD%%i:scaleAS%%i:scaleCrit%%i:scaleCritMult% 획득</ShowIf.TFT15_StarGuardian_HasSeraphine><ShowIfNot.TFT15_StarGuardian_HasSeraphine><TFTGuildInactive>세라핀: 모든 능력치 획득</TFTGuildInactive></ShowIfNot.TFT15_StarGuardian_HasSeraphine><br><ShowIf.TFT15_StarGuardian_HasEmblem><status>상징:</status> 추가 효과 @EmblemBonus*100@% 증가!</ShowIf.TFT15_StarGuardian_HasEmblem><ShowIfNot.TFT15_StarGuardian_HasEmblem><TFTGuildInactive>상징: 다른 추가 효과 증가</TFTGuildInactive></ShowIfNot.TFT15_StarGuardian_HasEmblem>",
+    "effects": [
+      {
+        "maxUnits": 2,
+        "minUnits": 2,
+        "style": 1,
+        "variables": {
+          "AhriDuration": 2.0,
+          "EmblemBonus": 0.10000000149011612,
+          "ManaToPrismatic": 18500.0,
+          "Multiplier": 1.0,
+          "SyndraTimer": 3.0,
+          "{02914815}": 0.11999999731779099,
+          "{05ce3a8e}": 5.0,
+          "{1bb9c993}": 60.0,
+          "{39509739}": 0.05000000074505806,
+          "{40cdc45f}": 2.0,
+          "{53e50c19}": 0.07999999821186066,
+          "{5416a34e}": 50,
+          "{664e2968}": null,
+          "{7dbabf3e}": 240,
+          "{89a442d6}": null,
+          "{98cfb4a4}": 750.0,
+          "{99ff11e5}": 6.0,
+          "{9db0387d}": 0.20000000298023224,
+          "{a085bd04}": 500,
+          "{ca26eef7}": 0.18000000715255737
+        }
+      },
+      {
+        "maxUnits": 3,
+        "minUnits": 3,
+        "style": 3,
+        "variables": {
+          "AhriDuration": 2.0,
+          "EmblemBonus": 0.10000000149011612,
+          "ManaToPrismatic": 18500.0,
+          "Multiplier": 1.0499999523162842,
+          "SyndraTimer": 3.0,
+          "{02914815}": 0.11999999731779099,
+          "{05ce3a8e}": 5.0,
+          "{1bb9c993}": 60.0,
+          "{39509739}": 0.05000000074505806,
+          "{40cdc45f}": 2.0,
+          "{53e50c19}": 0.07999999821186066,
+          "{5416a34e}": 50,
+          "{664e2968}": null,
+          "{7dbabf3e}": 240,
+          "{89a442d6}": null,
+          "{98cfb4a4}": 750.0,
+          "{99ff11e5}": 6.0,
+          "{9db0387d}": 0.20000000298023224,
+          "{a085bd04}": 500,
+          "{ca26eef7}": 0.18000000715255737
+        }
+      },
+      {
+        "maxUnits": 4,
+        "minUnits": 4,
+        "style": 3,
+        "variables": {
+          "AhriDuration": 2.0,
+          "EmblemBonus": 0.10000000149011612,
+          "ManaToPrismatic": 18500.0,
+          "Multiplier": 1.100000023841858,
+          "SyndraTimer": 3.0,
+          "{02914815}": 0.11999999731779099,
+          "{05ce3a8e}": 5.0,
+          "{1bb9c993}": 60.0,
+          "{39509739}": 0.05000000074505806,
+          "{40cdc45f}": 2.0,
+          "{53e50c19}": 0.07999999821186066,
+          "{5416a34e}": 50,
+          "{664e2968}": null,
+          "{7dbabf3e}": 240,
+          "{89a442d6}": null,
+          "{98cfb4a4}": 750.0,
+          "{99ff11e5}": 6.0,
+          "{9db0387d}": 0.20000000298023224,
+          "{a085bd04}": 500,
+          "{ca26eef7}": 0.18000000715255737
+        }
+      },
+      {
+        "maxUnits": 5,
+        "minUnits": 5,
+        "style": 3,
+        "variables": {
+          "AhriDuration": 2.0,
+          "EmblemBonus": 0.10000000149011612,
+          "ManaToPrismatic": 18500.0,
+          "Multiplier": 1.1200000047683716,
+          "SyndraTimer": 3.0,
+          "{02914815}": 0.11999999731779099,
+          "{05ce3a8e}": 5.0,
+          "{1bb9c993}": 60.0,
+          "{39509739}": 0.05000000074505806,
+          "{40cdc45f}": 2.0,
+          "{53e50c19}": 0.07999999821186066,
+          "{5416a34e}": 50,
+          "{664e2968}": null,
+          "{7dbabf3e}": 240,
+          "{89a442d6}": null,
+          "{98cfb4a4}": 750.0,
+          "{99ff11e5}": 6.0,
+          "{9db0387d}": 0.20000000298023224,
+          "{a085bd04}": 500,
+          "{ca26eef7}": 0.18000000715255737
+        }
+      },
+      {
+        "maxUnits": 6,
+        "minUnits": 6,
+        "style": 5,
+        "variables": {
+          "AhriDuration": 2.0,
+          "EmblemBonus": 0.10000000149011612,
+          "ManaToPrismatic": 18500.0,
+          "Multiplier": 1.1399999856948853,
+          "SyndraTimer": 3.0,
+          "{02914815}": 0.11999999731779099,
+          "{05ce3a8e}": 5.0,
+          "{1bb9c993}": 60.0,
+          "{39509739}": 0.05000000074505806,
+          "{40cdc45f}": 2.0,
+          "{53e50c19}": 0.07999999821186066,
+          "{5416a34e}": 50,
+          "{664e2968}": null,
+          "{7dbabf3e}": 240,
+          "{89a442d6}": null,
+          "{98cfb4a4}": 750.0,
+          "{99ff11e5}": 6.0,
+          "{9db0387d}": 0.20000000298023224,
+          "{a085bd04}": 500,
+          "{ca26eef7}": 0.18000000715255737
+        }
+      },
+      {
+        "maxUnits": 7,
+        "minUnits": 7,
+        "style": 5,
+        "variables": {
+          "AhriDuration": 2.0,
+          "EmblemBonus": 0.10000000149011612,
+          "ManaToPrismatic": 18500.0,
+          "Multiplier": 1.159999966621399,
+          "SyndraTimer": 3.0,
+          "{02914815}": 0.11999999731779099,
+          "{05ce3a8e}": 5.0,
+          "{1bb9c993}": 60.0,
+          "{39509739}": 0.05000000074505806,
+          "{40cdc45f}": 2.0,
+          "{53e50c19}": 0.07999999821186066,
+          "{5416a34e}": 50,
+          "{664e2968}": null,
+          "{7dbabf3e}": 240,
+          "{89a442d6}": null,
+          "{98cfb4a4}": 750.0,
+          "{99ff11e5}": 6.0,
+          "{9db0387d}": 0.20000000298023224,
+          "{a085bd04}": 500,
+          "{ca26eef7}": 0.18000000715255737
+        }
+      },
+      {
+        "maxUnits": 8,
+        "minUnits": 8,
+        "style": 5,
+        "variables": {
+          "AhriDuration": 2.0,
+          "EmblemBonus": 0.10000000149011612,
+          "ManaToPrismatic": 18500.0,
+          "Multiplier": 1.1799999475479126,
+          "SyndraTimer": 3.0,
+          "{02914815}": 0.11999999731779099,
+          "{05ce3a8e}": 5.0,
+          "{1bb9c993}": 60.0,
+          "{39509739}": 0.05000000074505806,
+          "{40cdc45f}": 2.0,
+          "{53e50c19}": 0.07999999821186066,
+          "{5416a34e}": 50,
+          "{664e2968}": null,
+          "{7dbabf3e}": 240,
+          "{89a442d6}": null,
+          "{98cfb4a4}": 750.0,
+          "{99ff11e5}": 6.0,
+          "{9db0387d}": 0.20000000298023224,
+          "{a085bd04}": 500,
+          "{ca26eef7}": 0.18000000715255737
+        }
+      },
+      {
+        "maxUnits": 8,
+        "minUnits": 8,
+        "style": 6,
+        "variables": {
+          "AhriDuration": 2.0,
+          "EmblemBonus": 0.10000000149011612,
+          "ManaToPrismatic": 18500.0,
+          "Multiplier": 1.1799999475479126,
+          "SyndraTimer": 3.0,
+          "{02914815}": 0.11999999731779099,
+          "{05ce3a8e}": 5.0,
+          "{1bb9c993}": 60.0,
+          "{39509739}": 0.05000000074505806,
+          "{40cdc45f}": 2.0,
+          "{53e50c19}": 0.07999999821186066,
+          "{5416a34e}": 50,
+          "{664e2968}": null,
+          "{7dbabf3e}": 240,
+          "{89a442d6}": null,
+          "{98cfb4a4}": 750.0,
+          "{99ff11e5}": 6.0,
+          "{9db0387d}": 0.20000000298023224,
+          "{a085bd04}": 500,
+          "{ca26eef7}": 0.18000000715255737
+        }
+      },
+      {
+        "maxUnits": 9,
+        "minUnits": 9,
+        "style": 5,
+        "variables": {
+          "AhriDuration": 2.0,
+          "EmblemBonus": 0.10000000149011612,
+          "ManaToPrismatic": 18500.0,
+          "Multiplier": 1.2000000476837158,
+          "SyndraTimer": 3.0,
+          "{02914815}": 0.11999999731779099,
+          "{05ce3a8e}": 5.0,
+          "{1bb9c993}": 60.0,
+          "{39509739}": 0.05000000074505806,
+          "{40cdc45f}": 2.0,
+          "{53e50c19}": 0.07999999821186066,
+          "{5416a34e}": 50,
+          "{664e2968}": null,
+          "{7dbabf3e}": 240,
+          "{89a442d6}": null,
+          "{98cfb4a4}": 750.0,
+          "{99ff11e5}": 6.0,
+          "{9db0387d}": 0.20000000298023224,
+          "{a085bd04}": 500,
+          "{ca26eef7}": 0.18000000715255737
+        }
+      },
+      {
+        "maxUnits": 9,
+        "minUnits": 9,
+        "style": 6,
+        "variables": {
+          "AhriDuration": 2.0,
+          "EmblemBonus": 0.10000000149011612,
+          "ManaToPrismatic": 18500.0,
+          "Multiplier": 1.2000000476837158,
+          "SyndraTimer": 3.0,
+          "{02914815}": 0.11999999731779099,
+          "{05ce3a8e}": 5.0,
+          "{1bb9c993}": 60.0,
+          "{39509739}": 0.05000000074505806,
+          "{40cdc45f}": 2.0,
+          "{53e50c19}": 0.07999999821186066,
+          "{5416a34e}": 50,
+          "{664e2968}": null,
+          "{7dbabf3e}": 240,
+          "{89a442d6}": null,
+          "{98cfb4a4}": 750.0,
+          "{99ff11e5}": 6.0,
+          "{9db0387d}": 0.20000000298023224,
+          "{a085bd04}": 500,
+          "{ca26eef7}": 0.18000000715255737
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 10,
+        "style": 5,
+        "variables": {
+          "AhriDuration": 2.0,
+          "EmblemBonus": 0.10000000149011612,
+          "ManaToPrismatic": 18500.0,
+          "Multiplier": 1.5,
+          "SyndraTimer": 3.0,
+          "{02914815}": 0.11999999731779099,
+          "{05ce3a8e}": 5.0,
+          "{1bb9c993}": 60.0,
+          "{39509739}": 0.05000000074505806,
+          "{40cdc45f}": 2.0,
+          "{53e50c19}": 0.07999999821186066,
+          "{5416a34e}": 50,
+          "{664e2968}": null,
+          "{7dbabf3e}": 240,
+          "{89a442d6}": null,
+          "{98cfb4a4}": 750.0,
+          "{99ff11e5}": 6.0,
+          "{9db0387d}": 0.20000000298023224,
+          "{a085bd04}": 500,
+          "{ca26eef7}": 0.18000000715255737
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 10,
+        "style": 6,
+        "variables": {
+          "AhriDuration": 2.0,
+          "EmblemBonus": 0.10000000149011612,
+          "ManaToPrismatic": 18500.0,
+          "Multiplier": 2.0,
+          "SyndraTimer": 3.0,
+          "{02914815}": 0.11999999731779099,
+          "{05ce3a8e}": 5.0,
+          "{1bb9c993}": 60.0,
+          "{39509739}": 0.05000000074505806,
+          "{40cdc45f}": 2.0,
+          "{53e50c19}": 0.07999999821186066,
+          "{5416a34e}": 50,
+          "{664e2968}": null,
+          "{7dbabf3e}": 240,
+          "{89a442d6}": null,
+          "{98cfb4a4}": 750.0,
+          "{99ff11e5}": 6.0,
+          "{9db0387d}": 0.20000000298023224,
+          "{a085bd04}": 500,
+          "{ca26eef7}": 0.18000000715255737
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_Heavyweight",
+    "name": "헤비급",
+    "desc": "아군이 체력을 @TeamBonusHealth@ 얻습니다. <br><br>헤비급은 추가 체력을 얻고 체력의 일정 비율만큼 공격력을 얻습니다.<br><br><expandRow>(@MinUnits@) @BonusPercentHealth*100@% %i:scaleHealth% | %i:scaleHealth%의 @HealthPercentToAD@%만큼 %i:scaleAD% 획득</expandRow>",
+    "effects": [
+      {
+        "maxUnits": 3,
+        "minUnits": 2,
+        "style": 1,
+        "variables": {
+          "BonusPercentHealth": 0.20000000298023224,
+          "HealthPercentToAD": 0.20000000298023224,
+          "TeamBonusHealth": 100.0
+        }
+      },
+      {
+        "maxUnits": 5,
+        "minUnits": 4,
+        "style": 3,
+        "variables": {
+          "BonusPercentHealth": 0.4000000059604645,
+          "HealthPercentToAD": 0.4000000059604645,
+          "TeamBonusHealth": 100.0
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 6,
+        "style": 5,
+        "variables": {
+          "BonusPercentHealth": 0.6499999761581421,
+          "HealthPercentToAD": 0.6000000238418579,
+          "TeamBonusHealth": 100.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_TheCrew",
+    "name": "크루",
+    "desc": "크루 챔피언이 배치한 크루 멤버 1명당 체력 및 공격 속도를 @StatBonus*100@% 얻습니다.<br><br>3성 크루 챔피언 1명당 추가 효과를 얻습니다.<br><br><tftActiveRank enabled=TFT15_Trait_WildcardCrew_Bonus1Active default=false alternate=TFTGuildInactive>(1x <ShowIf.TFT15_Trait_WildcardCrew_Bonus1Active>%i:3StarEnabled%</ShowIf.TFT15_Trait_WildcardCrew_Bonus1Active><ShowIfNot.TFT15_Trait_WildcardCrew_Bonus1Active>%i:3StarDisabled%</ShowIfNot.TFT15_Trait_WildcardCrew_Bonus1Active>): 유료 새로고침당 경험치 +@XPPerReroll@, 플레이어 레벨에 의해 크루 유닛 확률이 감소하지 않음</tftActiveRank><br><tftActiveRank enabled=TFT15_Trait_WildcardCrew_Bonus2Active default=false alternate=TFTGuildInactive>(2x <ShowIf.TFT15_Trait_WildcardCrew_Bonus2Active>%i:3StarEnabled%</ShowIf.TFT15_Trait_WildcardCrew_Bonus2Active><ShowIfNot.TFT15_Trait_WildcardCrew_Bonus2Active>%i:3StarDisabled%</ShowIfNot.TFT15_Trait_WildcardCrew_Bonus2Active>): 라운드당 무료 새로고침 +1회</tftActiveRank><br><tftActiveRank enabled=TFT15_Trait_WildcardCrew_Bonus3Active default=false alternate=TFTGuildInactive>(3x <ShowIf.TFT15_Trait_WildcardCrew_Bonus3Active>%i:3StarEnabled%</ShowIf.TFT15_Trait_WildcardCrew_Bonus3Active><ShowIfNot.TFT15_Trait_WildcardCrew_Bonus3Active>%i:3StarDisabled%</ShowIfNot.TFT15_Trait_WildcardCrew_Bonus3Active>): @BaseDamageThreshold@의 피해를 입히면 로켓을 발사해 <magicDamage>@BaseRocketDamage@</magicDamage>의 피해를 입힘</tftActiveRank><br><tftActiveRank enabled=TFT15_Trait_WildcardCrew_Bonus4Active default=false alternate=TFTGuildInactive>(4x <ShowIf.TFT15_Trait_WildcardCrew_Bonus4Active>%i:3StarEnabled%</ShowIf.TFT15_Trait_WildcardCrew_Bonus4Active><ShowIfNot.TFT15_Trait_WildcardCrew_Bonus4Active>%i:3StarDisabled%</ShowIfNot.TFT15_Trait_WildcardCrew_Bonus4Active>): 플레이어 레벨당 로켓을 @RocketRatePerLevel*100@% 더 자주 발사</tftActiveRank><br><tftActiveRank enabled=TFT15_Trait_WildcardCrew_Bonus5Active default=false alternate=TFTGuildInactive>(5x <ShowIf.TFT15_Trait_WildcardCrew_Bonus5Active>%i:3StarEnabled%</ShowIf.TFT15_Trait_WildcardCrew_Bonus5Active><ShowIfNot.TFT15_Trait_WildcardCrew_Bonus5Active>%i:3StarDisabled%</ShowIfNot.TFT15_Trait_WildcardCrew_Bonus5Active>): 행성 파괴자 발사</tftActiveRank>",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 2,
+        "style": 1,
+        "variables": {
+          "BaseDamageThreshold": 280.0,
+          "BaseRocketDamage": 75.0,
+          "RocketRatePerLevel": 0.02500000037252903,
+          "StatBonus": 0.05000000074505806,
+          "XPPerReroll": 1
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 2,
+        "style": 3,
+        "variables": {
+          "BaseDamageThreshold": 280.0,
+          "BaseRocketDamage": 75.0,
+          "RocketRatePerLevel": 0.02500000037252903,
+          "StatBonus": 0.05000000074505806,
+          "XPPerReroll": 1
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 2,
+        "style": 3,
+        "variables": {
+          "BaseDamageThreshold": 280.0,
+          "BaseRocketDamage": 75.0,
+          "RocketRatePerLevel": 0.02500000037252903,
+          "StatBonus": 0.05000000074505806,
+          "XPPerReroll": 1
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 2,
+        "style": 5,
+        "variables": {
+          "BaseDamageThreshold": 280.0,
+          "BaseRocketDamage": 75.0,
+          "RocketRatePerLevel": 0.02500000037252903,
+          "StatBonus": 0.05000000074505806,
+          "XPPerReroll": 1
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 2,
+        "style": 5,
+        "variables": {
+          "BaseDamageThreshold": 280.0,
+          "BaseRocketDamage": 75.0,
+          "RocketRatePerLevel": 0.02500000037252903,
+          "StatBonus": 0.05000000074505806,
+          "XPPerReroll": 1
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 2,
+        "style": 6,
+        "variables": {
+          "BaseDamageThreshold": 280.0,
+          "BaseRocketDamage": 75.0,
+          "RocketRatePerLevel": 0.02500000037252903,
+          "StatBonus": 0.05000000074505806,
+          "XPPerReroll": 1
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 2,
+        "style": 1,
+        "variables": {
+          "BaseDamageThreshold": 280.0,
+          "BaseRocketDamage": 75.0,
+          "RocketRatePerLevel": 0.02500000037252903,
+          "StatBonus": 0.05000000074505806,
+          "XPPerReroll": 1
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_SupremeCells",
+    "name": "슈프림 셀",
+    "desc": "지난 전투에서 가장 많은 피해를 입힌 셀이 슈프림이 됩니다. 슈프림 셀이 사망하면, 현재 가장 많은 피해를 입힌 셀이 슈프림이 됩니다.<br><br>셀이 피해 증폭을 얻습니다. 슈프림 셀은 능력치를 더 얻으며 체력이 @OverlordExecute*100@% 아래인 적을 처형합니다.<br><br><row>(@MinUnits@) @DamageAmp@% %i:scaleDA% | @OverlordDamageAmp@% %i:scaleDA%</row><br><row>(@MinUnits@) @DamageAmp@% %i:scaleDA% | @OverlordDamageAmp@% %i:scaleDA%</row><br><row>(@MinUnits@) @DamageAmp@% %i:scaleDA% | @OverlordDamageAmp@% %i:scaleDA%, 두 번째 슈프림 획득</row>",
+    "effects": [
+      {
+        "maxUnits": 2,
+        "minUnits": 2,
+        "style": 1,
+        "variables": {
+          "DamageAmp": 8.0,
+          "OverlordDamageAmp": 12.0,
+          "OverlordExecute": 0.10000000149011612,
+          "{86bfdc37}": 1
+        }
+      },
+      {
+        "maxUnits": 3,
+        "minUnits": 3,
+        "style": 3,
+        "variables": {
+          "DamageAmp": 18.0,
+          "OverlordDamageAmp": 30.0,
+          "OverlordExecute": 0.10000000149011612,
+          "{86bfdc37}": 1
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 4,
+        "style": 5,
+        "variables": {
+          "DamageAmp": 28.0,
+          "OverlordDamageAmp": 50.0,
+          "OverlordExecute": 0.10000000149011612,
+          "{86bfdc37}": 2
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_SoulFighter",
+    "name": "소울 파이터",
+    "desc": "소울 파이터가 추가 체력을 얻고 매초 공격력과 주문력을 얻습니다. 최대 @MaxStacks@회까지 중첩됩니다. 최대 중첩 시 추가 고정 피해를 입힙니다.<br><ShowIf.TFT15_SoulFighter_NoPrismatic><br><rules>프리즘: 8명 배치 후 전투 @PlayerDamageToPrismatic@회 승리</rules><br></ShowIf.TFT15_SoulFighter_NoPrismatic><ShowIf.TFT15_SoulFighter_PrismaticPending><br><TFTRadiantItemBonus>프리즘:</TFTRadiantItemBonus> 전투에서 플레이어 @PlayerDamageToPrismatic@명 상대로 승리 (@TFTUnitProperty.trait:TFT15_SoulFighter_PlayerDamageDealt@)<br></ShowIf.TFT15_SoulFighter_PrismaticPending><ShowIf.TFT15_SoulFighter_PrismaticActive><br><TFTRadiantItemBonus>최대 소울 파워<br></TFTRadiantItemBonus></ShowIf.TFT15_SoulFighter_PrismaticActive><br><row>(@MinUnits@) @FlatHealth@ %i:scaleHealth%, @StatsPerSecond*100@% %i:scaleAD%%i:scaleAP%, +@BonusTrueDamage*100@% 피해</row><br><row>(@MinUnits@) @FlatHealth@ %i:scaleHealth%, @StatsPerSecond*100@% %i:scaleAD%%i:scaleAP%, +@BonusTrueDamage*100@% 피해</row><br><row>(@MinUnits@) @FlatHealth@ %i:scaleHealth%, @StatsPerSecond*100@% %i:scaleAD%%i:scaleAP%, +@BonusTrueDamage*100@% 피해</row><br><row>(@MinUnits@) @FlatHealth@ %i:scaleHealth%, @StatsPerSecond*100@% %i:scaleAD%%i:scaleAP%, +@BonusTrueDamage*100@% 피해</row>",
+    "effects": [
+      {
+        "maxUnits": 3,
+        "minUnits": 2,
+        "style": 1,
+        "variables": {
+          "BonusTrueDamage": 0.10000000149011612,
+          "FlatHealth": 120.0,
+          "MaxStacks": 8.0,
+          "PlayerDamageToPrismatic": 10,
+          "StatsPerSecond": 0.009999999776482582
+        }
+      },
+      {
+        "maxUnits": 5,
+        "minUnits": 4,
+        "style": 3,
+        "variables": {
+          "BonusTrueDamage": 0.1599999964237213,
+          "FlatHealth": 240.0,
+          "MaxStacks": 8.0,
+          "PlayerDamageToPrismatic": 10,
+          "StatsPerSecond": 0.019999999552965164
+        }
+      },
+      {
+        "maxUnits": 7,
+        "minUnits": 6,
+        "style": 3,
+        "variables": {
+          "BonusTrueDamage": 0.2199999988079071,
+          "FlatHealth": 425.0,
+          "MaxStacks": 8.0,
+          "PlayerDamageToPrismatic": 10,
+          "StatsPerSecond": 0.029999999329447746
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 8,
+        "style": 5,
+        "variables": {
+          "BonusTrueDamage": 0.2800000011920929,
+          "FlatHealth": 600.0,
+          "MaxStacks": 8.0,
+          "PlayerDamageToPrismatic": 10,
+          "StatsPerSecond": 0.03999999910593033
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 8,
+        "style": 6,
+        "variables": {
+          "BonusTrueDamage": 0.30000001192092896,
+          "FlatHealth": 700.0,
+          "MaxStacks": 8.0,
+          "PlayerDamageToPrismatic": 10,
+          "StatsPerSecond": 0.03999999910593033
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_ElTigre",
+    "name": "레슬링 챔피언",
+    "desc": "레슬링 챔피언이 플레이어를 대상으로 승리하면 레슬링 챔피언의 별 레벨만큼 포로 팬이 추가됩니다. 패배 시 포로 팬 하나당 전략가 피해량이 @PlayerDamagePrevented@ 감소합니다. 이후 포로 팬을 모두 잃습니다.<br><br>포로 팬: @TFTUnitProperty.trait:TFT15_Trait_ElTigre_NumPoros@",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 4,
+        "variables": {
+          "PctPorosLost": 100.0,
+          "PlayerDamagePrevented": 1.0,
+          "PlayerHealthPerVictoryDU": 1,
+          "PoroAmountForHealPVE": 20.0,
+          "PorosPerVictory": 1.0,
+          "PorosPerVictoryDU": 1,
+          "TacticianHealPVE": 1.0,
+          "{0ee2e080}": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_Spellslinger",
+    "name": "마법사",
+    "desc": "마법사가 추가 주문력을 얻습니다.<br><br>적이 마법사에게 피해를 입은 뒤 사망하면 자신의 최대 체력에 비례한 피해를 다른 적에게 입힙니다.<br><br><row>(@MinUnits@) @AbilityPower@% %i:scaleAP%, 최대 %i:scaleHealth%의 @HealthPct*100@%</row><br><row>(@MinUnits@) @AbilityPower@% %i:scaleAP%, 최대 %i:scaleHealth%의 @HealthPct*100@%</row><br><row>(@MinUnits@) @AbilityPower@% %i:scaleAP%, 적 @TargetNum@명에게 최대 %i:scaleHealth%의 @HealthPct*100@%만큼 피해를 입힘</row>",
+    "effects": [
+      {
+        "maxUnits": 3,
+        "minUnits": 2,
+        "style": 1,
+        "variables": {
+          "AbilityPower": 20,
+          "HealthPct": 0.07999999821186066,
+          "TargetNum": 1,
+          "{a34f32df}": 3
+        }
+      },
+      {
+        "maxUnits": 5,
+        "minUnits": 4,
+        "style": 3,
+        "variables": {
+          "AbilityPower": 50,
+          "HealthPct": 0.10000000149011612,
+          "TargetNum": 1,
+          "{a34f32df}": 3
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 6,
+        "style": 5,
+        "variables": {
+          "AbilityPower": 80,
+          "HealthPct": 0.11999999731779099,
+          "TargetNum": 2,
+          "{a34f32df}": 3
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_MonsterTrainer",
+    "name": "괴물 트레이너",
+    "desc": "룰루가 소환해 전투에 대신 내보낼 괴물을 선택하세요!",
+    "effects": [
+      {
+        "maxUnits": 25000,
+        "minUnits": 1,
+        "style": 4,
+        "variables": {
+          "FirstEvolveLevel": 15,
+          "HealthGainPerLevel": 0.009999999776482582,
+          "SecondEvolveLevel": 30,
+          "{74bcb19e}": 50,
+          "{b4bcb37d}": 0.029999999329447746,
+          "{c0bcc661}": 3
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_Juggernaut",
+    "name": "전쟁기계",
+    "desc": "전쟁기계가 내구력을 얻습니다. 체력이 @HealthBreakpoint*100@% 이상일 경우 수치가 증가합니다. 전쟁기계가 사망하면 다른 전쟁기계가 최대 체력의 @HealRatio*100@%만큼 체력을 회복합니다.<br><br><expandRow>(@MinUnits@) @BaseDR*100@% 또는 @IncreasedDR*100@% %i:scaleDR%</expandRow>",
+    "effects": [
+      {
+        "maxUnits": 3,
+        "minUnits": 2,
+        "style": 1,
+        "variables": {
+          "BaseDR": 0.15000000596046448,
+          "HealRatio": 0.10000000149011612,
+          "HealthBreakpoint": 0.5,
+          "IncreasedDR": 0.25
+        }
+      },
+      {
+        "maxUnits": 5,
+        "minUnits": 4,
+        "style": 3,
+        "variables": {
+          "BaseDR": 0.20000000298023224,
+          "HealRatio": 0.10000000149011612,
+          "HealthBreakpoint": 0.5,
+          "IncreasedDR": 0.30000001192092896
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 6,
+        "style": 5,
+        "variables": {
+          "BaseDR": 0.25,
+          "HealRatio": 0.10000000149011612,
+          "HealthBreakpoint": 0.5,
+          "IncreasedDR": 0.3499999940395355
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_Rosemother",
+    "name": "장미 어머니",
+    "desc": "자이라의 별 레벨에 따라 배치할 수 있는 식물을 @1Star@/@2Star@/@3Star@개 획득합니다. 전방 가로 2열에 배치한 식물은 튼튼한 휘감는 뿌리로 자라며, 후방 가로 2열에 배치한 식물은 치명적인 가시로 자랍니다.<br><br>장미 어머니의 식물은 자이라 주문력 및 공격 속도의 효과를 받습니다. <br><br>자이라가 스킬을 사용하면 자이라의 식물이 체력을 @BonusHealthAndAS*100@% 회복하고 전투가 끝날 때까지 공격 속도를 @BonusHealthAndAS*100@% 얻습니다. 식물이 사망한 상태라면, 대신 부활시킵니다.",
+    "effects": [
+      {
+        "maxUnits": 1,
+        "minUnits": 1,
+        "style": 4,
+        "variables": {
+          "1Star": 1.0,
+          "2Star": 1.0,
+          "3Star": 8.0,
+          "BonusHealthAndAS": 0.3499999940395355
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_Captain",
+    "name": "해적선장",
+    "desc": "트위스티드 페이트가 크루 함선을 업그레이드해 피해량의 @Bounty_TheCrew_RocketUpgrade_TrueDamagePercent*100@%를 고정 피해로 입히도록 하며, 라운드마다 무작위 보상을 제공하는 현상금 카드를 뽑습니다.<br><br><rules>현상금 카드는 플레이어 대상 전투마다 더 좋아집니다. (배치한 라운드: @TFTUnitProperty.trait:TFT15_Trait_RogueCaptain_Bounty_NumRoundsLeft@)</rules><br><br>현재 현상금 카드:<br>@TFTUnitProperty.trait:TFT15_Trait_RogueCaptain_CurrentBounty@<br><br>",
+    "effects": [
+      {
+        "maxUnits": 1,
+        "minUnits": 1,
+        "style": 4,
+        "variables": {
+          "Bounty_CasterEmpower_DA": 0.019999999552965164,
+          "Bounty_FreeRerolls_NumRerolls": 2,
+          "Bounty_GainAttackSpeed_AS": 0.15000000596046448,
+          "Bounty_GainGoldLarge_MinGold": 12,
+          "Bounty_GainGold_MinGold": 2,
+          "Bounty_GainXP_Amount": 12,
+          "Bounty_Omnivamp_Omnivamp": 0.15000000596046448,
+          "Bounty_PermanentAP_AP": 18,
+          "Bounty_TankEmpower_MaxHealth": 40,
+          "Bounty_TeamShield_Duration": 8,
+          "Bounty_TeamShield_Shield": 160,
+          "Bounty_TheCrew_GainHealth_PermanentADAP": 5.0,
+          "Bounty_TheCrew_GainHealth_PermanentHealth": 60,
+          "Bounty_TheCrew_GoldPerStar_GoldAmount": 1,
+          "Bounty_TheCrew_RocketUpgrade_TrueDamagePercent": 0.15000000596046448,
+          "Bounty_ThinkFast_Cadence": 3,
+          "Bounty_ThinkFast_Gold": 5,
+          "{0443d547}": 1,
+          "{0d20aaf6}": 1,
+          "{1376c2a6}": 12,
+          "{27dcf059}": 6,
+          "{38d1c1ce}": 0.10000000149011612,
+          "{e74d3d55}": 2
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_Duelist",
+    "name": "결투가",
+    "desc": "결투가는 기본 공격 시 공격 속도를 얻습니다. 최대 @MaxStacks@회까지 중첩됩니다.<br><br><row>(@MinUnits@) @AttackSpeedPercent*100@% %i:scaleAS%</row><br><row>(@MinUnits@) @AttackSpeedPercent*100@% %i:scaleAS%</row><br><row>(@MinUnits@) @AttackSpeedPercent*100@% %i:scaleAS%, 결투가가 @DamageReduction@% %i:scaleDR% 획득</row>",
+    "effects": [
+      {
+        "maxUnits": 3,
+        "minUnits": 2,
+        "style": 1,
+        "variables": {
+          "AttackSpeedPercent": 0.03999999910593033,
+          "DamageReduction": null,
+          "MaxStacks": 12.0
+        }
+      },
+      {
+        "maxUnits": 5,
+        "minUnits": 4,
+        "style": 3,
+        "variables": {
+          "AttackSpeedPercent": 0.07000000029802322,
+          "DamageReduction": null,
+          "MaxStacks": 12.0
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 6,
+        "style": 5,
+        "variables": {
+          "AttackSpeedPercent": 0.10000000149011612,
+          "DamageReduction": 12.0,
+          "MaxStacks": 12.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_Strategist",
+    "name": "책략가",
+    "desc": "전투 시작: 전방 가로 2열에 있는 아군이 @ShieldDuration@초 동안 보호막을 얻습니다. 후방 가로 2열에 있는 아군이 피해 증폭을 얻습니다. 책략가는 능력치를 세 배로 얻습니다.<br><br><expandRow>(@MinUnits@) @Shield@ 보호막, @DamageAmp@% %i:scaleDA%</expandRow>",
+    "effects": [
+      {
+        "maxUnits": 2,
+        "minUnits": 2,
+        "style": 1,
+        "variables": {
+          "DamageAmp": 4,
+          "Shield": 150,
+          "ShieldDuration": 15.0
+        }
+      },
+      {
+        "maxUnits": 3,
+        "minUnits": 3,
+        "style": 3,
+        "variables": {
+          "DamageAmp": 6,
+          "Shield": 225,
+          "ShieldDuration": 15.0
+        }
+      },
+      {
+        "maxUnits": 4,
+        "minUnits": 4,
+        "style": 5,
+        "variables": {
+          "DamageAmp": 10,
+          "Shield": 350,
+          "ShieldDuration": 15.0
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 5,
+        "style": 5,
+        "variables": {
+          "DamageAmp": 14,
+          "Shield": 450,
+          "ShieldDuration": 15.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_Bastion",
+    "name": "요새",
+    "desc": "아군이 방어력 및 마법 저항력을 @TeamwideResists@ 얻습니다.<br><br>요새는 능력치를 더 얻습니다. 전투 시작 후 @Duration@초 동안, 요새는 추가 수치를 2배로 얻습니다.<br><br><row>(@MinUnits@) @BonusArmor@ %i:scaleArmor%%i:scaleMR%</row><br><row>(@MinUnits@) @BonusArmor@ %i:scaleArmor%%i:scaleMR%</row><br><row>(@MinUnits@) @BonusArmor@ %i:scaleArmor%%i:scaleMR%, 요새가 아닌 유닛이 추가로 @EnhancedTeamwideArmor@ %i:scaleArmor%%i:scaleMR% 획득</row>",
+    "effects": [
+      {
+        "maxUnits": 3,
+        "minUnits": 2,
+        "style": 1,
+        "variables": {
+          "BonusArmor": 18.0,
+          "BonusMR": 18.0,
+          "Duration": 10.0,
+          "EnhancedTeamwideArmor": 25.0,
+          "StatMultiplier": 2.0,
+          "TeamwideResists": 10.0
+        }
+      },
+      {
+        "maxUnits": 5,
+        "minUnits": 4,
+        "style": 3,
+        "variables": {
+          "BonusArmor": 40.0,
+          "BonusMR": 40.0,
+          "Duration": 10.0,
+          "EnhancedTeamwideArmor": 25.0,
+          "StatMultiplier": 2.0,
+          "TeamwideResists": 10.0
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 6,
+        "style": 5,
+        "variables": {
+          "BonusArmor": 75.0,
+          "BonusMR": 75.0,
+          "Duration": 10.0,
+          "EnhancedTeamwideArmor": 25.0,
+          "StatMultiplier": 2.0,
+          "TeamwideResists": 10.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_Empyrean",
+    "name": "악령",
+    "desc": "@RealmTimer@초마다 그림자 세계가 가장 가까운 적 @NumEnemy@명을 공격해 마지막 발동 이후 악령이 입힌 피해량의 일정 비율만큼 마법 피해를 입힙니다.<br><br>체력이 가장 낮은 아군 악령이 악령과 그림자 세계가 입힌 피해량의 @HealPercent*100@%만큼 체력을 회복합니다.<br><br><row>(@MinUnits@) 피해량의 @DamagePercent*100@%</row><br><row>(@MinUnits@) 피해량의 @DamagePercent*100@%</row><br><row>(@MinUnits@) 피해량의 @DamagePercent*100@%</row>",
+    "effects": [
+      {
+        "maxUnits": 3,
+        "minUnits": 2,
+        "style": 1,
+        "variables": {
+          "DamagePercent": 0.20000000298023224,
+          "HealPercent": 0.18000000715255737,
+          "NumEnemy": 3,
+          "RealmTimer": 4.0
+        }
+      },
+      {
+        "maxUnits": 5,
+        "minUnits": 4,
+        "style": 3,
+        "variables": {
+          "DamagePercent": 0.4000000059604645,
+          "HealPercent": 0.18000000715255737,
+          "NumEnemy": 3,
+          "RealmTimer": 4.0
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 6,
+        "style": 5,
+        "variables": {
+          "DamagePercent": 0.6000000238418579,
+          "HealPercent": 0.18000000715255737,
+          "NumEnemy": 3,
+          "RealmTimer": 4.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_Prodigy",
+    "name": "신동",
+    "desc": "아군이 마나 재생을 얻습니다. 신동은 능력치를 더 얻습니다.<br><br><row>(@MinUnits@) @TeamBonusMana@ %i:TFTManaRegen% | @ProdigyBonusMana@ %i:TFTManaRegen%</row><br><row>(@MinUnits@) @TeamBonusMana@ %i:TFTManaRegen% | @ProdigyBonusMana@ %i:TFTManaRegen%</row><br><row>(@MinUnits@) @TeamBonusMana@ %i:TFTManaRegen% | @ProdigyBonusMana@ %i:TFTManaRegen%</row><br><row>(@MinUnits@) @TeamBonusMana@ %i:TFTManaRegen% | @ProdigyBonusMana@ %i:TFTManaRegen% | 신동이 스킬로 입힌 피해량의 @AllyHealing*100@%만큼 아군 1명의 체력을 회복시킴</row>",
+    "effects": [
+      {
+        "maxUnits": 2,
+        "minUnits": 2,
+        "style": 1,
+        "variables": {
+          "ProdigyBonusMana": 3.0,
+          "TeamBonusMana": 1.0
+        }
+      },
+      {
+        "maxUnits": 3,
+        "minUnits": 3,
+        "style": 3,
+        "variables": {
+          "ProdigyBonusMana": 4.0,
+          "TeamBonusMana": 1.0
+        }
+      },
+      {
+        "maxUnits": 4,
+        "minUnits": 4,
+        "style": 3,
+        "variables": {
+          "ProdigyBonusMana": 6.0,
+          "TeamBonusMana": 1.0
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 5,
+        "style": 5,
+        "variables": {
+          "AllyHealing": 0.11999999731779099,
+          "ProdigyBonusMana": 7.0,
+          "TeamBonusMana": 1.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_Protector",
+    "name": "봉쇄자",
+    "desc": "유닛이 보호막이 씌워졌을 때 내구력을 @DamageReductionPct*100@% 얻습니다. <br><br>전투당 1회 체력이 @HealthThreshold*100@%일 때 봉쇄자가 가장 가까운 아군과 자신에게 최대 체력의 일정 비율만큼 피해를 흡수하는 보호막을 씌웁니다. 보호막은 중첩됩니다.<br><br><expandRow>(@MinUnits@) %i:scaleHealth%의 @ShieldPercentAmount*100@%에 해당하는 보호막</expandRow><br>",
+    "effects": [
+      {
+        "maxUnits": 3,
+        "minUnits": 2,
+        "style": 1,
+        "variables": {
+          "DamageReductionPct": 0.05000000074505806,
+          "HealthThreshold": 0.5,
+          "ShieldPercentAmount": 0.18000000715255737
+        }
+      },
+      {
+        "maxUnits": 5,
+        "minUnits": 4,
+        "style": 3,
+        "variables": {
+          "DamageReductionPct": 0.05000000074505806,
+          "HealthThreshold": 0.5,
+          "ShieldPercentAmount": 0.36000001430511475
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 6,
+        "style": 5,
+        "variables": {
+          "DamageReductionPct": 0.05000000074505806,
+          "HealthThreshold": 0.5,
+          "ShieldPercentAmount": 0.550000011920929
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_BattleAcademia",
+    "name": "전투사관학교",
+    "desc": "전투사관학교 챔피언이 스킬을 업그레이드하고 잠재력%i:set14AmpIcon%을 얻습니다. 잠재력은 전투사관학교 챔피언의 스킬을 강화합니다. <br><ShowIf.TFT15_BattleAcademia_NoPrismatic><br><rules>프리즘: 전투사관학교 챔피언 7명 배치 후 챔피언에게 아이템을 장착해 @PrismaticItemRequirement@점 획득</rules><br></ShowIf.TFT15_BattleAcademia_NoPrismatic><ShowIf.TFT15_BattleAcademia_PrismaticPending><br><TFTRadiantItemBonus>프리즘:</TFTRadiantItemBonus> 전투에서 챔피언이 사용하는 완성 아이템 하나당 1점 획득. @PrismaticItemRequirement@점 획득 시 졸업 (@TFTUnitProperty.trait:TFT15_BattleAcademia_PrismaticNumItems@/@PrismaticItemRequirement@)<br></ShowIf.TFT15_BattleAcademia_PrismaticPending><ShowIf.TFT15_BattleAcademia_PrismaticActive><br><TFTRadiantItemBonus><br>진정한 잠재력 해방: +@UltimateNumPotential@ %i:set14AmpIcon%</TFTRadiantItemBonus><br></ShowIf.TFT15_BattleAcademia_PrismaticActive><br><row>(@MinUnits@) @NumPotential@ %i:set14AmpIcon%</row><br><row>(@MinUnits@) @NumPotential@ %i:set14AmpIcon%</row><br><row>(@MinUnits@) @NumPotential@ %i:set14AmpIcon%</row>",
+    "effects": [
+      {
+        "maxUnits": 4,
+        "minUnits": 3,
+        "style": 1,
+        "variables": {
+          "DA": 0.10000000149011612,
+          "DR": 0.05000000074505806,
+          "NumPotential": 3,
+          "PrismaticItemRequirement": 160,
+          "UltimateNumPotential": 10
+        }
+      },
+      {
+        "maxUnits": 6,
+        "minUnits": 5,
+        "style": 3,
+        "variables": {
+          "DA": 0.25,
+          "DR": 0.10000000149011612,
+          "NumPotential": 5,
+          "PrismaticItemRequirement": 160,
+          "UltimateNumPotential": 10
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 7,
+        "style": 5,
+        "variables": {
+          "DA": 0.5,
+          "DR": 0.25,
+          "NumPotential": 7,
+          "PrismaticItemRequirement": 160,
+          "UltimateNumPotential": 10
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 7,
+        "style": 6,
+        "variables": {
+          "DA": 0.5,
+          "DR": 0.25,
+          "NumPotential": 7,
+          "PrismaticItemRequirement": 160,
+          "UltimateNumPotential": 10
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_Luchador",
+    "name": "프로레슬러",
+    "desc": "프로레슬러가 추가 공격력을 얻습니다. <br><br>체력이 @HealthRatio*100@%일 때, 프로레슬러가 해로운 효과를 제거하고 체력을 회복한 다음, 전투에 다시 뛰어들어 반경 1칸 내 적을 @StunDuration@초 동안 <TFTKeyword>기절</TFTKeyword>시킵니다.<br><br><row>(@MinUnits@) @ADBonus*100@% %i:scaleAD%, @HealRatio*100@% %i:scaleHealth% 회복</row><br><row>(@MinUnits@) @ADBonus*100@% %i:scaleAD%, @HealRatio*100@% %i:scaleHealth% 회복</row>",
+    "effects": [
+      {
+        "maxUnits": 3,
+        "minUnits": 2,
+        "style": 1,
+        "variables": {
+          "ADBonus": 0.15000000596046448,
+          "HealRatio": 0.25,
+          "HealthRatio": 0.5,
+          "ShieldDuration": 5.0,
+          "StunDuration": 1.0
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 4,
+        "style": 5,
+        "variables": {
+          "ADBonus": 0.4000000059604645,
+          "HealRatio": 0.5,
+          "HealthRatio": 0.5,
+          "ShieldDuration": 5.0,
+          "StunDuration": 1.0
+        }
+      }
+    ]
+  },
+  {
+    "id": "TFT15_SentaiRanger",
+    "name": "거대 메크",
+    "desc": "거대 메크 로봇을 획득합니다. 거대 메크가 입힌 피해량의 @GalioHealRatio*100@%만큼 체력을 회복합니다.<br><ShowIf.TFT15_SentaiRanger_PrismaticActive><br><TFTRadiantItemBonus>초강력 메크 봉인 해제</TFTRadiantItemBonus><br></ShowIf.TFT15_SentaiRanger_PrismaticActive><br><row>(@MinUnits@) 거대 메크 로봇 등장</row><br><row>(@MinUnits@) 칼날 프로토콜: 1레벨</row><br><row>(@MinUnits@) 칼날 프로토콜: 2레벨</row><br><br><rules>각 거대 메크 챔피언의 별 레벨당 거대 메크 로봇의 위력이 증가합니다.</rules><br>",
+    "effects": [
+      {
+        "maxUnits": 4,
+        "minUnits": 3,
+        "style": 1,
+        "variables": {
+          "AutoAttackDamage": 65.0,
+          "GalioHealRatio": 0.11999999731779099,
+          "NumItems": 1,
+          "{0d36fce1}": 1.0,
+          "{2b3aecac}": 0.1599999964237213,
+          "{35bd6e0d}": 599,
+          "{3f8b87fb}": 5.0,
+          "{4c8d22b6}": 50,
+          "{4e59afce}": 0.05000000074505806,
+          "{54e3a48d}": null,
+          "{9456c371}": null,
+          "{d13df441}": 2,
+          "{dc8a3667}": 0.15000000596046448
+        }
+      },
+      {
+        "maxUnits": 6,
+        "minUnits": 5,
+        "style": 3,
+        "variables": {
+          "AutoAttackDamage": 100.0,
+          "GalioHealRatio": 0.11999999731779099,
+          "Health": 1300.0,
+          "NumItems": 2,
+          "{0d36fce1}": 2.0,
+          "{2b3aecac}": 0.1599999964237213,
+          "{35bd6e0d}": 699,
+          "{3f8b87fb}": 5.0,
+          "{4c8d22b6}": 75,
+          "{4e59afce}": 0.05000000074505806,
+          "{54e3a48d}": null,
+          "{9456c371}": null,
+          "{d13df441}": 2,
+          "{dc8a3667}": 0.15000000596046448
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 7,
+        "style": 5,
+        "variables": {
+          "AutoAttackDamage": 110.0,
+          "GalioHealRatio": 0.11999999731779099,
+          "Health": 2000.0,
+          "NumItems": 3,
+          "{0d36fce1}": 3.0,
+          "{2b3aecac}": 0.1599999964237213,
+          "{35bd6e0d}": 949,
+          "{3f8b87fb}": 5.0,
+          "{4c8d22b6}": 85,
+          "{4e59afce}": 0.05000000074505806,
+          "{54e3a48d}": 20.0,
+          "{9456c371}": 60.0,
+          "{d13df441}": 2,
+          "{dc8a3667}": 0.15000000596046448
+        }
+      },
+      {
+        "maxUnits": 25000,
+        "minUnits": 7,
+        "style": 6,
+        "variables": {
+          "AutoAttackDamage": 120.0,
+          "GalioHealRatio": 0.11999999731779099,
+          "Health": 2000.0,
+          "NumItems": 3,
+          "{0d36fce1}": 4.0,
+          "{2b3aecac}": 0.1599999964237213,
+          "{35bd6e0d}": 949,
+          "{3f8b87fb}": 5.0,
+          "{4c8d22b6}": 90,
+          "{4e59afce}": 0.05000000074505806,
+          "{54e3a48d}": 20.0,
+          "{9456c371}": 60.0,
+          "{d13df441}": 2,
+          "{dc8a3667}": 0.15000000596046448
+        }
+      }
+    ]
+  }
+]

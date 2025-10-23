@@ -1,0 +1,4572 @@
+[
+  {
+    "id": "TFT_Augment_AllThatShimmersPlus",
+    "name": "반짝이는 것들+",
+    "tier": null,
+    "desc": "골드를 생성하는 유물 아이템 중 1개를 선택합니다. 자석 제거기 1개와 @GoldGranted@골드를 획득합니다.",
+    "effects": {
+      "ArmoryChoiceCount": 3.0,
+      "GoldGranted": 4.0,
+      "InterestCap": 5.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_ItemCollector2",
+    "name": "아이템 수집가 II",
+    "tier": null,
+    "desc": "아군이 체력을 @BaseHP@ 얻습니다. 장착한 아이템 한 종류당 아군이 체력을 @Health@, 공격력을 @AD*100@%, 주문력을 @AP@% 추가로 얻습니다.",
+    "effects": {
+      "AD": 0.009999999776482582,
+      "AP": 1.0,
+      "BaseHP": 20.0,
+      "Health": 5.0,
+      "MaxCap": 99.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_ItemCollector1",
+    "name": "아이템 수집가 I",
+    "tier": null,
+    "desc": "장착한 아이템 한 종류당 아군이 공격력을 @AD*100@%, 주문력을 @AP@% 얻습니다.",
+    "effects": {
+      "AD": 0.009999999776482582,
+      "AP": 1.0,
+      "BaseHP": null,
+      "Health": null,
+      "MaxCap": 99.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_Augment_BattleAcademia_Hero101",
+    "name": "영웅 입문",
+    "tier": null,
+    "desc": "처음으로 플레이어 대상 전투에서 @CombatWins@회 승리 시(승리: @TFTUnitProperty.:TFT15_Augment_BattleAcademia_Hero101_Wins@) 모든 전투사관학교 챔피언이 체력을 @BonusHealth@ 얻고 최대 마나가 @ReducedMana*100@% 감소합니다. 가렌과 이즈리얼을 획득합니다.",
+    "effects": {
+      "BonusHealth": 100.0,
+      "CombatWins": 4,
+      "ReducedMana": 0.15000000596046448
+    },
+    "traits": [
+      "TFT15_BattleAcademia"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_EdgelordCrown",
+    "name": "이단아 왕관",
+    "tier": null,
+    "desc": "이단아 상징, 정의의 손길, 야스오를 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Edgelord"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_ProtectorCrest",
+    "name": "봉쇄자 문장",
+    "tier": null,
+    "desc": "봉쇄자 상징을 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Protector"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_BastionCrest",
+    "name": "요새 문장",
+    "tier": null,
+    "desc": "요새 상징을 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Bastion"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_ProdigyCrown",
+    "name": "신동 왕관",
+    "tier": null,
+    "desc": "신동 상징, 쇼진의 창, 이즈리얼을 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Prodigy"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_SupremeCellsCirclet",
+    "name": "슈프림 셀 머리띠",
+    "tier": null,
+    "desc": "슈프림 셀 상징과 아칼리를 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_SupremeCells"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_TheCrew_SpaceCamp",
+    "name": "우주 캠프",
+    "tier": null,
+    "desc": "1단계 크루 챔피언을 업그레이드할 때마다, 무작위 1~3단계 크루 챔피언 1명을 획득합니다. 말파이트를 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_TheCrew"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_CrystalGambit_DiamondHands",
+    "name": "다이아몬드 손",
+    "tier": null,
+    "desc": "수정 갬빗의 보석을 @IncreasedGP*100@% 더 얻지만, @CashoutStage@-@CashoutRound@에서 한 번만 이익을 실현할 수 있습니다. '묻고 두 배로 가'를 활성화하면 승리 시 이익을 실현하지 않고 전체 보석의 @PercentGPLostOnWin*100@%를 추가로 잃습니다.",
+    "effects": {
+      "CashoutRound": 7,
+      "CashoutStage": 4,
+      "IncreasedGP": 0.5,
+      "PercentGPLostOnWin": 0.10000000149011612
+    },
+    "traits": [
+      "TFT15_GemForce"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_Executioner_GoldenGuillotine",
+    "name": "황금 단두대",
+    "tier": null,
+    "desc": "처형자가 적을 처치할 때마다 치명타 확률에 비례해 일정 확률로 전리품을 떨어뜨립니다. 전리품의 가치에도 치명타가 적용되어 더 많은 전리품을 제공할 수 있습니다. 카타리나와 칼리스타를 획득합니다.",
+    "effects": {
+      "{51972fee}": 2.0,
+      "{a59e2760}": 0.5,
+      "{c209103c}": 0.11999999731779099,
+      "{ca332ec1}": 0.5,
+      "{d89481f4}": 1.75
+    },
+    "traits": [
+      "TFT15_Destroyer"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_RingKingCrest",
+    "name": "프로레슬러 문장",
+    "tier": null,
+    "desc": "프로레슬러 상징을 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Luchador"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_SentaiCirclet",
+    "name": "거대 메크 머리띠",
+    "tier": null,
+    "desc": "거대 메크 문장과 루시안을 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_SentaiRanger"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_Prodigy_UnboundArcana",
+    "name": "해방된 아르카나",
+    "tier": null,
+    "desc": "2초마다 신동이 마나 재생의 @PercentManaToAP*100@%만큼 주문력을 얻습니다. (내림 적용)",
+    "effects": {
+      "PercentManaToAP": 0.5
+    },
+    "traits": [
+      "TFT15_Prodigy"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_BattleAcademia_ClassPresident",
+    "name": "학급 회장",
+    "tier": null,
+    "desc": "전투 시작: 파워 업된 전투사관학교 챔피언 및 해당 챔피언과 인접한 아군이 체력을 @Health@, 공격력을 @AD*100@%, 주문력을 @AP@% 얻습니다. 전투사관학교 유닛은 두 배로 얻습니다. 카타리나를 획득합니다.",
+    "effects": {
+      "AD": 0.07999999821186066,
+      "AP": 8.0,
+      "Health": 70.0
+    },
+    "traits": [
+      "TFT15_BattleAcademia"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_Heavyweight_RingTheBell",
+    "name": "종을 울려라",
+    "tier": null,
+    "desc": "@Timer@초 후 아군 헤비급 챔피언이 최대 체력을 @MaxHealth*100@%, 피해 증폭을 @DamageAmp*100@% 얻습니다. 코부코와 자크를 획득합니다.",
+    "effects": {
+      "DamageAmp": 0.20000000298023224,
+      "MaxHealth": 0.30000001192092896,
+      "Timer": 15
+    },
+    "traits": [
+      "TFT15_Heavyweight"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_SniperCrown",
+    "name": "저격수 왕관",
+    "tier": null,
+    "desc": "저격수 상징, 무한의 대검, 케이틀린을 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Sniper"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_CrystalRoseCirclet",
+    "name": "수정 갬빗 머리띠",
+    "tier": null,
+    "desc": "수정 갬빗 상징과 잔나를 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_GemForce"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_StarGuardian_Superstar",
+    "name": "별의 힘",
+    "tier": null,
+    "desc": "별 수호자에게 파워 업이 적용된 경우 별 수호자 추가 효과가 @PercentIncrease*100@% 증가합니다. 자야를 획득합니다.",
+    "effects": {
+      "PercentIncrease": 1.5
+    },
+    "traits": [
+      "TFT15_StarGuardian"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_BastionCirclet",
+    "name": "요새 머리띠",
+    "tier": null,
+    "desc": "요새 상징, 거인의 허리띠, 레오나를 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Bastion"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_StarGuardianCrest",
+    "name": "별 수호자 문장",
+    "tier": null,
+    "desc": "별 수호자 상징을 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_StarGuardian"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_BattleAcademiaCrown",
+    "name": "전투사관학교 왕관",
+    "tier": null,
+    "desc": "전투사관학교 상징, 정령의 형상, 가렌을 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_BattleAcademia"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_StrategistCirclet",
+    "name": "책략가 머리띠",
+    "tier": null,
+    "desc": "책략가 상징, 직스, 여신의 눈물을 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Strategist"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_SpellslingerCrown",
+    "name": "마법사 왕관",
+    "tier": null,
+    "desc": "마법사 상징, 보석 건틀릿, 아리를 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Spellslinger"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_SupremeCells_AllForOne",
+    "name": "강한 자가 살아남는다",
+    "tier": null,
+    "desc": "아군이 사망할 때마다 이번 라운드에 가장 많은 피해를 입힌 슈프림 셀에게 사망한 아군 최대 체력의 @PercentHealth*100@%를 부여합니다. 카이사와 케넨을 획득합니다.",
+    "effects": {
+      "PercentHealth": 0.07999999821186066
+    },
+    "traits": [
+      "TFT15_SupremeCells"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_SoulFighterCrown",
+    "name": "소울 파이터 왕관",
+    "tier": null,
+    "desc": "소울 파이터 상징, 쇼진의 창, 칼리스타를 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_SoulFighter"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_SoulFighter_TheGodsEyeOpens",
+    "name": "깨어나는 신의 눈",
+    "tier": null,
+    "desc": "@Cadence@초마다 신의 눈이 무작위 소울 파이터 1명에게 전투가 끝날 때까지 @ShieldAmount@의 보호막과 @AS*100@%의 중첩되는 공격 속도를 부여합니다. 칼리스타와 나피리를 획득합니다.",
+    "effects": {
+      "AS": 0.11999999731779099,
+      "Cadence": 4,
+      "ShieldAmount": 200
+    },
+    "traits": [
+      "TFT15_SoulFighter"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_Bastion_RaidBoss",
+    "name": "끝판왕",
+    "tier": null,
+    "desc": "가장 강한 아군 요새 챔피언이 최대 체력을 @Health*100@% 얻습니다. 다른 요새 유닛이 죽으면 해당 유닛이 지닌 방어력 및 마법 저항력의 @DefenseRatio*100@%를 이 요새 챔피언에게 전달합니다. 쉔과 렐을 획득합니다.",
+    "effects": {
+      "DefenseRatio": 0.20000000298023224,
+      "Health": 0.25
+    },
+    "traits": [
+      "TFT15_Bastion"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_StrategistCrown",
+    "name": "책략가 왕관",
+    "tier": null,
+    "desc": "책략가 상징, 잔나, 적응형 투구를 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Strategist"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_Mentor_LearnFromTheBest",
+    "name": "최고의 스승",
+    "tier": null,
+    "desc": "챔피언의 별 레벨을 올릴 때마다 전장이나 대기석에 있는 각기 다른 멘토의 멘토 추가 효과를 영구적으로 @BonusPercent*100@%만큼 얻습니다. 야스오를 획득합니다.",
+    "effects": {
+      "BonusPercent": 0.5
+    },
+    "traits": [
+      "TFT15_OldMentor"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_DestroyerCrown",
+    "name": "처형자 왕관",
+    "tier": null,
+    "desc": "처형자 상징, 타격대의 철퇴, 카타리나를 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Destroyer"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_JuggernautCrest",
+    "name": "전쟁기계 문장",
+    "tier": null,
+    "desc": "전쟁기계 상징을 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Juggernaut"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_SentaiRanger_BeTheLegs",
+    "name": "나는 다리",
+    "tier": null,
+    "desc": "거대 메크 로봇이 방어력 및 마법 저항력을 @BonusDefenses@, 체력을 @BonusHealth@ 얻습니다. 거대 메크 챔피언 3명을 획득합니다. <br><br>거대 메크 7명을 배치하고, 10레벨에 도달했으며, 3개의 거대 메크 증강을 모두 확보했다면, 메카합체 프로토콜이 활성화됩니다.",
+    "effects": {
+      "BonusDefenses": 10,
+      "BonusHealth": 100.0
+    },
+    "traits": [
+      "TFT15_SentaiRanger"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_Luchador_GrandSlam",
+    "name": "그랜드 슬램",
+    "tier": null,
+    "desc": "프로레슬러가 공격 속도를 @BonusAS*100@% 얻습니다. 프로레슬러가 활성화되면, 전투 시작 시 프로레슬러가 전투에 뛰어들어 착지 시 기본 공격력의 @PercentBaseAD*100@%에 해당하는 피해를 입힙니다. 문도 박사를 획득합니다.",
+    "effects": {
+      "BonusAS": 0.10000000149011612,
+      "PercentBaseAD": 3.0
+    },
+    "traits": [
+      "TFT15_Luchador"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_JuggernautCirclet",
+    "name": "전쟁기계 머리띠",
+    "tier": null,
+    "desc": "전쟁기계 상징, 우디르, 거인의 허리띠를 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Juggernaut"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_SentaiCrown",
+    "name": "거대 메크 왕관",
+    "tier": null,
+    "desc": "거대 메크 상징, 크라켄의 분노, 루시안을 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_SentaiRanger"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_BattleAcademiaCirclet",
+    "name": "전투사관학교 머리띠",
+    "tier": null,
+    "desc": "전투사관학교 상징과 라칸을 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_BattleAcademia"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_ChallengerCirclet",
+    "name": "결투가 머리띠",
+    "tier": null,
+    "desc": "결투가 상징, 애쉬, B.F. 대검을 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Duelist"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_StarGuardian_PowerOfFriendship",
+    "name": "우정의 힘",
+    "tier": null,
+    "desc": "1명 이상의 다른 별 수호자와 인접한 상태로 전투를 시작하는 별 수호자가 마나 재생을 @Mana@, 방어력을 @Defenses@, 마법 저항력을 @Defenses@ 얻습니다. 렐을 획득합니다.",
+    "effects": {
+      "Defenses": 20,
+      "Mana": 1
+    },
+    "traits": [
+      "TFT15_StarGuardian"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_CrystalRoseCrest",
+    "name": "수정 갬빗 문장",
+    "tier": null,
+    "desc": "수정 갬빗 상징을 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_GemForce"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_SpellslingerCrest",
+    "name": "마법사 문장",
+    "tier": null,
+    "desc": "마법사 상징을 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Spellslinger"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_HeavyweightCirclet",
+    "name": "헤비급 머리띠",
+    "tier": null,
+    "desc": "헤비급 상징, 뽀삐, 거인의 허리띠를 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Heavyweight"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_HeavyweightCrown",
+    "name": "헤비급 왕관",
+    "tier": null,
+    "desc": "헤비급 상징, 정령의 형상, 코부코를 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Heavyweight"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_TheCrew_EscapeVelocity",
+    "name": "탈출 속도",
+    "tier": null,
+    "desc": "새로고침 1회당 속도를 1, 레벨 업 시 속도를 @LevelNum@ 얻습니다. 크루 유닛이 속도 3마다 공격 속도를 @AS*100%@% 얻습니다.<br><br>(속도: @TFTUnitProperty.:TFT15_Augment_TheCrew_EscapeVelocity_Velocity@)",
+    "effects": {
+      "AS": 0.009999999776482582,
+      "LevelNum": 10.0
+    },
+    "traits": [
+      "TFT15_TheCrew"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_Edgelord_GainTheEdge",
+    "name": "이단적 우위",
+    "tier": null,
+    "desc": "이단아가 이제 대상이 잃은 체력에 따라 추가 공격 속도를 최대 @Mult*100@%까지 얻습니다. 쉔과 자야를 획득합니다.",
+    "effects": {
+      "Mult": 2.0
+    },
+    "traits": [
+      "TFT15_Edgelord"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_SupremeCells_NewContenders",
+    "name": "새로운 도전자",
+    "tier": null,
+    "desc": "슈프림 셀 추가 효과를 @BonusSharePercent*100@%만큼 모든 아군 챔피언에게 부여합니다. 이제 아군의 모든 챔피언이 슈프림 셀이 될 수 있습니다. 카이사와 케넨을 획득합니다.",
+    "effects": {
+      "BonusSharePercent": 0.5
+    },
+    "traits": [
+      "TFT15_SupremeCells"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_ChallengerCrest",
+    "name": "결투가 문장",
+    "tier": null,
+    "desc": "결투가 상징을 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Duelist"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_Juggernaut_Indomitable",
+    "name": "멈추지 않는다",
+    "tier": null,
+    "desc": "아군 전쟁기계가 사망할 때마다 다른 모든 전쟁기계가 @ShieldDuration@초 동안 최대 체력의 @MaxHealthHeal*100@%에 해당하는 보호막을 얻고 추가 내구력을 @AdditionalDurabilityRatio*100@% 얻습니다. 아트록스와 문도 박사를 획득합니다.",
+    "effects": {
+      "AdditionalDurabilityRatio": 0.019999999552965164,
+      "MaxHealthHeal": 0.10000000149011612,
+      "ShieldDuration": 5
+    },
+    "traits": [
+      "TFT15_Juggernaut"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_Wraith_ShadowHomunculous",
+    "name": "내면의 어둠",
+    "tier": null,
+    "desc": "전투마다 처음으로 사망하는 악령 챔피언 @NumWraiths@명이 그림자 세계에서 괴수를 소환합니다. 진과 자크를 획득합니다.",
+    "effects": {
+      "NumWraiths": 3,
+      "{4335ed7e}": 0.20000000298023224,
+      "{43d33725}": 300,
+      "{8d35ce32}": 350
+    },
+    "traits": [
+      "TFT15_Empyrean"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_StarGuardianCrown",
+    "name": "별 수호자 왕관",
+    "tier": null,
+    "desc": "별 수호자 상징, 굳건한 심장, 렐을 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_StarGuardian"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_SentaiRanger_BeTheHead",
+    "name": "나는 머리",
+    "tier": null,
+    "desc": "거대 메크 로봇이 공격 속도를 @AttackSpeed*100@% 얻습니다. 거대 메크 챔피언 3명을 획득합니다.<br><br>별 레벨 총합이 @TOOLTIPStarLevelReq@인 거대 메크 7명을 배치하고 10레벨에 도달하면, 메카합체 프로토콜이 활성화됩니다.",
+    "effects": {
+      "AttackSpeed": 0.3499999940395355,
+      "Health": null,
+      "{a204d24e}": 14.0
+    },
+    "traits": [
+      "TFT15_SentaiRanger"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_MightyMech_PowerUpload",
+    "name": "파워 업로드",
+    "tier": null,
+    "desc": "거대 메크 로봇에게 파워 업을 부여할 수 있습니다. 파워 업을 부여하면 거대 메크 로봇이 체력을 @Health@, 피해 증폭을 @DamageAmp*100@% 얻습니다.<br><br>아트록스, 세나, 파워 제거기를 획득합니다.",
+    "effects": {
+      "DamageAmp": 0.10000000149011612,
+      "Health": 150
+    },
+    "traits": [
+      "TFT15_SentaiRanger"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_Protector_PreemptiveProtection",
+    "name": "선제적 보호",
+    "tier": null,
+    "desc": "전투 시작: 봉쇄자가 자신 및 가장 가까운 아군에게 최대 체력의 @ShieldPercentAmount*100@%만큼 피해를 흡수하는 보호막을 씌웁니다. 보호막은 중첩됩니다. 라칸을 획득합니다.",
+    "effects": {
+      "ShieldPercentAmount": 0.18000000715255737
+    },
+    "traits": [
+      "TFT15_Protector"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_Mentor_TeachersCouncil",
+    "name": "교원 회의",
+    "tier": null,
+    "desc": "멘토 추가 효과가 배치한 멘토 수와 상관없이 아군에게 부여됩니다. 코부코를 획득합니다.",
+    "effects": {
+      "BonusIncrease": null
+    },
+    "traits": [
+      "TFT15_OldMentor"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_EmpyreanCrest",
+    "name": "악령 문장",
+    "tier": null,
+    "desc": "악령 상징을 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Empyrean"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_ProtectorCirclet",
+    "name": "봉쇄자 머리띠",
+    "tier": null,
+    "desc": "봉쇄자 상징, 니코, 거인의 허리띠를 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Protector"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_Strategist_GamePlan",
+    "name": "사전 계획",
+    "tier": null,
+    "desc": "배치된 책략가 1명당 1칸씩 표식을 남깁니다. 표식 칸에 있는 아군이 체력을 @FlatHealth@, 피해 증폭을 @BonusDamage*100@% 얻습니다. 책략가는 @PercentIncrease*100@% 더 얻습니다. 잔나와 직스를 획득합니다.",
+    "effects": {
+      "BonusDamage": 0.11999999731779099,
+      "FlatHealth": 150,
+      "PercentIncrease": 1.0
+    },
+    "traits": [
+      "TFT15_Strategist"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_EdgelordCrest",
+    "name": "이단아 문장",
+    "tier": null,
+    "desc": "이단아 상징을 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Edgelord"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_SniperCirclet",
+    "name": "저격수 머리띠",
+    "tier": null,
+    "desc": "저격수 상징, 징크스, 곡궁을 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Sniper"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_Luchador_TournamentTitans",
+    "name": "토너먼트의 거인",
+    "tier": null,
+    "desc": "프로레슬러가 공격 속도를 @BaselineAS*100@% 얻습니다. 플레이어 대상 전투에서 승리할 때마다 프로레슬러의 크기가 커지고 영구적으로 공격력을 @ADPerWin@%, 체력을 @HealthPerWin@ 얻습니다.  문도 박사와 나르를 획득합니다.<br><br>(총합: 공격력 @TFTUnitProperty.:TFT15_Augment_Luchador_TournamentTitan_AD@%, 체력 @TFTUnitProperty.:TFT15_Augment_Luchador_TournamentTitan_Health@)",
+    "effects": {
+      "ADPerWin": 2.0,
+      "BaselineAS": 0.05000000074505806,
+      "HealthPerWin": 30,
+      "SizeCap": 0.5
+    },
+    "traits": [
+      "TFT15_Luchador"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_DestroyerCirclet",
+    "name": "처형자 머리띠",
+    "tier": null,
+    "desc": "처형자 상징, 아칼리, 연습용 장갑을 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Destroyer"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_BastionCrown",
+    "name": "요새 왕관",
+    "tier": null,
+    "desc": "요새 상징, 크라운가드, 스웨인을 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Bastion"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_SupremeCellsCrown",
+    "name": "슈프림 셀 왕관",
+    "tier": null,
+    "desc": "슈프림 셀 상징, 최후의 속삭임, 카이사를 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_SupremeCells"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_EdgelordCirclet",
+    "name": "이단아 머리띠",
+    "tier": null,
+    "desc": "이단아 상징, 사미라, 곡궁을 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Edgelord"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_Sorcerer_DazzlingDisplay",
+    "name": "눈부신 기교",
+    "tier": null,
+    "desc": "마법사 스킬에 피해를 입은 적의 피해량이 @Duration@초 동안 @DamageReduction*100%@% 감소합니다. 럭스와 루시안을 획득합니다.",
+    "effects": {
+      "DamageReduction": 0.20000000298023224,
+      "Duration": 6.0
+    },
+    "traits": [
+      "TFT15_Spellslinger"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_EmpyreanCirclet",
+    "name": "악령 머리띠",
+    "tier": null,
+    "desc": "악령 상징과 크산테를 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Empyrean"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_RingKingCrown",
+    "name": "프로레슬러 왕관",
+    "tier": null,
+    "desc": "프로레슬러 상징, 스테락의 도전, 문도 박사를 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Luchador"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_ProtectorCrown",
+    "name": "봉쇄자 왕관",
+    "tier": null,
+    "desc": "봉쇄자 상징, 수호자의 맹세, 니코를 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Protector"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_HeavyweightCrest",
+    "name": "헤비급 문장",
+    "tier": null,
+    "desc": "헤비급 상징을 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Heavyweight"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_StarGuardian_TinyTeam",
+    "name": "소규모 팀",
+    "tier": null,
+    "desc": "별 수호자를 @MaxStarGuardians@명 이하 배치할 경우 별 수호자 추가 효과가 @BonusIncrease*100@% 증가합니다. 신드라와 렐을 획득합니다.",
+    "effects": {
+      "BonusIncrease": 1.0,
+      "MaxStarGuardians": 3
+    },
+    "traits": [
+      "TFT15_StarGuardian"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_EmpyreanCrown",
+    "name": "악령 왕관",
+    "tier": null,
+    "desc": "악령 상징, 마법공학 총검, 말자하를 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Empyrean"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_Wraith_DeepeningShadows",
+    "name": "깊어지는 그림자",
+    "tier": null,
+    "desc": "전투 시작 시 및 그림자 세계가 타격할 때마다 악령 챔피언이 공격력을 @AD*100@%, 주문력을 @AP@% 얻습니다. 진과 자크를 획득합니다.",
+    "effects": {
+      "AD": 0.05999999865889549,
+      "AP": 6.0
+    },
+    "traits": [
+      "TFT15_Empyrean"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_JuggernautCrown",
+    "name": "전쟁기계 왕관",
+    "tier": null,
+    "desc": "전쟁기계 상징, 정령의 형상, 문도 박사를 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Juggernaut"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_StarGuardianCirclet",
+    "name": "별 수호자 머리띠",
+    "tier": null,
+    "desc": "별 수호자 상징과 렐을 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_StarGuardian"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_SoulFighterCirclet",
+    "name": "소울 파이터 머리띠",
+    "tier": null,
+    "desc": "소울 파이터 상징과 칼리스타를 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_SoulFighter"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_ProdigyCrest",
+    "name": "신동 문장",
+    "tier": null,
+    "desc": "신동 상징을 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Prodigy"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_BattleAcademiaCrest",
+    "name": "전투사관학교 문장",
+    "tier": null,
+    "desc": "전투사관학교 상징을 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_BattleAcademia"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_ProdigyCirclet",
+    "name": "신동 머리띠",
+    "tier": null,
+    "desc": "신동 상징, 말자하, 쓸데없이 큰 지팡이를 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Prodigy"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_SoulFighter_TournamentFavorites",
+    "name": "토너먼트의 인기 스타",
+    "tier": null,
+    "desc": "소울 파이터가 피해를 입힐 경우 명성을 얻습니다. 명성 구간마다 전리품을 획득합니다. 나피리와 칼리스타를 획득합니다.<br><br>명성: @TFTUnitProperty.:TFT15_Augment_SoulFighter_TournamentFavorites_Damage@/@TFTUnitProperty.:TFT15_Augment_SoulFighter_TournamentFavorites_Breakpoint@",
+    "effects": {
+      "Breakpoint1": 1000,
+      "Breakpoint2": 5000,
+      "Breakpoint3": 10000,
+      "Breakpoint4": 25000,
+      "Breakpoint5": 60000,
+      "Breakpoint6": 100000,
+      "Breakpoint7": 130000
+    },
+    "traits": [
+      "TFT15_SoulFighter"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_SentaiRanger_BeTheHead_Gold",
+    "name": "나는 머리",
+    "tier": null,
+    "desc": "거대 메크 로봇이 공격 속도를 @AttackSpeed*100@% 얻습니다. 갱플랭크를 획득합니다.<br><br>별 레벨 총합이 @TOOLTIPStarLevelReq@인 거대 메크 7명을 배치하고 10레벨에 도달하면, 메카합체 프로토콜이 활성화됩니다.",
+    "effects": {
+      "AttackSpeed": 0.20000000298023224,
+      "Health": null,
+      "{a204d24e}": 14
+    },
+    "traits": [
+      "TFT15_SentaiRanger"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_SentaiCrest",
+    "name": "거대 메크 문장",
+    "tier": null,
+    "desc": "거대 메크 문장을 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_SentaiRanger"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_StrategistCrest",
+    "name": "책략가 문장",
+    "tier": null,
+    "desc": "책략가 상징을 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Strategist"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_Duelist_AdaptiveStyle",
+    "name": "적응형 스타일",
+    "tier": null,
+    "desc": "기본 공격 시 결투가가 공격력과 주문력을 @OffensiveStats*100@% 얻습니다. 최대 @MaxStacks@회 중첩됩니다. 결투가 탱커는 대신 방어력과 마법 저항력을 @DefensiveStats@ 얻습니다. 카이사와 케일을 획득합니다.",
+    "effects": {
+      "DefensiveStats": 2.0,
+      "MaxStacks": 15.0,
+      "OffensiveStats": 0.019999999552965164
+    },
+    "traits": [
+      "TFT15_Duelist"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_ChallengerCrown",
+    "name": "결투가 왕관",
+    "tier": null,
+    "desc": "결투가 상징, 크라켄의 분노, 갱플랭크를 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Duelist"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_BattleAcademia_TransferStudents",
+    "name": "전학생",
+    "tier": null,
+    "desc": "매 스테이지 시작 시 및 공동 선택 라운드가 끝난 후마다 무작위 1~3단계 전투사관학교 챔피언 @NumChamps@명을 획득합니다. 이즈리얼을 획득합니다.",
+    "effects": {
+      "NumChamps": 2
+    },
+    "traits": [
+      "TFT15_BattleAcademia"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_CrystalRoseCrown",
+    "name": "수정 갬빗 왕관",
+    "tier": null,
+    "desc": "수정 갬빗 상징, 적응형 투구, 잔나를 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_GemForce"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_RingKingCirclet",
+    "name": "프로레슬러 머리띠",
+    "tier": null,
+    "desc": "프로레슬러 상징과 문도 박사를 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Luchador"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_Sniper_PreciseShot",
+    "name": "정밀 사격",
+    "tier": null,
+    "desc": "@Cadence@초마다 모든 저격수 챔피언이 탄환을 발사해 사거리 내 체력이 가장 낮은 적에게 기본 공격력의 @BaseADPercent*100@%에 해당하는 피해를 입힙니다. 진을 획득합니다.",
+    "effects": {
+      "BaseADPercent": 0.8500000238418579,
+      "Cadence": 4.0
+    },
+    "traits": [
+      "TFT15_Sniper"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_DestroyerCrest",
+    "name": "처형자 문장",
+    "tier": null,
+    "desc": "처형자 상징을 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Destroyer"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_SniperCrest",
+    "name": "저격수 문장",
+    "tier": null,
+    "desc": "저격수 상징을 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Sniper"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_MightyMech_MultiMech",
+    "name": "멀티 메크",
+    "tier": null,
+    "desc": "더 이상 거대 메크 로봇을 획득할 수 없습니다. 대신, 모든 거대 메크 챔피언이 메크 로봇이 갖게 될 체력, 주문력, 공격력을 @MechStatPercentage*100@%만큼 얻습니다.<br><br>아트록스를 획득합니다.",
+    "effects": {
+      "MechStatPercentage": 0.4000000059604645
+    },
+    "traits": [
+      "TFT15_SentaiRanger"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_SentaiRanger_BeTheArms",
+    "name": "나는 팔",
+    "tier": null,
+    "desc": "거대 메크 로봇이 공격 속도를 @BonusAS*100@% 얻습니다.<br><br>거대 메크 7명을 배치하고, 10레벨에 도달했으며, 3개의 거대 메크 증강을 모두 확보했다면, 메카합체 프로토콜이 활성화됩니다.",
+    "effects": {
+      "BonusAS": 0.44999998807907104
+    },
+    "traits": [
+      "TFT15_SentaiRanger"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_SoulFighter_SoulSurge",
+    "name": "영혼 쇄도",
+    "tier": null,
+    "desc": "소울 파이터가 최대 파워에 도달하면 @Duration@초 동안 공격 속도를 @AS*100@%, 내구력을 @Durability*100@% 얻습니다.",
+    "effects": {
+      "AS": 0.44999998807907104,
+      "Durability": 0.10000000149011612,
+      "Duration": 5.0
+    },
+    "traits": [
+      "TFT15_SoulFighter"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_SoulFighterCrest",
+    "name": "소울 파이터 문장",
+    "tier": null,
+    "desc": "소울 파이터 상징을 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_SoulFighter"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_SpellslingerCirclet",
+    "name": "마법사 머리띠",
+    "tier": null,
+    "desc": "마법사 상징, 카르마, 여신의 눈물을 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Spellslinger"
+    ]
+  },
+  {
+    "id": "TFT15_Augment_SupremeCellsCrest",
+    "name": "슈프림 셀 문장",
+    "tier": null,
+    "desc": "슈프림 셀 상징을 획득합니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_SupremeCells"
+    ]
+  },
+  {
+    "id": "TFT15_Item_EdgelordEmblemItem",
+    "name": "이단아 상징",
+    "tier": null,
+    "desc": "장착 시 이단아 특성 획득<br>적에게 물리 피해를 입힐 경우 대상 방어력 @ArmorPerDamage@ 감소",
+    "effects": {
+      "AD": 0.10000000149011612,
+      "ArmorPerDamage": 2.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_Item_SpellslingerEmblemItem",
+    "name": "마법사 상징",
+    "tier": null,
+    "desc": "장착 시 마법사 특성 획득<br>장착 유닛이 모든 요소로부터 얻는 주문력 @APIncrease*100@% 증가",
+    "effects": {
+      "AP": 10.0,
+      "APIncrease": 0.18000000715255737
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_Item_BastionEmblemItem",
+    "name": "요새 상징",
+    "tier": null,
+    "desc": "장착 시 요새 특성 획득<br>방어력의 @ResistConversionToADRatio*100@%만큼 공격력 획득<br>마법 저항력의 @ResistConversionToAPRatio*100@%만큼 주문력 획득",
+    "effects": {
+      "Armor": 20.0,
+      "ResistConversionToADRatio": 0.15000000596046448,
+      "ResistConversionToAPRatio": 0.15000000596046448
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_Item_ProdigyEmblemItem",
+    "name": "신동 상징",
+    "tier": null,
+    "desc": "장착 시 신동 특성 획득<br>스킬 사용 시 체력 비율이 가장 낮은 아군에게 사용한 마나의 @ManaConversion*100@%에 해당하는 보호막 부여",
+    "effects": {
+      "ManaConversion": 2.5,
+      "ManaRegen": 1.0,
+      "{3777fe40}": 1
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_Item_BattleAcademiaEmblemItem",
+    "name": "전투사관학교 상징",
+    "tier": null,
+    "desc": "장착 시 전투사관학교 특성 및 %i:set14AmpIcon%당 체력 @HealthPerPotential@, 피해 증폭 @DAPerPotential*100@% 획득",
+    "effects": {
+      "DAPerPotential": 0.05999999865889549,
+      "HealthPerPotential": 120.0,
+      "ManaRegen": 1.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_Item_HeavyweightEmblemItem",
+    "name": "헤비급 상징",
+    "tier": null,
+    "desc": "장착 시 헤비급 특성 획득. 또한 처치 관여 시 최대 체력 @HealthPerTakedown@ 획득",
+    "effects": {
+      "Health": 150.0,
+      "HealthPerTakedown": 150,
+      "{9b864d6c}": 0.10000000149011612
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_Item_JuggernautEmblemItem",
+    "name": "전쟁기계 상징",
+    "tier": null,
+    "desc": "장착 시 전쟁기계 특성 획득<br>체력이 @HealthBreakpoint*100@% 이상일 경우 공격 속도 @AttackSpeed*100@% 획득",
+    "effects": {
+      "AttackSpeed": 0.30000001192092896,
+      "HealthBreakpoint": 0.5,
+      "MagicResist": 20.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_Item_ProtectorEmblemItem",
+    "name": "봉쇄자 상징",
+    "tier": null,
+    "desc": "장착 시 봉쇄자 특성 획득<br>장착 유닛의 보호막 파괴 시 장착 유닛 및 가장 가까운 아군의 체력을 최초 보호막 수치의 @HealPercent@%만큼 회복",
+    "effects": {
+      "HealPercent": 20.0,
+      "Health": 150.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_Item_CrystalRoseEmblemItem",
+    "name": "수정 갬빗 상징",
+    "tier": null,
+    "desc": "장착 시 수정 갬빗 특성 획득",
+    "effects": {
+      "Health": 150.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_Item_ChallengerEmblemItem",
+    "name": "결투가 상징",
+    "tier": null,
+    "desc": "장착 시 결투가 특성 획득<br><br>기본 공격 시 @BaseTrueDamage@의 추가 고정 피해를 입히고, 대상이 이 효과로 피해를 입을 때마다 @BonusTrueDamage@의 추가 고정 피해를 입힘",
+    "effects": {
+      "AS": 10.0,
+      "BaseTrueDamage": 12,
+      "BonusTrueDamage": 6
+    },
+    "traits": [
+      "TFT15_Duelist"
+    ]
+  },
+  {
+    "id": "TFT15_Item_DestroyerEmblemItem",
+    "name": "처형자 상징",
+    "tier": null,
+    "desc": "장착 시 처형자 특성 획득<br>기본 공격 및 스킬에 치명타가 적용되면 @BleedDuration@초에 걸쳐 @BleedDamage*100@%의 추가 고정 피해를 입힘",
+    "effects": {
+      "BleedDamage": 0.20000000298023224,
+      "BleedDuration": 3.0,
+      "CritChance": 20.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_Item_SoulFighterEmblemItem",
+    "name": "소울 파이터 상징",
+    "tier": null,
+    "desc": "장착 시 소울 파이터 특성 획득",
+    "effects": {
+      "AD": 0.10000000149011612
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_Item_SupremeCellsEmblemItem",
+    "name": "슈프림 셀 상징",
+    "tier": null,
+    "desc": "장착 시 슈프림 셀 특성 획득",
+    "effects": {
+      "AS": 10.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_Item_EmpyreanEmblemItem",
+    "name": "악령 상징",
+    "tier": null,
+    "desc": "장착 시 악령 특성 획득",
+    "effects": {
+      "Armor": 20.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_Item_ShotcallerEmblemItem",
+    "name": "책략가 상징",
+    "tier": null,
+    "desc": "장착 시 책략가 특성 획득<br><br>전투 시작: 장착 유닛 및 같은 가로 열의 @NumHexes@칸 내에 있는 아군이 추가 효과 획득<br>전방 가로 2열: 방어력 및 마법 저항력 @ResistBuff@<br>후방 가로 2열: 공격 속도 @ASBuff*100@%<br>",
+    "effects": {
+      "ASBuff": 0.15000000596046448,
+      "MagicResist": 20.0,
+      "NumHexes": 1,
+      "ResistBuff": 20
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_Item_SniperEmblemItem",
+    "name": "저격수 상징",
+    "tier": null,
+    "desc": "장착 시 저격수 특성 및 사거리 @Range@ 획득",
+    "effects": {
+      "Health": 150.0,
+      "Range": 2
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_Item_RingKingsEmblemItem",
+    "name": "프로레슬러 상징",
+    "tier": null,
+    "desc": "장착 시 프로레슬러 특성 획득",
+    "effects": {
+      "CritChance": 20.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_Item_StarGuardianEmblemItem",
+    "name": "별 수호자 상징",
+    "tier": null,
+    "desc": "장착 시 별 수호자 특성 획득<br><br><TFTBonus>팀워크: </TFTBonus> 상징이 아닌 별 수호자의 추가 효과가 @Percent@% 증가합니다. 이 효과는 중첩됩니다.<br><br><tftitemrules>[고유 - 중복 적용 불가]</tftitemrules>",
+    "effects": {
+      "AP": 10.0,
+      "percent": 10
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_Mecha_RebootProtocol",
+    "name": "tft_item_name_RebootProtocol",
+    "tier": null,
+    "desc": "tft_item_description_RebootProtocol",
+    "effects": {
+      "AD": 0.3499999940395355,
+      "AS": 15.0,
+      "HealDuration": 3.0,
+      "{77134cd4}": 0.5,
+      "{ffd80251}": 0.20000000298023224
+    },
+    "traits": [
+      "TFT15_Mecha"
+    ]
+  },
+  {
+    "id": "TFT15_Mecha_UpgradeModule",
+    "name": "tft_item_name_UpgradeModule",
+    "tier": null,
+    "desc": "tft_item_description_UpgradeModule",
+    "effects": {
+      "NumRounds": 2,
+      "{56aa2787}": 0.25
+    },
+    "traits": [
+      "TFT15_Mecha"
+    ]
+  },
+  {
+    "id": "TFT15_Mecha_FluxEngine",
+    "name": "tft_item_name_FluxEngine",
+    "tier": null,
+    "desc": "tft_item_description_FluxEngine",
+    "effects": {
+      "AP": 20.0,
+      "APPerCast": 20.0,
+      "Mana": 15.0,
+      "NumCasts": 3.0,
+      "NumEnemies": 3,
+      "{45761774}": 3.0
+    },
+    "traits": [
+      "TFT15_Mecha"
+    ]
+  },
+  {
+    "id": "TFT15_Mecha_OperatingSystem",
+    "name": "tft_item_name_TFT15_Mecha_OperatingSystem",
+    "tier": null,
+    "desc": "tft_item_description_TFT15_Mecha_OperatingSystem",
+    "effects": {
+      "AD": 0.15000000596046448,
+      "AP": 15.0,
+      "Health": 200.0,
+      "{5778fde7}": 0.699999988079071
+    },
+    "traits": [
+      "TFT15_Mecha"
+    ]
+  },
+  {
+    "id": "TFT15_Mecha_ChernoAftermath",
+    "name": "tft_item_name_ChernoAftermath",
+    "tier": null,
+    "desc": "tft_item_description_ChernoAftermath",
+    "effects": {
+      "BaseDurability": 0.10000000149011612,
+      "Health": 1000.0,
+      "HexRadius": 2,
+      "PercentMaxHealth": 0.3499999940395355
+    },
+    "traits": [
+      "TFT15_Mecha"
+    ]
+  },
+  {
+    "id": "TFT15_Mecha_Railgun",
+    "name": "tft_item_name_Railgun",
+    "tier": null,
+    "desc": "tft_item_description_Railgun",
+    "effects": {
+      "AD": 0.44999998807907104,
+      "HexRadius": 2,
+      "{2ef1b400}": 1.2000000476837158,
+      "{f483ae27}": 0.25
+    },
+    "traits": [
+      "TFT15_Mecha"
+    ]
+  },
+  {
+    "id": "TFT15_Mecha_VoltaicBattery",
+    "name": "tft_item_name_VoltaicBattery",
+    "tier": null,
+    "desc": "tft_item_description_VoltaicBattery",
+    "effects": {
+      "AS": 50.0,
+      "BurstAS": 2.0,
+      "BurstDuration": 2.0,
+      "Cadence": 5.0
+    },
+    "traits": [
+      "TFT15_Mecha"
+    ]
+  },
+  {
+    "id": "TFT15_Mecha_NanoFabricator",
+    "name": "tft_item_name_NanoFabricator",
+    "tier": null,
+    "desc": "tft_item_description_NanoFabricator",
+    "effects": {
+      "AD": 0.10000000149011612,
+      "ADPerStarLevel": 0.05000000074505806,
+      "AP": 10.0,
+      "APPerStarLevel": 5.0,
+      "{7b8ae266}": 1
+    },
+    "traits": [
+      "TFT15_Mecha"
+    ]
+  },
+  {
+    "id": "TFT15_HiddenTech_FlameAffinity",
+    "name": "화염 친화력",
+    "tier": null,
+    "desc": "<TFTKeyword>상처</TFTKeyword>가 적용된 아군이 %i:scaleDA%을 @WoundDamageAmp*100@% 얻습니다.<br><br><tftitemrules>상처: 체력 회복량 50% 감소</tftitemrules>",
+    "effects": {
+      "Health": 250.0,
+      "WoundDamageAmp": 0.20000000298023224
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_HiddenTech_SoulOfASentinel",
+    "name": "TFT15_HiddenTech_SoulOfASentinel_Name",
+    "tier": null,
+    "desc": "TFT15_HiddenTech_SoulOfASentinel_Desc",
+    "effects": {
+      "Armor": 20.0,
+      "Health": 250,
+      "MagicResist": 20.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_HiddenTech_FireStorm",
+    "name": "화염 폭풍",
+    "tier": null,
+    "desc": "<spellPassive>전투 시작:</spellPassive> @Duration@초 동안 모든 적에게 <TFTKeyword>상처</TFTKeyword>를 적용합니다.<br><br><tftitemrules>상처: 체력 회복량 50% 감소</tftitemrules>",
+    "effects": {
+      "Duration": 10.0,
+      "Health": 250.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_HiddenTech_StoneSkin",
+    "name": "바위 피부",
+    "tier": null,
+    "desc": "방어력을 @Armor@ 얻습니다.",
+    "effects": {
+      "Armor": 150.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_HiddenTech_LimitBreak",
+    "name": "한계 파괴",
+    "tier": null,
+    "desc": "주문력을 @AbilityPower@, 공격력을 @AttackDamage@% 얻습니다. 체력이 @HealthThreshold@% 아래일 경우 효과가 세 배로 증가합니다.",
+    "effects": {
+      "AbilityPower": 20.0,
+      "AttackDamage": 20.0,
+      "HealthThreshold": 50.0,
+      "Multiplier": 3.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_HiddenTech_ShatterSweep",
+    "name": "분쇄의 휩쓸기",
+    "tier": null,
+    "desc": "후방 가로 @NumRow@열에서 전투를 시작한 아군이 물리 피해를 입힐 경우 @Duration@초 동안 적에게 <TFTKeyword>파열</TFTKeyword>을 @ArmorReduction*100@% 적용합니다.<br><br><tftitemrules><tftbold>파열:</tftbold> 방어력 감소</tftitemrules>",
+    "effects": {
+      "ArmorReduction": 0.20000000298023224,
+      "Duration": 5.0,
+      "Health": 250,
+      "NumRow": 2
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_HiddenTech_UnyieldingCovenant",
+    "name": "굳센 언약",
+    "tier": null,
+    "desc": "아군이 @NumAlliesAlive@명 이상(장착 유닛 제외) 살아있는 동안에는 이 챔피언을 <TFTKeyword>대상으로 지정할 수 없습니다.</TFTKeyword>",
+    "effects": {
+      "NumAlliesAlive": 3
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_HiddenTech_ArcaneRend",
+    "name": "아케인 가르기",
+    "tier": null,
+    "desc": "후방 가로 @NumRow@열에서 전투를 시작한 아군이 마법 피해를 입힐 경우 @Duration@초 동안 적에게 <TFTKeyword>파쇄</TFTKeyword>를 @MRReduction*100@% 적용합니다.<br><br><tftitemrules><tftbold>파쇄</tftbold>: 마법 저항력 감소</tftitemrules>",
+    "effects": {
+      "Duration": 5.0,
+      "Health": 250,
+      "MRReduction": 0.20000000298023224,
+      "NumRow": 2
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_HiddenTech_SoulOfAStarGuardian",
+    "name": "TFT15_HiddenTech_SoulOfAStarGuardian_Name",
+    "tier": null,
+    "desc": "TFT15_HiddenTech_SoulOfAStarGuardian_Desc",
+    "effects": {
+      "Health": 250,
+      "{1543aa48}": 0.15000000596046448
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_HiddenTech_FusionHex",
+    "name": "퓨전 마법공학",
+    "tier": null,
+    "desc": "<spellPassive>전투 시작:</spellPassive> 가장 가까운 아군과 합체하고 해당 아군 체력, 공격력, 주문력의 @StatPercent*100@%를 얻습니다.",
+    "effects": {
+      "Health": null,
+      "StatPercent": 0.5
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_HiddenTech_ShieldMelt",
+    "name": "보호막 붕괴",
+    "tier": null,
+    "desc": "전투 시작: 아군이 보호막이 부여된 적에게 @BonusDamage@%의 추가 피해를 입힙니다.",
+    "effects": {
+      "BonusDamage": 30.0,
+      "Health": 250
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_HiddenTech_AffinityForCold",
+    "name": "냉기 친화력",
+    "tier": null,
+    "desc": "전투 시작: 후방 가로 2열에 있는 모든 적을 동상에 걸리게 합니다.<br><br><tftitemrules>동상: 체력 회복량 20% 감소</tftitemrules>",
+    "effects": {
+      "Duration": 8.0,
+      "Health": 250,
+      "NumRow": 2
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_HiddenTech_TrainingWeights",
+    "name": "고중량 훈련",
+    "tier": null,
+    "desc": "이 챔피언이 @NumRounds@라운드 동안 %i:scaleDA% @DamagePenalty*100@% 및 %i:scaleDR% @DurabilityPenalty*100@%를 잃고 공격 속도가 @ASCapPenality@까지 제한되는 페널티를 받습니다.<br><br>@NumRounds@라운드 후 페널티가 제거되고 %i:scaleAS% @ASReward*100@%와 %i:scaleDA% @DamageReward*100@%를 얻습니다.<br><br><rules>라운드는 챔피언별로 기록됩니다.</rules>",
+    "effects": {
+      "ASCapPenality": 0.5,
+      "ASReward": 0.8999999761581421,
+      "DamagePenalty": 0.5,
+      "DamageReward": 0.5,
+      "DurabilityPenalty": 0.5,
+      "Health": 100.0,
+      "NumRounds": 5,
+      "{adb8ce88}": 1000.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_HiddenTech_SoulOfAChallenger",
+    "name": "TFT15_HiddenTech_SoulOfAChallenger_Name",
+    "tier": null,
+    "desc": "TFT15_HiddenTech_SoulOfAChallenger_Desc",
+    "effects": {
+      "AS": 20.0,
+      "Health": 250
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_HiddenTech_KiBarrier",
+    "name": "기 보호막",
+    "tier": null,
+    "desc": "장착 유닛이 모든 공격으로부터 받는 피해가 @FlatReducedDamage@ 감소합니다.",
+    "effects": {
+      "FlatReducedDamage": 25.0,
+      "Health": 300.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_HiddenTech_PetriciteSkin",
+    "name": "페트리사이트 피부",
+    "tier": null,
+    "desc": "마법 저항력을 @MagicResist@ 얻습니다.",
+    "effects": {
+      "MagicResist": 150.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_General_Consumable_IncreaseThreat",
+    "name": "tft15_General_itemname_IncreaseThreat",
+    "tier": null,
+    "desc": "tft15_General_itemdescription_IncreaseThreat",
+    "effects": {
+      "StunDuration": 1.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_General_Consumable_GoldOnKill",
+    "name": "tft15_General_itemname_GoldOnKill",
+    "tier": null,
+    "desc": "tft15_General_itemdescription_GoldOnKill",
+    "effects": {
+      "{a61b4a72}": 2.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_General_Consumable_Debuff",
+    "name": "tft15_General_itemname_Debuff",
+    "tier": null,
+    "desc": "tft15_General_itemdescription_Debuff",
+    "effects": {
+      "Duration": 4.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_Item_DragonFistFighterStance",
+    "name": "결투가 태세",
+    "tier": null,
+    "desc": "<spellPassive>기본 지속 효과:</spellPassive> 기본 공격 시 주변 적에게 <physicalDamage>@ModifiedPassiveCloneDamage@(%i:scaleAD%)</physicalDamage>의 물리 피해를 입힙니다.<br><br><spellActive>사용 시: </spellActive> 빠르게 타격해 가장 가까운 적 @NumEnemies@명에게 잔상 <TFTBonus>@ModifiedNumClones@(%i:scaleAS%)</TFTBonus>개를 보냅니다. 각 잔상은 <physicalDamage>@ModifiedCloneDamage@(%i:scaleAD%)</physicalDamage>의 물리 피해를 입히고 방어력을 <TFTBonus>@ModifiedArmorShred@ (%i:scaleAP%)</TFTBonus> 감소시킵니다.",
+    "effects": {
+      "ModifiedArmorShred": 5.0,
+      "ModifiedCloneDamage": 65.0,
+      "ModifiedNumClones": 10.0,
+      "ModifiedPassiveCloneDamage": 40.0,
+      "NumEnemies": 2.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_Item_DragonFistTankStance",
+    "name": "전쟁기계 태세",
+    "tier": null,
+    "desc": "잠시 내구력을 <scaleLevel>@WindowedDR*100@%</scaleLevel> 얻습니다. 이후 대상에게 <physicalDamage>@ModifiedInitialDamage@(%i:scaleAD%%i:scaleAP%)</physicalDamage>의 물리 피해를, 대상 뒤의 모든 적에게 <physicalDamage>@ModifiedFinalDamage@(%i:scaleAD%)</physicalDamage>의 물리 피해를, 반경 2칸 내 다른 적에게 <physicalDamage>@ModifiedAllEnemiesDamage@(%i:scaleAD%)</physicalDamage>의 물리 피해를 입힙니다.",
+    "effects": {
+      "ModifiedAllEnemiesDamage": 150.0,
+      "ModifiedFinalDamage": 200.0,
+      "ModifiedInitialDamage": 500.0,
+      "WindowedDR": 0.6000000238418579
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_Item_DragonFistReaperStance",
+    "name": "처형자 태세",
+    "tier": null,
+    "desc": "@HexRange@칸 내 체력이 가장 낮은 적에게 <physicalDamage>@ModifiedStrikeDamage@(%i:scaleAD%%i:scaleAP%)</physicalDamage>의 물리 피해를 입히고 @StunDuration@초 동안 <TFTKeyword>기절</TFTKeyword>시킵니다. 반경 1칸 내 다른 적에게는 <physicalDamage>@ModifiedAOEDamage@(%i:scaleAD%)</physicalDamage>의 물리 피해를 입힙니다. <br><br>이 스킬로 @NumKills@명을 처치하면 모든 적이 즉시 <physicalDamage>@ModifiedShockwaveDamage@(%i:scaleAD%)</physicalDamage>의 물리 피해를 입고 @KillStunDuration@초 동안 <TFTKeyword>기절</TFTKeyword>합니다.",
+    "effects": {
+      "HexRange": 3.0,
+      "KillStunDuration": 1.5,
+      "ModifiedAOEDamage": 130.0,
+      "ModifiedShockwaveDamage": 180.0,
+      "ModifiedStrikeDamage": 330.0,
+      "NumKills": 3.0,
+      "StunDuration": 1.5
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_RoboRanger_Slicer",
+    "name": "초강력 일격 업그레이드",
+    "tier": null,
+    "desc": "입힌 모든 피해량의 @PercentTrueDamage*100@%만큼 추가 고정 피해를 입힙니다.<br><br><rules>정의의 검을 받아라!</rules>",
+    "effects": {
+      "AS": 25.0,
+      "PercentTrueDamage": 0.10000000149011612,
+      "StatOmnivamp": 0.10000000149011612
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_Item_Underdogs_ChampionsBelt",
+    "name": "tft15_itemname_ChampionsBelt",
+    "tier": null,
+    "desc": "tft15_itemdescription_ChampionsBelt",
+    "effects": {
+      "AD": 0.15000000596046448,
+      "AP": 15.0,
+      "Armor": 15.0,
+      "DamageThreshold": 5000,
+      "Health": 150.0,
+      "MagicResist": 15.0,
+      "{17e23813}": 2,
+      "{75f158f6}": 1
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_RoboRanger_Sword",
+    "name": "강력한 일격",
+    "tier": null,
+    "desc": "이제 기본 공격 시 원뿔 범위를 쪼개 인접한 적에게 @ADPercent*100@%의 물리 피해를 입힙니다.<br><br><rules>꺾이지 않는 결의로 악을 처단한다.</rules>",
+    "effects": {
+      "AD": 0.25,
+      "ADPercent": 0.5,
+      "{b75d6a7b}": 1
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_MechanicTrait_BloodFury_Consumable",
+    "name": "굶주린 간식",
+    "tier": null,
+    "desc": "플레이어 체력을 @HealthToFeed@ 흡수하고 체력을 %i:scaleHealth%, 공격력을 %i:scaleAD%, 주문력을 %i:scaleAP% 얻습니다.",
+    "effects": {
+      "HealthToFeed": 3.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT15_Item_CrystalRoseHellionItem",
+    "name": "수정 지원군",
+    "tier": null,
+    "desc": "아군이 체력 @Health@ 획득. 유닛이 사망할 때마다 별 레벨이 하나 낮은 수정 분신이 전투에 합류!",
+    "effects": {
+      "Health": 1000
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_SuperstarsSilver",
+    "name": "슈퍼스타 I",
+    "tier": null,
+    "desc": "아군의 피해량이 @BaseBonusDamage*100@% 증가합니다. 이 효과는 아군 3성 유닛 하나당 @BonusDamagePer3Star*100@% 증가합니다. 새로고침을 @Rerolls@회 얻습니다.<br><br>추가 효과: @TFTUnitProperty.item:TFT_Augment_SuperstarsTotalDamageBonus@%",
+    "effects": {
+      "BaseBonusDamage": 0.05000000074505806,
+      "BonusDamagePer3Star": 0.019999999552965164,
+      "Rerolls": 2.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_WaterLotus1",
+    "name": "수련 I",
+    "tier": null,
+    "desc": "아군이 치명타 확률을 @CritChance*100@% 얻으며, 스킬에 치명타가 적용될 수 있습니다. 스킬에 치명타가 적용되면 @ManaDuration@초에 걸쳐 마나의 @ManaOnCrit@%를 회복합니다.",
+    "effects": {
+      "CritChance": 0.05000000074505806,
+      "ManaDuration": 3.0,
+      "ManaOnCrit": 9.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_FiresalePlus",
+    "name": "급매",
+    "tier": null,
+    "desc": "라운드마다 상점에서 @CostLimit@단계 이하의 무작위 챔피언을 1명 훔칩니다. @Gold@골드를 획득합니다.",
+    "effects": {
+      "CostLimit": 3,
+      "Gold": 1.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_MarksmansToolbox",
+    "name": "원거리 딜러의 공구함",
+    "tier": null,
+    "desc": "저격수의 집중 1개를 획득합니다. @combatnum@라운드 후, 생선대가리 1개를 획득합니다.",
+    "effects": {
+      "CombatNum": 3.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_TacticiansKitchen",
+    "name": "전략가의 주방",
+    "tier": null,
+    "desc": "무작위 상징 1개를 획득합니다. 플레이어 대상 전투 @TurnDelay@회 후 전략가의 망토 1개를 획득합니다.",
+    "effects": {
+      "NumFryingPan": 1.0,
+      "NumItemAnvils": 1.0,
+      "NumSpatula": 1.0,
+      "TurnDelay": 6
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_SupportMiningPlus",
+    "name": "지원 채굴+",
+    "tier": null,
+    "desc": "훈련 봇 1개를 획득합니다. 훈련 봇이 @NumDeaths@회 사망하면 무작위 지원 아이템을 획득하고 훈련 봇이 제거됩니다.",
+    "effects": {
+      "NumDeaths": 7.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_PIckEms",
+    "name": "앞날 예측",
+    "tier": null,
+    "desc": "@NumRounds@라운드 후 현재 로비 순위와 근접한 정도에 따라 최대 @Gold@골드를 획득합니다.",
+    "effects": {
+      "Gold": 18,
+      "NumRounds": 8
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_GiantAndMighty",
+    "name": "거대하고 강력한",
+    "tier": null,
+    "desc": "아군의 크기가 커져 체력을 @FlatHealth@ 얻고 최대 체력을 +@PercentHealth*100@% 얻습니다.",
+    "effects": {
+      "FlatHealth": 300.0,
+      "PercentHealth": 0.03999999910593033,
+      "{858a62b6}": 0.05000000074505806
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_CloseQuarters",
+    "name": "백병전",
+    "tier": null,
+    "desc": "후방 가로 2열이 비활성화되지만, 아군 유닛이 능력치를 [STATS TM] 얻습니다.",
+    "effects": {
+      "Gold": null,
+      "Health": null,
+      "Resists": null
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Replication",
+    "name": "복제",
+    "tier": null,
+    "desc": "조합 아이템 3개 중 1개를 선택합니다. 다음 @RoundsOfBonusItems@라운드 동안, 해당 조합 아이템의 복사본을 1개씩 획득합니다.",
+    "effects": {
+      "Gold": null,
+      "roundsofbonusitems": 2.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_PoweredByPain",
+    "name": "고통으로부터 얻는 힘",
+    "tier": null,
+    "desc": "아군 챔피언이 킬을 달성하면 처치 후 남는 피해량 100당 추가 마나를 5 얻습니다. 이 추가 효과는 초과 피해량에 따라 증가합니다.",
+    "effects": {
+      "{1c72b298}": 5.0,
+      "{6829e9a7}": 4.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_OopsAllRageblades",
+    "name": "분노 조절 문제",
+    "tier": null,
+    "desc": "현재 및 이후 모든 완성 아이템이 방어력과 마법 저항력을 각각 @ResistStackValue@ 제공하는 구인수의 격노검으로 바뀝니다. 구인수의 격노검 @AttacksPerStack@중첩마다 공격력과 주문력을 @StackValue@% 얻습니다.",
+    "effects": {
+      "AttacksPerStack": 2.0,
+      "ResistStackValue": 45.0,
+      "StackValue": 1.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Dummify",
+    "name": "훈련 봇 변환",
+    "tier": null,
+    "desc": "전장 및 대기석에 있는 모든 챔피언을 잃습니다. 잃은 챔피언 체력 총합의 @HealthPercent@%를 지닌 훈련 봇을 획득합니다. 훈련 봇은 스테이지마다 체력을 @HPPerStage@ 얻습니다.",
+    "effects": {
+      "HPPerStage": 1000,
+      "HealthPercent": 80.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_TrickstersGlassAugment",
+    "name": "속임수 잔치",
+    "tier": null,
+    "desc": "속임수 거울을 획득합니다. 속임수 거울이 @Frequency@초마다 분신을 소환합니다. 각 추가 분신은 @HealthReducedTooltip@%의 최대 체력과 @ManaIncreasedTooltip@%의 최대 마나를 갖습니다.",
+    "effects": {
+      "Frequency": 9.0,
+      "HealthReducedTooltip": 40,
+      "ManaIncreasedTooltip": 120,
+      "{2ad8829f}": 30,
+      "{d1f156ba}": 110
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_PatienceIsAVirtue",
+    "name": "참는 자에게 복을",
+    "tier": null,
+    "desc": "라운드마다, 지난 라운드에서 챔피언을 구매하지 않았다면 무료 새로고침을 @FreeRerolls@회 얻습니다.",
+    "effects": {
+      "FreeRerolls": 2.0,
+      "{4293de94}": null
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_DeadlierCaps",
+    "name": "더욱 치명적인 모자",
+    "tier": null,
+    "desc": "라바돈의 죽음모자를 획득합니다. 라바돈의 죽음모자가 장착한 유닛의 처치 관여 @Takedowns@회당 주문력을 @AP@% 얻습니다.",
+    "effects": {
+      "AP": null,
+      "TakeDowns": null
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Dhampyr",
+    "name": "흡혈의 활력",
+    "tier": null,
+    "desc": "적 전략가에게 입힌 피해량의 @Omnivamp*100@%만큼 플레이어 체력을 회복합니다. 아군 유닛이 모든 피해 흡혈을 @OmnivampStatBonus*100@% 얻습니다.",
+    "effects": {
+      "Omnivamp": 0.11999999731779099,
+      "OmnivampStatBonus": 0.11999999731779099
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_UnleashTheBeast",
+    "name": "야수를 풀어라",
+    "tier": null,
+    "desc": "스테락의 도전 1개를 획득합니다. 스테락의 도전 효과 발동 시, 전투가 끝날 때까지 장착 유닛이 공격 속도를 @AttackSpeed*100@% 얻고 @CCImmunityDuration@초 동안 군중 제어 효과에 면역이 됩니다.",
+    "effects": {
+      "AttackSpeed": 0.3499999940395355,
+      "CCImmunityDuration": 5.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_FoodfightTactics",
+    "name": "급식소",
+    "tier": null,
+    "desc": "전투 시작 @EndSeconds@초 후, 아군 챔피언이 공격 속도를 @AttackSpeed*100@% 얻고 기본 공격 시 맛있는 투사체를 날려 공격력의 @ADRatio*100@%만큼 마법 피해를 입힙니다.",
+    "effects": {
+      "ADRatio": 1.399999976158142,
+      "APRatio": null,
+      "AttackSpeed": 0.20000000298023224,
+      "EndSeconds": 10.0,
+      "{6fe0d49c}": null
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_RerollTransfer",
+    "name": "새로고침 이월",
+    "tier": null,
+    "desc": "사용하지 않은 증강 새로고침 @AugmentRerollTracked@회마다 무료 상점 새로고침을 @ShopRerollToGrant@회 얻습니다. @Gold@골드를 획득합니다.<br><br><tftitemrules>이 증강을 선택한 라운드는 포함되지 않습니다.</tftitemrules>",
+    "effects": {
+      "AugmentRerollTracked": 1.0,
+      "Gold": 3,
+      "ShopRerollToGrant": 3.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_BronzeForLife2",
+    "name": "영원한 브론즈 II",
+    "tier": null,
+    "desc": "아군이 브론즈 등급 특성당 피해 증폭을 @DamageAmpBonus*100@%, 내구력을 @DurabilityBonus*100@% 얻습니다.<br><br>추가 피해 증폭: @TFTUnitProperty.item:TFT_Augment_BronzeForLife_CurrentDamageAmp@%<br>추가 내구력: @TFTUnitProperty.item:TFT_Augment_BronzeForLife_CurrentDurability@%",
+    "effects": {
+      "DamageAmpBonus": 0.029999999329447746,
+      "DurabilityBonus": 0.014999999664723873
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_AbilityAmplification",
+    "name": "주문 검",
+    "tier": null,
+    "desc": "아군이 기본 공격할 때마다 주문력을 @AP@% 얻습니다. 최대 @maxstacks@회 중첩됩니다.",
+    "effects": {
+      "AP": 2.0,
+      "MaxStacks": 99.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Spellsword",
+    "name": "주문 칼날",
+    "tier": null,
+    "desc": "아군이 기본 공격을 @NumAttacks@회 할 때마다 주문력을 @AbilityPower@ 얻습니다.",
+    "effects": {
+      "AbilityPower": 5.0,
+      "NumAttacks": 2.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_CrownguardSpirit",
+    "name": "왕관의 의지",
+    "tier": null,
+    "desc": "쓸데없이 큰 지팡이 1개를 획득합니다. 아군 유닛이 주문력을 @AP@%, 방어력을 @Armor@ 얻습니다.",
+    "effects": {
+      "AP": 10.0,
+      "Armor": 8.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Trifecta1",
+    "name": "삼인방 I",
+    "tier": null,
+    "desc": "@Tier@단계 챔피언 @numunits@명을 획득합니다.<br>전투 시작: 무작위 @Tier@단계 챔피언 @BuffedNumber@명이 체력을 @Health@, 공격 속도를 @AttackSpeed*100@% 얻습니다.",
+    "effects": {
+      "AttackSpeed": 0.20000000298023224,
+      "BuffedNumber": 3.0,
+      "Health": 220.0,
+      "NumUnits": 2.0,
+      "TeamAttackSpeed": null,
+      "Tier": 3.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_WealthyRehab3",
+    "name": "체력이 곧 재산 III",
+    "tier": null,
+    "desc": "아군이 모든 피해 흡혈을 @Omnivamp*100@% 얻습니다.  아군 챔피언의 체력 회복량이 처음으로 총 @HealingThreshold@만큼 누적되면 추가로 @Gold@골드를 획득합니다.<br><br>체력 회복량: 총 @TFTUnitProperty.item:TFT_Augment_WealthyRehabHealing@",
+    "effects": {
+      "Gold": 30.0,
+      "HealingThreshold": 10000.0,
+      "Omnivamp": 0.20000000298023224
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_SupportMining",
+    "name": "지원 채굴",
+    "tier": null,
+    "desc": "훈련 봇 1개를 획득합니다. 훈련 봇이 @NumDeaths@회 사망하면 무작위 지원 아이템을 획득하고 훈련 봇이 제거됩니다.",
+    "effects": {
+      "NumDeaths": 8.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_TombRaider2",
+    "name": "도굴꾼 II",
+    "tier": null,
+    "desc": "완성 아이템 모루 @NumInitialItems@개를 획득합니다. 플레이어가 탈락할 때마다 해당 플레이어의 완성 아이템 하나를 선택해 획득합니다.",
+    "effects": {
+      "NumDead": 9.0,
+      "NumInitialItems": 1
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_WealthyRehab2",
+    "name": "체력이 곧 재산 II",
+    "tier": null,
+    "desc": "아군이 모든 피해 흡혈을 @Omnivamp*100@% 얻습니다.  아군 챔피언의 체력 회복량이 처음으로 총 @HealingThreshold@만큼 누적되면 추가로 @Gold@골드를 획득합니다.<br><br>체력 회복량: 총 @TFTUnitProperty.item:TFT_Augment_WealthyRehabHealing@",
+    "effects": {
+      "Gold": 15.0,
+      "HealingThreshold": 10000.0,
+      "Omnivamp": 0.15000000596046448
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_FlurryOfBlows",
+    "name": "연속 타격",
+    "tier": null,
+    "desc": "지크의 전령 1개를 획득합니다. 지크의 전령 효과를 받는 챔피언이 추가로 치명타 확률을 @CSBonus*100@% 얻습니다.",
+    "effects": {
+      "CSBonus": 0.44999998807907104
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_WealthyRehab1",
+    "name": "체력이 곧 재산 I",
+    "tier": null,
+    "desc": "아군이 모든 피해 흡혈을 @Omnivamp*100@% 얻습니다.  아군 챔피언의 체력 회복량이 처음으로 총 @HealingThreshold@만큼 누적되면 추가로 @Gold@골드를 획득합니다.<br><br>체력 회복량: 총 @TFTUnitProperty.item:TFT_Augment_WealthyRehabHealing@",
+    "effects": {
+      "Gold": 8.0,
+      "HealingThreshold": 10000.0,
+      "Omnivamp": 0.10000000149011612
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_ParentingForDummies",
+    "name": "희생양",
+    "tier": null,
+    "desc": "훈련 봇과 @InitialGold@골드를 획득합니다. 플레이어 대상 전투에서 훈련 봇이 맨 처음으로 죽으면 @Gold@골드를 획득합니다.",
+    "effects": {
+      "Gold": 1.0,
+      "InitialGold": 2.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_PrismaticPipeline",
+    "name": "프리즘 공급",
+    "tier": null,
+    "desc": "다음 플레이어 대상이 아닌 전투 라운드에서 놀라운 전리품이 든 추가 프리즘 구 1개를 획득합니다.",
+    "effects": {
+      "NumRounds": 1.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Trifecta2",
+    "name": "삼인방 II",
+    "tier": null,
+    "desc": "@Tier@단계 챔피언 @numunits@명을 획득합니다. 아군이 공격 속도를 @TeamAttackSpeed*100@% 얻습니다. <br>전투 시작: 무작위 @Tier@단계 챔피언 @BuffedNumber@명이 체력을 @Health@, 공격 속도를 @AttackSpeed*100@% 얻습니다.",
+    "effects": {
+      "AttackSpeed": 0.25,
+      "BuffedNumber": 3.0,
+      "Health": 300.0,
+      "NumUnits": 3.0,
+      "TeamAttackSpeed": 0.05000000074505806,
+      "Tier": 3.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_ChaosEvolution",
+    "name": "혼돈의 진화",
+    "tier": null,
+    "desc": "챔피언의 별 레벨을 올리면 체력 @Health@, 내구력 @Durability*100@%, 주문력 @AP@%, 공격력 @AD*100@%, 공격 속도 @AttackSpeed*100@% 중 하나를 부여합니다. 추가 능력치는 중첩됩니다.",
+    "effects": {
+      "AD": 0.10000000149011612,
+      "AP": 10.0,
+      "AttackSpeed": 0.10000000149011612,
+      "Durability": 0.03999999910593033,
+      "Health": 100.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_TombRaider1",
+    "name": "도굴꾼 I",
+    "tier": null,
+    "desc": "먼저 탈락하는 플레이어 @NumDead@명에게서 각각 완성 아이템 하나를 선택해 획득합니다.",
+    "effects": {
+      "NumDead": 3.0,
+      "NumInitialItems": null
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_GlassCannonI",
+    "name": "유리 대포 I",
+    "tier": null,
+    "desc": "후방 가로 1열에서 전투를 시작한 유닛이 전투 시작 시 체력이 @Health*100@%로 조정되지만 피해 증폭을 @DamageAmp*100@% 얻습니다.",
+    "effects": {
+      "DamageAmp": 0.12999999523162842,
+      "Health": 0.8999999761581421
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Crossfire1",
+    "name": "십자 포화",
+    "tier": null,
+    "desc": "적이 @BaseDamage*100@%의 추가 고정 피해를 입습니다. 적이 피해를 입을 때마다 피해량이 @PercentInc*100@% 증가해 최대 @PercentMax*100@%까지 증가합니다.",
+    "effects": {
+      "BaseDamage": 0.05000000074505806,
+      "PercentInc": 0.009999999776482582,
+      "PercentMax": 0.25
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_PiercingLotus2",
+    "name": "꿰뚫는 연꽃 II",
+    "tier": null,
+    "desc": "아군이 치명타 확률을 @critchance@ 얻으며, 스킬에 치명타가 적용될 수 있습니다. 치명타 적중 시 대상에게 @Duration@초 동안 파쇄 및 파열을 @ShredSunderPerc*100@% 적용합니다.",
+    "effects": {
+      "CritChance": 20.0,
+      "Duration": 3.0,
+      "ShredSunderPerc": 0.20000000298023224
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_SatedSpellweaver",
+    "name": "배부른 주문술사",
+    "tier": null,
+    "desc": "스킬을 사용한 후 챔피언이 @Duration@초 동안 모든 피해 흡혈을 @Omnivamp*100@% 얻습니다. 초과 회복량은 최대 @MaxShield@의 피해를 흡수하는 보호막으로 전환됩니다.",
+    "effects": {
+      "Duration": 3.0,
+      "MaxShield": 500.0,
+      "Omnivamp": 0.15000000596046448
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_HeroicEulogy",
+    "name": "웅장한 장송곡",
+    "tier": null,
+    "desc": "아군 챔피언 사망 시 남은 챔피언이 마나를 @Mana@, 방어력 및 마법 저항력을 @Resists@ 얻습니다.",
+    "effects": {
+      "Mana": 15.0,
+      "Resists": 10.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_PiercingLotus1",
+    "name": "꿰뚫는 연꽃 I",
+    "tier": null,
+    "desc": "아군이 치명타 확률을 @critchance@ 얻으며, 스킬에 치명타가 적용될 수 있습니다. 치명타 적중 시 대상에게 @Duration@초 동안 파쇄 및 파열을 @ShredSunderPerc*100@% 적용합니다.",
+    "effects": {
+      "CritChance": 5.0,
+      "Duration": 3.0,
+      "ShredSunderPerc": 0.20000000298023224
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Crossfire2",
+    "name": "관통하는 시각",
+    "tier": null,
+    "desc": "적이 @BaseDamage*100@%의 추가 고정 피해를 입습니다. 적이 피해를 입을 때마다 피해량이 @PercentInc*100@% 증가해 최대 @PercentMax*100@%까지 증가합니다.",
+    "effects": {
+      "BaseDamage": 0.009999999776482582,
+      "PercentInc": 0.009999999776482582,
+      "PercentMax": 0.20000000298023224
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Manaflow1",
+    "name": "마나순환 I",
+    "tier": null,
+    "desc": "후방 가로 1열에서 전투를 시작하는 아군 유닛이 기본 공격마다 추가 마나를 @ManaPerAttack@ 얻습니다.",
+    "effects": {
+      "ManaPerAttack": 2.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Manaflow2",
+    "name": "마나순환 II",
+    "tier": null,
+    "desc": "후방 가로 1열에서 전투를 시작하는 아군 유닛이 기본 공격마다 추가 마나를 @ManaPerAttack@ 얻습니다.",
+    "effects": {
+      "ManaPerAttack": 3.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_MaxCap",
+    "name": "최대치",
+    "tier": null,
+    "desc": "최대 레벨이 7이 됩니다. 팀 규모를 +1 증가시키는 전략가의 방패 @NumItems@개와 @AugmentGold@골드를 획득합니다.",
+    "effects": {
+      "AugmentGold": 50.0,
+      "NumItems": 1.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Isekai_Sorcerer",
+    "name": "이세계",
+    "tier": null,
+    "desc": "다른 세계에서 전투를 도울 마법의 영웅을 소환합니다. 이번 게임에서 이 영웅은 <TFTRadiantItemBonus>마법사</TFTRadiantItemBonus>입니다.",
+    "effects": {},
+    "traits": [
+      "TFT15_Spellslinger"
+    ]
+  },
+  {
+    "id": "TFT_Augment_UpwardMobility",
+    "name": "출세가도",
+    "tier": null,
+    "desc": "경험치 구매 비용이 1 감소합니다. 레벨 업할 때마다 체력을 @Health@, 무료 새로고침을 @Rerolls@회 얻습니다.",
+    "effects": {
+      "Health": 2.0,
+      "Rerolls": 2.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_BlossomingLotus2",
+    "name": "만개한 연꽃 II",
+    "tier": null,
+    "desc": "아군의 스킬에 치명타가 적용될 수 있습니다. @Interval@초마다 아군이 치명타 확률을 @IntervalCritChance*100@% 얻습니다.",
+    "effects": {
+      "Interval": 3.0,
+      "IntervalCritChance": 0.15000000596046448
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_AnotherOne",
+    "name": "하나 더!",
+    "tier": null,
+    "desc": "다음 완성 아이템 제작 시 해당 아이템의 추가 복사본을 획득합니다. 즉시 @Gold@골드를 획득합니다.",
+    "effects": {
+      "Gold": 5,
+      "NumComponents": null,
+      "NumItems": 1
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_HallOfMirrors",
+    "name": "거울의 전당",
+    "tier": null,
+    "desc": "전투 시작: 아군 전방 가로 1열에 위치한 모든 챔피언이 해당 열 중앙에 있는 챔피언의 분신으로 변신합니다. 분신은 기존 체력의 @HealthRatio*100@%로 체력이 조정되고 @DamagePenalty*100@% 감소된 피해를 입힙니다.",
+    "effects": {
+      "DamagePenalty": 0.05000000074505806,
+      "HealthRatio": 1.149999976158142
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_BlossomingLotus1",
+    "name": "만개한 연꽃 I",
+    "tier": null,
+    "desc": "아군의 스킬에 치명타가 적용될 수 있습니다. @Interval@초마다 아군이 치명타 확률을 @IntervalCritChance*100@% 얻습니다.",
+    "effects": {
+      "Interval": 3.0,
+      "IntervalCritChance": 0.05000000074505806
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_ExplosiveGrowthPlus",
+    "name": "폭발적인 성장+",
+    "tier": null,
+    "desc": "다음 @rounds@번의 라운드 시작 시 경험치를 @XP@ 얻습니다.",
+    "effects": {
+      "XP": 11.0,
+      "rounds": 4.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_AimForTheTop",
+    "name": "정상을 노려라!",
+    "tier": null,
+    "desc": "더 강한 플레이어와 전투할 확률이 증가하며 전투 상대를 알 수 있습니다. 패배 시 경험치를 @XP@ 얻습니다. 첫 승리 시 및 이후 @WinsPerComponent@회 승리할 때마다 조합 아이템 1개를 획득합니다.<br><br><rules>격파한 적: @TFTUnitProperty.item:TFT15_AimForTheTop_EnemiesBeaten@</rules>",
+    "effects": {
+      "WinsPerComponent": 3,
+      "XP": 2
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_RiggedShopPlus",
+    "name": "조작된 상점+",
+    "tier": null,
+    "desc": "다음 상점 및 각 @NumRolls@번째 상점이 모두 3단계 챔피언으로 채워집니다. 새로고침을 @Rerolls@회 얻습니다.",
+    "effects": {
+      "Numrolls": 4.0,
+      "Rerolls": 5.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_WithinTheMargins",
+    "name": "수익 구간",
+    "tier": null,
+    "desc": "시작 시 @MaxGold@골드가 배정됩니다. 전투가 끝날 때마다, 아군 및 적 생존 챔피언 1명당 @MinusGoldPerUnit@골드를 배정된 골드에서 차감합니다. @Rounds@라운드 후, 남은 골드를 모두 획득합니다.<br><br>골드: @TFTUnitProperty.item:TFT_Augment_WithinTheMargins@<br>남은 라운드: @TFTUnitProperty.item:TFT_Augment_WithinTheMarginsRounds@",
+    "effects": {
+      "MaxGold": 80.0,
+      "MinusGoldPerUnit": 4.0,
+      "rounds": 4.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_SilverDestiny",
+    "name": "은빛 운명",
+    "tier": null,
+    "desc": "무작위 실버 증강을 얻고 @Gold@골드를 획득합니다.",
+    "effects": {
+      "Gold": 3.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_ExplosiveGrowth",
+    "name": "폭발적인 성장",
+    "tier": null,
+    "desc": "다음 @rounds@번의 라운드 시작 시 경험치를 @XP@ 얻습니다.",
+    "effects": {
+      "XP": 8.0,
+      "rounds": 4.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_TowerDefense",
+    "name": "포탑 방어",
+    "tier": null,
+    "desc": "무작위 상징을 장착한 훈련 봇을 획득합니다. 훈련 봇은 원거리에서 적을 공격하며 게임이 진행될수록 업그레이드됩니다.",
+    "effects": {
+      "Gold": null,
+      "NumOfEmblems": 1.0,
+      "{103ddd87}": 0.4000000059604645,
+      "{fd3dbf9e}": 60.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_StarryNightPlus",
+    "name": "별이 빛나는 밤+",
+    "tier": null,
+    "desc": "상점 내 1단계 및 2단계 유닛이 일정 확률로 2성이 됩니다. @Gold@골드를 획득합니다.<br><br>현재 확률: @TFTUnitProperty.item:TFT_Augment_StarryNight_Odds@%<br><rules>확률은 플레이어 레벨에 따라 증가합니다.</rules>",
+    "effects": {
+      "Gold": 8.0,
+      "{019b80fe}": 0.8999999761581421,
+      "{020fb2eb}": 0.25,
+      "{0d14760d}": 2.0,
+      "{4885b8ce}": 1.0,
+      "{49c43705}": 0.15000000596046448,
+      "{4abd7204}": 0.15000000596046448,
+      "{7083c200}": 0.3499999940395355,
+      "{99dcb7a2}": 0.18000000715255737,
+      "{ca771d21}": 0.6000000238418579
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_SilverDestinyPlus",
+    "name": "은빛 운명+",
+    "tier": null,
+    "desc": "무작위 실버 증강을 얻고 @Gold@골드를 획득합니다.",
+    "effects": {
+      "Gold": 4.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_HardCommit",
+    "name": "극진한 헌신",
+    "tier": null,
+    "desc": "무작위 상징 1개를 획득합니다. 즉시 및 각 스테이지 시작 시 이 무작위 상징의 특성을 보유한 1성 챔피언과 @GoldPerStage@골드를 획득합니다. 챔피언의 단계는 스테이지와 동일하며 최대 5입니다.",
+    "effects": {
+      "GoldPerStage": 2.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_LastSecondSave",
+    "name": "마지막 세이브",
+    "tier": null,
+    "desc": "각 아군의 체력이 처음으로 @HealthThreshold*100@% 아래로 떨어지면, 해당 아군이 최대 체력의 @HealPercent*100@%만큼 체력을 회복합니다.",
+    "effects": {
+      "HealPercent": 0.2199999988079071,
+      "HealthThreshold": 0.3499999940395355
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_StoryOfSeven",
+    "name": "7의 전설",
+    "tier": null,
+    "desc": "전투에서 플레이어를 상대로 승리할 때마다 황금 구슬을 획득합니다. @WinsPerReward@개를 모두 모으면 보상을 획득합니다. 이후 퀘스트가 다시 시작되고 더 강력한 보상이 제공됩니다. <br><br>여정을 시작할 1단계 2성 챔피언을 획득합니다.<br>",
+    "effects": {
+      "WinsPerReward": 7.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_HowlingGale",
+    "name": "울부짖는 돌풍",
+    "tier": null,
+    "desc": "아군이 마나를 @ManaPerWhirlwind@ 사용할 때마다 적을 공중에 띄우는 회오리바람을 소환합니다.",
+    "effects": {
+      "ManaPerWhirlwind": 550.0,
+      "StunDuration": 1.5,
+      "{67abbfa8}": 360.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_TableScraps",
+    "name": "부스러기",
+    "tier": null,
+    "desc": "다음 공동 선택 @NumStages@회에서 선택되지 않은 챔피언 1명과 해당 챔피언이 보유한 아이템을 획득합니다. @Gold@골드를 획득합니다.",
+    "effects": {
+      "Gold": 1.0,
+      "NumStages": 2
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_ClimbTheLadder2",
+    "name": "서열 상승 II",
+    "tier": null,
+    "desc": "아군이 사망할 때마다 특성을 한 개 이상 공유하는 아군이 주문력을 @BonusAP@%, 공격력을 @BonusAD*100@%, 방어력을 @BonusArmor@, 마법 저항력을 @BonusMR@ 얻습니다.",
+    "effects": {
+      "BonusAD": 0.05000000074505806,
+      "BonusAP": 5.0,
+      "BonusArmor": 5.0,
+      "BonusMR": 5.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_GoldenQuest",
+    "name": "황금빛 퀘스트",
+    "tier": null,
+    "desc": "처음으로 @GoldRequired@골드 이상 보유 시, 5단계 2성 챔피언 1명과 이 챔피언에 어울리는 아이템 2개를 획득합니다.",
+    "effects": {
+      "goldrequired": 165.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_ClimbTheLadder1",
+    "name": "서열 상승 I",
+    "tier": null,
+    "desc": "아군이 사망할 때마다 특성을 한 개 이상 공유하는 아군이 주문력을 @BonusAP@%, 공격력을 @BonusAD*100@%, 방어력을 @BonusArmor@, 마법 저항력을 @BonusMR@ 얻습니다.",
+    "effects": {
+      "BonusAD": 0.029999999329447746,
+      "BonusAP": 3.0,
+      "BonusArmor": 3.0,
+      "BonusMR": 3.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_GoldDestiny",
+    "name": "금빛 운명",
+    "tier": null,
+    "desc": "무작위 골드 증강을 얻고 @Gold@골드를 획득합니다.",
+    "effects": {
+      "Gold": 4.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_FinalResistance",
+    "name": "마지막 저항",
+    "tier": null,
+    "desc": "아군 챔피언이 처치될 때마다 가장 가까운 적 @NumUnits@명에게 @Duration@초 동안 파쇄 및 파열을 @SunderPercentage@% 적용합니다.<br><br><rules>파쇄: 마법 저항력 감소, 파열: 방어력 감소</rules>",
+    "effects": {
+      "Duration": 6.0,
+      "NumUnits": 4.0,
+      "ShredPercentage": 30.0,
+      "SunderPercentage": 30.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_DiversifiedPortfolio2",
+    "name": "종목 분산 투자+",
+    "tier": null,
+    "desc": "@InstantGold@골드를 획득합니다. 라운드마다 활성화된 고유 특성이 아닌 특성 @TraitsActive@개당 @GoldRate@골드를 획득합니다.<br><br>추가 골드: @TFTUnitProperty.item:TFT_Augment_DiversifiedPortfolio_GoldReturned@",
+    "effects": {
+      "GoldRate": 1.0,
+      "InstantGold": 4.0,
+      "TraitsActive": 3.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_RiggedShop",
+    "name": "조작된 상점",
+    "tier": null,
+    "desc": "다음 상점 및 각 @NumRolls@번째 상점이 모두 3단계 챔피언으로 채워집니다.",
+    "effects": {
+      "Numrolls": 4.0,
+      "Rerolls": null
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Coronation",
+    "name": "대관식",
+    "tier": null,
+    "desc": "전략가의 왕관 1개를 획득합니다. 전략가의 왕관, 방패, 망토가 장착 유닛에게 추가로 공격 속도를 @BonusAS*100@%, 공격력을 @BonusAD*100@%, 주문력을 @BonusAP@% 부여합니다.",
+    "effects": {
+      "BonusAD": 0.25,
+      "BonusAP": 30.0,
+      "BonusAS": 0.20000000298023224
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_DiversifiedPortfolio1",
+    "name": "종목 분산 투자",
+    "tier": null,
+    "desc": "@InstantGold@골드를 획득합니다. 라운드마다 활성화된 고유 특성이 아닌 특성 @TraitsActive@개당 @GoldRate@골드를 획득합니다.<br><br>추가 골드: @TFTUnitProperty.item:TFT_Augment_DiversifiedPortfolio_GoldReturned@",
+    "effects": {
+      "GoldRate": 1.0,
+      "InstantGold": 1.0,
+      "TraitsActive": 3.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Spellblades",
+    "name": "주문 마검",
+    "tier": null,
+    "desc": "아군 챔피언이 스킬을 사용하면 다음 기본 공격 시 주문력의 @abilitypower*100@%에 해당하는 추가 마법 피해를 입힙니다.",
+    "effects": {
+      "AbilityPower": 1.2000000476837158
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_NineLives",
+    "name": "9개의 목숨",
+    "tier": null,
+    "desc": "플레이어 체력을 @NumberOfLives@에 맞춥니다. 전투 패배 시 체력을 @HealthLoss@ 잃고 전리품을 획득하지만, 체력을 얻을 수 없습니다.",
+    "effects": {
+      "HealthLoss": 1,
+      "NumberOfLives": 9
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_WorthTheWaitGold",
+    "name": "기다림의 미학",
+    "tier": null,
+    "desc": "무작위 @unittier@단계 2성 챔피언 1명을 획득합니다. @delay@라운드 후, 게임이 끝날 때까지 각 라운드 시작 시 해당 유닛의 복사본을 획득합니다.<br><br>챔피언: @TFTUnitProperty.item:TFT_Augment_WorthTheWait@",
+    "effects": {
+      "AdditionalCopies": 99.0,
+      "Delay": 2.0,
+      "UnitTier": 1.0,
+      "{3a9ff59a}": 3.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_BranchingOutPlus",
+    "name": "가지 뻗기+",
+    "tier": null,
+    "desc": "무작위 상징과 재조합기를 획득합니다.<br><br><rules>재조합기로 어떤 아이템이든 다시 만들 수 있습니다.</rules>",
+    "effects": {
+      "NumReforgers": 1,
+      "Numberofcombats": null
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_TheOneWhoKnocks",
+    "name": "두드리는 자",
+    "tier": null,
+    "desc": "은빛 여명 1개를 획득합니다. @combatnum@라운드 후, 지평선의 초점 1개를 획득합니다.<br><br><rules>하나는 기절시키고, 3라운드 후 등장하는 다른 하나는 이 기절을 매우... 아프게 만듭니다.</rules>",
+    "effects": {
+      "CombatNum": 3.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_ChemtechOverdrive",
+    "name": "화학공학 폭주",
+    "tier": null,
+    "desc": "두 번째 가로 열의 무작위 칸에 자운으로 이어지는 차원문을 @NumHexes@개 생성합니다. 해당 차원문 안에서 전투를 시작하는 유닛은 체력을 @Health@, 공격 속도를 @AttackSpeed*100@% 얻고 사망 시 @Gold@골드를 떨어뜨립니다.",
+    "effects": {
+      "AttackSpeed": 0.3499999940395355,
+      "Gold": 1.0,
+      "Health": 450.0,
+      "NumHexes": 3
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_ExpectedUnexpectedness",
+    "name": "예상된 예상 밖의 결과",
+    "tier": null,
+    "desc": "즉시 및 다음 @NumStages@번의 스테이지 시작 시 주사위를 3개 굴립니다. 주사위 눈의 총합에 따라 다양한 보상을 획득합니다.",
+    "effects": {
+      "NumReforgers": 3,
+      "NumStages": 2.0,
+      "{144f18ac}": 10,
+      "{36f24d98}": 11.0,
+      "{dae07608}": 20.0,
+      "{fcb8577b}": 15.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Dominance3",
+    "name": "지배",
+    "tier": null,
+    "desc": "플레이어 대상 전투 승리 후 살아남은 챔피언 @PerSurvivingUnit@명당 @Gold@골드를 획득합니다. 경험치를 @Experience@ 얻습니다.",
+    "effects": {
+      "Experience": 16,
+      "Gold": 1.0,
+      "PerSurvivingUnit": 2.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_PlaceboPlus",
+    "name": "위약 효과+",
+    "tier": null,
+    "desc": "아군이 공격 속도를 @AttackSpeed*100@% 얻습니다. @Gold@골드를 획득합니다.",
+    "effects": {
+      "AttackSpeed": 0.009999999776482582,
+      "Gold": 15.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_SpiritLink2",
+    "name": "정신 결속 II",
+    "tier": null,
+    "desc": "챔피언이 @RegenPeriod@초마다 최대 체력의 @BaseRegenBonus*100@%를 회복합니다. 잃은 플레이어 체력 10당 체력 회복량이 @RegenPerMissingHP@% 증가합니다.",
+    "effects": {
+      "HealthBonus": 250.0,
+      "RegenBonus": 0.03999999910593033,
+      "RegenPeriod": 2.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Firesale",
+    "name": "급매",
+    "tier": null,
+    "desc": "라운드마다 상점에서 @CostLimit@단계 이하의 무작위 챔피언을 1명 훔칩니다. @Gold@골드를 획득합니다.",
+    "effects": {
+      "Gold": 1.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_QuietQuitting",
+    "name": "조용한 사직",
+    "tier": null,
+    "desc": "다음 플레이어 대상 전투 @NumRounds@회 동안 상점을 이용할 수 없습니다. 이후 @Gold@골드와 완성 아이템 모루를 획득합니다.",
+    "effects": {
+      "Gold": 16,
+      "NumRounds": 3,
+      "{f75fda1e}": 1
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_VoidborneHR",
+    "name": "공허의 무리",
+    "tier": null,
+    "desc": "즈롯 차원문 1개를 획득하고 플레이어 대상 전투 @NumberOfCombats@회마다 추가로 1개를 획득합니다. 즈롯 차원문 공허충이 공격 속도를 @BonusAS*100@%, 모든 피해 흡혈을 @BonusOmnivamp*100@% 얻습니다.",
+    "effects": {
+      "BonusAS": 0.4000000059604645,
+      "BonusOmnivamp": 0.25,
+      "Numberofcombats": 6.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_HoldTheLine",
+    "name": "진형 유지",
+    "tier": null,
+    "desc": "전투 시작: 후방에 있는 아군 챔피언이 전방에 있는 아군 챔피언 한 명당 주문력을 @AP@%, 공격력을 @AD*100@% 얻습니다.",
+    "effects": {
+      "AD": 0.09000000357627869,
+      "AP": 10.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_TacticiansKitchen_HR",
+    "name": "전략가의 주방",
+    "tier": null,
+    "desc": "무작위 상징 1개를 획득합니다. 플레이어 대상 전투 @TurnDelay@회 후 전략가의 망토 1개를 획득합니다.",
+    "effects": {
+      "NumFryingPan": 1.0,
+      "NumItemAnvils": 1.0,
+      "NumSpatula": 1.0,
+      "TurnDelay": 4
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_SpiritLink1",
+    "name": "정신 결속",
+    "tier": null,
+    "desc": "챔피언이 @RegenPeriod@초마다 최대 체력의 @BaseRegenBonus*100@%를 회복합니다. 잃은 플레이어 체력 10당 체력 회복량이 @RegenPerMissingHP@% 증가합니다.",
+    "effects": {
+      "BaseRegenBonus": 0.05000000074505806,
+      "RegenPerMissingHP": 0.5,
+      "RegenPeriod": 4.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_HeftyRolls",
+    "name": "두둑한 새로고침",
+    "tier": null,
+    "desc": "이번 게임에서 새로고침한 횟수당 아군이 체력을 @Health@ 얻고 크기가 커집니다.<br><br><rules>새로고침: @TFTUnitProperty.Item:TFT_Augment_HeftyRolls_NumRolls@ 체력:@TFTUnitProperty.Item:TFT_Augment_HeftyRolls_HealthBonus@</rules>",
+    "effects": {
+      "Health": null,
+      "NumRerolls": null,
+      "Size": 0.019999999552965164,
+      "{3a4f45ba}": 0.800000011920929
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_BeggarsCanBeChoosers",
+    "name": "편식",
+    "tier": null,
+    "desc": "다른 모든 증강 선택에서 증강 새로고침 횟수를 +@ExtraRolls@ 얻습니다. @Gold@골드를 획득합니다.",
+    "effects": {
+      "ExtraRolls": 3.0,
+      "Gold": 7.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Invested",
+    "name": "투자",
+    "tier": null,
+    "desc": "@Gold@골드를 획득합니다. 각 라운드 시작 시, @GoldThreshold@골드를 모은 상태에서 초과 @GoldPerReroll@골드마다 상점 새로고침을 1회 획득합니다. (최대 @MaxGold@골드)",
+    "effects": {
+      "Gold": 16.0,
+      "GoldPerReroll": 10.0,
+      "GoldThreshold": 50.0,
+      "MaxGold": 80.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_SupportSentinel",
+    "name": "지원 골렘 I",
+    "tier": null,
+    "desc": "아군이 되어 함께 싸우는 골렘 @NumOfDummies@마리를 소환합니다. 골렘은 지원 아이템 @NumOfItems@개를 영구히 장착합니다.",
+    "effects": {
+      "NumOfDummies": 1.0,
+      "NumOfItems": 1.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Contested",
+    "name": "경쟁",
+    "tier": null,
+    "desc": "각 플레이어 대상 전투 이후, 이번 게임에서 아군 대기석 가장 왼쪽에 있는 유닛을 배치한 적이 있는 다른 플레이어 @PlayerPerInstance@명당 @GoldPerInstance@골드를 획득합니다.",
+    "effects": {
+      "GoldPerInstance": 2.0,
+      "PlayerPerInstance": 2.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_BlazingSoul2",
+    "name": "불타는 영혼 II",
+    "tier": null,
+    "desc": "전투 시작: 가장 공격 속도가 높은 아군 챔피언이 주문력을 @AbilityPower@%, 공격 속도를 @AttackSpeed*100@% 얻습니다. 이 효과는 @TransferDuration@초마다 다른 아군에게 반복해서 적용됩니다.",
+    "effects": {
+      "AbilityPower": 35.0,
+      "AttackSpeed": 0.3499999940395355,
+      "TransferDuration": 3.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_GoldDestinyPlus",
+    "name": "금빛 운명+",
+    "tier": null,
+    "desc": "무작위 골드 증강을 얻고 @Gold@골드를 획득합니다.",
+    "effects": {
+      "Gold": 6.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_CloningFacility",
+    "name": "복제 시설",
+    "tier": null,
+    "desc": "세 번째 가로 열 중앙에 있는 칸을 강화합니다. 해당 칸에 있는 챔피언의 분신을 소환합니다. 분신은 @HealthPercent*100@%의 기본 체력을 가지며 마나 소모량이 @ManaPercent*100@% 증가합니다.",
+    "effects": {
+      "HealthPercent": 0.800000011920929,
+      "ManaPercent": 0.10000000149011612,
+      "{4074ec36}": 2.0,
+      "{d47f9a80}": 4.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_HardBargain",
+    "name": "유리한 조건",
+    "tier": null,
+    "desc": "공동 선택 보상을 선택할 수 없습니다. 공동 선택 라운드마다 추가로 플레이어 체력을 @PlayerHealth@ 얻고 @Gold@골드를 획득합니다.<br><tftitemrules>공동 선택 보상을 선택하지 않으면 선택되지 않은 챔피언과 해당 챔피언의 아이템을 획득합니다.</tftitemrules>",
+    "effects": {
+      "Gold": 9.0,
+      "PlayerHealth": 4
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_BackupDancers",
+    "name": "백댄서",
+    "tier": null,
+    "desc": "전투 시작:  @Period@초마다 대기석 가장 오른쪽 @BenchSlots@칸에 있는 챔피언이 칸당 @AttackSpeedPerUnit*100@%의 공격 속도를 아군에게 부여합니다.",
+    "effects": {
+      "AttackSpeedPerUnit": 0.029999999329447746,
+      "BaseAttackSpeed": null,
+      "BenchSlots": 3,
+      "Period": 3
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_TwoMuchValue",
+    "name": "2만한 가치",
+    "tier": null,
+    "desc": "지난 전투에 배치된 고유 2단계 챔피언 @UnitCount@명당 새로고침을 @FreeRerolls@회 얻습니다. 2단계 유닛을 @NumChampsToGrant@명 획득합니다.",
+    "effects": {
+      "FreeRerolls": 1.0,
+      "NumChampsToGrant": 2.0,
+      "UnitCost": 2.0,
+      "UnitCount": 2.0,
+      "augmentselectbonusgold": null,
+      "{10307c7b}": null,
+      "{d5279bbe}": 2.0,
+      "{e0965628}": 2.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_HeroicGrabBagPlus",
+    "name": "영웅 꾸러미+",
+    "tier": null,
+    "desc": "하급 챔피언 복제기 @LesserDuplicatorAmount@개를 획득합니다. @Gold@골드를 획득합니다.<br><br><rules>3단계 이하의 챔피언을 복제할 수 있습니다.</rules>",
+    "effects": {
+      "Gold": 9.0,
+      "LesserDuplicatorAmount": 2.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_WaitForIt",
+    "name": "기다려",
+    "tier": null,
+    "desc": "아군 유닛의 마나 소모량이 @ManaIncrease*100@% 증가하지만, 스킬 피해량이 @DamageIncrease*100@% 증가합니다.",
+    "effects": {
+      "DamageIncrease": 0.4000000059604645,
+      "ManaIncrease": 0.25
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Changeling",
+    "name": "변덕쟁이",
+    "tier": null,
+    "desc": "활성화된 모든 특성의 효과가 적용되는 @StarLevel@성 변덕쟁이를 획득합니다. 라운드마다 변덕쟁이를 무작위 유닛으로 변신시키는 소모품을 획득하며, 스테이지마다 유닛의 등급이 올라갑니다. 황금 제거기를 획득합니다.",
+    "effects": {
+      "starLevel": 2,
+      "{081bec06}": null,
+      "{72450bf4}": null,
+      "{a88b5e0a}": null,
+      "{da8b25d6}": null
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_ShareTheSpotlight",
+    "name": "스포트라이트 공유",
+    "tier": null,
+    "desc": "전장 뒤쪽 모서리에 스포트라이트 칸 1개를 획득합니다. 스포트라이트 칸에 위치한 모든 유닛은 피해 증폭을 @DamagePercent*100@%, 모든 피해 흡혈을 @OmnivampPercent*100@%, 초당 마나를 @ManaPerSecond@ 얻습니다.",
+    "effects": {
+      "DamagePercent": 0.14000000059604645,
+      "ManaPerSecond": 2.0,
+      "OmnivampPercent": 0.11999999731779099
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_PlotArmor",
+    "name": "주인공 버프",
+    "tier": null,
+    "desc": "아군이 방어력 및 마법 저항력을 @BaseResists@ 얻습니다. 체력이 @HealthThreshold*100@% 아래로 떨어지면 전투가 끝날 때까지 대신 @EnhancedTotalResists@만큼 얻습니다.",
+    "effects": {
+      "BaseResists": 10.0,
+      "EnhancedTotalResists": 40.0,
+      "HealthThreshold": 0.5
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_AnUpgradedJourney",
+    "name": "별이 수놓인 모험",
+    "tier": null,
+    "desc": "챔피언 @NumUpgrades@명을 3성으로 업그레이드하면 굉장한 보상을 획득합니다. 1단계 챔피언을 @NumStartUnits@명 획득합니다.",
+    "effects": {
+      "NumStartUnits": 2.0,
+      "NumUpgrades": 4.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_PocketRecombobulator",
+    "name": "휴대용 대격변 생성기",
+    "tier": null,
+    "desc": "1단계 또는 2단계 챔피언을 한 단계 더 높은 챔피언으로 변신시키는 소모품인 휴대용 대격변 생성기 @NumRecombobulator@개를 획득합니다. 별 레벨은 유지됩니다. 또한 재조합기 @NumReforgers@개를 획득합니다.",
+    "effects": {
+      "NumRecombobulator": 2,
+      "NumReforgers": 2
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_HeroicGrabBagPlusPlus",
+    "name": "영웅 꾸러미++",
+    "tier": null,
+    "desc": "하급 챔피언 복제기 @LesserDuplicatorAmount@개를 획득합니다. @Gold@골드를 획득합니다.<br><br><rules>3단계 이하의 챔피언을 복제할 수 있습니다.</rules>",
+    "effects": {
+      "Gold": 13.0,
+      "LesserDuplicatorAmount": 2.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_WaterLotus2",
+    "name": "수련 II",
+    "tier": null,
+    "desc": "아군이 치명타 확률을 @CritChance*100@% 얻으며, 스킬에 치명타가 적용될 수 있습니다. 스킬에 치명타가 적용되면 @ManaDuration@초에 걸쳐 마나의 @ManaOnCrit@%를 회복합니다.",
+    "effects": {
+      "CritChance": 0.20000000298023224,
+      "ManaDuration": 3.0,
+      "ManaOnCrit": 15.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_BRB",
+    "name": "금방 올게",
+    "tier": null,
+    "desc": "다음 @RoundsToSkip@라운드 동안 아무 행동을 취할 수 없습니다. 이후 완성 아이템 모루 @Anvils@개를 획득합니다.",
+    "effects": {
+      "RoundsToSkip": 3.0,
+      "anvils": 2.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_BadLuckProtection",
+    "name": "불운 방지",
+    "tier": null,
+    "desc": "아군이 더 이상 치명타를 발동할 수 없습니다. 치명타 확률 @CritChancePercent@%마다 공격력 @ADPerCrit*100@%로 전환됩니다. 연습용 장갑 1개를 획득합니다.",
+    "effects": {
+      "ADPerCrit": 0.05000000074505806,
+      "CritChancePercent": 5.0,
+      "{1a2d5ea3}": null
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_InvestmentStrategy2",
+    "name": "투자 전략 II",
+    "tier": null,
+    "desc": "이자로 획득한 골드당 아군 챔피언이 영구적으로 최대 체력을 @HealthPerInterest@ 얻습니다. 최대 이자가 @MaxInterest@골드로 증가합니다. @Gold@골드를 획득합니다.",
+    "effects": {
+      "Gold": 3.0,
+      "HealthPerInterest": 8.0,
+      "MaxInterest": 7.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_BronzeForLifeI",
+    "name": "영원한 브론즈 I",
+    "tier": null,
+    "desc": "아군이 브론즈 등급 특성당 피해 증폭을 @DamageAmpBonus*100@% 얻습니다.<br><br>추가 피해 증폭: @TFTUnitProperty.item:TFT_Augment_BronzeForLife_CurrentDamageAmp@%",
+    "effects": {
+      "DamageAmpBonus": 0.029999999329447746,
+      "DurabilityBonus": null
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_InvestmentStrategy1",
+    "name": "투자 전략 I",
+    "tier": null,
+    "desc": "이자로 획득한 골드당 아군 챔피언이 영구적으로 최대 체력을 @HealthPerInterest@ 얻습니다.",
+    "effects": {
+      "HealthPerInterest": 8.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Voidborne",
+    "name": "공허의 무리",
+    "tier": null,
+    "desc": "즈롯 차원문 1개를 획득하고 플레이어 대상 전투 @NumberOfCombats@회마다 추가로 1개를 획득합니다. 즈롯 차원문 공허충이 공격 속도를 @BonusAS*100@%, 모든 피해 흡혈을 @BonusOmnivamp*100@% 얻습니다.",
+    "effects": {
+      "BonusAS": 0.30000001192092896,
+      "BonusOmnivamp": 0.30000001192092896,
+      "Numberofcombats": 10.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_DualPurpose",
+    "name": "두 가지 목적",
+    "tier": null,
+    "desc": "라운드마다 처음으로 경험치를 구매하면 @goldtogive@골드를 획득합니다. 경험치를 구매할 때마다 상점을 새로고침합니다.",
+    "effects": {
+      "goldtogive": 2.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_HighVoltage",
+    "name": "고전압",
+    "tier": null,
+    "desc": "이온 충격기 1개를 획득합니다. 이온 충격기의 효과 반경이 +@hexincreasetooltip@칸 증가하고 피해를 @effectincrease*100@% 더 입힙니다.",
+    "effects": {
+      "effectincrease": 0.15000000596046448,
+      "hexincreasetooltip": 3.0,
+      "{f5a91c3a}": 680.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_SoloLeveling",
+    "name": "나 혼자 레벨업",
+    "tier": null,
+    "desc": "다음 전투 @NumCombats@회 동안 아군 팀 규모가 1이 되지만, 배치하는 챔피언의 능력치가 크게 증가합니다. 해당 챔피언이 적을 처치할 때마다 경험치를 @XPPerKill@ 얻습니다. 이후 조합 아이템 @NumComponents@개를 획득합니다.",
+    "effects": {
+      "ADBonus": 0.4000000059604645,
+      "APBonus": 40.0,
+      "ASBonus": 0.4000000059604645,
+      "DamageAmpBonus": 0.30000001192092896,
+      "DurabilityBonus": 0.25,
+      "FlatHealthBonus": 600.0,
+      "NumCombats": 5,
+      "NumComponents": 2,
+      "OmnivampBonus": 0.20000000298023224,
+      "XPPerKill": 1
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_SpellcastersToolbox",
+    "name": "마법사의 공구함",
+    "tier": null,
+    "desc": "마나자네 1개를 획득합니다. @combatnum@라운드 후, 존야의 역설 1개를 획득합니다.",
+    "effects": {
+      "CombatNum": 3.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_TreasureHunt",
+    "name": "보물 사냥",
+    "tier": null,
+    "desc": "지금부터 스테이지 @MaxNumChests@까지 스테이지마다 잠긴 상자를 획득합니다. 상점 새로고침에 @GoldNeededPerChest@골드를 소모하면 각 상자를 열 수 있습니다. 상자는 개봉할 때까지 유지됩니다.",
+    "effects": {
+      "GoldNeededPerChest": null,
+      "MaxNumChests": null
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Superstars",
+    "name": "슈퍼스타 II",
+    "tier": null,
+    "desc": "아군의 피해량이 @BaseBonusDamage*100@% 증가합니다. 이 효과는 아군 3성 유닛 하나당 @BonusDamagePer3Star*100@% 증가합니다. 새로고침을 @Rerolls@회 얻습니다.<br><br>추가 효과: @TFTUnitProperty.item:TFT_Augment_SuperstarsTotalDamageBonus@%",
+    "effects": {
+      "BaseBonusDamage": 0.07000000029802322,
+      "BonusDamagePer3Star": 0.029999999329447746,
+      "Rerolls": 4.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Mentorship1",
+    "name": "스승 I",
+    "tier": null,
+    "desc": "더 높은 단계의 아군 옆에서 전투를 시작한 아군이 공격 속도를 @AS*100@%, 체력을 @Health@ 얻습니다.",
+    "effects": {
+      "AS": 0.10000000149011612,
+      "Health": 100.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Mentorship2",
+    "name": "스승 II",
+    "tier": null,
+    "desc": "더 높은 단계의 아군 옆에서 전투를 시작한 아군이 공격 속도를 @AS*100@%, 체력을 @Health@ 얻습니다.",
+    "effects": {
+      "AS": 0.1599999964237213,
+      "Health": 220.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_BlazingSoul",
+    "name": "불타는 영혼 I",
+    "tier": null,
+    "desc": "전투 시작: 가장 공격 속도가 높은 아군 챔피언이 주문력을 @AbilityPower@%, 공격 속도를 @AttackSpeed*100@% 얻습니다. 이 효과는 @TransferDuration@초마다 다른 아군에게 반복해서 적용됩니다.",
+    "effects": {
+      "AbilityPower": 20.0,
+      "AttackSpeed": 0.20000000298023224,
+      "TransferDuration": 3.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_HungryFriend",
+    "name": "굶주린 친구",
+    "tier": null,
+    "desc": "아군을 위해 싸우는 굶주린 친구 유닛을 획득합니다. 최대 유닛 수에 포함되지 않습니다. <br>준비 단계마다 한 번, 굶주린 친구에게 유닛을 먹여 능력치를 강화할 수 있습니다. <br><br><rules> 유닛을 끌어다 놓아 친구에게 먹이를 주세요. </rules>",
+    "effects": {
+      "ADPercent": 25.0,
+      "APPercent": 25.0,
+      "HealthPerStage": 500,
+      "HealthPercent": 25.0,
+      "{3401c2c7}": 1.0,
+      "{481bfb2c}": 1,
+      "{56c13429}": 3.0,
+      "{5fd00a20}": 2.0,
+      "{ccec48cb}": 25.0,
+      "{e8bc41b6}": 30.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_FindYourCenter",
+    "name": "중심 잡기",
+    "tier": null,
+    "desc": "전방 가로 1열 중앙에서 전투를 시작하는 아군 챔피언이 피해 증폭을 @BonusDamage*100@%, 최대 체력을 @BonusHealth*100@% 얻습니다.",
+    "effects": {
+      "BonusDamage": 0.15000000596046448,
+      "BonusHealth": 0.15000000596046448
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_ForwardThinking",
+    "name": "미래 지향적 사고",
+    "tier": null,
+    "desc": "모든 골드를 잃습니다. 플레이어 대상 전투 @Rounds@회 후 기존 골드를 되찾고 추가로 @BaseGold@골드를 획득합니다.<br><br>받는 골드: @TFTUnitProperty.item:TFT_Augment_ForwardThinkingGold@",
+    "effects": {
+      "BaseGold": 70.0,
+      "rounds": 5.0,
+      "{8f9a1368}": 1.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Flexible",
+    "name": "유연함",
+    "tier": null,
+    "desc": "무작위 상징 @StartingEmblems@개를 획득합니다. 매 스테이지 시작 시 무작위 상징 1개를 획득합니다. 모든 아군이 장착한 상징 1개당 체력을 @HPPerEmblem@ 얻습니다.",
+    "effects": {
+      "BonusStages": 99.0,
+      "HPPerEmblem": 20.0,
+      "StartingEmblems": 1.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_RestartMission",
+    "name": "임무 재시작",
+    "tier": null,
+    "desc": "전장과 대기석의 모든 아군 챔피언을 제거합니다. 무작위 3단계 2성 챔피언 @3Cost@명, 2단계 2성 챔피언 @2Cost@명, 1단계 2성 챔피언 @1Cost@명을 획득합니다.",
+    "effects": {
+      "1Cost": 1.0,
+      "2Cost": 3.0,
+      "3Cost": 2.0,
+      "NumUnits": 2.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_DuoQueue",
+    "name": "2인조",
+    "tier": null,
+    "desc": "무작위 5단계 챔피언 @NumUnits@명과 무작위 조합 아이템 1개의 복사본 @NumComponents@개를 획득합니다.",
+    "effects": {
+      "NumComponents": 2.0,
+      "NumUnits": 2.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_BloodRage",
+    "name": "피의 격노",
+    "tier": null,
+    "desc": "아군 유닛이 잃은 체력에 비례해 피해 증폭을 @BaseDamageAmp*100@~@DamageAmpCap*100@% 얻습니다. 피해 증폭은 체력이 @MissingHealthCap@%일 때 최대가 됩니다.",
+    "effects": {
+      "BaseDamageAmp": 0.11999999731779099,
+      "DamageAmpCap": 0.30000001192092896,
+      "MissingHealthCap": 30.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Artifactory",
+    "name": "유물 제작소",
+    "tier": null,
+    "desc": "각 라운드 시작 시 대기석에 놓인 완성 아이템이 무작위 유물 아이템으로 변합니다. 유물 모루 @NumItems@개 및 아이템 제거기 @NumRemovers@개를 획득합니다.",
+    "effects": {
+      "Health": 50.0,
+      "NumItems": 1.0,
+      "NumRemovers": 2
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_WithinTheMarginsPlus",
+    "name": "수익 구간+",
+    "tier": null,
+    "desc": "시작 시 @MaxGold@골드가 배정됩니다. 전투가 끝날 때마다, 아군 및 적 생존 챔피언 1명당 @MinusGoldPerUnit@골드를 배정된 골드에서 차감합니다. @Rounds@라운드 후, 남은 골드를 모두 획득합니다.<br><br>골드: @TFTUnitProperty.item:TFT_Augment_WithinTheMargins@<br>남은 라운드: @TFTUnitProperty.item:TFT_Augment_WithinTheMarginsRounds@",
+    "effects": {
+      "MaxGold": 100.0,
+      "MinusGoldPerUnit": 4.0,
+      "rounds": 4.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_TrappersDelight",
+    "name": "함정꾼의 선물",
+    "tier": null,
+    "desc": "훈련 봇 @NumDummies@개를 획득합니다. 훈련 봇 사망 시 훈련 봇이 폭발하며 @StunStartRadius@칸 내 적을 @StunStartDuration@초 동안 기절시킵니다. @StunIncrement@초마다 기절 지속시간과 범위가 증가합니다. (최대 @StunMaxDuration@초 및 @StunMaxRadius@칸)",
+    "effects": {
+      "NumDummies": 2.0,
+      "StunIncrement": 6.0,
+      "StunMaxDuration": 3.0,
+      "StunMaxRadius": 2.0,
+      "StunStartDuration": 1.0,
+      "StunStartRadius": 1.0,
+      "{ad844421}": 0.25,
+      "{e9e40f80}": 0.5
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_AnExaltedAdventure",
+    "name": "고귀한 모험",
+    "tier": null,
+    "desc": "2단계 챔피언을 3명 획득합니다. 이 중에서 두 명을 3성으로 업그레이드하면 전리품 구를 획득합니다. 다음 @NumStages@번의 스테이지 시작 시 하급 챔피언 복제기를 획득합니다.<br><br>챔피언: @TFTUnitProperty.item:TFT_Augment_ExaltedAdventure_Champs@, @TFTUnitProperty.item:TFT_Augment_ExaltedAdventure_Champs2@, @TFTUnitProperty.item:TFT_Augment_ExaltedAdventure_Champs3@",
+    "effects": {
+      "NumStages": 2,
+      "NumUnits": 3.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_TraitTracker",
+    "name": "특성 추적자",
+    "tier": null,
+    "desc": "처음으로 한 전투에서 고유 특성이 아닌 특성 @NumTraits@개를 활성화하면 무작위 상징 @NumEmblems@개를 획득합니다.",
+    "effects": {
+      "NumEmblems": 5.0,
+      "NumTraits": 8.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_PandorasPocketLint",
+    "name": "판도라의 주머니 보풀",
+    "tier": null,
+    "desc": "@NumRounds@라운드마다 자석 제거기와 재조합기를 번갈아 획득합니다. 공동 선택 라운드가 끝난 후마다 무작위 조합 아이템 1개를 획득합니다.",
+    "effects": {
+      "NumRounds": 2
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_HomeCooking",
+    "name": "선물 꾸러미",
+    "tier": null,
+    "desc": "즉시 및 다음 @NumStages@번의 스테이지 시작 시 전리품과 @Gold@골드가 들어 있는 선물 꾸러미를 획득합니다.",
+    "effects": {
+      "Gold": 3,
+      "Health": 4,
+      "NumStages": 2,
+      "component": 1
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_CalculatedEnhancement",
+    "name": "계산된 강화",
+    "tier": null,
+    "desc": "전투마다 후방 2열에 있는 무작위 챔피언 @NumUnits@명이 공격력을 @BonusAD*100@%, 주문력을 @BonusAP@ 얻습니다.",
+    "effects": {
+      "BonusAD": 0.4000000059604645,
+      "BonusAP": 50.0,
+      "NumUnits": 4.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Survivor",
+    "name": "생존자",
+    "tier": null,
+    "desc": "플레이어 @PlayersDead@명이 탈락하면 @Gold@골드를 획득합니다.",
+    "effects": {
+      "Gold": 92.0,
+      "PlayersDead": 3.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_AxiomArc3",
+    "name": "원칙의 원형낫 III",
+    "tier": null,
+    "desc": "아군 유닛이 처치 시 마나를 @ManaGain@ 얻습니다. 완성 아이템 모루 1개를 획득합니다.",
+    "effects": {
+      "ManaGain": 15.0,
+      "NumItems": 1
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_FutureSight2",
+    "name": "예견 II",
+    "tier": null,
+    "desc": "다음에 싸울 상대를 알 수 있습니다. 서풍 또는 침묵의 장막을 장착한 훈련 봇 @NumDummies@개를 획득합니다.",
+    "effects": {
+      "NumDummies": 2
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_RanduinsImmovableObject",
+    "name": "요지부동",
+    "tier": null,
+    "desc": "란두인의 예언 1개를 획득합니다. 란두인의 예언 사거리가 1칸 늘어나고 아이템의 효과가 @effectincrease*100@% 증가합니다.",
+    "effects": {
+      "effectincrease": 0.33000001311302185,
+      "{9f11e38f}": 2.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_AuraFarming",
+    "name": "오오라 축적",
+    "tier": null,
+    "desc": "5단계 @StarLevel@성 챔피언 1명을 획득합니다. 이 유닛은 @UnlockStage@-@UnlockRound@부터 배치할 수 있습니다.",
+    "effects": {
+      "NumItems": null,
+      "UnlockRound": 3,
+      "UnlockStage": 4,
+      "starLevel": 2.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_BeltOverflow",
+    "name": "넘치는 허리띠",
+    "tier": null,
+    "desc": "거인의 허리띠 @NumItems@개를 획득합니다. 거인의 허리띠가 추가 체력을 +@BonusHealth@ 제공합니다.",
+    "effects": {
+      "BonusHealth": 60.0,
+      "NumItems": 5.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_EyeForAnEye",
+    "name": "눈에는 눈",
+    "tier": null,
+    "desc": "아군 챔피언이 @AllyDeaths@명 사망할 때마다 무작위 조합 아이템 1개를 획득합니다. (최대 @NumComponents@개)<br><br>남은 사망 횟수: @TFTUnitProperty.item:TFT_Augment_EyeForAnEyeDeaths@",
+    "effects": {
+      "AllyDeaths": 15.0,
+      "NumComponents": 3.0,
+      "{a6cb80ca}": null
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_TeslaCoil",
+    "name": "테슬라 코일",
+    "tier": null,
+    "desc": "아이템 @MinItems@개를 장착한 아군이 @Frequency@초마다 번개 @NumArcs@개를 방출해 스테이지에 따라 @Stage2Damage@~@Stage6Damage@의 마법 피해를 입힙니다.",
+    "effects": {
+      "Frequency": 5.0,
+      "MinItems": 3,
+      "NumArcs": 2,
+      "Stage2Damage": 260,
+      "Stage6Damage": 320
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_BlacksmithTraining",
+    "name": "대장장이 훈련",
+    "tier": null,
+    "desc": "아이템을 완성할 때마다 대신 완성 아이템 모루를 획득합니다. 모루는 항상 완성한 아이템+선택지 @NumOptions@개를 제공합니다. 무작위 조합 아이템 1개를 획득합니다.",
+    "effects": {
+      "NumItems": 2.0,
+      "NumOptions": 2.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_CraftedCrafting",
+    "name": "정교한 공예",
+    "tier": null,
+    "desc": "완성 아이템을 만들 때마다 새로고침을 @Rerolls@회 얻습니다.",
+    "effects": {
+      "Rerolls": 2.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Incoming",
+    "name": "도화선 점화",
+    "tier": null,
+    "desc": "후방 가로 2열에서 전투를 시작한 유닛이 전투 시작 @DelaySeconds@초 후 총 @Mana@의 마나를 나누어 얻습니다.",
+    "effects": {
+      "DelaySeconds": 6,
+      "Mana": 60
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_ExclusiveCustomization",
+    "name": "특별 맞춤 설정",
+    "tier": null,
+    "desc": "행운의 아이템 상자, 자석 제거기, @Gold@골드를 획득합니다.<br><br><rules>챔피언에게 행운의 아이템 상자를 사용하면 무기고에서 추천 아이템 중 하나를 선택할 수 있습니다!</rules>",
+    "effects": {
+      "Gold": 5,
+      "NumRemovers": 1
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_InvestedPlusPlus",
+    "name": "투자++",
+    "tier": null,
+    "desc": "@Gold@골드를 획득합니다. 각 라운드 시작 시, @GoldThreshold@골드를 모은 상태에서 초과 @GoldPerReroll@골드마다 상점 새로고침을 1회 획득합니다. (최대 @MaxGold@골드)",
+    "effects": {
+      "Gold": 45.0,
+      "GoldPerReroll": 10.0,
+      "GoldThreshold": 50.0,
+      "MaxGold": 80.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_DawnbringersBlessing1",
+    "name": "전투 붕대 I",
+    "tier": null,
+    "desc": "각 아군 유닛의 체력이 처음으로 @HealthThreshold*100@% 아래로 떨어지면, 해당 아군 유닛이 @Duration@초에 걸쳐 체력을 @FlatHealing1@~@flathealing3@ 회복합니다. (스테이지에 비례)",
+    "effects": {
+      "Duration": 2.5,
+      "FlatHealing1": 100.0,
+      "FlatHealing2": 155.0,
+      "FlatHealing3": 220.0,
+      "HealthThreshold": 0.6000000238418579
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_WandOverflow",
+    "name": "넘치는 지팡이",
+    "tier": null,
+    "desc": "쓸데없이 큰 지팡이 @NumItems@개를 획득합니다. 쓸데없이 큰 지팡이가 공격 속도를 +@BonusStat*100@% 제공합니다.",
+    "effects": {
+      "BonusStat": 0.05000000074505806,
+      "NumItems": 5.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_GreaterMoonlight",
+    "name": "환한 달빛",
+    "tier": null,
+    "desc": "전투 시작: 무작위 1단계 챔피언 @NumUnits@명이 해당 라운드에만 4성으로 업그레이드되며 공격력을 @ADBonus*100@%, 주문력을 @APBONUS@% 얻습니다.",
+    "effects": {
+      "ADBonus": 0.05000000074505806,
+      "APBonus": 5.0,
+      "ItemBonus": null,
+      "NumUnits": 1.0,
+      "{51b72188}": 1.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_DawnbringersBlessing2",
+    "name": "전투 붕대 II",
+    "tier": null,
+    "desc": "각 아군 유닛의 체력이 처음으로 @HealthThreshold*100@% 아래로 떨어지면, 해당 아군 유닛이 @Duration@초에 걸쳐 체력을 @FlatHealing1@~@flathealing3@ 회복합니다. (스테이지에 비례)",
+    "effects": {
+      "Duration": 2.5,
+      "FlatHealing1": 170.0,
+      "FlatHealing2": 260.0,
+      "FlatHealing3": 350.0,
+      "HealthThreshold": 0.6000000238418579
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_AllForOneII",
+    "name": "모두를 위한 하나 II",
+    "tier": null,
+    "desc": "아군이 전장에 있는 고유 1단계 챔피언 한 명당 최대 체력을 @PercHP*100@%, 피해 증폭을 @DamageAmp*100@% 얻습니다. 1단계 챔피언 @NumChampsToGrant@명을 획득합니다.",
+    "effects": {
+      "DamageAmp": 0.014999999664723873,
+      "Durability": null,
+      "NumChampsToGrant": 3.0,
+      "NumCopies": null,
+      "PercHP": 0.029999999329447746,
+      "Tier": 1.0,
+      "{96f9e378}": null,
+      "{d5279bbe}": 1.0,
+      "{ea12e1ed}": null
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Lineup",
+    "name": "정렬",
+    "tier": null,
+    "desc": "아군이 전방 2열에서 전투를 시작하는 유닛 하나당 방어력 및 마법 저항력을 @Resistances@ 얻습니다.",
+    "effects": {
+      "Resistances": 2.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_GlassCannonII",
+    "name": "유리 대포 II",
+    "tier": null,
+    "desc": "후방 가로 1열에서 전투를 시작한 유닛이 전투 시작 시 체력이 @Health*100@%로 조정되지만 피해 증폭을 @DamageAmp*100@% 얻습니다.",
+    "effects": {
+      "DamageAmp": 0.20000000298023224,
+      "Health": 0.8999999761581421
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_DarkAlleyDealings",
+    "name": "뒷골목 거래",
+    "tier": null,
+    "desc": "수상한 외투 1개를 획득합니다. 플레이어 대상 전투 @CombatNum@회 후 속임수 거울 1개를 획득합니다.",
+    "effects": {
+      "CombatNum": 3.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_EfficientShopper",
+    "name": "효율적인 소비자",
+    "tier": null,
+    "desc": "다음 공동 선택 @NumStages@회 동안 선택한 챔피언의 복사본을 하나 더 획득합니다.",
+    "effects": {
+      "Gold": null,
+      "NumStages": 4
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Overheal",
+    "name": "과다치유",
+    "tier": null,
+    "desc": "세 번째 기본 공격마다 @BonusDamage*100@%의 추가 피해를 입히고 피해량의 @PercentHeal*100@%만큼 체력을 회복합니다. 초과 회복량은 최대 @MaxShield@의 피해를 흡수하는 보호막으로 전환됩니다.",
+    "effects": {
+      "BonusDamage": 1.100000023841858,
+      "Duration": 3.0,
+      "MaxShield": 300.0,
+      "NumAttacks": 3.0,
+      "PercentHeal": 0.5
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_ThornPlatedArmor",
+    "name": "가시 박힌 갑옷",
+    "tier": null,
+    "desc": "덤불 조끼 1개를 획득합니다. 아군의 덤불 조끼가 피해를 @damageamp1*100@~@damageamp4*100@%(스테이지에 따라) 더 입힙니다.",
+    "effects": {
+      "DamageAmp1": 0.20000000298023224,
+      "DamageAmp2": 0.4000000059604645,
+      "DamageAmp3": 1.25,
+      "DamageAmp4": 2.0999999046325684,
+      "Heal": null
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_TimeSkip",
+    "name": "시간 건너뛰기",
+    "tier": null,
+    "desc": "다음 @PenaltyTurns@라운드 동안 상점이 비활성화됩니다. 이후 경험치를 @Experience@ 얻습니다.",
+    "effects": {
+      "Experience": 28.0,
+      "PenaltyTurns": 3.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_NarrowMind",
+    "name": "편협한 정신",
+    "tier": null,
+    "desc": "게임이 끝날 때까지 대기석이 @NumBenchSlots@개가 되지만, 새로고침 비용이 @RerollCost@골드가 됩니다. @Gold@골드를 획득합니다.",
+    "effects": {
+      "Gold": 10,
+      "NumBenchSlots": 2,
+      "RerollCost": 1
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_VerticallyInclined",
+    "name": "한 우물 파기",
+    "tier": null,
+    "desc": "아군이 피해 증폭을 @BaseDamageAmp@% 얻습니다.<br><br>활성화한 고유 특성이 아닌 특성 개수가 상대보다 적다면 대신 피해 증폭을 @FullDamageAmp@% 얻습니다.",
+    "effects": {
+      "BaseDamageAmp": 9.0,
+      "FullDamageAmp": 18.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_CalledShot",
+    "name": "결과 예측",
+    "tier": null,
+    "desc": "연승을 @Streak@연승으로 설정합니다. @Gold@골드를 획득합니다.",
+    "effects": {
+      "Gold": 4.0,
+      "Streak": 4.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_EyeForAnEyePlus",
+    "name": "눈에는 눈+",
+    "tier": null,
+    "desc": "무작위 조합 아이템 1개를 획득합니다. 아군 챔피언이 @AllyDeaths@명 사망할 때마다 조합 아이템을 추가로 1개 획득합니다. (최대 @NumComponents@개)<br><br>남은 사망 횟수: @TFTUnitProperty.item:TFT_Augment_EyeForAnEyeDeaths@",
+    "effects": {
+      "AllyDeaths": 16.0,
+      "NumComponents": 2.0,
+      "{a6cb80ca}": 1.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_SearchForTheYordleLord",
+    "name": "별이 수놓인 모험",
+    "tier": null,
+    "desc": "챔피언 @NumUpgrades@명을 3성으로 업그레이드하면 굉장한 보상을 획득합니다. 1단계 챔피언을 @NumStartUnits@명 획득합니다.",
+    "effects": {
+      "NumStartUnits": 2.0,
+      "NumUpgrades": 4.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_InvestedPlus",
+    "name": "투자+",
+    "tier": null,
+    "desc": "@Gold@골드를 획득합니다. 각 라운드 시작 시, @GoldThreshold@골드를 모은 상태에서 초과 @GoldPerReroll@골드마다 상점 새로고침을 1회 획득합니다. (최대 @MaxGold@골드)",
+    "effects": {
+      "Gold": 26.0,
+      "GoldPerReroll": 10.0,
+      "GoldThreshold": 50.0,
+      "MaxGold": 80.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_GhostOfUnitsPast",
+    "name": "우정과 유령",
+    "tier": null,
+    "desc": "아군 챔피언이 사망할 때마다 사망한 챔피언의 역할군에 따라 현재 아군 및 이후 모든 아군이 영구적으로 체력을 @HealthPerStack@, 공격력을 @ADPerStack*100@% 또는 주문력을 @APPerStack@ 얻습니다.<br><br><rules>체력: @TFTUnitProperty.Item:TFT_Augment_GhostOfUnitsPast_Health@<br>공격력: @TFTUnitProperty.Item:TFT_Augment_GhostOfUnitsPast_AD*100@% <br>주문력: @TFTUnitProperty.Item:TFT_Augment_GhostOfUnitsPast_AP@ </rules>",
+    "effects": {
+      "ADPerStack": 0.009999999776482582,
+      "APPerStack": 1.0,
+      "HealthPerStack": 7.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_CryMeARiver",
+    "name": "실컷 울어봐라",
+    "tier": null,
+    "desc": "여신의 눈물을 획득합니다. 아군이 마나 재생을 @RegenBonus@ 얻습니다. 전투 시작 @DelayTime@초 후에는 마나 재생을 @UpgradedRegenBonus@만큼 얻습니다.",
+    "effects": {
+      "DelayTime": 15,
+      "RegenBonus": 1.0,
+      "UpgradedRegenBonus": 2.0,
+      "{45ca499e}": null
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_DelayedShipment",
+    "name": "배송 지연",
+    "tier": null,
+    "desc": "플레이어 대상 전투 @Combats@회 후 마나자네, 저격수의 집중, 선체분쇄자 중 하나를 선택합니다.<br><br><rules>남은 라운드: @TFTUnitProperty.item:TFT_Augment_DelayedShipment_Counter@</rules>",
+    "effects": {
+      "Combats": 10
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_MagicRoll",
+    "name": "마법 주사위",
+    "tier": null,
+    "desc": "주사위 3개를 굴립니다. 결과 총합에 따라 보상을 획득합니다.<br><br>보상: @TFTUnitProperty.item:TFT_Augment_MagicRoll@",
+    "effects": {
+      "EggTurns": 3.0,
+      "NumComponents": 2.0,
+      "{3b0ef232}": 250.0,
+      "{95ed8271}": 3,
+      "{9a58ced6}": 4.0,
+      "{b0892e64}": 2.0,
+      "{c726cd82}": 1.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_SwordOverflow",
+    "name": "넘치는 대검",
+    "tier": null,
+    "desc": "B.F. 대검 @NumItems@개를 획득합니다. B.F. 대검이 공격 속도를 +@BonusStat*100@% 제공합니다.",
+    "effects": {
+      "BonusStat": 0.019999999552965164,
+      "NumItems": 5.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_SilverDestinyPlusPlus",
+    "name": "은빛 운명++",
+    "tier": null,
+    "desc": "무작위 실버 증강을 얻고 @Gold@골드를 획득합니다.",
+    "effects": {
+      "Gold": 7.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_PerfectLoss",
+    "name": "치밀한 계획",
+    "tier": null,
+    "desc": "유닛 @UnitThreshold@명 이하 차이로 전투에서 승리하거나 패배하면 다음 라운드에 @GoldToGive@골드를 획득합니다.",
+    "effects": {
+      "UnitThreshold": 4.0,
+      "goldtogive": 2.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_WorthTheWaitPrismatic",
+    "name": "기다림의 미학 II",
+    "tier": null,
+    "desc": "무작위 @unittier@단계 챔피언을 1명 획득합니다. 게임이 끝날 때까지 해당 유닛의 복사본을 각 라운드 시작 시 획득합니다.<br><br>챔피언: @TFTUnitProperty.item:TFT_Augment_WorthTheWait@",
+    "effects": {
+      "AdditionalCopies": 99.0,
+      "Delay": null,
+      "UnitTier": 2.0,
+      "{3a9ff59a}": 1.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_TitanicTitan",
+    "name": "거대한 거인",
+    "tier": null,
+    "desc": "현재 및 최대 플레이어 체력이 @Heal@ 증가합니다. 공동 선택 라운드 시 일찍 움직일 수 있지만 이동 속도가 큰 폭으로 감소합니다.",
+    "effects": {
+      "Heal": 25.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_ItemLadder",
+    "name": "성장형 아이템",
+    "tier": null,
+    "desc": "각 라운드 시작 시 장착 해제되고 형태가 바뀌는 임시 아이템 1개를 획득합니다. 이 아이템의 품질은 스테이지가 높아질수록 좋아집니다.",
+    "effects": {
+      "ChampionTier": 4.0,
+      "GoldPerStage": 2.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_HeadStart",
+    "name": "후발 주자",
+    "tier": null,
+    "desc": "전장 및 대기석에 있는 챔피언을 판매합니다. 무작위 @tier@단계 2성 챔피언 @NumUnits@명을 획득합니다. 다음 @roundstoskip@라운드 동안 상점이 비활성화됩니다.",
+    "effects": {
+      "NumUnits": 4.0,
+      "RoundsToSkip": 3.0,
+      "Tier": 1.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_ClockworkAccelerator",
+    "name": "시계태엽 윤활유",
+    "tier": null,
+    "desc": "아군이 전투에서 @frequency@초마다 공격 속도를 @attackspeed*100@% 얻습니다.",
+    "effects": {
+      "AttackSpeed": 0.10000000149011612,
+      "Frequency": 3.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Protagonist",
+    "name": "주인공",
+    "tier": null,
+    "desc": "무작위 1단계 챔피언 증강을 얻습니다. @TurnDelay@턴 후, 턴 시작마다 해당 챔피언의 복사본 1명을 획득합니다.",
+    "effects": {
+      "TurnDelay": 3.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_TwoTanky",
+    "name": "쌍두마차",
+    "tier": null,
+    "desc": "전장에 똑같은 챔피언이 정확히 2명 있다면 둘 다 체력을 @BonusHealth@ 얻습니다. 둘 중 한 명이 사망하면 다른 한 명이 @HealDuration@초 동안 최대 체력의 @OnDeathPercHeal*100@%에 해당하는 보호막을 얻습니다. 3성으로 업그레이드 시 2성 복사본을 획득합니다.",
+    "effects": {
+      "BonusHealth": 550.0,
+      "HealDuration": 6.0,
+      "OnDeathPercHeal": 0.4000000059604645
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Kingslayer",
+    "name": "국왕시해자",
+    "tier": null,
+    "desc": "플레이어 대상 전투 승리 후 @Gold@골드를 획득합니다. 상대 플레이어의 체력이 더 높았다면, 대신 @WinBonusGold@골드를 획득합니다. @Gold@골드를 획득합니다.",
+    "effects": {
+      "Gold": 1.0,
+      "WinBonusGold": 6,
+      "WinGold": 1
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_TheFloorIsLava",
+    "name": "용암 바닥",
+    "tier": null,
+    "desc": "아군 진영에 진입한 전장의 적에게 상처를 적용하고 매초 대상 최대 체력의 @BurnPercentTooltipOnly@%만큼 마법 피해를 입힙니다.",
+    "effects": {
+      "BurnPercentTooltipOnly": 2.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_NobleSacrifice",
+    "name": "숭고한 희생",
+    "tier": null,
+    "desc": "전투마다 처음으로 아군이 사망하면 @BaseResists@+해당 아군의 방어력 및 마법 저항력의 @SharePerc*100@%가 모든 아군에게 부여됩니다.",
+    "effects": {
+      "BaseResists": 25.0,
+      "SharePerc": 0.10000000149011612
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_StarryNight",
+    "name": "별이 빛나는 밤",
+    "tier": null,
+    "desc": "상점 내 1단계 및 2단계 유닛이 일정 확률로 2성이 됩니다. @Gold@골드를 획득합니다.<br><br>현재 확률: @TFTUnitProperty.item:TFT_Augment_StarryNight_Odds@%<br><rules>확률은 플레이어 레벨에 따라 증가합니다.</rules>",
+    "effects": {
+      "Gold": 6.0,
+      "{019b80fe}": 0.8999999761581421,
+      "{020fb2eb}": 0.25,
+      "{0d14760d}": 2.0,
+      "{4885b8ce}": 1.0,
+      "{49c43705}": 0.15000000596046448,
+      "{4abd7204}": 0.15000000596046448,
+      "{7083c200}": 0.3499999940395355,
+      "{99dcb7a2}": 0.18000000715255737,
+      "{ca771d21}": 0.6000000238418579
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Corrosion",
+    "name": "부식",
+    "tier": null,
+    "desc": "전방 가로 2열에 있는 적 챔피언들의 방어력 및 마법 저항력이 @Time@초마다 @ResistLoss@ 감소합니다.",
+    "effects": {
+      "ResistLoss": 3.0,
+      "Time": 2.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_OnTheHouse",
+    "name": "무료 서비스",
+    "tier": null,
+    "desc": "챔피언의 별 레벨을 올릴 때마다 @gold@골드를 획득합니다. 즉시 @augmentselectbonusgold@골드를 획득합니다.",
+    "effects": {
+      "Gold": 1.0,
+      "TurnLimit": 99.0,
+      "augmentselectbonusgold": 4.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Golemify",
+    "name": "골렘화",
+    "tier": null,
+    "desc": "전장 및 대기석에 있는 모든 챔피언을 잃습니다. 잃은 챔피언 체력 총합의 @HealthPercent@%, 공격력 총합의 @ADPercent@%를 지닌 골렘을 획득합니다. 골렘은 스테이지마다 체력을 @HPPerStage@ 얻습니다.",
+    "effects": {
+      "ADPercent": 50.0,
+      "HPPerStage": 1000,
+      "HealthPercent": 60.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Pyromaniac",
+    "name": "불장난",
+    "tier": null,
+    "desc": "붉은 덩굴정령 1개를 획득합니다. 불태우기 피해량이 @BurnIncrease*100@% 증가합니다.",
+    "effects": {
+      "BurnIncrease": 0.5
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_ShimmerscaleEssence",
+    "name": "빛비늘 정수",
+    "tier": null,
+    "desc": "거물의 갑옷 1개를 획득합니다. @combatnum@라운드 후, 도박꾼의 칼날 1개를 획득합니다.<br><br><rules>이 아이템은 골드를 제공하고 전투 시 위력도 올려줍니다.</rules>",
+    "effects": {
+      "CombatNum": 5.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_CookingPot_HR",
+    "name": "요리용 냄비",
+    "tier": null,
+    "desc": "각 라운드 시작 시, 프라이팬 또는 뒤집개를 장착한 모든 유닛이 가장 가까운 챔피언에게 영구적으로 체력을 @Health@ 부여합니다. 프라이팬 1개를 획득합니다.",
+    "effects": {
+      "AbilityPower": 1.0,
+      "Health": 70.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_BranchingOut",
+    "name": "가지 뻗기",
+    "tier": null,
+    "desc": "무작위 상징 1개를 획득합니다.",
+    "effects": {
+      "NumReforgers": null,
+      "Numberofcombats": null
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_SubscriptionService",
+    "name": "구독 서비스",
+    "tier": null,
+    "desc": "즉시 및 각 스테이지 시작 시 서로 다른 4단계 챔피언 4명으로 구성된 상점을 열고 @GoldPerStage@골드를 획득합니다.",
+    "effects": {
+      "ChampionTier": 4.0,
+      "GoldPerStage": 8.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_PrismaticDestiny",
+    "name": "프리즘 운명",
+    "tier": null,
+    "desc": "무작위 프리즘 증강을 얻고 @Gold@골드를 획득합니다.",
+    "effects": {
+      "Gold": 5.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_ShojinSpirit",
+    "name": "창의 의지",
+    "tier": null,
+    "desc": "아군이 공격력을 @AD*100@%, 마나를 @Mana@ 얻습니다. B.F. 대검 1개를 획득합니다.",
+    "effects": {
+      "AD": 0.10000000149011612,
+      "Mana": 5.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_NoScoutNoPivot",
+    "name": "단일 조합 사수",
+    "tier": null,
+    "desc": "더 이상 플레이어 대상 전투에 참여한 유닛을 대기석에 놓거나 판매할 수 없습니다. 각 플레이어 대상 전투 후 전투에 참여한 유닛은 체력을 @HPScale@, 공격력을 @ADScale*100@%, 주문력을 @APScale@% 얻습니다.",
+    "effects": {
+      "ADScale": 0.019999999552965164,
+      "APScale": 2.0,
+      "HPScale": 14.0,
+      "MaxUnits": 99.0,
+      "{eba92878}": null
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Backup",
+    "name": "후방 지원",
+    "tier": null,
+    "desc": "아군 @MinUnits@명 이상이 후방 가로 2열에서 전투를 시작했다면 아군이 공격 속도를 @AttackSpeed*100@% 얻습니다.",
+    "effects": {
+      "AttackSpeed": 0.11999999731779099,
+      "MinUnits": 4.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_GoldForDummies",
+    "name": "황금 더미",
+    "tier": null,
+    "desc": "훈련 봇 1개를 획득합니다. @GoldDuration@초마다 모든 훈련 봇이 @GoldAmount@골드를 제공합니다.",
+    "effects": {
+      "GoldAmount": 1.0,
+      "GoldDuration": 10.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_QualityOverQuantity",
+    "name": "양보다 질",
+    "tier": null,
+    "desc": "아이템을 정확히 1개 장착한 챔피언의 아이템이 찬란한 아이템으로 업그레이드됩니다. 찬란한 아이템을 장착한 챔피언이 체력을 @BonusHealth*100@% 얻습니다. 자석 제거기 @NumRemovers@개를 획득합니다.<br><rules>도적의 장갑은 아이템 여러 개로 간주합니다.</rules>",
+    "effects": {
+      "BonusHealth": 0.03999999910593033,
+      "MaxUnits": 99.0,
+      "NumRemovers": 2.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_DefenseCall",
+    "name": "강력한 보호막",
+    "tier": null,
+    "desc": "보호막이 씌워진 동안 아군 유닛이 내구력을 @ReducedDamage*100@% 얻습니다. 아군의 체력이 처음 @HealthThreshold*100@% 아래로 떨어지면 @ShieldDuration@초 동안 스테이지에 따라 보호막을 @ShieldAmount1@~@ShieldAmount4@ 얻습니다.<br>",
+    "effects": {
+      "HealthThreshold": 0.5,
+      "ReducedDamage": 0.10000000149011612,
+      "ShieldAmount1": 100.0,
+      "ShieldAmount2": 150.0,
+      "ShieldAmount3": 200.0,
+      "ShieldAmount4": 225.0,
+      "ShieldDuration": 3.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Placebo",
+    "name": "위약 효과",
+    "tier": null,
+    "desc": "아군이 공격 속도를 @AttackSpeed*100@% 얻습니다. @Gold@골드를 획득합니다.",
+    "effects": {
+      "AttackSpeed": 0.009999999776482582,
+      "Gold": 8.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_DoubleDown",
+    "name": "묻고 두 배로 가",
+    "tier": null,
+    "desc": "플레이어 대상 전투 후, 연승 또는 연패 횟수만큼 골드를 획득합니다. (최대 @GoldMax@골드)",
+    "effects": {
+      "GoldMax": 4.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_MirroredMonetization",
+    "name": "악의적 수익 창출",
+    "tier": null,
+    "desc": "@GoldContained@골드를 획득합니다. 다음 @Rounds@라운드 동안 적 챔피언이 처치될 때 @PercCost@골드를 떨어뜨립니다.",
+    "effects": {
+      "GoldContained": 2,
+      "PercCost": 2.0,
+      "rounds": 3.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_CookingPot",
+    "name": "요리용 냄비",
+    "tier": null,
+    "desc": "각 라운드 시작 시, 프라이팬 또는 뒤집개를 장착한 모든 유닛이 가장 가까운 챔피언에게 영구적으로 체력을 @Health@ 부여합니다. 프라이팬 1개를 획득합니다.",
+    "effects": {
+      "AbilityPower": 1.0,
+      "Health": 40.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Scavenger",
+    "name": "쓰레기 청소부",
+    "tier": null,
+    "desc": "전투마다 가장 먼저 사망하는 적 챔피언 @NumDeaths@명이 각각 아군 챔피언에게 임시 완성 아이템 1개를 제공합니다.",
+    "effects": {
+      "NumDeaths": 5.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Pilfer",
+    "name": "슬쩍하기",
+    "tier": null,
+    "desc": "라운드마다, 이전 전투에서 아군이 처음으로 처치한 챔피언의 1성 복사본 1명을 획득합니다.",
+    "effects": {
+      "Gold": null
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_ReinforcedRejuvenation2",
+    "name": "협동 원기회복 II",
+    "tier": null,
+    "desc": "아군이 모든 피해 흡혈을 @StatOmnivamp*100@% 얻습니다. 이 모든 피해 흡혈은 같은 가로 열에서 전투를 시작하는 챔피언 1명당 @BonusVampPer*100@% 증가합니다.",
+    "effects": {
+      "BonusVampPer": 0.014999999664723873,
+      "StatOmnivamp": 0.10000000149011612
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Sponging",
+    "name": "빌붙기",
+    "tier": null,
+    "desc": "전투 시작: @MaxItemsToBeEligible@개 이하의 아이템을 장착한 챔피언 최대 @MaxUnits@명이 아이템을 장착한 가장 가까이 있는 아군으로부터 무작위 완성 아이템 복사본 1개를 획득합니다.",
+    "effects": {
+      "MaxItemsToBeEligible": 1.0,
+      "MaxUnits": 6.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_ReinforcedRejuvenation1",
+    "name": "협동 원기회복 I",
+    "tier": null,
+    "desc": "아군이 모든 피해 흡혈을 @StatOmnivamp*100@% 얻습니다. 이 모든 피해 흡혈은 같은 가로 열에서 전투를 시작하는 챔피언 1명당 @BonusVampPer*100@% 증가합니다.",
+    "effects": {
+      "BonusVampPer": 0.009999999776482582,
+      "StatOmnivamp": 0.07999999821186066
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Moonlight",
+    "name": "달빛",
+    "tier": null,
+    "desc": "전투 시작: 무작위 1단계 챔피언 @NumUnits@명이 해당 라운드에만 3성으로 업그레이드되며 공격력을 @ADBonus*100@%, 주문력을 @APBONUS@% 얻습니다.<br>",
+    "effects": {
+      "ADBonus": 0.44999998807907104,
+      "APBonus": 45.0,
+      "ItemBonus": null,
+      "NumUnits": 1.0,
+      "{51b72188}": null
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_EvilBeyondMeasure",
+    "name": "가늠할 수 없는 악",
+    "tier": null,
+    "desc": "아군 챔피언의 피해량이 별 레벨당 @BasePercentTrueDamage*100@%만큼 고정 피해로 전환됩니다.",
+    "effects": {
+      "BasePercentTrueDamage": 0.04500000178813934
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Isekai_Prodigy",
+    "name": "이세계",
+    "tier": null,
+    "desc": "다른 세계에서 전투를 도울 마법의 영웅을 소환합니다. 이번 게임에서 이 영웅은 <TFTRadiantItemBonus>신동</TFTRadiantItemBonus>입니다.<br><br>",
+    "effects": {},
+    "traits": [
+      "TFT15_Prodigy"
+    ]
+  },
+  {
+    "id": "TFT_Augment_AvengeTheFallen",
+    "name": "떠난 이를 위한 앙갚음",
+    "tier": null,
+    "desc": "아군이 @NumDeaths@명 처치되면, 아군이 공격력을 @AD@%, 주문력을 @ap@, 방어력을 @Armor@, 마법 저항력을 @MR@ 얻습니다. <br>",
+    "effects": {
+      "AD": 28.0,
+      "AP": 28.0,
+      "Armor": 28.0,
+      "MR": 28.0,
+      "NumDeaths": 3.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_SliceOfLife",
+    "name": "일상물",
+    "tier": null,
+    "desc": "스테이지당 두 번 무작위 챔피언 1명을 획득합니다. 스테이지마다 무작위 챔피언의 단계가 증가합니다. 이 효과는 5단계 챔피언 @Max5Costs@명을 획득한 후 종료됩니다.",
+    "effects": {
+      "Max5Costs": 1,
+      "{5ca21683}": 3,
+      "{8422d0b8}": 2,
+      "{a562cde4}": 1,
+      "{ab8c0482}": 4,
+      "{b0e84f56}": 1,
+      "{e46f7955}": 5
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_ShopGlitch",
+    "name": "상점 오류",
+    "tier": null,
+    "desc": "플레이어 대상 전투가 아닌 라운드에서 상점이 @TotalTimer@초 동안 @RefreshTimer@초마다 무료로 새로고침됩니다.",
+    "effects": {
+      "RefreshTimer": 2.5,
+      "TotalTimer": 28.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_RestartMissionPlus",
+    "name": "임무 재시작+",
+    "tier": null,
+    "desc": "전장과 대기석의 모든 아군 챔피언을 삭제합니다. 무작위 4단계 2성 챔피언 1명, 3단계 2성 챔피언 2명, 2단계 2성 챔피언 2명, 1단계 2성 챔피언 1명을 획득합니다.",
+    "effects": {
+      "NumUnits": 2.0,
+      "Tier": 1.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Warpath",
+    "name": "출정",
+    "tier": null,
+    "desc": "2단계 2성 챔피언 1명을 획득합니다. 플레이어에게 @PlayerDamage@의 피해를 입히면 고단계 챔피언과 아이템이 들어 있는 상자 1개를 획득합니다.<br>(현재: @TFTUnitProperty.item:TFT_Augment_Warpath_DamageCount@)",
+    "effects": {
+      "PlayerDamage": 80.0,
+      "{16253d09}": null,
+      "{3dc22ab3}": 3.0,
+      "{68c537b7}": null,
+      "{6cf88c79}": 1.0,
+      "{7c96bf44}": 2
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_BulkyBuddies2",
+    "name": "덩치 큰 친구들 II",
+    "tier": null,
+    "desc": "정확히 한 명의 다른 아군 옆에서 전투를 시작한 아군이 체력을 @HealthBonus@ 얻습니다. 한 챔피언이 사망하면 다른 한 명이 @ShieldDuration@초 동안 최대 체력의 @ShieldAmount*100@%에 해당하는 보호막을 얻습니다.",
+    "effects": {
+      "HealthBonus": 175.0,
+      "ShieldAmount": 0.15000000596046448,
+      "ShieldDuration": 10.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_BulkyBuddies3",
+    "name": "덩치 큰 친구들 III",
+    "tier": null,
+    "desc": "정확히 한 명의 다른 아군 옆에서 전투를 시작한 아군이 체력을 @HealthBonus@ 얻습니다. 한 챔피언이 사망하면 다른 한 명이 @ShieldDuration@초 동안 최대 체력의 @ShieldAmount*100@%에 해당하는 보호막을 얻습니다.",
+    "effects": {
+      "HealthBonus": 300.0,
+      "ShieldAmount": 0.18000000715255737,
+      "ShieldDuration": 10.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_AHeroArrives",
+    "name": "영웅 등장!",
+    "tier": null,
+    "desc": "@Delay@초 후 대기석의 가장 왼쪽에 있는 챔피언이 @BonusHP*100@%의 추가 체력을 얻고 전투에 참가하며 @StunHexArea@칸 내의 적을 @StunDuration@초 동안 기절시킵니다.",
+    "effects": {
+      "BonusHP": 0.6000000238418579,
+      "Delay": 6.0,
+      "StunDuration": 2.0,
+      "StunHexArea": 3.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_BulkyBuddies1",
+    "name": "덩치 큰 친구들 I",
+    "tier": null,
+    "desc": "정확히 한 명의 다른 아군 옆에서 전투를 시작한 아군이 체력을 @HealthBonus@ 얻습니다. 한 챔피언이 사망하면 다른 한 명이 @ShieldDuration@초 동안 최대 체력의 @ShieldAmount*100@%에 해당하는 보호막을 얻습니다.",
+    "effects": {
+      "HealthBonus": 100.0,
+      "ShieldAmount": 0.10000000149011612,
+      "ShieldDuration": 10.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_AnotherOnePlus",
+    "name": "하나 더!+",
+    "tier": null,
+    "desc": "다음 완성 아이템 제작 시 해당 아이템의 복사본을 획득합니다. 조합 아이템 @NumComponents@개를 획득합니다.",
+    "effects": {
+      "NumComponents": 1,
+      "NumItems": 1
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_SupportSentinel2",
+    "name": "지원 골렘 II",
+    "tier": null,
+    "desc": "아군이 되어 함께 싸우는 골렘 @NumOfDummies@마리를 소환합니다. 골렘은 지원 아이템 @NumOfItems@개를 영구히 장착합니다.",
+    "effects": {
+      "NumOfDummies": 1.0,
+      "NumOfItems": 1.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_GuardbreakerSpirit",
+    "name": "철퇴의 의지",
+    "tier": null,
+    "desc": "연습용 장갑 1개를 획득합니다. 아군이 공격 속도를 @AS*100@%, 치명타 확률을 @CritChance*100@% 얻습니다.",
+    "effects": {
+      "AS": 0.05999999865889549,
+      "CritChance": 0.20000000298023224
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_ImTheCarryNow",
+    "name": "이제 내가 주인공이야",
+    "tier": null,
+    "desc": "어울리는 공격 아이템을 장착한 골렘 1마리를 얻습니다. 이 골렘은 각 스테이지 시작 시 더 강해집니다.",
+    "effects": {
+      "{2d6883d7}": 0.20000000298023224,
+      "{8715634f}": 475.0,
+      "{92c6e7f9}": null
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_LoneHero",
+    "name": "고독한 영웅",
+    "tier": null,
+    "desc": "마지막으로 생존한 아군 유닛이 공격 속도를 @ASBonus*100@%, 내구력을 @DurabilityBonus*100@% 얻습니다.",
+    "effects": {
+      "ASBonus": 1.399999976158142,
+      "DurabilityBonus": 0.3499999940395355
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_AssassinsToolbox",
+    "name": "암살자의 공구함",
+    "tier": null,
+    "desc": "자객의 발톱과 무한의 대검을 1개씩 획득합니다.",
+    "effects": {
+      "CombatNum": 3.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_PairOfFours",
+    "name": "4단계 한 쌍",
+    "tier": null,
+    "desc": "아군에 4단계 챔피언이 정확히 @NumCopies@명 있다면 각 4단계 챔피언이 체력을 @Health@, 공격 속도를 @AttackSpeed*100@% 얻습니다. 무작위 4단계 챔피언 1명을 획득합니다.",
+    "effects": {
+      "AttackSpeed": 0.24400000274181366,
+      "Health": 374.0,
+      "NumChampsToGrant": 1,
+      "NumCopies": 2.0,
+      "Tier": 4.0,
+      "{96f9e378}": 1.0,
+      "{d5279bbe}": 4,
+      "{ea12e1ed}": 1
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_AllIn",
+    "name": "훈련 교범",
+    "tier": null,
+    "desc": "훈련 교범을 획득합니다. 라운드마다 한 번 훈련 교범을 챔피언에게 사용하면 5골드를 소모하고 체력을 @HealthBonus@, 공격 속도를 @ASBonus@ 부여합니다. <br><br>@TFTUnitProperty.item:TFT_Augment_ALLin_Tooltip@",
+    "effects": {
+      "ASBonus": 10.0,
+      "HealthBonus": 10.0,
+      "InstanceCap": 20,
+      "{86c298d2}": 50,
+      "{a39ee3a5}": 75.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_CategoryFive",
+    "name": "5등급",
+    "tier": null,
+    "desc": "루난의 허리케인 1개를 획득합니다. 루난의 허리케인이 탄환을 추가로 @additionalbolts@개 발사하고, 각 탄환은 기존 피해량의 @TotalDamage*100@%만큼 피해를 입힙니다.",
+    "effects": {
+      "AS": null,
+      "TotalDamage": 0.75,
+      "additionalbolts": 1.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_AllForOneI",
+    "name": "모두를 위한 하나 I",
+    "tier": null,
+    "desc": "아군이 전장에 있는 고유 1단계 챔피언 한 명당 최대 체력을 @PercHP*100@%, 피해 증폭을 @DamageAmp*100@% 얻습니다. 1단계 챔피언 @NumChampsToGrant@명을 획득합니다.",
+    "effects": {
+      "DamageAmp": 0.009999999776482582,
+      "Durability": null,
+      "NumChampsToGrant": 2.0,
+      "NumCopies": null,
+      "PercHP": 0.019999999552965164,
+      "Tier": 1.0,
+      "{96f9e378}": null,
+      "{d5279bbe}": 1.0,
+      "{ea12e1ed}": null
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_CustomFitted",
+    "name": "맞춤 제작",
+    "tier": null,
+    "desc": "처음 획득하는 6단계 챔피언이 어울리는 아이템 @NumItems@개를 장착한 채로 등장합니다.",
+    "effects": {
+      "NumItems": 3.0
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_TragicalBlade",
+    "name": "치명적인 칼날",
+    "tier": null,
+    "desc": "죽음의 검을 획득합니다. 죽음의 검이 장착한 유닛의 처치 관여 @Takedowns@회당 공격력을 @AD*100@% 얻습니다.",
+    "effects": {
+      "AD": null,
+      "TakeDowns": null
+    },
+    "traits": []
+  },
+  {
+    "id": "TFT_Augment_Underdogs",
+    "name": "약자",
+    "tier": null,
+    "desc": "살아남은 아군 유닛이 상대보다 적다면 아군 유닛이 매초 잃은 체력의 @MissingHeal@%만큼 회복합니다. (최대: @HealCap@)",
+    "effects": {
+      "HealCap": 150.0,
+      "MissingHeal": 4.0
+    },
+    "traits": []
+  }
+]

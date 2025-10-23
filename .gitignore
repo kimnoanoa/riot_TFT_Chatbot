@@ -50,9 +50,6 @@ build/
 # ==============================
 # 🧩 테스트 및 데이터 파일
 # ==============================
-data/*
-!data/champion_data.json
-!data/ko_kr.json
 cache/
 test_output/
 logs/
