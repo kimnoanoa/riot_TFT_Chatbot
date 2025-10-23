@@ -46,26 +46,22 @@ CHALLENGER_DATA_GLOBAL, CHAMPION_DATA_GLOBAL, KEYWORD_TO_NAME_MAP = load_data()
 
 
 # --- 3. 챔피언 이름 추출 ---
-def extract_champion_from_query(query):
-    query = query.lower()
+def extract_champion_from_query(query: str):
+    query = query.strip()
 
-    # 🔹 '#'이 포함된 구간(라이엇 태그) 제거 대상 분리
-    parts = re.split(r'\s+', query)
-    clean_parts = []
-    for p in parts:
-        # 예: "아리#kr1" → 챔피언 이름으로 사용하지 않음
-        if "#" in p:
-            continue
-        clean_parts.append(p)
-    cleaned_query = " ".join(clean_parts)
+    # 🔹 1) '#'이 포함된 닉네임 패턴은 전부 삭제 (띄어쓰기 포함)
+    # 예: "진#KR1", "진 #kr1", "아리 #kr1", "hide on bush#kr1" 등
+    query = re.sub(r"[가-힣a-zA-Z0-9_]+\s*#\s*[a-zA-Z0-9_]+", "", query, flags=re.IGNORECASE)
+
+    # 🔹 2) 모두 소문자로 변환
+    query = query.lower()
 
     found = []
     for key in sorted(KEYWORD_TO_NAME_MAP.keys(), key=len, reverse=True):
         kor_name = KEYWORD_TO_NAME_MAP[key]
-        # 챔피언 이름이 cleaned_query 내에 포함될 때만 인식
-        if key in cleaned_query and kor_name not in found:
+        if key in query and kor_name not in found:
             found.append(kor_name)
-            cleaned_query = cleaned_query.replace(key, " " * len(key))
+            query = query.replace(key, " " * len(key))
     return found
 
 
@@ -218,6 +214,16 @@ def _recommend_core_deck(champs):
 
 # --- 6. Flask 연동용 함수 ---
 def process_user_query(user_msg, challenger_data=None):
+    # 🔹 1️⃣ '#'이 포함된 입력은 무조건 전적검색으로 분류
+    if "#" in user_msg:
+        print("🔍 '#' 감지 → 전적검색 모드로 전환:", user_msg)
+        return {
+            "query_type": "RIOT_SEARCH",   # ✅ 전적검색 모드
+            "champions": [],
+            "meta_data": CHALLENGER_DATA_GLOBAL
+        }
+
+    # 🔹 2️⃣ 그 외엔 챔피언 관련 처리
     champs = extract_champion_from_query(user_msg)
     print("🎯 추출된 챔피언:", champs)
 
@@ -226,9 +232,8 @@ def process_user_query(user_msg, challenger_data=None):
         "query_type": q_type,
         "champions": champs,
         "meta_data": CHALLENGER_DATA_GLOBAL
-        
     }
-    
+
 
 
 def recommend_champion_deck(champs):

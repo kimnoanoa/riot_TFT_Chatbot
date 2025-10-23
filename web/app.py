@@ -96,11 +96,17 @@ def synergy():
     return render_template('synergy_analyze.html')
 
 
-# 💬 챗봇 API
 @app.route("/api/chat", methods=["POST"])
 def api_chat():
     user_msg = request.json.get("message", "").lower().strip()
     reply = ""
+
+    # ✅ '#' 포함 시 → 전적검색으로 바로 분기
+    if "#" in user_msg:
+        if get_match_summary_by_name is None:
+            return jsonify({"reply": "⚠️ 전적검색 모듈이 없습니다."})
+        result = get_match_summary_by_name(user_msg)
+        return jsonify({"reply": result})
 
     # 🚫 비속어 / 욕설 필터링
     bad_words = ["시발", "씨발", "병신", "ㅅㅂ", "ㅂㅅ", "fuck", "shit", "개새", "존나", "꺼져", "죽어", "미친"]
@@ -111,7 +117,6 @@ def api_chat():
                 "건전한 대화를 부탁드려요 😊"
             )
         })
-
     # ================================================================
     # ✅ 1️⃣ 챔피언 복수 / 메타 질문 먼저 처리 (가장 우선순위 높음)
     # ================================================================
