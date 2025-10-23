@@ -115,7 +115,7 @@ def api_chat():
     # ================================================================
     # ✅ 1️⃣ 챔피언 복수 / 메타 질문 먼저 처리 (가장 우선순위 높음)
     # ================================================================
-    if process_user_query and ("덱" in user_msg or "시너지" in user_msg or "메타" in user_msg):
+    if process_user_query and ("덱" in user_msg or "시너지" in user_msg or "메타" in user_msg or "조합" in user_msg):
         try:
             query_info = process_user_query(user_msg, CHALLENGER_DATA_GLOBAL)
             q_type = query_info["query_type"]

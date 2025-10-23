@@ -171,16 +171,34 @@ def _recommend_core_deck(champs):
 
         deck = decks[0]
         synergy_str = " + ".join(deck["synergy"])
-        core_str = ", ".join(deck["core"])
+        core_list = deck["core"]
+        core_str = ", ".join(core_list)
         comment = deck.get("comment", "설명 없음")
+
+            # 🔹 중심 챔피언 결정 로직
+        center_champ = None
+        for c in champs:
+            if c in core_list:
+                center_champ = c
+                break
+        if not center_champ:
+            center_champ = core_list[0]  # fallback
+
+         # 🔹 comment에 기존 중심 단어(쉔 등)가 있으면 자동 교체
+        comment = deck.get("comment", "설명 없음")
+        comment = re.sub(r"^\s*쉔을 중심으로", f"{center_champ}를 중심으로", comment)
+        comment = re.sub(r"^\s*.*을 중심으로", f"{center_champ}를 중심으로", comment)
 
         return (
             f"🎯 {selected} 조합 추천 결과\n"
             f"✅ 공통 시너지: {main_synergy}\n"
             f"✨ 최종 덱 시너지: {synergy_str}\n"
             f"- 🎮 추천 코어 구성: {core_str}\n"
+            f"- 💡 중심 챔피언: {center_champ}\n"
             f"- 💡 팁: {comment}"
         )
+
+
 
     return "챔피언 정보를 찾을 수 없습니다."
 
