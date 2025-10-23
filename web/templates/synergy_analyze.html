@@ -424,23 +424,46 @@ function renderSynergy(container, traits) {
 
 /* ✅ (추가) 리 신 태세를 반영하도록 updateAllSynergy 보조 */
 // ✅ 1) 거대 메크 로봇 생성 체크 (양쪽 팀 공통)
+// ✅ 거대 메크 / 자이라 특수 유닛 생성 + 비활성화 시 자동 삭제
 function checkSpecialUnits(board, teamArr, traits, teamName) {
-  // 거대 메크
+  const existingImgs = [...board.querySelectorAll(".slot img")];
+  const hasRobot = existingImgs.some(img => img.alt === "거대 메크 로봇");
+  const hasRoot  = existingImgs.some(img => img.alt === "휘감는 뿌리");
+
+  // ----- 거대 메크 -----
   const mechaCount = traits["거대 메크"] || 0;
   const mechaGrade = getSynergyClass("거대 메크", mechaCount);
-  console.log(`⚙️ [${teamName}] 거대메크 개수: ${mechaCount}, 등급: ${mechaGrade}`);
-  if (["bronze", "silver", "gold", "prism"].includes(mechaGrade)) {
-    console.log(`✅ [${teamName}] 거대 메크 로봇 생성 시도!`);
+  const shouldHaveRobot = ["bronze", "silver", "gold", "prism"].includes(mechaGrade);
+
+  if (shouldHaveRobot && !hasRobot) {
+    console.log(`✅ [${teamName}] 거대 메크 로봇 생성`);
     addSpecialUnit(board, "거대 메크 로봇", "mecha_robot.jpg");
-  } else {
-    console.log(`❌ [${teamName}] 거대메크 조건 미달 - 로봇 미생성`);
+  } else if (!shouldHaveRobot && hasRobot) {
+    console.log(`❌ [${teamName}] 거대 메크 시너지 비활성화 → 로봇 제거`);
+    removeSpecialUnit(board, "거대 메크 로봇");
   }
 
-  // 자이라의 휘감는 뿌리
+  // ----- 자이라 -----
   const hasZyra = teamArr.some(ch => ch.name.includes("자이라"));
-  console.log(`🌿 [${teamName}] 자이라 포함 여부:`, hasZyra);
-  if (hasZyra) addSpecialUnit(board, "휘감는 뿌리", "root.jpg");
+  if (hasZyra && !hasRoot) {
+    console.log(`🌿 [${teamName}] 자이라 포함 → 휘감는 뿌리 생성`);
+    addSpecialUnit(board, "휘감는 뿌리", "root.jpg");
+  } else if (!hasZyra && hasRoot) {
+    console.log(`🌿 [${teamName}] 자이라 없음 → 휘감는 뿌리 제거`);
+    removeSpecialUnit(board, "휘감는 뿌리");
+  }
 }
+
+// ✅ 특수 유닛 제거 함수 추가
+function removeSpecialUnit(board, name) {
+  [...board.querySelectorAll(".slot img")].forEach(img => {
+    if (img.alt === name) {
+      const slot = img.closest(".slot");
+      if (slot) slot.innerHTML = "";
+    }
+  });
+}
+
 
 function updateAllSynergy() {
   const myTeamArr = readTeam(myBoard);
