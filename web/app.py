@@ -148,13 +148,17 @@ def api_chat():
     # ✅ 2️⃣ 일반 챔피언 관련 (단일 덱 / 아이템 / 설명)
     # ================================================================
     detected_champ = None
+    # 🔹 챔피언 이름 감지 부분 수정
     for champ, data in champion_data.items():
         for keyword in data["keywords"]:
-            if re.search(rf"(^|[^가-힣a-zA-Z0-9]){re.escape(keyword.lower())}([^가-힣a-zA-Z0-9]|$)", user_msg):
+            # 기존: 단어 경계 기준만 탐색
+            # 수정: '말자하덱', '요네시너지' 같이 붙여 쓴 경우도 허용
+            if re.search(rf"{re.escape(keyword.lower())}(덱|시너지|추천|조합)?", user_msg):
                 detected_champ = champ
                 break
         if detected_champ:
             break
+
 
     # ✅ 시너지 예측 시뮬레이터 이동 요청
     if "시너지" in user_msg and "예측" in user_msg and "시뮬레이터" in user_msg:
