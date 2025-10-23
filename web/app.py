@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, jsonify, session
-from openai import OpenAI
+import openai 
 from dotenv import load_dotenv
 import json
 import random
@@ -20,7 +20,7 @@ api_key = os.getenv("OPENAI_API_KEY")
 if not api_key:
     raise ValueError("❌ OPENAI_API_KEY가 .env에 설정되어 있지 않습니다!")
 
-client = OpenAI(api_key=api_key)
+openai.api_key = api_key
 
 # 📁 Flask 설정
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
