@@ -91,9 +91,10 @@ def index():
 def chatbot():
     return render_template("chatbot.html")
 
-@app.route('/synergy')
+
+@app.route("/synergy")
 def synergy():
-    return render_template('synergy_analyze.html')
+    return render_template("synergy_analyze.html")
 
 
 @app.route("/api/chat", methods=["POST"])
@@ -117,6 +118,7 @@ def api_chat():
                 "건전한 대화를 부탁드려요 😊"
             )
         })
+
     # ================================================================
     # ✅ 1️⃣ 챔피언 복수 / 메타 질문 먼저 처리 (가장 우선순위 높음)
     # ================================================================
@@ -153,8 +155,8 @@ def api_chat():
                 break
         if detected_champ:
             break
-        
-        # ✅ 시너지 예측 시뮬레이터 이동 요청
+
+    # ✅ 시너지 예측 시뮬레이터 이동 요청
     if "시너지" in user_msg and "예측" in user_msg and "시뮬레이터" in user_msg:
         reply = (
             "🔮 시너지 예측 시뮬레이터를 실행하시겠어요?\n"
@@ -164,7 +166,6 @@ def api_chat():
             "➡️ 시너지 시뮬레이터 열기</a>"
         )
         return jsonify({"reply": reply})
-
 
     if detected_champ:
         session["last_champ"] = detected_champ
@@ -183,41 +184,33 @@ def api_chat():
             return jsonify({"reply": reply})
 
         # ✅ 덱 추천
-    if "덱" in user_msg or "시너지" in user_msg or "추천" in user_msg:
-        # 🔹 챔피언 이름 추출 (예: '잔나 덱 추천' → ['잔나'])
-        champs = [detected_champ] if detected_champ else []
-        if champs:
-            try:
-                # 🔹 tft_recommender.py의 고급 추천 로직 호출
-                from riot.tft_recommender import _recommend_core_deck
-                reply = _recommend_core_deck(champs)
+        if "덱" in user_msg or "시너지" in user_msg or "추천" in user_msg:
+            champs = [detected_champ] if detected_champ else []
+            if champs:
+                try:
+                    from riot.tft_recommender import _recommend_core_deck
+                    reply = _recommend_core_deck(champs)
+                    reply = reply.replace("**", "").replace("-", "•").replace("\n", "<br>")
+                    session["last_bot_msg"] = reply
+                    session["last_intent"] = "deck"
+                    return jsonify({"reply": reply})
+                except Exception as e:
+                    print("⚠️ _recommend_core_deck 실행 오류:", e)
+                    return jsonify({"reply": "⚠️ 덱 추천 중 오류가 발생했습니다."})
+            else:
+                return jsonify({
+                    "reply": "❌ 챔피언 이름을 인식하지 못했습니다.<br>"
+                             "예: <code>요네 덱 추천</code> 또는 <code>세라핀 시너지 추천</code>처럼 입력해보세요!"
+                })
 
-                # 🔹 HTML 친화형 변환 (줄바꿈 / 불필요한 마크다운 제거)
-                reply = reply.replace("**", "").replace("-", "•").replace("\n", "<br>")
-
-                session["last_bot_msg"] = reply
-                session["last_intent"] = "deck"
-                return jsonify({"reply": reply})
-
-            except Exception as e:
-                print("⚠️ _recommend_core_deck 실행 오류:", e)
-                return jsonify({"reply": "⚠️ 덱 추천 중 오류가 발생했습니다."})
-
-        else:
-            return jsonify({
-                "reply": "❌ 챔피언 이름을 인식하지 못했습니다.<br>"
-                        "예: <code>요네 덱 추천</code> 또는 <code>세라핀 시너지 추천</code>처럼 입력해보세요!"
-            })
-
-    # ✅ 기본 설명
-    reply = (
-        f"{detected_champ} 챔피언 설명 💫<br>"
-        f"{info.get('description', '설명 정보가 없어요.')}"
-    )
-    session["last_bot_msg"] = reply
-    session["last_intent"] = "description"
-    return jsonify({"reply": reply})
-
+        # ✅ 기본 설명
+        reply = (
+            f"{detected_champ} 챔피언 설명 💫<br>"
+            f"{info.get('description', '설명 정보가 없어요.')}"
+        )
+        session["last_bot_msg"] = reply
+        session["last_intent"] = "description"
+        return jsonify({"reply": reply})
 
     # ================================================================
     # ✅ 3️⃣ 기타 처리 (랭킹 / 초보자 / 긍정/부정 / 다른거 등)
@@ -234,7 +227,7 @@ def api_chat():
             return jsonify({"reply": "⚠️ 챌린저 순위 정보를 불러오는 중 오류가 발생했습니다."})
 
     # ✅ 초보자 덱 추천
-    if any(k in user_msg for k in ["초보자", "입문자", "쉬운 덱", "시작", "beginner", "쉬운","좋아?"]):
+    if any(k in user_msg for k in ["초보자", "입문자", "쉬운 덱", "시작", "beginner", "쉬운", "좋아?"]):
         if get_beginner_deck_recommendation is None:
             return jsonify({"reply": "⚠️ beginner_deck_recommender.py 모듈이 없습니다."})
         try:
@@ -263,8 +256,8 @@ def api_chat():
         return jsonify({"reply": result})
 
     # ✅ 긍정 / 부정 응답 추가 (덱 → 아이템 흐름)
-    positive_words = ["응", "ㅇㅇ", "그래", "좋아", "웅", "엉", "ㅇㅋ", "오키", "해줘", "ㅇ","어" ,"ㅇㅇㅇ"]
-    negative_words = ["싫어", "아니", "ㄴ", "ㄴㄴ", "ㄴㅇ", "안 해", "안해", "그만", "별로", "아냐","ㄴㄴㄴ"]
+    positive_words = ["응", "ㅇㅇ", "그래", "좋아", "웅", "엉", "ㅇㅋ", "오키", "해줘", "ㅇ", "어", "ㅇㅇㅇ"]
+    negative_words = ["싫어", "아니", "ㄴ", "ㄴㄴ", "ㄴㅇ", "안 해", "안해", "그만", "별로", "아냐", "ㄴㄴㄴ"]
 
     if any(word == user_msg or word in user_msg for word in positive_words):
         last_intent = session.get("last_intent")
@@ -351,8 +344,8 @@ def api_chat():
                 return jsonify({"reply": reply})
 
         return jsonify({"reply": "무엇을 다시 추천해드릴까요? 😅"})
-    
-     # -------------------------------------------------
+
+    # -------------------------------------------------
     # 🧩 기본 응답 (모든 조건에 해당하지 않는 경우)
     # -------------------------------------------------
     if not reply:
@@ -364,7 +357,6 @@ def api_chat():
                 "<code>전적검색 hide on bush#KR1</code>"
             )
         })
-
 
 
 # 🚀 실행

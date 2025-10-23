@@ -195,8 +195,10 @@ def _recommend_core_deck(champs):
 
          # 🔹 comment에 기존 중심 단어(쉔 등)가 있으면 자동 교체
         comment = deck.get("comment", "설명 없음")
-        comment = re.sub(r"^\s*쉔을 중심으로", f"{center_champ}를 중심으로", comment)
-        comment = re.sub(r"^\s*.*을 중심으로", f"{center_champ}를 중심으로", comment)
+
+        # 💡 "OO을 중심으로", "OO를 중심으로" → 중심 챔피언 이름으로 교체
+        comment = re.sub(r"[가-힣A-Za-z]+[을를]\s*중심으로", f"{center_champ}를 중심으로", comment)
+
 
         return (
             f"🎯 {selected} 조합 추천 결과\n"
