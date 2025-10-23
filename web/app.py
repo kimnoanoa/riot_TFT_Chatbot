@@ -190,18 +190,28 @@ def api_chat():
                 try:
                     from riot.tft_recommender import _recommend_core_deck
                     reply = _recommend_core_deck(champs)
+                    
+                    # 마크다운 → HTML 변환
                     reply = reply.replace("**", "").replace("-", "•").replace("\n", "<br>")
+                    
+                    # 💬 덱 추천 후 추가 질문
+                    reply += "<br><br>💡 아이템도 추천해드릴까요?"
+
                     session["last_bot_msg"] = reply
                     session["last_intent"] = "deck"
                     return jsonify({"reply": reply})
+                    
                 except Exception as e:
                     print("⚠️ _recommend_core_deck 실행 오류:", e)
                     return jsonify({"reply": "⚠️ 덱 추천 중 오류가 발생했습니다."})
             else:
                 return jsonify({
-                    "reply": "❌ 챔피언 이름을 인식하지 못했습니다.<br>"
-                             "예: <code>요네 덱 추천</code> 또는 <code>세라핀 시너지 추천</code>처럼 입력해보세요!"
+                    "reply": (
+                        "❌ 챔피언 이름을 인식하지 못했습니다.<br>"
+                        "예: <code>요네 덱 추천</code> 또는 <code>세라핀 시너지 추천</code>처럼 입력해보세요!"
+                    )
                 })
+
 
         # ✅ 기본 설명
         reply = (
