@@ -52,6 +52,7 @@ build/
 # ==============================
 data/*
 !data/champion_data.json
+!data/ko_kr.json
 cache/
 test_output/
 logs/
