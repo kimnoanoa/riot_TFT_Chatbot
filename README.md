@@ -65,20 +65,4 @@
 - OpenAI GPT API를 통해 **자연어 → 챔피언/시너지 매핑 응답** 구현  
 - 향후 로컬 모델 학습 시 JSON 데이터 기반 **의사결정 트리 / 추천 모델** 적용 가능
 
-### 4️⃣ 예시 코드 스니펫
-```python
-from openai import OpenAI
-import json
-
-client = OpenAI(api_key="YOUR_OPENAI_API_KEY")
-
-with open("data/ko_kr.json", "r", encoding="utf-8") as f:
-    data = json.load(f)
-
-question = "요네 나왔는데 무슨 덱 가야 돼?"
-response = client.responses.create(
-    model="gpt-4o-mini",
-    input=f"질문: {question}\n참고 데이터: {data['setData'][:2]}"
-)
-print(response.output_text)
 
