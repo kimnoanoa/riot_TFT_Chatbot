@@ -531,10 +531,10 @@ function calcScore(team, traits) {
     const grade = getSynergyClass(name, count);
 
     let mult = 1.0;
-    if (grade === "prism") mult = 1.20;
-    else if (grade === "gold") mult = 1.10;
-    else if (grade === "silver") mult = 1.05;
-    else if (grade === "bronze") mult = 1.02;
+    if (grade === "prism") mult = 1.40;
+    else if (grade === "gold") mult = 1.30;
+    else if (grade === "silver") mult = 1.20;
+    else if (grade === "bronze") mult = 1.07;
 
     // 특수 5코 시너지 강화 (괴물 트레이너 제외)
     const special = ["태세의 대가", "레슬링 챔피언", "장미 어머니", "해적선장"];
