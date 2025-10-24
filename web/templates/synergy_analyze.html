@@ -236,11 +236,21 @@ function makeHexBoard(board){
   const champ = CHAMPIONS.find(x=>x.id===champId);
   if (champ) {
     const candidates = champ.imgCandidates;
-    slot.innerHTML = `<img src="${candidates[0]}" data-id="${champ.id}" alt="${champ.name}"
-      draggable="true" data-candidates='${JSON.stringify(candidates)}' data-idx="0"
-      ondragstart="event.dataTransfer.setData('text/plain', this.dataset.id);
-                   event.dataTransfer.setData('fromSlot', this.closest('.slot').dataset.slotId);"
-      onerror="tryNextSrc(this)">`;
+    const tooltip = `${champ.name} (${champ.cost}코) ${champ.traitsKo.join(", ")}`;
+
+    slot.innerHTML = `
+      <img src="${candidates[0]}"
+          data-id="${champ.id}"
+          alt="${champ.name}"
+          title="${tooltip}"
+          draggable="true"
+          data-candidates='${JSON.stringify(candidates)}'
+          data-idx="0"
+          ondragstart="event.dataTransfer.setData('text/plain', this.dataset.id);
+                        event.dataTransfer.setData('fromSlot', this.closest('.slot').dataset.slotId);"
+          onerror="tryNextSrc(this)">
+    `;
+
     if (fromSlotId) {
       const origin=document.querySelector('.slot[data-slot-id="'+fromSlotId+'"]');
       if(origin && origin!==slot){ origin.innerHTML=""; }
