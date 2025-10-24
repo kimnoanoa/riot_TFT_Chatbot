@@ -102,7 +102,50 @@ def api_chat():
     user_msg = request.json.get("message", "").lower().strip()
     reply = ""
 
-    # ✅ '#' 포함 시 → 전적검색으로 바로 분기
+    
+    # ✅ 오피덱 / 사기덱 / 메타덱 질문 대응
+    if any(k in user_msg for k in ["오피", "사기덱", "op", "요즘 오피", "메타덱","사기 덱","오피 덱","op덱","op 덱" ,"개사기덱"," 메타 덱"]):
+        op_decks = [
+            {
+                    "name": "수정 갬빗 말자하 덱",
+                    "core": "말자하, 잔나, 신드라, 바이, 자이라, 스웨인 , 크산테",
+                    "synergy": "신동 + 악령 + 수정 갬빗",
+                    "comment": "수정 갬빗 보상을 받으며 말자하로 강력한 플레이가 가능한 덱!"
+            },
+            {
+                    "name": "전쟁기계 리신 덱",
+                    "core": "리신, 트위스티드 페이트, 자이라",
+                    "synergy": "전쟁기계 6시너지 + 트위스티드 페이트, 자이라",
+                    "comment": "강력한 초반 빌드와 후반 캐리력까지 지닌 덱!"
+            },
+            {
+                    "name": "요새 코그모 덱",
+                    "core": "코그모, 자이라",
+                    "synergy": "요새 6시너지 + 코그모, 자이라",
+                    "comment": "탄탄한 앞 라인과 코그모의 안정적인 딜로 전투 지속력을 보장!"
+            },
+            {
+                    "name": "거대 메크 처형자 책략가 덱",
+                    "core": "세나, 자르반, 아칼리, 라이즈",
+                    "synergy": "거대 메크 + 처형자 + 책략가",
+                    "comment": "거대 메크와 처형자, 책략가 특성을 모두 활성화시켜 중후반에 유리한 덱!"
+            }
+        ]
+
+        formatted = "🔥 요즘 메타 최상위 오피 덱 리스트 🔥\n\n"
+        for d in op_decks:
+            formatted += (
+                f"🏆 {d['name']}\n"
+                f"⭐ 핵심 챔피언: {d['core']}\n"
+                f"⚙️ 시너지: {d['synergy']}\n"
+                f"💬 특징: {d['comment']}\n\n"
+            )
+        reply = formatted
+        session["last_intent"] = "meta_hot"
+        session["last_bot_msg"] = reply
+        return jsonify({"reply": reply})
+
+    
     if "#" in user_msg:
         if get_match_summary_by_name is None:
             return jsonify({"reply": "⚠️ 전적검색 모듈이 없습니다."})
