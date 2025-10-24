@@ -374,7 +374,7 @@ def api_chat():
             return jsonify({"reply": "⚠️ 챌린저 순위 정보를 불러오는 중 오류가 발생했습니다."})
 
     # ✅ 초보자 덱 추천
-    if any(k in user_msg for k in ["초보자", "입문자", "쉬운 덱", "시작", "beginner", "쉬운", "좋아?"]):
+    if any(k in user_msg for k in ["초보자", "입문자", "쉬운 덱", "시작", "beginner", "쉬운", "좋아?","초보"]):
         if get_beginner_deck_recommendation is None:
             return jsonify({"reply": "⚠️ beginner_deck_recommender.py 모듈이 없습니다."})
         try:
@@ -403,7 +403,7 @@ def api_chat():
         return jsonify({"reply": result})
 
     # ✅ 긍정 / 부정 응답 추가 (덱 → 아이템 흐름)
-    positive_words = ["응", "ㅇㅇ", "그래", "좋아", "웅", "엉", "ㅇㅋ", "오키", "해줘", "ㅇ", "어", "ㅇㅇㅇ"]
+    positive_words = ["응", "ㅇㅇ", "그래", "좋아", "웅", "엉", "ㅇㅋ", "오키", "해줘", "ㅇ", "어", "ㅇㅇㅇ","추천"]
     negative_words = ["싫어", "아니", "ㄴ", "ㄴㄴ", "ㄴㅇ", "안 해", "안해", "그만", "별로", "아냐", "ㄴㄴㄴ"]
 
     if any(word == user_msg or word in user_msg for word in positive_words):
