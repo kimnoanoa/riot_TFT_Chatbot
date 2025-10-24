@@ -113,12 +113,12 @@ def api_chat():
 
     if any(k in user_msg for k in casual_keywords):
         try:
-            # 💬 OpenAI GPT로 자연스러운 존댓말 일상 대화 생성
-            from openai import OpenAI
-            gpt_client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+            # 💬 OpenAI GPT로 자연스러운 존댓말 일상 대화 생성 (구버전 호환)
+            import openai
+            openai.api_key = os.getenv("OPENAI_API_KEY")
 
-            completion = gpt_client.chat.completions.create(
-                model="gpt-4o-mini",
+            completion = openai.ChatCompletion.create(
+                model="gpt-3.5-turbo",
                 messages=[
                     {
                         "role": "system",
@@ -136,7 +136,7 @@ def api_chat():
                 temperature=0.8,
             )
 
-            reply = completion.choices[0].message.content.strip()
+            reply = completion["choices"][0]["message"]["content"].strip()
             return jsonify({"reply": reply})
 
         except Exception as e:
@@ -149,6 +149,7 @@ def api_chat():
                 "💪 괜찮아요, 지금도 충분히 잘하고 계세요."
             ]
             return jsonify({"reply": random.choice(fallback_replies)})
+
 
     
     # ✅ 오피덱 / 사기덱 / 메타덱 질문 대응
