@@ -118,21 +118,40 @@ enemyBar=document.querySelector(".enemyTeamBar"),
 resultText=document.getElementById("resultText"),
 winnerText=document.getElementById("winnerText");
 
+const HARD_IMAGE_MAP = {
+  "TFT16_Kobuko": "/static/images/image/TFT16_kobukoyuumi.jpg",
+  "TFT16_Yuumi": "/static/images/image/TFT16_kobukoyuumi.jpg",
+  "TFT16_Lucian": "/static/images/image/TFT16_luciansenna.jpg",
+  "TFT16_Senna": "/static/images/image/TFT16_luciansenna.jpg",
+};
+
+
 /* ✅ (추가) 리 신 태세 상태 */
 const leeSinStance = { my: null, enemy: null };
 let pendingStanceTeam = null;
 
 function uniq(arr){return [...new Set(arr)];}
 function buildCandidatesFromApiName(apiName){
-  // tft_ / tftXX_ prefix 제거 → 파일명 후보(대소문자 모두) + 확장자 조합
-  const raw = (apiName||"").toLowerCase().replace(/^tft\d*_/,'').replace(/^tft_/,'');
+  // ✅ 1. 문제 챔피언은 강제 이미지 사용
+  if (HARD_IMAGE_MAP[apiName]) {
+    return [HARD_IMAGE_MAP[apiName]];
+  }
+
+  // ✅ 2. 나머지는 기존 자동 추론 로직
+  const raw = (apiName||"")
+    .toLowerCase()
+    .replace(/^tft\d*_/,'')
+    .replace(/^tft_/,'');
+
   const names = uniq([raw, raw.toLowerCase(), raw.toUpperCase()]);
-  const exts  = ['.jpg','.JPG','.png','.PNG','.jpeg','.JPEG'];
+  const exts  = ['.jpg','.png','.jpeg','.JPG','.PNG','.JPEG'];
   const base  = '/static/images/image/';
   const list=[];
-  names.forEach(n=>exts.forEach(ext=>list.push(base+n+ext)));
+
+  names.forEach(n => exts.forEach(ext => list.push(base + n + ext)));
   return list;
 }
+
 
 function tryNextSrc(img){
   const NO_IMAGE_PATH = "/static/images/image/no_image.jpg";
