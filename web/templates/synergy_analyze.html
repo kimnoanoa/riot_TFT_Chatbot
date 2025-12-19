@@ -542,30 +542,30 @@ function calcScore(team, traits) {
   const totalSynergy = Object.values(traits).reduce((a, b) => a + b, 0);
   const synergyEfficiency = Math.log2(1 + totalSynergy / 4);
 
-  // 3️⃣ 탱커 / 딜러 밸런스 감점 (강화 버전)
-  const TANK_TRAITS = ["요새", "프로레슬러", "악령", "전투사관학교", "헤비급"];
-  const DAMAGE_TRAITS = ["마법사", "저격수", "소울파이터", "처형자", "신동", "책략가", "별수호자"];
+  // // 3️⃣ 탱커 / 딜러 밸런스 감점 (강화 버전)
+  // const TANK_TRAITS = ["요새", "프로레슬러", "악령", "전투사관학교", "헤비급"];
+  // const DAMAGE_TRAITS = ["마법사", "저격수", "소울파이터", "처형자", "신동", "책략가", "별수호자"];
 
-  const tankCount = Object.entries(traits).filter(([n, v]) => TANK_TRAITS.includes(n) && v > 0).length;
-  const dmgCount = Object.entries(traits).filter(([n, v]) => DAMAGE_TRAITS.includes(n) && v > 0).length;
+  // const tankCount = Object.entries(traits).filter(([n, v]) => TANK_TRAITS.includes(n) && v > 0).length;
+  // const dmgCount = Object.entries(traits).filter(([n, v]) => DAMAGE_TRAITS.includes(n) && v > 0).length;
 
-  let balancePenalty = 1.0;
+  // let balancePenalty = 1.0;
 
-  if (tankCount === 0 && dmgCount === 0) {
-    balancePenalty -= 0.3; // 극단적 조합 (탱커X 딜러X)
-  } 
-  else if (tankCount === 0) {
-    balancePenalty -= 0.2; // 탱커 전무
-  } 
-  else if (dmgCount === 0) {
-    balancePenalty -= 0.2; // 딜러 전무
-  } 
-  else if (tankCount <= 1 && dmgCount <= 1) {
-    balancePenalty -= 0.08; // 둘 다 너무 적음
-  } 
-  else if (tankCount <= 1 || dmgCount <= 1) {
-    balancePenalty -= 0.05; // 한쪽만 부족
-  }
+  // if (tankCount === 0 && dmgCount === 0) {
+  //   balancePenalty -= 0.3; // 극단적 조합 (탱커X 딜러X)
+  // } 
+  // else if (tankCount === 0) {
+  //   balancePenalty -= 0.2; // 탱커 전무
+  // } 
+  // else if (dmgCount === 0) {
+  //   balancePenalty -= 0.2; // 딜러 전무
+  // } 
+  // else if (tankCount <= 1 && dmgCount <= 1) {
+  //   balancePenalty -= 0.08; // 둘 다 너무 적음
+  // } 
+  // else if (tankCount <= 1 || dmgCount <= 1) {
+  //   balancePenalty -= 0.05; // 한쪽만 부족
+  // }
 
   // 4️⃣ 활성화된 시너지 개수 기반 가산점
   const activeSynergies = Object.keys(traits).filter(k => traits[k] >= 2).length;
