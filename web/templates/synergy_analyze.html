@@ -328,7 +328,7 @@ function getSynergyClass(name, count) {
     return "normal";
   }
 
-  if (["타곤"].includes(name)) {
+  if (name === "타곤") {
     if (count >= 1) return "gold";
     return "normal";
   }
