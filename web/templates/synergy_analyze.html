@@ -59,7 +59,7 @@
     </aside>
   </div>
 
-  <!-- ✅ 리 신 태세 선택 모달 (추가) -->
+  <!-- ✅ 리 신 태세 선택 모달 (추가)
   <div class="stance-modal-backdrop" id="stanceBackdrop" aria-hidden="true">
     <div class="stance-modal" role="dialog" aria-modal="true" aria-labelledby="stanceTitle">
       <h3 id="stanceTitle">리 신 태세 선택</h3>
@@ -74,7 +74,7 @@
     </div>
   </div>
 </body>
-</html>
+</html> -->
 
 <script>
 let CHAMPIONS=[],TRAIT_NAME_KO={};
@@ -155,7 +155,7 @@ async function loadChampionData(){
   const data=await res.json();
   const latest=data.setData.sort((a,b)=>b.number-a.number)[0];
   (latest.traits||[]).forEach(t=>{if(t.apiName&&t.name)TRAIT_NAME_KO[t.apiName]=t.name;});
-  const EXCLUDED=["휘감는 뿌리","치명적인 가시","테스트 비용","골렘","협곡 바위 게","훈련 봇","어스름늑대","꿀잼 티모","판테온","티모","소라카의 수호자","공허 생물","조이","소라카","장로 드래곤","진리용 야스오"];
+  const EXCLUDED=["필트오버 발명품","휘감는 뿌리","치명적인 가시","테스트 비용","골렘","협곡 바위 게","훈련 봇","어스름늑대","꿀잼 티모","판테온","티모","소라카의 수호자","공허 생물","조이","소라카","장로 드래곤","진리용 야스오"];
   CHAMPIONS=latest.champions.filter(c=>!EXCLUDED.includes(c.name)).map(c=>{
     return{
       id:c.apiName,
@@ -301,10 +301,10 @@ function applyLeeSinStance(traits, teamKey, teamArr){
 }
 
 function getSynergyClass(name, count) {
-  const single = ["레슬링 챔피언", "태세의 대가", "장미 어머니", "해적선장", "괴물 트레이너"];
+  const single = ["흡수자", "용족", "영혼결속자", "영겁", "어둠의 아이","시간의 수호자","수확자","사슬파괴자","마법공학기계","대장장이","관리인"];
   if (single.includes(name)) return count >= 1 ? "bronze" : "normal";
 
-  const common245 = ["저격수", "크루", "책략가", "처형자", "신동"];
+  const common245 = ["그림자 군도", "슈리마"];
   if (common245.includes(name)) {
     if (count >= 5) return "prism";
     if (count >= 4) return "gold";
@@ -313,7 +313,7 @@ function getSynergyClass(name, count) {
     return "normal";
   }
 
-  if (name === "수정 갬빗") {
+  if (["빌지워터", "데마시아","녹서스"].includes(name)) {
     if (count >= 10) return "prism";
     if (count >= 7) return "gold";
     if (count >= 5) return "silver";
@@ -321,21 +321,26 @@ function getSynergyClass(name, count) {
     return "normal";
   }
 
-  if (["전투사관학교", "거대 메크"].includes(name)) {
+  if (["프렐요드","자운","이쉬탈","아이오니아"].includes(name)) {
     if (count >= 7) return "gold";
     if (count >= 5) return "silver";
     if (count >= 3) return "bronze";
     return "normal";
   }
 
-  if (["악령", "헤비급", "요새", "마법사", "프로레슬러"].includes(name)) {
+  if (["타곤"].includes(name)) {
+    if (count >= 1) return "gold";
+    return "normal";
+  }
+
+  if (name === "필트오버") {
     if (count >= 6) return "gold";
     if (count >= 4) return "silver";
     if (count >= 2) return "bronze";
     return "normal";
   }
 
-  if (name === "소울파이터") {
+  if (name === "요들") {
     if (count >= 8) return "prism";
     if (count >= 6) return "gold";
     if (count >= 4) return "silver";
@@ -343,24 +348,17 @@ function getSynergyClass(name, count) {
     return "normal";
   }
 
-  if (name === "별수호자") {
-    if (count >= 8) return "prism";
-    if (count >= 6) return "gold";
-    if (count >= 4) return "silver";
-    if (count >= 2) return "bronze";
-    return "normal";
-  }
-
-  if (name === "멘토") {
+  if (name === "슈리마") {
     if (count === 4) return "gold";
-    if (count === 1) return "bronze";
+    if (count === 3) return "gold";
+    if (count === 2) return "bronze";
     return "normal";
   }
 
-  if (name === "슈프림셀") {
-    if (count >= 4) return "gold";
-    if (count >= 3) return "silver";
-    if (count >= 2) return "bronze";
+  if (name === "다르킨") {
+    if (count >= 3) return "gold";
+    if (count >= 2) return "silver";
+    if (count >= 1) return "bronze";
     return "normal";
   }
 
@@ -382,10 +380,7 @@ function renderSynergy(container, traits) {
   }
 
   const blueOnly = [
-    "레슬링 챔피언",
-    "태세의 대가",
-    "장미 어머니",
-    "해적선장",
+  "흡수자", "용족", "영혼결속자", "영겁", "어둠의 아이","시간의 수호자","수확자","사슬파괴자","마법공학기계","대장장이","관리인"
   ];
 
   // 정렬 순서 정의
@@ -435,34 +430,34 @@ function renderSynergy(container, traits) {
 /* ✅ (추가) 리 신 태세를 반영하도록 updateAllSynergy 보조 */
 // ✅ 1) 거대 메크 로봇 생성 체크 (양쪽 팀 공통)
 // ✅ 거대 메크 / 자이라 특수 유닛 생성 + 비활성화 시 자동 삭제
-function checkSpecialUnits(board, teamArr, traits, teamName) {
-  const existingImgs = [...board.querySelectorAll(".slot img")];
-  const hasRobot = existingImgs.some(img => img.alt === "거대 메크 로봇");
-  const hasRoot  = existingImgs.some(img => img.alt === "휘감는 뿌리");
+// function checkSpecialUnits(board, teamArr, traits, teamName) {
+//   const existingImgs = [...board.querySelectorAll(".slot img")];
+//   const hasRobot = existingImgs.some(img => img.alt === "거대 메크 로봇");
+//   const hasRoot  = existingImgs.some(img => img.alt === "휘감는 뿌리");
 
-  // ----- 거대 메크 -----
-  const mechaCount = traits["거대 메크"] || 0;
-  const mechaGrade = getSynergyClass("거대 메크", mechaCount);
-  const shouldHaveRobot = ["bronze", "silver", "gold", "prism"].includes(mechaGrade);
+//   // ----- 거대 메크 -----
+//   const mechaCount = traits["거대 메크"] || 0;
+//   const mechaGrade = getSynergyClass("거대 메크", mechaCount);
+//   const shouldHaveRobot = ["bronze", "silver", "gold", "prism"].includes(mechaGrade);
 
-  if (shouldHaveRobot && !hasRobot) {
-    console.log(`✅ [${teamName}] 거대 메크 로봇 생성`);
-    addSpecialUnit(board, "거대 메크 로봇", "mecha_robot.jpg");
-  } else if (!shouldHaveRobot && hasRobot) {
-    console.log(`❌ [${teamName}] 거대 메크 시너지 비활성화 → 로봇 제거`);
-    removeSpecialUnit(board, "거대 메크 로봇");
-  }
+//   if (shouldHaveRobot && !hasRobot) {
+//     console.log(`✅ [${teamName}] 거대 메크 로봇 생성`);
+//     addSpecialUnit(board, "거대 메크 로봇", "mecha_robot.jpg");
+//   } else if (!shouldHaveRobot && hasRobot) {
+//     console.log(`❌ [${teamName}] 거대 메크 시너지 비활성화 → 로봇 제거`);
+//     removeSpecialUnit(board, "거대 메크 로봇");
+//   }
 
-  // ----- 자이라 -----
-  const hasZyra = teamArr.some(ch => ch.name.includes("자이라"));
-  if (hasZyra && !hasRoot) {
-    console.log(`🌿 [${teamName}] 자이라 포함 → 휘감는 뿌리 생성`);
-    addSpecialUnit(board, "휘감는 뿌리", "root.jpg");
-  } else if (!hasZyra && hasRoot) {
-    console.log(`🌿 [${teamName}] 자이라 없음 → 휘감는 뿌리 제거`);
-    removeSpecialUnit(board, "휘감는 뿌리");
-  }
-}
+//   // ----- 자이라 -----
+//   const hasZyra = teamArr.some(ch => ch.name.includes("자이라"));
+//   if (hasZyra && !hasRoot) {
+//     console.log(`🌿 [${teamName}] 자이라 포함 → 휘감는 뿌리 생성`);
+//     addSpecialUnit(board, "휘감는 뿌리", "root.jpg");
+//   } else if (!hasZyra && hasRoot) {
+//     console.log(`🌿 [${teamName}] 자이라 없음 → 휘감는 뿌리 제거`);
+//     removeSpecialUnit(board, "휘감는 뿌리");
+//   }
+// }
 
 // ✅ 특수 유닛 제거 함수 추가
 function removeSpecialUnit(board, name) {
@@ -531,13 +526,13 @@ function calcScore(team, traits) {
     const grade = getSynergyClass(name, count);
 
     let mult = 1.0;
-    if (grade === "prism") mult = 1.40;
+    if (grade === "prism") mult = 1.50;
     else if (grade === "gold") mult = 1.30;
-    else if (grade === "silver") mult = 1.20;
+    else if (grade === "silver") mult = 1.15;
     else if (grade === "bronze") mult = 1.07;
 
     // 특수 5코 시너지 강화 (괴물 트레이너 제외)
-    const special = ["태세의 대가", "레슬링 챔피언", "장미 어머니", "해적선장"];
+    const special = ["흡수자", "용족", "영혼결속자", "영겁", "어둠의 아이","시간의 수호자","수확자","사슬파괴자","마법공학기계","대장장이","관리인"];
     if (special.includes(name)) mult *= 1.5;
 
     synergyBonus += Math.pow(count, 0.9) * mult;
