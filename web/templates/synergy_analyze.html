@@ -58,23 +58,16 @@
       <div class="synergy-card"><div id="mySynergy" class="synergy-list"></div></div>
     </aside>
   </div>
-
-  <!-- ✅ 리 신 태세 선택 모달 (추가)
-  <div class="stance-modal-backdrop" id="stanceBackdrop" aria-hidden="true">
-    <div class="stance-modal" role="dialog" aria-modal="true" aria-labelledby="stanceTitle">
-      <h3 id="stanceTitle">리 신 태세 선택</h3>
-      <div id="stanceTeamText" style="font-size:13px; opacity:.9; margin-bottom:6px;"></div>
-      <div class="stance-options">
-        <button class="stance-btn" data-stance="처형자">처형자</button>
-        <button class="stance-btn" data-stance="전쟁기계">전쟁기계</button>
-        <button class="stance-btn" data-stance="결투가">결투가</button>
-      </div>
-      <button class="stance-cancel" id="stanceCancel">닫기</button>
-      <div class="stance-note">※ 태세의 대가는 항상 유지됩니다. 선택한 태세는 리 신이 전장에 있을 때만 추가 시너지로 적용됩니다.</div>
-    </div>
+  <div class="stance-modal-backdrop" id="stanceBackdrop" aria-hidden="true" style="display:none;">
+  <div class="stance-modal">
+    <h3>리 신 태세 선택</h3>
+    <div id="stanceTeamText"></div>
+    <button class="stance-btn" data-stance="처형자">처형자</button>
+    <button class="stance-btn" data-stance="전쟁기계">전쟁기계</button>
+    <button class="stance-btn" data-stance="결투가">결투가</button>
+    <button id="stanceCancel">닫기</button>
   </div>
-</body>
-</html> -->
+</div>
 
 <script>
 let CHAMPIONS=[],TRAIT_NAME_KO={};
@@ -532,6 +525,7 @@ function calcScore(team, traits) {
   if (!team.length) return 0;
 
   // 평균 코스트 계산
+  let balancePenalty = 1.0;
   const avgCost = team.reduce((sum, c) => sum + (c.cost || 0), 0) / team.length;
   let base = team.reduce((sum, c) => sum + (c.cost || 0), 0);
 
@@ -568,7 +562,7 @@ function calcScore(team, traits) {
   // const tankCount = Object.entries(traits).filter(([n, v]) => TANK_TRAITS.includes(n) && v > 0).length;
   // const dmgCount = Object.entries(traits).filter(([n, v]) => DAMAGE_TRAITS.includes(n) && v > 0).length;
 
-  // let balancePenalty = 1.0;
+  
 
   // if (tankCount === 0 && dmgCount === 0) {
   //   balancePenalty -= 0.3; // 극단적 조합 (탱커X 딜러X)
